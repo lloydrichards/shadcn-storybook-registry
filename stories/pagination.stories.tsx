@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Pagination,
@@ -8,7 +8,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/registry/default/ui/pagination"
+} from "@/components/ui/pagination";
 
 /**
  * Pagination with page navigation, next and previous links.
@@ -45,13 +45,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Pagination>
+} satisfies Meta<typeof Pagination>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the pagination.
  */
-export const Default: Story = {}
+export const Default: Story = {};

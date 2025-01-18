@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { useToast } from "@/registry/default/hooks/use-toast"
+import { useToast } from "@/components/hooks/use-toast";
 import {
   Toast,
   ToastAction,
   ToastActionElement,
   ToastProps,
-} from "@/registry/default/ui/toast"
-import { Toaster } from "@/registry/default/ui/toaster"
+} from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster";
 
 /**
  * A succinct message that is displayed temporarily.
@@ -21,34 +21,34 @@ const meta = {
     layout: "centered",
   },
   render: (args) => {
-    const { toast } = useToast()
+    const { toast } = useToast();
     return (
       <div>
         <button
           onClick={() => {
-            toast(args)
+            toast(args);
           }}
         >
           Show Toast
         </button>
         <Toaster />
       </div>
-    )
+    );
   },
-} satisfies Meta<typeof Toast>
+} satisfies Meta<typeof Toast>;
 
-export default meta
+export default meta;
 
 type Story = Omit<StoryObj<typeof meta>, "args"> & {
-  args: Omit<ToasterToast, "id">
-}
+  args: Omit<ToasterToast, "id">;
+};
 
 type ToasterToast = ToastProps & {
-  id: string
-  title?: string
-  description?: string
-  action?: ToastActionElement
-}
+  id: string;
+  title?: string;
+  description?: string;
+  action?: ToastActionElement;
+};
 
 /**
  * The default form of the toast.
@@ -57,7 +57,7 @@ export const Default: Story = {
   args: {
     description: "Your message has been sent.",
   },
-}
+};
 
 /**
  * Use the `title` prop to provide a title for the toast.
@@ -67,7 +67,7 @@ export const WithTitle: Story = {
     title: "Uh oh! Something went wrong.",
     description: "There was a problem with your request.",
   },
-}
+};
 
 /**
  * Use the `action` prop to provide an action for the toast.
@@ -78,7 +78,7 @@ export const WithAction: Story = {
     description: "There was a problem with your request.",
     action: <ToastAction altText="Try again">Try again</ToastAction>,
   },
-}
+};
 
 /**
  * Use the `destructive` variant to indicate a destructive action.
@@ -90,4 +90,4 @@ export const Destructive: Story = {
     description: "There was a problem with your request.",
     action: <ToastAction altText="Try again">Try again</ToastAction>,
   },
-}
+};

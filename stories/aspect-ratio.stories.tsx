@@ -1,7 +1,7 @@
-import Image from "next/image"
-import type { Meta, StoryObj } from "@storybook/react"
+import Image from "next/image";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { AspectRatio } from "@/registry/default/ui/aspect-ratio"
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 /**
  * Displays content within a desired ratio.
@@ -28,11 +28,11 @@ const meta: Meta<typeof AspectRatio> = {
       </div>
     ),
   ],
-} satisfies Meta<typeof AspectRatio>
+} satisfies Meta<typeof AspectRatio>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the aspect ratio.
@@ -41,7 +41,7 @@ export const Default: Story = {
   args: {
     ratio: 16 / 9,
   },
-}
+};
 
 /**
  * Use the `1:1` aspect ratio to display a square image.
@@ -50,7 +50,7 @@ export const Square: Story = {
   args: {
     ratio: 1,
   },
-}
+};
 
 /**
  * Use the `4:3` aspect ratio to display a landscape image.
@@ -59,7 +59,7 @@ export const Landscape: Story = {
   args: {
     ratio: 4 / 3,
   },
-}
+};
 
 /**
  * Use the `2.35:1` aspect ratio to display a cinemascope image.
@@ -68,4 +68,4 @@ export const Cinemascope: Story = {
   args: {
     ratio: 2.35 / 1,
   },
-}
+};

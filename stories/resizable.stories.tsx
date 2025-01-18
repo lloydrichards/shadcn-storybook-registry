@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/registry/default/ui/resizable"
+} from "@/components/ui/resizable";
 
 /**
  * Accessible resizable panel groups and layouts with keyboard support.
@@ -47,13 +47,13 @@ const meta: Meta<typeof ResizablePanelGroup> = {
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
-} satisfies Meta<typeof ResizablePanelGroup>
+} satisfies Meta<typeof ResizablePanelGroup>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the resizable panel group.
  */
-export const Default: Story = {}
+export const Default: Story = {};

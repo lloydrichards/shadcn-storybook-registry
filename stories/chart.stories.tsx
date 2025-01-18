@@ -1,5 +1,5 @@
-import { useMemo } from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import { useMemo } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   Area,
   AreaChart,
@@ -12,14 +12,14 @@ import {
   Pie,
   PieChart,
   XAxis,
-} from "recharts"
+} from "recharts";
 
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/registry/default/ui/chart"
+} from "@/components/ui/chart";
 
 const multiSeriesData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -28,7 +28,7 @@ const multiSeriesData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
-]
+];
 
 const multiSeriesConfig = {
   desktop: {
@@ -39,13 +39,13 @@ const multiSeriesConfig = {
     label: "Mobile",
     color: "hsl(var(--chart-2))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 const singleSeriesData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
   { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
   { browser: "other", visitors: 190, fill: "var(--color-other)" },
-]
+];
 
 const singleSeriesConfig = {
   visitors: {
@@ -63,7 +63,7 @@ const singleSeriesConfig = {
     label: "Other",
     color: "hsl(var(--chart-5))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 /**
  * Beautiful charts. Built using Recharts. Copy and paste into your apps.
@@ -76,11 +76,11 @@ const meta = {
   args: {
     children: <div />,
   },
-} satisfies Meta<typeof ChartContainer>
+} satisfies Meta<typeof ChartContainer>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * Combine multiple Area components to create a stacked area chart.
@@ -130,7 +130,7 @@ export const StackedAreaChart: Story = {
       </AreaChart>
     </ChartContainer>
   ),
-}
+};
 
 /**
  * Combine multiple Bar components to create a stacked bar chart.
@@ -159,7 +159,7 @@ export const StackedBarChart: Story = {
       </BarChart>
     </ChartContainer>
   ),
-}
+};
 
 /**
  * Combine multiple Line components to create a single line chart.
@@ -207,7 +207,7 @@ export const MultiLineChart: Story = {
       </LineChart>
     </ChartContainer>
   ),
-}
+};
 
 /**
  * Combine Pie and Label components to create a doughnut chart.
@@ -218,8 +218,8 @@ export const DoughnutChart: Story = {
   },
   render: (args) => {
     const totalVisitors = useMemo(() => {
-      return singleSeriesData.reduce((acc, curr) => acc + curr.visitors, 0)
-    }, [])
+      return singleSeriesData.reduce((acc, curr) => acc + curr.visitors, 0);
+    }, []);
     return (
       <ChartContainer {...args}>
         <PieChart>
@@ -259,13 +259,13 @@ export const DoughnutChart: Story = {
                         Visitors
                       </tspan>
                     </text>
-                  )
+                  );
                 }
               }}
             />
           </Pie>
         </PieChart>
       </ChartContainer>
-    )
+    );
   },
-}
+};

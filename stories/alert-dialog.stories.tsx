@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   AlertDialog,
@@ -10,7 +10,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/registry/default/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 
 /**
  * A modal dialog that interrupts the user with important content and expects
@@ -42,13 +42,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof AlertDialog>
+} satisfies Meta<typeof AlertDialog>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the alert dialog.
  */
-export const Default: Story = {}
+export const Default: Story = {};

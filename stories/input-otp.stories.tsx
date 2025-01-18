@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
+import type { Meta, StoryObj } from "@storybook/react";
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/registry/default/ui/input-otp"
+} from "@/components/ui/input-otp";
 
 /**
  * Accessible one-time password component with copy paste functionality.
@@ -37,16 +37,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof InputOTP>
+} satisfies Meta<typeof InputOTP>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the InputOTP field.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use multiple groups to separate the input slots.
@@ -67,4 +67,4 @@ export const SeparatedGroup: Story = {
       </InputOTPGroup>
     </InputOTP>
   ),
-}
+};

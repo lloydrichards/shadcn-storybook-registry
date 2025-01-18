@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Textarea } from "@/registry/default/ui/textarea"
+import { Textarea } from "@/components/ui/textarea";
 
 /**
  * Displays a form textarea or a component that looks like a textarea.
@@ -14,16 +14,16 @@ const meta = {
     placeholder: "Type your message here.",
     disabled: false,
   },
-} satisfies Meta<typeof Textarea>
+} satisfies Meta<typeof Textarea>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the textarea.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `disabled` prop to disable the textarea.
@@ -32,7 +32,7 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
-}
+};
 
 /**
  * Use the `Label` component to includes a clear, descriptive label above or
@@ -45,7 +45,7 @@ export const WithLabel: Story = {
       <Textarea {...args} id="message" />
     </div>
   ),
-}
+};
 
 /**
  * Use a text element below the text area to provide additional instructions
@@ -61,7 +61,7 @@ export const WithText: Story = {
       </p>
     </div>
   ),
-}
+};
 
 /**
  * Use the `Button` component to indicate that the text area can be submitted
@@ -79,4 +79,4 @@ export const WithButton: Story = {
       </button>
     </div>
   ),
-}
+};

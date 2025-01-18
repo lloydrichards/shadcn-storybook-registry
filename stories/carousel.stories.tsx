@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Carousel,
@@ -6,7 +6,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/registry/default/ui/carousel"
+} from "@/components/ui/carousel";
 
 /**
  * A carousel with motion and swipe built using Embla.
@@ -37,16 +37,16 @@ const meta: Meta<typeof Carousel> = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Carousel>
+} satisfies Meta<typeof Carousel>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the carousel.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `basis` utility class to change the size of the carousel.
@@ -70,4 +70,4 @@ export const Size: Story = {
   args: {
     className: "mx-12 w-full max-w-xs",
   },
-}
+};

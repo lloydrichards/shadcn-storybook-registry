@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Table,
@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/default/ui/table"
+} from "@/components/ui/table";
 
 const invoices = [
   {
@@ -35,7 +35,7 @@ const invoices = [
     totalAmount: "$450.00",
     paymentMethod: "Credit Card",
   },
-]
+];
 
 /**
  * Powerful table and datagrids built using TanStack Table.
@@ -68,13 +68,13 @@ const meta = {
       </TableBody>
     </Table>
   ),
-} satisfies Meta<typeof Table>
+} satisfies Meta<typeof Table>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the table.
  */
-export const Default: Story = {}
+export const Default: Story = {};

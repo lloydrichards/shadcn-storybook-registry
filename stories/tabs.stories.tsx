@@ -1,11 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/default/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 /**
  * A set of layered sections of content—known as tab panels—that are displayed
@@ -35,13 +30,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Tabs>
+} satisfies Meta<typeof Tabs>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the tabs.
  */
-export const Default: Story = {}
+export const Default: Story = {};

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Label } from "@/registry/default/ui/label"
+import { Label } from "@/components/ui/label";
 
 /**
  * Renders an accessible label associated with controls.
@@ -18,13 +18,13 @@ const meta = {
     children: "Your email address",
     htmlFor: "email",
   },
-} satisfies Meta<typeof Label>
+} satisfies Meta<typeof Label>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Label>
+type Story = StoryObj<typeof Label>;
 
 /**
  * The default form of the label.
  */
-export const Default: Story = {}
+export const Default: Story = {};

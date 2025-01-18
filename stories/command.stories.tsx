@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { CommandSeparator } from "cmdk"
+import type { Meta, StoryObj } from "@storybook/react";
+import { CommandSeparator } from "cmdk";
 
 import {
   Command,
@@ -8,7 +8,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/default/ui/command"
+} from "@/components/ui/command";
 
 /**
  * Fast, composable, unstyled command menu for React.
@@ -43,13 +43,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Command>
+} satisfies Meta<typeof Command>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the command.
  */
-export const Default: Story = {}
+export const Default: Story = {};

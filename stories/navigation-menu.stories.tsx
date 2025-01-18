@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   NavigationMenu,
@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/registry/default/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 /**
  * A collection of links for navigating websites.
@@ -67,13 +67,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof NavigationMenu>
+} satisfies Meta<typeof NavigationMenu>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the navigation menu.
  */
-export const Default: Story = {}
+export const Default: Story = {};

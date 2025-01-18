@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { RadioGroup, RadioGroupItem } from "@/registry/default/ui/radio-group"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 /**
  * A set of checkable buttons—known as radio buttons—where no more than one of
@@ -25,13 +25,13 @@ const meta = {
       <label htmlFor="r3">Compact</label>
     </RadioGroup>
   ),
-} satisfies Meta<typeof RadioGroup>
+} satisfies Meta<typeof RadioGroup>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the radio group.
  */
-export const Default: Story = {}
+export const Default: Story = {};

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { ArrowRightSquare } from "lucide-react"
+import type { Meta, StoryObj } from "@storybook/react";
+import { ArrowRightSquare } from "lucide-react";
 
 import {
   Breadcrumb,
@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/registry/default/ui/breadcrumb"
+} from "@/components/ui/breadcrumb";
 
 /**
  * Displays the path to the current resource using a hierarchy of links.
@@ -39,16 +39,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Breadcrumb>
+} satisfies Meta<typeof Breadcrumb>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * Displays the path of links to the current resource.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Displays the path with a custom icon for the separator.
@@ -75,4 +75,4 @@ export const WithCustomSeparator: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-}
+};

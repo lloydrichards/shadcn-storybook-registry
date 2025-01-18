@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "@/registry/default/ui/input"
+import { Input } from "@/components/ui/input";
 
 /**
  * Displays a form input field or a component that looks like an input field.
@@ -19,16 +19,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof Input>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the input field.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `disabled` prop to make the input non-interactive and appears faded,
@@ -36,7 +36,7 @@ export const Default: Story = {}
  */
 export const Disabled: Story = {
   args: { disabled: true },
-}
+};
 
 /**
  * Use the `Label` component to includes a clear, descriptive label above or
@@ -49,7 +49,7 @@ export const WithLabel: Story = {
       <Input {...args} id="email" />
     </div>
   ),
-}
+};
 
 /**
  * Use a text element below the input field to provide additional instructions
@@ -63,7 +63,7 @@ export const WithHelperText: Story = {
       <p className="text-sm text-foreground/50">Enter your email address.</p>
     </div>
   ),
-}
+};
 
 /**
  * Use the `Button` component to indicate that the input field can be submitted
@@ -81,4 +81,4 @@ export const WithButton: Story = {
       </button>
     </div>
   ),
-}
+};

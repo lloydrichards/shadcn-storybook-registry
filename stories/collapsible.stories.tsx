@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Info } from "lucide-react"
+import type { Meta, StoryObj } from "@storybook/react";
+import { Info } from "lucide-react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/default/ui/collapsible"
+} from "@/components/ui/collapsible";
 
 /**
  * An interactive component which expands/collapses a panel.
@@ -34,16 +34,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Collapsible>
+} satisfies Meta<typeof Collapsible>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the collapsible.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `disabled` prop to disable the interaction.
@@ -52,4 +52,4 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
-}
+};

@@ -1,8 +1,8 @@
-import { action } from "@storybook/addon-actions"
-import type { Meta, StoryObj } from "@storybook/react"
-import { toast } from "sonner"
+import { action } from "@storybook/addon-actions";
+import type { Meta, StoryObj } from "@storybook/react";
+import { toast } from "sonner";
 
-import { Toaster } from "@/registry/default/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 /**
  * An opinionated toast component for React.
@@ -18,11 +18,11 @@ const meta: Meta<typeof Toaster> = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Toaster>
+} satisfies Meta<typeof Toaster>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the toaster.
@@ -46,4 +46,4 @@ export const Default: Story = {
       <Toaster {...args} />
     </div>
   ),
-}
+};

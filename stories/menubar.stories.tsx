@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Menubar,
@@ -16,7 +16,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/registry/default/ui/menubar"
+} from "@/components/ui/menubar";
 
 /**
  * A visually persistent menu common in desktop applications that provides
@@ -48,16 +48,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Menubar>
+} satisfies Meta<typeof Menubar>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the menubar.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * A menubar with a submenu.
@@ -81,7 +81,7 @@ export const WithSubmenu: Story = {
       </MenubarMenu>
     </Menubar>
   ),
-}
+};
 
 /**
  * A menubar with radio items.
@@ -102,7 +102,7 @@ export const WithRadioItems: Story = {
       </MenubarMenu>
     </Menubar>
   ),
-}
+};
 
 /**
  * A menubar with checkbox items.
@@ -123,4 +123,4 @@ export const WithCheckboxItems: Story = {
       </MenubarMenu>
     </Menubar>
   ),
-}
+};

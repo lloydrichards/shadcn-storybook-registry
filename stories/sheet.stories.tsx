@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Sheet,
@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/registry/default/ui/sheet"
+} from "@/components/ui/sheet";
 
 /**
  * Extends the Dialog component to display content that complements the main
@@ -55,13 +55,13 @@ const meta: Meta<typeof SheetContent> = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof SheetContent>
+} satisfies Meta<typeof SheetContent>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the sheet.
  */
-export const Default: Story = {}
+export const Default: Story = {};

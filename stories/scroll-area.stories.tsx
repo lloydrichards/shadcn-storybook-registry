@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { ScrollArea } from "@/registry/default/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 /**
  * Augments native scroll functionality for custom, cross-browser styling.
@@ -23,16 +23,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ScrollArea>
+} satisfies Meta<typeof ScrollArea>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the scroll area.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `type` prop with `always` to always show the scroll area.
@@ -41,7 +41,7 @@ export const Always: Story = {
   args: {
     type: "always",
   },
-}
+};
 
 /**
  * Use the `type` prop with `hover` to show the scroll area on hover.
@@ -50,7 +50,7 @@ export const Hover: Story = {
   args: {
     type: "hover",
   },
-}
+};
 
 /**
  * Use the `type` prop with `scroll` to show the scroll area when scrolling.
@@ -59,4 +59,4 @@ export const Scroll: Story = {
   args: {
     type: "scroll",
   },
-}
+};

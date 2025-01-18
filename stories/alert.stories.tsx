@@ -1,11 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { AlertCircle } from "lucide-react"
+import type { Meta, StoryObj } from "@storybook/react";
+import { AlertCircle } from "lucide-react";
 
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/registry/default/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 /**
  * Displays a callout for user attention.
@@ -31,15 +27,15 @@ const meta = {
       </AlertDescription>
     </Alert>
   ),
-} satisfies Meta<typeof Alert>
+} satisfies Meta<typeof Alert>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 /**
  * The default form of the alert.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * Use the `destructive` alert to indicate a destructive action.
@@ -57,4 +53,4 @@ export const Destructive: Story = {
   args: {
     variant: "destructive",
   },
-}
+};

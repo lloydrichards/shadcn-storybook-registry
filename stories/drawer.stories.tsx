@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Drawer,
@@ -9,7 +9,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/default/ui/drawer"
+} from "@/components/ui/drawer";
 
 /**
  * A drawer component for React.
@@ -41,13 +41,13 @@ const meta: Meta<typeof Drawer> = {
   parameters: {
     layout: "centered",
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the drawer.
  */
-export const Default: Story = {}
+export const Default: Story = {};

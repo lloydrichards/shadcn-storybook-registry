@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   ContextMenu,
@@ -14,7 +14,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/registry/default/ui/context-menu"
+} from "@/components/ui/context-menu";
 
 /**
  * Displays a menu to the user — such as a set of actions or functions —
@@ -42,16 +42,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ContextMenu>
+} satisfies Meta<typeof ContextMenu>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the context menu.
  */
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * A context menu with shortcuts.
@@ -78,7 +78,7 @@ export const WithShortcuts: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
-}
+};
 
 /**
  * A context menu with a submenu.
@@ -110,7 +110,7 @@ export const WithSubmenu: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
-}
+};
 
 /**
  * A context menu with checkboxes.
@@ -130,7 +130,7 @@ export const WithCheckboxes: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
-}
+};
 
 /**
  * A context menu with a radio group.
@@ -150,4 +150,4 @@ export const WithRadioGroup: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
-}
+};

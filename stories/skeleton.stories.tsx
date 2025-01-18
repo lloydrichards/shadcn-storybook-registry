@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Skeleton } from "@/registry/default/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 
 /**
  * Use to show a placeholder while content is loading.
@@ -13,11 +13,11 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Skeleton>
+} satisfies Meta<typeof Skeleton>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Skeleton>
+type Story = StoryObj<typeof Skeleton>;
 
 /**
  * The default form of the skeleton.
@@ -32,4 +32,4 @@ export const Default: Story = {
       </div>
     </div>
   ),
-}
+};

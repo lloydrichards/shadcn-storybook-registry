@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/default/ui/accordion"
+} from "@/components/ui/accordion";
 
 /**
  * A vertically stacked set of interactive headings that each reveal a section
@@ -48,13 +48,13 @@ const meta = {
       </AccordionItem>
     </Accordion>
   ),
-} satisfies Meta<typeof Accordion>
+} satisfies Meta<typeof Accordion>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default behavior of the accordion allows only one item to be open.
  */
-export const Default: Story = {}
+export const Default: Story = {};
