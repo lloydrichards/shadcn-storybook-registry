@@ -7,7 +7,7 @@ import {
   ToastProps,
 } from "@/components/ui/toast";
 import { Toaster } from "@/components/ui/toaster";
-import { useToast } from "@/components/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 /**
  * A succinct message that is displayed temporarily.
