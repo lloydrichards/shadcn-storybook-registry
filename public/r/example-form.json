@@ -4,16 +4,8 @@
   "type": "registry:component",
   "title": "Example Form",
   "description": "A contact form with Zod validation.",
-  "dependencies": [
-    "zod"
-  ],
-  "registryDependencies": [
-    "button",
-    "input",
-    "label",
-    "textarea",
-    "card"
-  ],
+  "dependencies": ["zod"],
+  "registryDependencies": ["button", "input", "label", "textarea", "card"],
   "files": [
     {
       "path": "registry/example-form/example-form.tsx",

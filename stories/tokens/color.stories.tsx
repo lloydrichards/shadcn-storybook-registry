@@ -96,7 +96,7 @@ export const Functional: Story = {
       .sort(
         ([a], [b]) =>
           functionalSwatch.indexOf(a as ColorKey) -
-          functionalSwatch.indexOf(b as ColorKey)
+          functionalSwatch.indexOf(b as ColorKey),
       )
       .map(([name, colors]) => {
         return {
@@ -112,8 +112,8 @@ export const Tailwind: Story = {
       .filter(
         (d) =>
           ![...functionalSwatch, "inherit", "current", "transparent"].includes(
-            d[0] as keyof typeof fullConfig.theme.colors
-          )
+            d[0] as keyof typeof fullConfig.theme.colors,
+          ),
       )
       .map(([name, colors]) => {
         return {
