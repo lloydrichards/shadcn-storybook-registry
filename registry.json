@@ -4,59 +4,562 @@
   "homepage": "https://acme.com",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
+      "name": "accordion-story",
+      "title": "Accordion Story",
+      "type": "registry:ui",
+      "registryDependencies": ["accordion"],
+      "files": [
+        {
+          "path": "stories/accordion.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "alert-story",
+      "title": "Alert Story",
+      "type": "registry:ui",
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "stories/alert.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-story",
+      "title": "Alert Dialog Story",
+      "type": "registry:ui",
+      "registryDependencies": ["alert-dialog"],
+      "files": [
+        {
+          "path": "stories/alert-dialog.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio-story",
+      "title": "Aspect Ratio Story",
+      "type": "registry:ui",
+      "registryDependencies": ["aspect-ratio"],
+      "files": [
+        {
+          "path": "stories/aspect-ratio.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "avatar-story",
+      "title": "Avatar Story",
+      "type": "registry:ui",
+      "registryDependencies": ["avatar"],
+      "files": [
+        {
+          "path": "stories/avatar.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "badge-story",
+      "title": "Badge Story",
+      "type": "registry:ui",
+      "registryDependencies": ["badge"],
+      "files": [
+        {
+          "path": "stories/badge.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb-story",
+      "title": "Breadcrumb Story",
+      "type": "registry:ui",
+      "registryDependencies": ["breadcrumb"],
+      "files": [
+        {
+          "path": "stories/breadcrumb.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button-story",
+      "title": "Button Story",
+      "type": "registry:ui",
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "registry/hello-world/hello-world.tsx",
+          "path": "stories/button.stories.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "example-form",
-      "type": "registry:component",
-      "title": "Example Form",
-      "description": "A contact form with Zod validation.",
-      "dependencies": ["zod"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "name": "calendar-story",
+      "title": "Calendar Story",
+      "type": "registry:ui",
+      "registryDependencies": ["calendar"],
       "files": [
         {
-          "path": "registry/example-form/example-form.tsx",
+          "path": "stories/calendar.stories.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "complex-component",
-      "type": "registry:component",
-      "title": "Complex Component",
-      "description": "A complex component showing hooks, libs and components.",
+      "name": "card-story",
+      "title": "Card Story",
+      "type": "registry:ui",
       "registryDependencies": ["card"],
       "files": [
         {
-          "path": "registry/complex-component/page.tsx",
-          "type": "registry:page",
-          "target": "app/pokemon/page.tsx"
-        },
-        {
-          "path": "registry/complex-component/components/pokemon-card.tsx",
+          "path": "stories/card.stories.tsx",
           "type": "registry:component"
-        },
+        }
+      ]
+    },
+    {
+      "name": "carousel-story",
+      "title": "Carousel Story",
+      "type": "registry:ui",
+      "registryDependencies": ["carousel"],
+      "dependencies": ["embla-carousel-react"],
+      "files": [
         {
-          "path": "registry/complex-component/components/pokemon-image.tsx",
+          "path": "stories/carousel.stories.tsx",
           "type": "registry:component"
-        },
+        }
+      ]
+    },
+    {
+      "name": "chart-story",
+      "title": "Chart Story",
+      "type": "registry:ui",
+      "registryDependencies": ["chart"],
+      "files": [
         {
-          "path": "registry/complex-component/lib/pokemon.ts",
-          "type": "registry:lib"
-        },
+          "path": "stories/chart.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-story",
+      "title": "Checkbox Story",
+      "type": "registry:ui",
+      "registryDependencies": ["checkbox"],
+      "files": [
         {
-          "path": "registry/complex-component/hooks/use-pokemon.ts",
-          "type": "registry:hook"
+          "path": "stories/checkbox.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "collapsible-story",
+      "title": "Collapsible Story",
+      "type": "registry:ui",
+      "registryDependencies": ["collapsible"],
+      "files": [
+        {
+          "path": "stories/collapsible.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "command-story",
+      "title": "Command Story",
+      "type": "registry:ui",
+      "registryDependencies": ["dialog", "command"],
+      "files": [
+        {
+          "path": "stories/command.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "context-menu-story",
+      "title": "Context Menu Story",
+      "type": "registry:ui",
+      "registryDependencies": ["context-menu"],
+      "files": [
+        {
+          "path": "stories/context-menu.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog-story",
+      "title": "Dialog Story",
+      "type": "registry:ui",
+      "registryDependencies": ["dialog"],
+      "files": [
+        {
+          "path": "stories/dialog.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "drawer-story",
+      "title": "Drawer Story",
+      "type": "registry:ui",
+      "registryDependencies": ["drawer"],
+      "files": [
+        {
+          "path": "stories/drawer.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu-story",
+      "title": "Dropdown Menu Story",
+      "type": "registry:ui",
+      "registryDependencies": ["dropdown-menu"],
+      "files": [
+        {
+          "path": "stories/dropdown-menu.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "form-story",
+      "title": "Form Story",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "@hookform/resolvers",
+        "zod",
+        "react-hook-form"
+      ],
+      "registryDependencies": ["button", "label"],
+      "files": [
+        {
+          "path": "stories/form.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hover-card-story",
+      "title": "Hover Card Story",
+      "type": "registry:ui",
+      "registryDependencies": ["hover-card"],
+      "files": [
+        {
+          "path": "stories/hover-card.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input-story",
+      "title": "Input Story",
+      "type": "registry:ui",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "stories/input.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-story",
+      "title": "Input OTP Story",
+      "type": "registry:ui",
+      "registryDependencies": ["input-otp"],
+      "files": [
+        {
+          "path": "stories/input-otp.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "label-story",
+      "title": "Label Story",
+      "type": "registry:ui",
+      "registryDependencies": ["label"],
+      "files": [
+        {
+          "path": "stories/label.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "menubar-story",
+      "title": "Menubar Story",
+      "type": "registry:ui",
+      "registryDependencies": ["menubar"],
+      "files": [
+        {
+          "path": "stories/menubar.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu-story",
+      "title": "Navigation Menu Story",
+      "type": "registry:ui",
+      "registryDependencies": ["navigation-menu"],
+      "files": [
+        {
+          "path": "stories/navigation-menu.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pagination-story",
+      "title": "Pagination Story",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "stories/pagination.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "popover-story",
+      "title": "Popover Story",
+      "type": "registry:ui",
+      "registryDependencies": ["popover"],
+      "files": [
+        {
+          "path": "stories/popover.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "progress-story",
+      "title": "Progress Story",
+      "type": "registry:ui",
+      "registryDependencies": ["progress"],
+      "files": [
+        {
+          "path": "stories/progress.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "radio-group-story",
+      "title": "Radio Group Story",
+      "type": "registry:ui",
+      "registryDependencies": ["radio-group"],
+      "files": [
+        {
+          "path": "stories/radio-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "resizable-story",
+      "title": "Resizable Story",
+      "type": "registry:ui",
+      "registryDependencies": ["resizable"],
+      "files": [
+        {
+          "path": "stories/resizable.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area-story",
+      "title": "Scroll Area Story",
+      "type": "registry:ui",
+      "registryDependencies": ["scroll-area"],
+      "files": [
+        {
+          "path": "stories/scroll-area.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select-story",
+      "title": "Select Story",
+      "type": "registry:ui",
+      "registryDependencies": ["select"],
+      "files": [
+        {
+          "path": "stories/select.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "separator-story",
+      "title": "Separator Story",
+      "type": "registry:ui",
+      "registryDependencies": ["separator"],
+      "files": [
+        {
+          "path": "stories/separator.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sheet-story",
+      "title": "Sheet Story",
+      "type": "registry:ui",
+      "registryDependencies": ["sheet"],
+      "files": [
+        {
+          "path": "stories/sheet.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-story",
+      "title": "Skeleton Story",
+      "type": "registry:ui",
+      "registryDependencies": ["skeleton"],
+      "files": [
+        {
+          "path": "stories/skeleton.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "slider-story",
+      "title": "Slider Story",
+      "type": "registry:ui",
+      "registryDependencies": ["slider"],
+      "files": [
+        {
+          "path": "stories/slider.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sonner-story",
+      "title": "Sonner Story",
+      "type": "registry:ui",
+      "dependencies": ["sonner", "next-themes"],
+      "files": [
+        {
+          "path": "stories/sonner.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "switch-story",
+      "title": "Switch Story",
+      "type": "registry:ui",
+      "registryDependencies": ["switch"],
+      "files": [
+        {
+          "path": "stories/switch.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "table-story",
+      "title": "Table Story",
+      "type": "registry:ui",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "stories/table.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tabs-story",
+      "title": "Tabs Story",
+      "type": "registry:ui",
+      "registryDependencies": ["tabs"],
+      "files": [
+        {
+          "path": "stories/tabs.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "textarea-story",
+      "title": "Textarea Story",
+      "type": "registry:ui",
+      "registryDependencies": ["textarea"],
+      "files": [
+        {
+          "path": "stories/textarea.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toast-story",
+      "title": "Toast Story",
+      "type": "registry:ui",
+      "registryDependencies": ["toast"],
+      "files": [
+        {
+          "path": "stories/toast.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle-story",
+      "title": "Toggle Story",
+      "type": "registry:ui",
+      "registryDependencies": ["toggle"],
+      "files": [
+        {
+          "path": "stories/toggle.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group-story",
+      "title": "Toggle Group Story",
+      "type": "registry:ui",
+      "registryDependencies": ["toggle-group"],
+      "files": [
+        {
+          "path": "stories/toggle-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-story",
+      "title": "Tooltip Story",
+      "type": "registry:ui",
+      "registryDependencies": ["tooltip"],
+      "files": [
+        {
+          "path": "stories/tooltip.stories.tsx",
+          "type": "registry:component"
         }
       ]
     }

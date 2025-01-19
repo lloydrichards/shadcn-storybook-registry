@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp-story",
+  "type": "registry:ui",
+  "title": "Input OTP Story",
+  "registryDependencies": [
+    "input-otp"
+  ],
+  "files": [
+    {
+      "path": "stories/input-otp.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/react\";\nimport { REGEXP_ONLY_DIGITS_AND_CHARS } from \"input-otp\";\n\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\";\n\n/**\n * Accessible one-time password component with copy paste functionality.\n */\nconst meta = {\n  title: \"ui/InputOTP\",\n  component: InputOTP,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    maxLength: 6,\n    pattern: REGEXP_ONLY_DIGITS_AND_CHARS,\n    children: null,\n  },\n\n  render: (args) => (\n    <InputOTP {...args} render={undefined}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof InputOTP>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the InputOTP field.\n */\nexport const Default: Story = {};\n\n/**\n * Use multiple groups to separate the input slots.\n */\nexport const SeparatedGroup: Story = {\n  render: (args) => (\n    <InputOTP {...args} render={undefined}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n      </InputOTPGroup>\n      <InputOTPSeparator />\n      <InputOTPGroup>\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n};\n",
+      "type": "registry:component"
+    }
+  ]
+}

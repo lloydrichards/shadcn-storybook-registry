@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-story",
+  "type": "registry:ui",
+  "title": "Pagination Story",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "stories/pagination.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/react\";\n\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from \"@/components/ui/pagination\";\n\n/**\n * Pagination with page navigation, next and previous links.\n */\nconst meta = {\n  title: \"ui/Pagination\",\n  component: Pagination,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Pagination {...args}>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious href=\"#\" />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">1</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">2</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">3</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationEllipsis />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationNext href=\"#\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Pagination>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the pagination.\n */\nexport const Default: Story = {};\n",
+      "type": "registry:component"
+    }
+  ]
+}

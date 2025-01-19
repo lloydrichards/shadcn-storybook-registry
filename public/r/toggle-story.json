@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-story",
+  "type": "registry:ui",
+  "title": "Toggle Story",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "stories/toggle.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/react\";\nimport { Bold, Italic } from \"lucide-react\";\n\nimport { Toggle } from \"@/components/ui/toggle\";\n\n/**\n * A two-state button that can be either on or off.\n */\nconst meta: Meta<typeof Toggle> = {\n  title: \"ui/Toggle\",\n  component: Toggle,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: { disable: true },\n    },\n  },\n  args: {\n    children: <Bold className=\"h-4 w-4\" />,\n    \"aria-label\": \"Toggle bold\",\n  },\n  parameters: {\n    layout: \"centered\",\n  },\n};\nexport default meta;\n\ntype Story = StoryObj<typeof Toggle>;\n\n/**\n * The default form of the toggle.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `outline` variant for a distinct outline, emphasizing the boundary\n * of the selection circle for clearer visibility\n */\nexport const Outline: Story = {\n  args: {\n    variant: \"outline\",\n    children: <Italic className=\"h-4 w-4\" />,\n    \"aria-label\": \"Toggle italic\",\n  },\n};\n\n/**\n * Use the text element to add a label to the toggle.\n */\nexport const WithText: Story = {\n  render: (args) => (\n    <Toggle {...args}>\n      <Italic className=\"mr-2 h-4 w-4\" />\n      Italic\n    </Toggle>\n  ),\n  args: { ...Outline.args },\n};\n\n/**\n * Use the `sm` size for a smaller toggle, suitable for interfaces needing\n * compact elements without sacrificing usability.\n */\nexport const Small: Story = {\n  args: {\n    size: \"sm\",\n  },\n};\n\n/**\n * Use the `lg` size for a larger toggle, offering better visibility and\n * easier interaction for users.\n */\nexport const Large: Story = {\n  args: {\n    size: \"lg\",\n  },\n};\n\n/**\n * Add the `disabled` prop to prevent interactions with the toggle.\n */\nexport const Disabled: Story = {\n  args: {\n    disabled: true,\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ]
+}

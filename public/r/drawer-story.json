@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer-story",
+  "type": "registry:ui",
+  "title": "Drawer Story",
+  "registryDependencies": [
+    "drawer"
+  ],
+  "files": [
+    {
+      "path": "stories/drawer.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/react\";\n\nimport {\n  Drawer,\n  DrawerClose,\n  DrawerContent,\n  DrawerDescription,\n  DrawerFooter,\n  DrawerHeader,\n  DrawerTitle,\n  DrawerTrigger,\n} from \"@/components/ui/drawer\";\n\n/**\n * A drawer component for React.\n */\nconst meta: Meta<typeof Drawer> = {\n  title: \"ui/Drawer\",\n  component: Drawer,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Drawer {...args}>\n      <DrawerTrigger>Open</DrawerTrigger>\n      <DrawerContent>\n        <DrawerHeader>\n          <DrawerTitle>Are you sure absolutely sure?</DrawerTitle>\n          <DrawerDescription>This action cannot be undone.</DrawerDescription>\n        </DrawerHeader>\n        <DrawerFooter>\n          <button className=\"rounded bg-primary px-4 py-2 text-primary-foreground\">\n            Submit\n          </button>\n          <DrawerClose>\n            <button className=\"hover:underline\">Cancel</button>\n          </DrawerClose>\n        </DrawerFooter>\n      </DrawerContent>\n    </Drawer>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the drawer.\n */\nexport const Default: Story = {};\n",
+      "type": "registry:component"
+    }
+  ]
+}
