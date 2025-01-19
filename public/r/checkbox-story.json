@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "stories/checkbox.stories.tsx",
+      "path": "registry/checkbox.stories.tsx",
       "content": "import type { Meta, StoryObj } from \"@storybook/react\";\n\nimport { Checkbox } from \"@/components/ui/checkbox\";\n\n/**\n * A control that allows the user to toggle between checked and not checked.\n */\nconst meta: Meta<typeof Checkbox> = {\n  title: \"ui/Checkbox\",\n  component: Checkbox,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    id: \"terms\",\n    disabled: false,\n  },\n  render: (args) => (\n    <div className=\"flex space-x-2\">\n      <Checkbox {...args} />\n      <label\n        htmlFor={args.id}\n        className=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50\"\n      >\n        Accept terms and conditions\n      </label>\n    </div>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Checkbox>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the checkbox.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `disabled` prop to disable the checkbox.\n */\nexport const Disabled: Story = {\n  args: {\n    id: \"disabled-terms\",\n    disabled: true,\n  },\n};\n",
       "type": "registry:component"
     }

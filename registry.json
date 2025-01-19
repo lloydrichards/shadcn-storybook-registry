@@ -10,7 +10,7 @@
       "registryDependencies": ["accordion"],
       "files": [
         {
-          "path": "stories/accordion.stories.tsx",
+          "path": "registry/accordion.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -22,7 +22,7 @@
       "registryDependencies": ["alert"],
       "files": [
         {
-          "path": "stories/alert.stories.tsx",
+          "path": "registry/alert.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -34,7 +34,7 @@
       "registryDependencies": ["alert-dialog"],
       "files": [
         {
-          "path": "stories/alert-dialog.stories.tsx",
+          "path": "registry/alert-dialog.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -46,7 +46,7 @@
       "registryDependencies": ["aspect-ratio"],
       "files": [
         {
-          "path": "stories/aspect-ratio.stories.tsx",
+          "path": "registry/aspect-ratio.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -58,7 +58,7 @@
       "registryDependencies": ["avatar"],
       "files": [
         {
-          "path": "stories/avatar.stories.tsx",
+          "path": "registry/avatar.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -70,7 +70,7 @@
       "registryDependencies": ["badge"],
       "files": [
         {
-          "path": "stories/badge.stories.tsx",
+          "path": "registry/badge.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -82,7 +82,7 @@
       "registryDependencies": ["breadcrumb"],
       "files": [
         {
-          "path": "stories/breadcrumb.stories.tsx",
+          "path": "registry/breadcrumb.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -94,7 +94,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "stories/button.stories.tsx",
+          "path": "registry/button.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -106,7 +106,7 @@
       "registryDependencies": ["calendar"],
       "files": [
         {
-          "path": "stories/calendar.stories.tsx",
+          "path": "registry/calendar.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -118,7 +118,7 @@
       "registryDependencies": ["card"],
       "files": [
         {
-          "path": "stories/card.stories.tsx",
+          "path": "registry/card.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -131,7 +131,7 @@
       "dependencies": ["embla-carousel-react"],
       "files": [
         {
-          "path": "stories/carousel.stories.tsx",
+          "path": "registry/carousel.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -143,7 +143,7 @@
       "registryDependencies": ["chart"],
       "files": [
         {
-          "path": "stories/chart.stories.tsx",
+          "path": "registry/chart.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -155,7 +155,7 @@
       "registryDependencies": ["checkbox"],
       "files": [
         {
-          "path": "stories/checkbox.stories.tsx",
+          "path": "registry/checkbox.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -167,7 +167,7 @@
       "registryDependencies": ["collapsible"],
       "files": [
         {
-          "path": "stories/collapsible.stories.tsx",
+          "path": "registry/collapsible.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -179,7 +179,7 @@
       "registryDependencies": ["dialog", "command"],
       "files": [
         {
-          "path": "stories/command.stories.tsx",
+          "path": "registry/command.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -191,7 +191,7 @@
       "registryDependencies": ["context-menu"],
       "files": [
         {
-          "path": "stories/context-menu.stories.tsx",
+          "path": "registry/context-menu.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -203,7 +203,7 @@
       "registryDependencies": ["dialog"],
       "files": [
         {
-          "path": "stories/dialog.stories.tsx",
+          "path": "registry/dialog.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -215,7 +215,7 @@
       "registryDependencies": ["drawer"],
       "files": [
         {
-          "path": "stories/drawer.stories.tsx",
+          "path": "registry/drawer.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -227,7 +227,7 @@
       "registryDependencies": ["dropdown-menu"],
       "files": [
         {
-          "path": "stories/dropdown-menu.stories.tsx",
+          "path": "registry/dropdown-menu.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -246,7 +246,7 @@
       "registryDependencies": ["button", "label"],
       "files": [
         {
-          "path": "stories/form.stories.tsx",
+          "path": "registry/form.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -258,7 +258,7 @@
       "registryDependencies": ["hover-card"],
       "files": [
         {
-          "path": "stories/hover-card.stories.tsx",
+          "path": "registry/hover-card.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -270,7 +270,7 @@
       "registryDependencies": ["input"],
       "files": [
         {
-          "path": "stories/input.stories.tsx",
+          "path": "registry/input.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -282,7 +282,7 @@
       "registryDependencies": ["input-otp"],
       "files": [
         {
-          "path": "stories/input-otp.stories.tsx",
+          "path": "registry/input-otp.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -294,7 +294,7 @@
       "registryDependencies": ["label"],
       "files": [
         {
-          "path": "stories/label.stories.tsx",
+          "path": "registry/label.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -306,7 +306,7 @@
       "registryDependencies": ["menubar"],
       "files": [
         {
-          "path": "stories/menubar.stories.tsx",
+          "path": "registry/menubar.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -318,7 +318,7 @@
       "registryDependencies": ["navigation-menu"],
       "files": [
         {
-          "path": "stories/navigation-menu.stories.tsx",
+          "path": "registry/navigation-menu.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -330,7 +330,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "stories/pagination.stories.tsx",
+          "path": "registry/pagination.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -342,7 +342,7 @@
       "registryDependencies": ["popover"],
       "files": [
         {
-          "path": "stories/popover.stories.tsx",
+          "path": "registry/popover.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -354,7 +354,7 @@
       "registryDependencies": ["progress"],
       "files": [
         {
-          "path": "stories/progress.stories.tsx",
+          "path": "registry/progress.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -366,7 +366,7 @@
       "registryDependencies": ["radio-group"],
       "files": [
         {
-          "path": "stories/radio-group.stories.tsx",
+          "path": "registry/radio-group.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -378,7 +378,7 @@
       "registryDependencies": ["resizable"],
       "files": [
         {
-          "path": "stories/resizable.stories.tsx",
+          "path": "registry/resizable.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -390,7 +390,7 @@
       "registryDependencies": ["scroll-area"],
       "files": [
         {
-          "path": "stories/scroll-area.stories.tsx",
+          "path": "registry/scroll-area.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -402,7 +402,7 @@
       "registryDependencies": ["select"],
       "files": [
         {
-          "path": "stories/select.stories.tsx",
+          "path": "registry/select.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -414,7 +414,7 @@
       "registryDependencies": ["separator"],
       "files": [
         {
-          "path": "stories/separator.stories.tsx",
+          "path": "registry/separator.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -426,7 +426,7 @@
       "registryDependencies": ["sheet"],
       "files": [
         {
-          "path": "stories/sheet.stories.tsx",
+          "path": "registry/sheet.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -438,7 +438,7 @@
       "registryDependencies": ["skeleton"],
       "files": [
         {
-          "path": "stories/skeleton.stories.tsx",
+          "path": "registry/skeleton.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -450,7 +450,7 @@
       "registryDependencies": ["slider"],
       "files": [
         {
-          "path": "stories/slider.stories.tsx",
+          "path": "registry/slider.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -462,7 +462,7 @@
       "dependencies": ["sonner", "next-themes"],
       "files": [
         {
-          "path": "stories/sonner.stories.tsx",
+          "path": "registry/sonner.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -474,7 +474,7 @@
       "registryDependencies": ["switch"],
       "files": [
         {
-          "path": "stories/switch.stories.tsx",
+          "path": "registry/switch.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -486,7 +486,7 @@
       "registryDependencies": ["table"],
       "files": [
         {
-          "path": "stories/table.stories.tsx",
+          "path": "registry/table.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -498,7 +498,7 @@
       "registryDependencies": ["tabs"],
       "files": [
         {
-          "path": "stories/tabs.stories.tsx",
+          "path": "registry/tabs.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -510,7 +510,7 @@
       "registryDependencies": ["textarea"],
       "files": [
         {
-          "path": "stories/textarea.stories.tsx",
+          "path": "registry/textarea.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -522,7 +522,7 @@
       "registryDependencies": ["toast"],
       "files": [
         {
-          "path": "stories/toast.stories.tsx",
+          "path": "registry/toast.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -534,7 +534,7 @@
       "registryDependencies": ["toggle"],
       "files": [
         {
-          "path": "stories/toggle.stories.tsx",
+          "path": "registry/toggle.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -546,7 +546,7 @@
       "registryDependencies": ["toggle-group"],
       "files": [
         {
-          "path": "stories/toggle-group.stories.tsx",
+          "path": "registry/toggle-group.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -558,7 +558,7 @@
       "registryDependencies": ["tooltip"],
       "files": [
         {
-          "path": "stories/tooltip.stories.tsx",
+          "path": "registry/tooltip.stories.tsx",
           "type": "registry:component"
         }
       ]
