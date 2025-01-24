@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Copy } from "lucide-react";
+import { Input } from "./ui/input";
 
 const CommandBlock = ({ command }: { command: string }) => {
   const [copied, setCopied] = useState(false);
@@ -14,16 +15,17 @@ const CommandBlock = ({ command }: { command: string }) => {
   };
 
   return (
-    <div className="item relative my-2.5 flex">
-      <pre
+    <div className="my-2 flex">
+      <Input
         data-checked={copied}
-        className="flex h-12 cursor-pointer items-center overflow-x-auto whitespace-nowrap rounded-l-md border border-gray-300 bg-gray-100 px-2 font-mono data-[checked=true]:bg-green-300"
+        value={command}
+        readOnly
+        aria-label="Copy command"
+        className="flex h-10 cursor-pointer items-center overflow-x-auto whitespace-nowrap rounded-l-md border bg-accent px-2 font-mono data-[checked=true]:bg-card"
         onClick={handleCopy}
-      >
-        {command}
-      </pre>
+      />
       <Button
-        className="h-12 w-14 rounded-none rounded-r-md"
+        className="h-10 w-14 rounded-none rounded-r-md"
         size="icon"
         onClick={handleCopy}
       >
