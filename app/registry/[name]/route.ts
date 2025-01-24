@@ -10,8 +10,6 @@ export async function GET(
 ) {
   try {
     const { name } = await params;
-    console.time(`GET /registry/${name}`);
-    console.info("Processing component request:", name);
     // Cache the registry import
     const registryData = await import("@/registry.json");
     const registry = registryData.default;
@@ -38,19 +36,16 @@ export async function GET(
       );
     }
 
-    console.info(`Component found with ${registryItem.files.length} files`);
     // Read all files in parallel.
     const filesWithContent = await Promise.all(
       registryItem.files.map(async (file) => {
         const filePath = path.join(process.cwd(), file.path);
-        console.info("Reading file:", filePath);
         const content = await fs.readFile(filePath, "utf8");
         return { ...file, content };
       })
     );
 
     // Return the component with the files.
-    console.timeEnd(`GET /registry/${name}`);
     return NextResponse.json({ ...registryItem, files: filesWithContent });
   } catch (error) {
     console.error("Error processing component request:", error);
