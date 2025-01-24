@@ -13,7 +13,7 @@ const eslintConfig = [
   ...compat.extends(
     "next/core-web-vitals",
     "next/typescript",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
   ),
   {
     rules: {

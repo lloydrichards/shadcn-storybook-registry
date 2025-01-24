@@ -15,7 +15,7 @@ const meta: Meta<{
   argTypes: {},
   render: (args) => (
     <table className="w-full table-auto text-left text-sm text-foreground rtl:text-right">
-      <thead className="text-xs bg-muted uppercase">
+      <thead className="bg-muted text-xs uppercase">
         <tr>
           <th scope="col" className="px-6 py-3">
             Name
@@ -50,11 +50,11 @@ const meta: Meta<{
                         style={{ backgroundColor: value }}
                       ></div>
                       <p className="text-center font-semibold">{name}</p>
-                      <p className="text-xs text-center opacity-70">
+                      <p className="text-center text-xs opacity-70">
                         {variable}
                       </p>
-                      <p className="text-xs text-center">{colorHex}</p>
-                      <p className="text-xs text-center">{colorHSL}</p>
+                      <p className="text-center text-xs">{colorHex}</p>
+                      <p className="text-center text-xs">{colorHSL}</p>
                     </div>
                   );
                 })}

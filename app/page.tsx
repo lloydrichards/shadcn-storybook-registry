@@ -15,7 +15,7 @@ const Home = async () => {
   const registryData = await import("@/registry.json");
   const registry = registryData.default;
   return (
-    <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
+    <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
       <header className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold tracking-tight">
           Storybook Registry
@@ -36,7 +36,7 @@ const Home = async () => {
         <TableBody>
           {registry.items.map((item) => (
             <TableRow key={item.name}>
-              <TableCell className="font-medium w-50">{item.title}</TableCell>
+              <TableCell className="w-50 font-medium">{item.title}</TableCell>
               <TableCell>
                 <Button variant="link" asChild>
                   <a
@@ -56,7 +56,7 @@ const Home = async () => {
           ))}
         </TableBody>
       </Table>
-      <main className="flex flex-col flex-1 gap-8"></main>
+      <main className="flex flex-1 flex-col gap-8"></main>
     </div>
   );
 };
