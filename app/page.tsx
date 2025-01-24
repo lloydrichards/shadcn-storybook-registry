@@ -41,7 +41,7 @@ const Home = async () => {
                 <Button variant="link" asChild>
                   <a
                     target="_blank"
-                    href={`https://registry.lloydrichards.dev/r/${item.name}.json`}
+                    href={`https://registry.lloydrichards.dev/registry/${item.name}`}
                   >
                     Link
                   </a>
@@ -49,7 +49,7 @@ const Home = async () => {
               </TableCell>
               <TableCell>
                 <CommandBlock
-                  command={`npx shadcn@latest add https://registry.lloydrichards.dev/r/${item.name}.json`}
+                  command={`npx shadcn@latest add https://registry.lloydrichards.dev/registry/${item.name}`}
                 />
               </TableCell>
             </TableRow>
