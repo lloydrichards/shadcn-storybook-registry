@@ -1,3 +1,16 @@
+## [0.1.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.1.0...v0.1.1) (2025-01-24)
+
+
+### Bug Fixes
+
+* :wheelchair: fix a11y for command block ([591d3bf](https://github.com/lloydrichards/shadcn-storybook-registry/commit/591d3bfe789e5180033caf202f853383033193bc))
+
+
+### Performance Improvements
+
+* :sparkles: use routed version for downloading ([99f0e8a](https://github.com/lloydrichards/shadcn-storybook-registry/commit/99f0e8aff10bd912613864fdcdf8b337340ec44b))
+* :zap: generate static params using registry.json ([b980576](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b980576652caa253852733e49d2af89cdb746ea1))
+
 # [0.1.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.0.0...v0.1.0) (2025-01-24)
 
 
