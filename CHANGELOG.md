@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.3.0...v0.3.1) (2025-01-31)
+
+
+### Bug Fixes
+
+* change resizable story name ([e5a97c1](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e5a97c1832671e53b1f35e860e94ff3eab93954a))
+* remove Link in table ([be7b152](https://github.com/lloydrichards/shadcn-storybook-registry/commit/be7b152c52110d9f30be26ad887af19a1b15d0cb))
+
 # [0.3.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.2.0...v0.3.0) (2025-01-31)
 
 
