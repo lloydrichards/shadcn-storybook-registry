@@ -10,7 +10,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getBaseUrl } from "@/lib/utils";
-import Link from "next/link";
 import * as React from "react";
 
 const Home = async () => {
@@ -53,11 +52,11 @@ const Home = async () => {
                 </TableCell>
                 <TableCell>
                   <Button variant="link" asChild>
-                    <Link
-                      href={`/storybook/?path=/docs/${item.meta.story}--docs`}
+                    <a
+                      href={`${getBaseUrl()}/storybook/?path=/docs/${item.meta.story}--docs`}
                     >
                       Story
-                    </Link>
+                    </a>
                   </Button>
                 </TableCell>
                 <TableCell>
