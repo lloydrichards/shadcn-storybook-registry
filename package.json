@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && bun run storybook:build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
@@ -13,6 +13,7 @@
     "release": "semantic-release",
     "registry:build": "shadcn build",
     "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build -o public/storybook",
     "storybook:test": "test-storybook",
     "build-storybook": "storybook build"
   },
