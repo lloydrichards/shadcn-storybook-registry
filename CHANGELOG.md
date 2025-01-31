@@ -1,3 +1,15 @@
+# [0.3.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.2.0...v0.3.0) (2025-01-31)
+
+
+### Features
+
+* :sparkles: add storybook to deployed site ([e8ed997](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e8ed997846f4e417f598f30b928b969dc0b35d40))
+
+
+### Performance Improvements
+
+* :wheelchair: improve semantic structure ([16f291f](https://github.com/lloydrichards/shadcn-storybook-registry/commit/16f291f6ad1f774fbeb1ac57d677e9963b13f70f))
+
 # [0.2.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.1.1...v0.2.0) (2025-01-31)
 
 
