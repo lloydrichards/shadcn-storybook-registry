@@ -7,6 +7,9 @@
       "name": "accordion-story",
       "title": "Accordion Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-accordion"
+      },
       "registryDependencies": ["accordion"],
       "files": [
         {
@@ -19,6 +22,9 @@
       "name": "alert-story",
       "title": "Alert Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-alert"
+      },
       "registryDependencies": ["alert"],
       "files": [
         {
@@ -31,6 +37,9 @@
       "name": "alert-dialog-story",
       "title": "Alert Dialog Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-alertdialog"
+      },
       "registryDependencies": ["alert-dialog"],
       "files": [
         {
@@ -43,6 +52,9 @@
       "name": "aspect-ratio-story",
       "title": "Aspect Ratio Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-aspectratio"
+      },
       "registryDependencies": ["aspect-ratio"],
       "files": [
         {
@@ -55,6 +67,9 @@
       "name": "avatar-story",
       "title": "Avatar Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-avatar"
+      },
       "registryDependencies": ["avatar"],
       "files": [
         {
@@ -67,6 +82,9 @@
       "name": "badge-story",
       "title": "Badge Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-badge"
+      },
       "registryDependencies": ["badge"],
       "files": [
         {
@@ -79,6 +97,9 @@
       "name": "breadcrumb-story",
       "title": "Breadcrumb Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-breadcrumb"
+      },
       "registryDependencies": ["breadcrumb"],
       "files": [
         {
@@ -91,6 +112,9 @@
       "name": "button-story",
       "title": "Button Story",
       "type": "registry:file",
+      "meta": {
+        "story": "ui-button"
+      },
       "registryDependencies": ["button"],
       "files": [
         {
@@ -103,6 +127,9 @@
       "name": "calendar-story",
       "title": "Calendar Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-calendar"
+      },
       "registryDependencies": ["calendar"],
       "files": [
         {
@@ -115,6 +142,9 @@
       "name": "card-story",
       "title": "Card Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-card"
+      },
       "registryDependencies": ["card"],
       "files": [
         {
@@ -127,6 +157,9 @@
       "name": "carousel-story",
       "title": "Carousel Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-carousel"
+      },
       "registryDependencies": ["carousel"],
       "dependencies": ["embla-carousel-react"],
       "files": [
@@ -140,6 +173,9 @@
       "name": "chart-story",
       "title": "Chart Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-chart"
+      },
       "registryDependencies": ["chart"],
       "files": [
         {
@@ -152,6 +188,9 @@
       "name": "checkbox-story",
       "title": "Checkbox Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-checkbox"
+      },
       "registryDependencies": ["checkbox"],
       "files": [
         {
@@ -164,6 +203,9 @@
       "name": "collapsible-story",
       "title": "Collapsible Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-collapsible"
+      },
       "registryDependencies": ["collapsible"],
       "files": [
         {
@@ -176,6 +218,9 @@
       "name": "command-story",
       "title": "Command Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-command"
+      },
       "registryDependencies": ["dialog", "command"],
       "files": [
         {
@@ -188,6 +233,9 @@
       "name": "context-menu-story",
       "title": "Context Menu Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-contextmenu"
+      },
       "registryDependencies": ["context-menu"],
       "files": [
         {
@@ -200,6 +248,9 @@
       "name": "dialog-story",
       "title": "Dialog Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-dialog"
+      },
       "registryDependencies": ["dialog"],
       "files": [
         {
@@ -212,6 +263,9 @@
       "name": "drawer-story",
       "title": "Drawer Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-drawer"
+      },
       "registryDependencies": ["drawer"],
       "files": [
         {
@@ -224,6 +278,9 @@
       "name": "dropdown-menu-story",
       "title": "Dropdown Menu Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-dropdownmenu"
+      },
       "registryDependencies": ["dropdown-menu"],
       "files": [
         {
@@ -236,6 +293,9 @@
       "name": "form-story",
       "title": "Form Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-form"
+      },
       "dependencies": [
         "@radix-ui/react-label",
         "@radix-ui/react-slot",
@@ -255,6 +315,9 @@
       "name": "hover-card-story",
       "title": "Hover Card Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-hovercard"
+      },
       "registryDependencies": ["hover-card"],
       "files": [
         {
@@ -267,6 +330,9 @@
       "name": "input-story",
       "title": "Input Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-input"
+      },
       "registryDependencies": ["input"],
       "files": [
         {
@@ -279,6 +345,9 @@
       "name": "input-otp-story",
       "title": "Input OTP Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-inputotp"
+      },
       "registryDependencies": ["input-otp"],
       "files": [
         {
@@ -291,6 +360,9 @@
       "name": "label-story",
       "title": "Label Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-label"
+      },
       "registryDependencies": ["label"],
       "files": [
         {
@@ -303,6 +375,9 @@
       "name": "menubar-story",
       "title": "Menubar Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-menubar"
+      },
       "registryDependencies": ["menubar"],
       "files": [
         {
@@ -315,6 +390,9 @@
       "name": "navigation-menu-story",
       "title": "Navigation Menu Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-navigationmenu"
+      },
       "registryDependencies": ["navigation-menu"],
       "files": [
         {
@@ -327,6 +405,9 @@
       "name": "pagination-story",
       "title": "Pagination Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-pagination"
+      },
       "registryDependencies": ["button"],
       "files": [
         {
@@ -339,6 +420,9 @@
       "name": "popover-story",
       "title": "Popover Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-popover"
+      },
       "registryDependencies": ["popover"],
       "files": [
         {
@@ -351,6 +435,9 @@
       "name": "progress-story",
       "title": "Progress Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-progress"
+      },
       "registryDependencies": ["progress"],
       "files": [
         {
@@ -363,6 +450,9 @@
       "name": "radio-group-story",
       "title": "Radio Group Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-radiogroup"
+      },
       "registryDependencies": ["radio-group"],
       "files": [
         {
@@ -375,6 +465,9 @@
       "name": "resizable-story",
       "title": "Resizable Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-resizable"
+      },
       "registryDependencies": ["resizable"],
       "files": [
         {
@@ -387,6 +480,9 @@
       "name": "scroll-area-story",
       "title": "Scroll Area Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-scrollarea"
+      },
       "registryDependencies": ["scroll-area"],
       "files": [
         {
@@ -399,6 +495,9 @@
       "name": "select-story",
       "title": "Select Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-select"
+      },
       "registryDependencies": ["select"],
       "files": [
         {
@@ -411,6 +510,9 @@
       "name": "separator-story",
       "title": "Separator Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-separator"
+      },
       "registryDependencies": ["separator"],
       "files": [
         {
@@ -423,6 +525,9 @@
       "name": "sheet-story",
       "title": "Sheet Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-sheet"
+      },
       "registryDependencies": ["sheet"],
       "files": [
         {
@@ -435,6 +540,9 @@
       "name": "sidebar-story",
       "title": "Sidebar Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-sidebar"
+      },
       "registryDependencies": ["sidebar", "dropdown-menu"],
       "files": [
         {
@@ -447,6 +555,9 @@
       "name": "skeleton-story",
       "title": "Skeleton Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-skeleton"
+      },
       "registryDependencies": ["skeleton"],
       "files": [
         {
@@ -459,6 +570,9 @@
       "name": "slider-story",
       "title": "Slider Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-slider"
+      },
       "registryDependencies": ["slider"],
       "files": [
         {
@@ -471,6 +585,9 @@
       "name": "sonner-story",
       "title": "Sonner Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-sonner"
+      },
       "dependencies": ["sonner", "next-themes"],
       "files": [
         {
@@ -483,6 +600,9 @@
       "name": "switch-story",
       "title": "Switch Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-switch"
+      },
       "registryDependencies": ["switch"],
       "files": [
         {
@@ -495,6 +615,9 @@
       "name": "table-story",
       "title": "Table Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-table"
+      },
       "registryDependencies": ["table"],
       "files": [
         {
@@ -507,6 +630,9 @@
       "name": "tabs-story",
       "title": "Tabs Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-tabs"
+      },
       "registryDependencies": ["tabs"],
       "files": [
         {
@@ -519,6 +645,9 @@
       "name": "textarea-story",
       "title": "Textarea Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-textarea"
+      },
       "registryDependencies": ["textarea"],
       "files": [
         {
@@ -531,6 +660,9 @@
       "name": "toast-story",
       "title": "Toast Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-toast"
+      },
       "registryDependencies": ["toast"],
       "files": [
         {
@@ -543,6 +675,9 @@
       "name": "toggle-story",
       "title": "Toggle Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-toggle"
+      },
       "registryDependencies": ["toggle"],
       "files": [
         {
@@ -555,6 +690,9 @@
       "name": "toggle-group-story",
       "title": "Toggle Group Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-togglegroup"
+      },
       "registryDependencies": ["toggle-group"],
       "files": [
         {
@@ -567,6 +705,9 @@
       "name": "tooltip-story",
       "title": "Tooltip Story",
       "type": "registry:ui",
+      "meta": {
+        "story": "ui-tooltip"
+      },
       "registryDependencies": ["tooltip"],
       "files": [
         {

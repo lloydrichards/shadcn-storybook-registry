@@ -9,7 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Code2 } from "lucide-react";
+import { getBaseUrl } from "@/lib/utils";
+import Link from "next/link";
 import * as React from "react";
 
 const Home = async () => {
@@ -31,8 +32,9 @@ const Home = async () => {
           <TableHeader>
             <TableRow>
               <TableHead className="w-40">Name</TableHead>
-              <TableHead className="w-20">link</TableHead>
-              <TableHead>cmd</TableHead>
+              <TableHead className="w-20 text-center">JSON</TableHead>
+              <TableHead className="w-20 text-center">Storybook</TableHead>
+              <TableHead className="text-center">cmd</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -43,15 +45,24 @@ const Home = async () => {
                   <Button variant="link" asChild>
                     <a
                       target="_blank"
-                      href={`https://registry.lloydrichards.dev/registry/${item.name}`}
+                      href={`${getBaseUrl()}/registry/${item.name}`}
                     >
                       Link
                     </a>
                   </Button>
                 </TableCell>
                 <TableCell>
+                  <Button variant="link" asChild>
+                    <Link
+                      href={`/storybook/?path=/docs/${item.meta.story}--docs`}
+                    >
+                      Story
+                    </Link>
+                  </Button>
+                </TableCell>
+                <TableCell>
                   <CommandBlock
-                    command={`npx shadcn@latest add https://registry.lloydrichards.dev/registry/${item.name}`}
+                    command={`npx shadcn@latest add ${getBaseUrl()}/registry/${item.name}`}
                   />
                 </TableCell>
               </TableRow>
@@ -59,21 +70,6 @@ const Home = async () => {
           </TableBody>
         </Table>
       </main>
-      <footer className="flex flex-row items-center justify-between">
-        <Button variant="link" asChild>
-          <a href="https://www.lloydrichards.dev" target="_blank">
-            lloydrichards.dev
-          </a>
-        </Button>
-        <Button variant="link" asChild>
-          <a
-            href="https://github.com/lloydrichards/shadcn-storybook-registry"
-            target="_blank"
-          >
-            <Code2 size={24} /> Repo
-          </a>
-        </Button>
-      </footer>
     </div>
   );
 };
