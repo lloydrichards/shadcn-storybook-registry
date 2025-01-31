@@ -12,5 +12,8 @@
       "content": "import type { Meta, StoryObj } from \"@storybook/react\";\n\nimport { ScrollArea } from \"@/components/ui/scroll-area\";\n\n/**\n * Augments native scroll functionality for custom, cross-browser styling.\n */\nconst meta = {\n  title: \"ui/ScrollArea\",\n  component: ScrollArea,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: \"text\",\n    },\n  },\n  args: {\n    className: \"h-32 w-80 rounded-md border p-4\",\n    type: \"auto\",\n    children:\n      \"Jokester began sneaking into the castle in the middle of the night and leaving jokes all over the place: under the king's pillow, in his soup, even in the royal toilet. The king was furious, but he couldn't seem to stop Jokester. And then, one day, the people of the kingdom discovered that the jokes left by Jokester were so funny that they couldn't help but laugh. And once they started laughing, they couldn't stop. The king was so angry that he banished Jokester from the kingdom, but the people still laughed, and they laughed, and they laughed. And they all lived happily ever after.\",\n  },\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof ScrollArea>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the scroll area.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `type` prop with `always` to always show the scroll area.\n */\nexport const Always: Story = {\n  args: {\n    type: \"always\",\n  },\n};\n\n/**\n * Use the `type` prop with `hover` to show the scroll area on hover.\n */\nexport const Hover: Story = {\n  args: {\n    type: \"hover\",\n  },\n};\n\n/**\n * Use the `type` prop with `scroll` to show the scroll area when scrolling.\n */\nexport const Scroll: Story = {\n  args: {\n    type: \"scroll\",\n  },\n};\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "story": "ui-scrollarea"
+  }
 }

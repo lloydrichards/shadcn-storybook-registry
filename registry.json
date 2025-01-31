@@ -466,7 +466,7 @@
       "title": "Resizable Story",
       "type": "registry:ui",
       "meta": {
-        "story": "ui-resizable"
+        "story": "ui-resizablepanelgroup"
       },
       "registryDependencies": ["resizable"],
       "files": [

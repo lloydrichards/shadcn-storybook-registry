@@ -13,5 +13,8 @@
       "content": "import type { Meta, StoryObj } from \"@storybook/react\";\nimport { CommandSeparator } from \"cmdk\";\n\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from \"@/components/ui/command\";\n\n/**\n * Fast, composable, unstyled command menu for React.\n */\nconst meta = {\n  title: \"ui/Command\",\n  component: Command,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    className: \"rounded-lg w-96 border shadow-md\",\n  },\n  render: (args) => (\n    <Command {...args}>\n      <CommandInput placeholder=\"Type a command or search...\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem>Calendar</CommandItem>\n          <CommandItem>Search Emoji</CommandItem>\n          <CommandItem>Calculator</CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Settings\">\n          <CommandItem>Profile</CommandItem>\n          <CommandItem>Billing</CommandItem>\n          <CommandItem>Settings</CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </Command>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Command>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the command.\n */\nexport const Default: Story = {};\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "story": "ui-command"
+  }
 }
