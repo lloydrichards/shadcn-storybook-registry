@@ -18,15 +18,15 @@ const Home = async () => {
   const registry = registryData.default;
   return (
     <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
-      <header className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Storybook Registry
-        </h1>
-        <p className="text-muted-foreground">
-          A collection of stories for the components of Shadcn/ui
-        </p>
-      </header>
       <main className="flex flex-1 flex-col gap-8">
+        <section className="flex flex-col gap-1">
+          <h1 className="text-3xl font-bold tracking-tight">
+            Storybook Registry
+          </h1>
+          <p className="text-muted-foreground">
+            A collection of stories for the components of Shadcn/ui
+          </p>
+        </section>
         <Table className="table-fixed">
           <TableCaption>A list of all registry items</TableCaption>
           <TableHeader>
