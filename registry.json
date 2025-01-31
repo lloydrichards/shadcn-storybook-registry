@@ -432,6 +432,18 @@
       ]
     },
     {
+      "name": "sidebar-story",
+      "title": "Sidebar Story",
+      "type": "registry:ui",
+      "registryDependencies": ["sidebar", "dropdown-menu"],
+      "files": [
+        {
+          "path": "registry/sidebar.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "skeleton-story",
       "title": "Skeleton Story",
       "type": "registry:ui",
