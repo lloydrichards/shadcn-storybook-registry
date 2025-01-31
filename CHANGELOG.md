@@ -1,3 +1,15 @@
+# [0.2.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.1.1...v0.2.0) (2025-01-31)
+
+
+### Bug Fixes
+
+* :truck: add stories to same dir as ui component ([6e1f96b](https://github.com/lloydrichards/shadcn-storybook-registry/commit/6e1f96b466a68d15cf50a06cd62d2c48f7aeb082))
+
+
+### Features
+
+* **sidebar:** :sparkles: add sidebar story ([5edb1c7](https://github.com/lloydrichards/shadcn-storybook-registry/commit/5edb1c711e14f46982c515db6a4275d0acba2f39))
+
 ## [0.1.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.1.0...v0.1.1) (2025-01-24)
 
 
