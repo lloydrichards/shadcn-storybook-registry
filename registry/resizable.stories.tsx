@@ -5,7 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-
+import { fn } from "storybook/test";
 /**
  * Accessible resizable panel groups and layouts with keyboard support.
  */
@@ -19,6 +19,7 @@ const meta: Meta<typeof ResizablePanelGroup> = {
     },
   },
   args: {
+    onLayout: fn(),
     className: "max-w-96 rounded-lg border",
     direction: "horizontal",
   },
