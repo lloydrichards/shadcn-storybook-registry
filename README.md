@@ -54,7 +54,7 @@ copy the URL to the registry JSON file or copy the command directly.
 2. test the registry by running the shadcn CLI
 
    ```bash
-   npx shadcn@latest add http://localhost:3000/r/your-component.json
+   npx shadcn@latest add http://localhost:3000/v2/r/your-component.json
    ```
 
 ## Documentation

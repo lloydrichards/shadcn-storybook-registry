@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-story",
+  "type": "registry:ui",
+  "title": "Tabs Story",
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/tabs.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/tabs\";\n\n/**\n * A set of layered sections of content—known as tab panels—that are displayed\n * one at a time.\n */\nconst meta = {\n  title: \"ui/Tabs\",\n  component: Tabs,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    defaultValue: \"account\",\n    className: \"w-96\",\n  },\n  render: (args) => (\n    <Tabs {...args}>\n      <TabsList className=\"grid grid-cols-2\">\n        <TabsTrigger value=\"account\">Account</TabsTrigger>\n        <TabsTrigger value=\"password\">Password</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"account\">\n        Make changes to your account here.\n      </TabsContent>\n      <TabsContent value=\"password\">Change your password here.</TabsContent>\n    </Tabs>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Tabs>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the tabs.\n */\nexport const Default: Story = {};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "story": "ui-tabs"
+  }
+}

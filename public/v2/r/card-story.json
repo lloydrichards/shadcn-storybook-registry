@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-story",
+  "type": "registry:ui",
+  "title": "Card Story",
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/card.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { BellRing } from \"lucide-react\";\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\n\nconst notifications = [\n  {\n    title: \"Your call has been confirmed.\",\n    description: \"1 hour ago\",\n  },\n  {\n    title: \"You have a new message!\",\n    description: \"1 hour ago\",\n  },\n  {\n    title: \"Your subscription is expiring soon!\",\n    description: \"2 hours ago\",\n  },\n];\n\n/**\n * Displays a card with header, content, and footer.\n */\nconst meta = {\n  title: \"ui/Card\",\n  component: Card,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    className: \"w-96\",\n  },\n  render: (args) => (\n    <Card {...args}>\n      <CardHeader>\n        <CardTitle>Notifications</CardTitle>\n        <CardDescription>You have 3 unread messages.</CardDescription>\n      </CardHeader>\n      <CardContent className=\"grid gap-4\">\n        {notifications.map((notification, index) => (\n          <div key={index} className=\"flex items-center gap-4\">\n            <BellRing className=\"size-6\" />\n            <div>\n              <p>{notification.title}</p>\n              <p className=\"text-foreground/60\">{notification.description}</p>\n            </div>\n          </div>\n        ))}\n      </CardContent>\n      <CardFooter>\n        <button className=\"hover:underline\">Close</button>\n      </CardFooter>\n    </Card>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Card>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the card.\n */\nexport const Default: Story = {};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "story": "ui-card"
+  }
+}

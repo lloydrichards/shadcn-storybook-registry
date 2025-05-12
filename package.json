@@ -11,7 +11,7 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "release": "semantic-release",
-    "registry:build": "shadcn build",
+    "registry:build": "shadcn build -o ./public/v2/r",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o public/storybook",
     "storybook:test": "test-storybook",
