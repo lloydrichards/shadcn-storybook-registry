@@ -30,7 +30,7 @@ const meta: Meta<{
           <tr key={name} className="border-b bg-card">
             <td className="px-6 py-4">{name}</td>
             <td className="px-6 py-4">
-              <div className="flex overflow-x-clip rounded-md border shadow">
+              <div className="flex overflow-x-clip rounded-md border shadow-sm">
                 {Object.entries(colors).map(([name, value], idx) => {
                   const isHex = value.startsWith("#");
                   const style = window.getComputedStyle(document.body);
@@ -86,7 +86,7 @@ const functionalSwatch = [
   "destructive",
   "input",
   "border",
-  "ring",
+  "ring-3",
 ] as unknown as Array<ColorKey>;
 
 export const Functional: Story = {
