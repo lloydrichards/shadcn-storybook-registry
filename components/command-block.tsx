@@ -21,7 +21,7 @@ const CommandBlock = ({ command }: { command: string }) => {
         value={command}
         readOnly
         aria-label="Copy command"
-        className="flex h-10 cursor-pointer items-center overflow-x-auto whitespace-nowrap rounded-l-md border bg-accent px-2 font-mono data-[checked=true]:bg-card"
+        className="bg-accent data-[checked=true]:bg-card flex h-10 cursor-pointer items-center overflow-x-auto rounded-l-md border px-2 font-mono whitespace-nowrap"
         onClick={handleCopy}
       />
       <Button
