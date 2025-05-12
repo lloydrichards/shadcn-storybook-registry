@@ -1,3 +1,16 @@
+# [0.4.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.3.1...v0.4.0) (2025-05-12)
+
+
+### Bug Fixes
+
+* a11y labels ([cf9f7a3](https://github.com/lloydrichards/shadcn-storybook-registry/commit/cf9f7a305ead41b196353e1b6cbf837e3a695805))
+* explicit action ([bc3a122](https://github.com/lloydrichards/shadcn-storybook-registry/commit/bc3a122f0fc79da9d846910e334374307558a4e4))
+
+
+### Features
+
+* version control the registry ([5d348d9](https://github.com/lloydrichards/shadcn-storybook-registry/commit/5d348d90fd2736d5b0b4f509c680f04cf4624df8))
+
 ## [0.3.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.3.0...v0.3.1) (2025-01-31)
 
 
