@@ -1,3 +1,4 @@
+// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 

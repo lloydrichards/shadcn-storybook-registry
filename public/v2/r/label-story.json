@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/label.stories.tsx",
-      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Label } from \"@/components/ui/label\";\n\n/**\n * Renders an accessible label associated with controls.\n */\nconst meta = {\n  title: \"ui/Label\",\n  component: Label,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    children: \"Your email address\",\n    htmlFor: \"email\",\n  },\n} satisfies Meta<typeof Label>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof Label>;\n\n/**\n * The default form of the label.\n */\nexport const Default: Story = {};\n",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Label } from \"@/components/ui/label\";\n\n/**\n * Renders an accessible label associated with controls.\n */\nconst meta = {\n  title: \"ui/Label\",\n  component: Label,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    children: \"Your email address\",\n    htmlFor: \"email\",\n  },\n} satisfies Meta<typeof Label>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof Label>;\n\n/**\n * The default form of the label.\n */\nexport const Default: Story = {};\n",
       "type": "registry:ui"
     }
   ],

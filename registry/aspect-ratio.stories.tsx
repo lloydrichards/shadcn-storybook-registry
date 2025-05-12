@@ -1,4 +1,5 @@
 import Image from "next/image";
+// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";

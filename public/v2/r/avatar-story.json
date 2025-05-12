@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/avatar.stories.tsx",
-      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\n/**\n * An image element with a fallback for representing the user.\n */\nconst meta = {\n  title: \"ui/Avatar\",\n  component: Avatar,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Avatar {...args}>\n      <AvatarImage src=\"https://github.com/shadcn.png\" />\n      <AvatarFallback>CN</AvatarFallback>\n    </Avatar>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Avatar>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the avatar.\n */\nexport const Default: Story = {};\n",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\n/**\n * An image element with a fallback for representing the user.\n */\nconst meta = {\n  title: \"ui/Avatar\",\n  component: Avatar,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Avatar {...args}>\n      <AvatarImage src=\"https://github.com/shadcn.png\" />\n      <AvatarFallback>CN</AvatarFallback>\n    </Avatar>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Avatar>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the avatar.\n */\nexport const Default: Story = {};\n",
       "type": "registry:ui"
     }
   ],
