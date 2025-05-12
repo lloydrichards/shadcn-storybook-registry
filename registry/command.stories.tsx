@@ -29,7 +29,7 @@ const meta = {
         <CommandGroup heading="Suggestions">
           <CommandItem>Calendar</CommandItem>
           <CommandItem>Search Emoji</CommandItem>
-          <CommandItem>Calculator</CommandItem>
+          <CommandItem disabled>Calculator</CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">

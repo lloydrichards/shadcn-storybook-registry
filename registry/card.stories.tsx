@@ -48,7 +48,7 @@ const meta = {
             <BellRing className="size-6" />
             <div>
               <p>{notification.title}</p>
-              <p className="text-foreground/50">{notification.description}</p>
+              <p className="text-foreground/60">{notification.description}</p>
             </div>
           </div>
         ))}

@@ -143,6 +143,7 @@ export const Icon: Story = {
   args: {
     ...Secondary.args,
     size: "icon",
+    title: "Mail",
     children: <Mail />,
   },
 };

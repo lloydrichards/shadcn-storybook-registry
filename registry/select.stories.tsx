@@ -21,7 +21,7 @@ const meta: Meta<typeof Select> = {
   argTypes: {},
   render: (args) => (
     <Select {...args}>
-      <SelectTrigger className="w-96">
+      <SelectTrigger title="Select" className="w-96">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>

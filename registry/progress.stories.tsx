@@ -12,6 +12,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {},
   args: {
+    "aria-label": "Progress",
     value: 30,
     max: 100,
   },

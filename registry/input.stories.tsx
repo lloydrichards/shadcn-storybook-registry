@@ -60,7 +60,7 @@ export const WithHelperText: Story = {
     <div className="grid items-center gap-1.5">
       <label htmlFor="email-2">{args.placeholder}</label>
       <Input {...args} id="email-2" />
-      <p className="text-sm text-foreground/50">Enter your email address.</p>
+      <p className="text-foreground/60 text-sm">Enter your email address.</p>
     </div>
   ),
 };
@@ -74,7 +74,7 @@ export const WithButton: Story = {
     <div className="flex items-center space-x-2">
       <Input {...args} />
       <button
-        className="rounded bg-primary px-4 py-2 text-primary-foreground"
+        className="bg-primary text-primary-foreground rounded px-4 py-2"
         type="submit"
       >
         Subscribe

@@ -20,6 +20,7 @@ const meta = {
     maxLength: 6,
     pattern: REGEXP_ONLY_DIGITS_AND_CHARS,
     children: null,
+    "aria-label": "One-time password",
   },
 
   render: (args) => (
