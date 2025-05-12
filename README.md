@@ -5,6 +5,18 @@ This is a registry of [storybook](https://storybook.js.org/) stories for all the
 [shadcn-registry-template](https://github.com/shadcn-ui/registry-template) and
 using the shadcn CLI to build the registry.
 
+> **Migrating to Storybook v9**
+>
+> The registry is now using Storybook v9. This means that the components are now
+> using the latest `storybook/\*` packages. Depending on the framework you are
+> using, you may need to update the stories once imported.
+>
+> If you have not migrated to Storybook v9 yet, you can still use the previous
+> registry by replacing the `**/registry/**` path with `**/v1/r/**`. These
+> versions will be kept as an archive and never updated.
+>
+> If you have any questions, please open an issue.
+
 ## How to Use
 
 The shadcn CLI allows you to import any component or file as long as you point
