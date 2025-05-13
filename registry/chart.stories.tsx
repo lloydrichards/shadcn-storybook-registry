@@ -34,11 +34,11 @@ const multiSeriesData = [
 const multiSeriesConfig = {
   desktop: {
     label: "Desktop",
-    color: "hsl(var(--chart-1))",
+    color: "var(--chart-1)",
   },
   mobile: {
     label: "Mobile",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig;
 
@@ -54,15 +54,15 @@ const singleSeriesConfig = {
   },
   chrome: {
     label: "Chrome",
-    color: "hsl(var(--chart-1))",
+    color: "var(--chart-1)",
   },
   safari: {
     label: "Safari",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-2)",
   },
   other: {
     label: "Other",
-    color: "hsl(var(--chart-5))",
+    color: "var(--chart-5)",
   },
 } satisfies ChartConfig;
 
