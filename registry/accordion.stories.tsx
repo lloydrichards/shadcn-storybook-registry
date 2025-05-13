@@ -90,7 +90,7 @@ export const TestOneTab: Story = {
 };
 
 export const TestAllTabs: Story = {
-  name: "When accordions are clicked, should open all items one at a time",
+  name: "when accordions are clicked, should open all items one at a time",
   args: {
     type: "multiple",
   },
