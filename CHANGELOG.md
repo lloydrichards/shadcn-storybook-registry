@@ -1,3 +1,11 @@
+## [0.4.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.4.0...v0.4.1) (2025-05-13)
+
+
+### Bug Fixes
+
+* chart colors without hsl ([5989f3d](https://github.com/lloydrichards/shadcn-storybook-registry/commit/5989f3dc8fca93b4348d041eeb92a3f4844613c9))
+* visible vertical separator ([f1ea9c1](https://github.com/lloydrichards/shadcn-storybook-registry/commit/f1ea9c1dcb8d4007b38b2a1296977f0a941c1b6f))
+
 # [0.4.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.3.1...v0.4.0) (2025-05-12)
 
 
