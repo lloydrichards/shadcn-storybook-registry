@@ -65,35 +65,61 @@ const Home = async () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {registry.items.map((item) => (
-              <TableRow key={item.name}>
-                <TableCell className="w-50 font-medium">{item.title}</TableCell>
-                <TableCell>
-                  <Button variant="link" asChild>
-                    <a
-                      target="_blank"
-                      href={`${getBaseUrl()}/registry/${item.name}`}
-                    >
-                      Link
-                    </a>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button variant="link" asChild>
-                    <a
-                      href={`${getBaseUrl()}/storybook/?path=/docs/${item.meta.story}--docs`}
-                    >
-                      Story
-                    </a>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <CommandBlock
-                    command={`npx shadcn@latest add ${getBaseUrl()}/registry/${item.name}`}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+            {registry.items
+              .filter((item) => !!item.meta)
+              .map((item) => (
+                <TableRow key={item.name}>
+                  <TableCell className="w-50 font-medium">
+                    {item.title}
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="link" asChild>
+                      <a
+                        target="_blank"
+                        href={`${getBaseUrl()}/registry/${item.name}`}
+                      >
+                        Link
+                      </a>
+                    </Button>
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="link" asChild>
+                      <a
+                        href={`${getBaseUrl()}/storybook/?path=/docs/${item.meta.story}--docs`}
+                      >
+                        Story
+                      </a>
+                    </Button>
+                  </TableCell>
+                  <TableCell>
+                    <CommandBlock
+                      command={`npx shadcn@latest add ${getBaseUrl()}/registry/${item.name}`}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            <TableRow className="hover:bg-background">
+              <TableCell className="text-xl font-bold">Misc.</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="w-50 font-medium">All Stories</TableCell>
+              <TableCell>
+                <Button variant="link" asChild>
+                  <a
+                    target="_blank"
+                    href={`${getBaseUrl()}/registry/all-stories`}
+                  >
+                    Link
+                  </a>
+                </Button>
+              </TableCell>
+              <TableCell />
+              <TableCell>
+                <CommandBlock
+                  command={`npx shadcn@latest add ${getBaseUrl()}/registry/all-stories`}
+                />
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </main>
