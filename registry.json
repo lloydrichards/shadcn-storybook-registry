@@ -657,21 +657,6 @@
       ]
     },
     {
-      "name": "toast-story",
-      "title": "Toast Story",
-      "type": "registry:ui",
-      "meta": {
-        "story": "ui-toast"
-      },
-      "registryDependencies": ["toast"],
-      "files": [
-        {
-          "path": "registry/toast.stories.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "toggle-story",
       "title": "Toggle Story",
       "type": "registry:ui",
