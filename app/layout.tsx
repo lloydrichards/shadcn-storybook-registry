@@ -1,19 +1,18 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 
-import "./globals.css";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Code2 } from "lucide-react";
+import Link from "next/link";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,12 +48,8 @@ export default function RootLayout({
         <header className="bg-primary flex flex-row-reverse px-4 py-2">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/storybook" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Storybook
-                  </NavigationMenuLink>
-                </Link>
+              <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+                <Link href="/storybook">Storybook</Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
