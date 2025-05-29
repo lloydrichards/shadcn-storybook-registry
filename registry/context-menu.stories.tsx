@@ -16,6 +16,7 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import { within, userEvent, expect } from "storybook/test";
 
 /**
  * Displays a menu to the user — such as a set of actions or functions —
@@ -151,4 +152,30 @@ export const WithRadioGroup: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
+};
+
+export const RightClickAndInteract: Story = {
+  name: "when right-clicking the trigger area, the menu appears and can be interacted with",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const body = within(canvasElement.parentElement!);
+
+    // Simulate a right-click on the trigger element
+    await userEvent.pointer({
+      keys: "[MouseRight>]",
+      target: await canvas.findByText("Right click here"),
+      coords: {
+        x: canvasElement.clientWidth / 2,
+        y: canvasElement.clientHeight / 2,
+      },
+    });
+
+    expect(await body.findByRole("menu")).toBeInTheDocument();
+    const items = await body.findAllByRole("menuitem");
+    expect(items).toHaveLength(4);
+
+    // Click the first item to close the menu
+    await userEvent.click(items[0], { delay: 100 });
+  },
 };
