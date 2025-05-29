@@ -10,6 +10,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { within, userEvent, expect } from "storybook/test";
 
 /**
  * Fast, composable, unstyled command menu for React.
@@ -54,3 +55,32 @@ type Story = StoryObj<typeof meta>;
  * The default form of the command.
  */
 export const Default: Story = {};
+
+export const TypingInCombobox: Story = {
+  name: "when typing into the combobox, should filter results",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole("combobox");
+
+    // Search for "calendar" which should return a single result
+    await userEvent.type(input, "calen", { delay: 100 });
+    expect(canvas.getAllByRole("option", { name: "Calendar" })).toHaveLength(1);
+
+    await userEvent.clear(input);
+
+    // Search for "story" which should return multiple results
+    await userEvent.type(input, "se", { delay: 100 });
+    expect(canvas.getAllByRole("option").length).toBeGreaterThan(1);
+    expect(
+      canvas.getAllByRole("option", { name: "Search Emoji" }),
+    ).toHaveLength(1);
+
+    await userEvent.clear(input);
+
+    // Search for "story" which should return no results
+    await userEvent.type(input, "story", { delay: 100 });
+    expect(canvas.queryAllByRole("option", { hidden: false })).toHaveLength(0);
+    expect(canvas.getByText("No results found.")).toBeVisible();
+  },
+};
