@@ -56,8 +56,8 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const ShouldOpenCloseContinue: Story = {
-  name: "when clicking Continue button, should close the dialog",
+export const ShouldOpenCloseSubmit: Story = {
+  name: "when clicking Submit button, should close the drawer",
   tags: ["!dev", "!autodocs"],
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
@@ -73,6 +73,30 @@ export const ShouldOpenCloseContinue: Story = {
     // Close the dialog
     await userEvent.click(
       await canvas.findByRole("button", { name: "Submit" }),
+      { delay: 100 },
+    );
+    await expect(args.onClose).toHaveBeenCalled();
+    expect(dialog).toHaveAttribute("data-state", "closed");
+  },
+};
+
+export const ShouldOpenCloseCancel: Story = {
+  name: "when clicking Cancel button, should close the drawer",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+
+    // Open the dialog
+    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+    await expect(args.onOpenChange).toHaveBeenCalled();
+
+    const dialog = await canvas.findByRole("dialog");
+    expect(dialog).toBeInTheDocument();
+    expect(dialog).toHaveAttribute("data-state", "open");
+
+    // Close the dialog
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Cancel" }),
       { delay: 100 },
     );
     await expect(args.onClose).toHaveBeenCalled();
