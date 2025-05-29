@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { action } from "storybook/actions";
+import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useForm } from "react-hook-form";
@@ -31,8 +32,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  username: z.string().min(6, {
+    message: "Username must be at least 6 characters.",
   }),
 });
 
@@ -84,3 +85,47 @@ const ProfileForm = (args: Story["args"]) => {
  * The default form of the form.
  */
 export const Default: Story = {};
+
+export const ShouldSucceedSubmit: Story = {
+  name: "when typing a valid username, should not show an error message",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    // Focus and type into the username field
+    await userEvent.type(
+      await canvas.findByRole("textbox", { name: "Username" }),
+      "mock user",
+    );
+
+    // Click the submit button
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Submit" }),
+    );
+    expect(
+      await canvas.queryByText("Username must be at least 6 characters.", {
+        exact: true,
+      }),
+    ).toBeNull();
+  },
+};
+
+export const ShouldWarnSubmit: Story = {
+  name: "when typing a short username, should show an error message",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    // Focus and type into the username field
+    await userEvent.type(
+      await canvas.findByRole("textbox", { name: "Username" }),
+      "fail",
+    );
+
+    // Click the submit button
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Submit" }),
+    );
+    expect(
+      await canvas.queryByText("Username must be at least 6 characters.", {
+        exact: true,
+      }),
+    ).toBeVisible();
+  },
+};
