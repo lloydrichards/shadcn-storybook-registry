@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { addDays } from "date-fns";
 
 import { Calendar } from "@/components/ui/calendar";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * A date field component that allows users to enter and edit date.
@@ -78,5 +79,37 @@ export const MultipleMonths: Story = {
   args: {
     numberOfMonths: 2,
     showOutsideDays: false,
+  },
+};
+
+export const ChangeMonths: Story = {
+  name: "when using the calendar navigation, should change months",
+  tags: ["!dev", "!autodocs"],
+  args: {
+    defaultMonth: new Date(2000, 8),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const title = await canvas.findByText(/2000/i);
+    const startTitle = title.textContent || "";
+    const backBtn = await canvas.findByRole("button", {
+      name: /previous/i,
+    });
+    const nextBtn = await canvas.findByRole("button", {
+      name: /next/i,
+    });
+    const steps = 6;
+    for (let i = 0; i < steps / 2; i++) {
+      await userEvent.click(backBtn);
+      expect(title).not.toHaveTextContent(startTitle);
+    }
+    for (let i = 0; i < steps; i++) {
+      await userEvent.click(nextBtn);
+      if (i == steps / 2 - 1) {
+        expect(title).toHaveTextContent(startTitle);
+        continue;
+      }
+      expect(title).not.toHaveTextContent(startTitle);
+    }
   },
 };
