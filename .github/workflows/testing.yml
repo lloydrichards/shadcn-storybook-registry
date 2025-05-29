@@ -24,7 +24,7 @@ jobs:
         run: bun install --frozen-lockfile --silent
 
       - name: Install Playwright
-        run: npx playwright install --with-deps --silent
+        run: npx playwright install --with-deps
 
       - name: Build Storybook
         run: bun run test:storybook
