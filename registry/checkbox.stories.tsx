@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { userEvent, within, expect } from "storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * A control that allows the user to toggle between checked and not checked.

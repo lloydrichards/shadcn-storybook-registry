@@ -11,7 +11,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getBaseUrl } from "@/lib/utils";
-import * as React from "react";
 
 const Home = async () => {
   const registryData = await import("@/registry.json");
