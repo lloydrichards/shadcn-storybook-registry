@@ -13,6 +13,7 @@ const dirname =
 // More info at: https://storybook.js.org/docs/writing-tests/test-addon
 export default defineConfig({
   test: {
+    passWithNoTests: true,
     workspace: [
       {
         extends: true,
@@ -30,6 +31,11 @@ export default defineConfig({
             instances: [{ browser: "chromium" }],
           },
           setupFiles: [".storybook/vitest.setup.ts"],
+        },
+      },
+      {
+        test: {
+          name: "unit",
         },
       },
     ],

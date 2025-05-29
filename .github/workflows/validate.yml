@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
-      - run: bun install --frozen-lockfile
+      - run: bun install --frozen-lockfile --silent
       - run: bun lint
 
   verify-types:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
-      - run: bun install --frozen-lockfile
+      - run: bun install --frozen-lockfile --silent
       - run: bun run build
       - run: bun type-check
 
@@ -42,6 +42,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
-      - run: bun install --frozen-lockfile
+      - run: bun install --frozen-lockfile --silent
       - run: bun run build
       - run: bun format:check
