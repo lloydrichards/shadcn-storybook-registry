@@ -1,3 +1,4 @@
+import { expect, userEvent, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Mail, Plus, PlusCircle, Search, UserPlus } from "lucide-react";
@@ -157,4 +158,21 @@ export const WithCheckboxes: Story = {
       </DropdownMenuContent>
     </DropdownMenu>
   ),
+};
+
+export const ShouldOpenClose: Story = {
+  name: "when clicking an item, should close the dropdown menu",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement.ownerDocument.body);
+
+    // Open the dropdown menu
+    await userEvent.click(await body.findByRole("button", { name: "Open" }));
+    expect(await body.findByRole("menu")).toBeInTheDocument();
+    const items = await body.findAllByRole("menuitem");
+    expect(items).toHaveLength(4);
+
+    // Click the first item to close the menu
+    await userEvent.click(items[0], { delay: 100 });
+  },
 };
