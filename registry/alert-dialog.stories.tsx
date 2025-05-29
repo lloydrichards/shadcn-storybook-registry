@@ -12,6 +12,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { userEvent, within } from "storybook/test";
 
 /**
  * A modal dialog that interrupts the user with important content and expects
@@ -53,3 +54,20 @@ type Story = StoryObj<typeof meta>;
  * The default form of the alert dialog.
  */
 export const Default: Story = {};
+
+export const OpenAndClose: Story = {
+  name: "when alert dialog trigger is pressed, should open the dialog and be able to close it",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const body = within(canvasElement.parentElement!);
+    const openButton = await canvas.getByRole("button", {
+      name: /open/i,
+    });
+    await userEvent.click(openButton);
+    const cancelButton = await body.getByRole("button", {
+      name: /cancel/i,
+    });
+    await userEvent.click(cancelButton, { delay: 100 });
+  },
+};
