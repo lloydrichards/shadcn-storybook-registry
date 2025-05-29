@@ -1,6 +1,7 @@
+import { expect, fn, userEvent, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+import { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 
 import {
   InputOTP,
@@ -19,6 +20,8 @@ const meta = {
   argTypes: {},
   args: {
     maxLength: 6,
+    onChange: fn(),
+    onComplete: fn(),
     pattern: REGEXP_ONLY_DIGITS_AND_CHARS,
     children: null,
     "aria-label": "One-time password",
@@ -51,6 +54,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 /**
+ * The number form of the InputOTP field.
+ */
+export const OnlyNumbers: Story = {
+  args: {
+    pattern: REGEXP_ONLY_DIGITS,
+  },
+};
+
+/**
  * Use multiple groups to separate the input slots.
  */
 export const SeparatedGroup: Story = {
@@ -69,4 +81,44 @@ export const SeparatedGroup: Story = {
       </InputOTPGroup>
     </InputOTP>
   ),
+};
+
+export const ShouldEnterText: Story = {
+  name: "when typing text, should call onChange and onComplete",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const inputTextbox = await canvas.findByRole("textbox");
+
+    // Focus and type into the input textbox
+    await userEvent.click(inputTextbox);
+    await userEvent.type(inputTextbox, "mocked");
+    expect(args.onChange).toHaveBeenCalledTimes(6);
+
+    // Finish typing by pressing Enter
+    await userEvent.keyboard("{enter}");
+    expect(args.onComplete).toHaveBeenCalledTimes(1);
+  },
+};
+
+export const ShouldEnterNumbers: Story = {
+  ...OnlyNumbers,
+  name: "when only numbers are allowed, should call onChange for numbers and onComplete",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const inputTextbox = await canvas.findByRole("textbox");
+
+    // Focus and type into the input textbox
+    await userEvent.click(inputTextbox);
+    await userEvent.type(inputTextbox, "mocked");
+    expect(args.onChange).toHaveBeenCalledTimes(0);
+
+    await userEvent.type(inputTextbox, "123456");
+    expect(args.onChange).toHaveBeenCalledTimes(6);
+
+    // Finish typing by pressing Enter
+    await userEvent.keyboard("{enter}");
+    expect(args.onComplete).toHaveBeenCalledTimes(1);
+  },
 };
