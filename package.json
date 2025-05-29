@@ -17,6 +17,7 @@
     "registry:build": "shadcn build -o ./public/v2/r",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o public/storybook",
+    "storybook:test": "test-storybook",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -88,6 +89,7 @@
     "@storybook/addon-docs": "^9.0.0",
     "@storybook/addon-vitest": "^9.0.0",
     "@storybook/nextjs-vite": "9.0.0",
+    "@storybook/test-runner": "^0.22.0",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/node": "^22.15.24",
     "@types/react": "19.1.3",
