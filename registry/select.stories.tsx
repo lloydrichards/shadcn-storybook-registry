@@ -1,3 +1,4 @@
+import { expect, fn, userEvent, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -20,6 +21,9 @@ const meta: Meta<typeof Select> = {
   component: Select,
   tags: ["autodocs"],
   argTypes: {},
+  args: {
+    onValueChange: fn(),
+  },
   render: (args) => (
     <Select {...args}>
       <SelectTrigger title="Select" className="w-96">
@@ -69,3 +73,24 @@ type Story = StoryObj<typeof meta>;
  * The default form of the select.
  */
 export const Default: Story = {};
+
+export const ShouldSelectOption: Story = {
+  name: "when an option is selected, should be checked",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const select = await canvas.findByRole("combobox");
+
+    // Open the select dropdown
+    await userEvent.click(select);
+    await userEvent.click(await canvas.findByRole("option", { name: "Apple" }));
+    expect(select).toHaveTextContent("Apple");
+
+    // Verify that the option is selected
+    await userEvent.click(select);
+    expect(
+      await canvas.findByRole("option", { name: "Apple" }),
+    ).toHaveAttribute("data-state", "checked");
+    await userEvent.click(await canvas.findByRole("option", { name: "Apple" }));
+  },
+};
