@@ -18,6 +18,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * A visually persistent menu common in desktop applications that provides
@@ -124,4 +125,21 @@ export const WithCheckboxItems: Story = {
       </MenubarMenu>
     </Menubar>
   ),
+};
+
+export const ShouldOpenClose: Story = {
+  name: "when clicking an item, should close the menubar",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement.ownerDocument.body);
+
+    // Open the menubar
+    await userEvent.click(await body.findByRole("menuitem", { name: "File" }));
+    expect(await body.findByRole("menu")).toBeInTheDocument();
+    const items = await body.findAllByRole("menuitem");
+    expect(items).toHaveLength(5);
+
+    // Click the first item to close the menubar
+    await userEvent.click(items[0], { delay: 100 });
+  },
 };
