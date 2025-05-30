@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * Extends the Dialog component to display content that complements the main
@@ -43,12 +44,10 @@ const meta: Meta<typeof SheetContent> = {
           </SheetDescription>
         </SheetHeader>
         <SheetFooter>
-          <SheetClose>
-            <button className="hover:underline">Cancel</button>
-          </SheetClose>
-          <button className="bg-primary text-primary-foreground rounded px-4 py-2">
+          <SheetClose className="hover:underline">Cancel</SheetClose>
+          <SheetClose className="bg-primary text-primary-foreground rounded px-4 py-2">
             Submit
-          </button>
+          </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
@@ -66,3 +65,66 @@ type Story = StoryObj<typeof meta>;
  * The default form of the sheet.
  */
 export const Default: Story = {};
+
+export const ShouldOpenCloseSubmit: Story = {
+  name: "when clicking Submit button, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+
+    // Open the dialog
+    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+
+    const sheet = await canvas.findByRole("dialog");
+    expect(sheet).toBeInTheDocument();
+    expect(sheet).toHaveAttribute("data-state", "open");
+
+    // Close the dialog
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Submit" }),
+      { delay: 100 },
+    );
+    expect(sheet).toHaveAttribute("data-state", "closed");
+  },
+};
+
+export const ShouldOpenCloseCancel: Story = {
+  name: "when clicking Cancel button, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+
+    // Open the dialog
+    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+
+    const sheet = await canvas.findByRole("dialog");
+    expect(sheet).toBeInTheDocument();
+    expect(sheet).toHaveAttribute("data-state", "open");
+
+    // Close the dialog
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Cancel" }),
+      { delay: 100 },
+    );
+    expect(sheet).toHaveAttribute("data-state", "closed");
+  },
+};
+
+export const ShouldOpenCloseCross: Story = {
+  name: "when clicking Close icon, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+
+    // Open the sheet
+    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+
+    const sheet = await canvas.findByRole("dialog");
+    expect(sheet).toBeInTheDocument();
+    expect(sheet).toHaveAttribute("data-state", "open");
+
+    // Close the sheet
+    await userEvent.click(await canvas.findByRole("button", { name: "Close" }));
+    expect(sheet).toHaveAttribute("data-state", "closed");
+  },
+};
