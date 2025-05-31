@@ -1,3 +1,4 @@
+import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -46,5 +47,34 @@ export const Instant: Story = {
   args: {
     openDelay: 0,
     closeDelay: 0,
+  },
+};
+
+export const ShouldShowOnHover: Story = {
+  name: "when hovering over trigger, should show hover card content",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Hover over the trigger element", async () => {
+      await userEvent.hover(await canvasBody.findByText(/hover/i));
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="hover-card-content"]',
+          ),
+        ).toBeVisible(),
+      );
+    });
+    await step("Unhover the trigger element", async () => {
+      await userEvent.unhover(await canvasBody.findByText(/hover/i));
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="hover-card-content"]',
+          ),
+        ).toBeNull(),
+      );
+    });
   },
 };

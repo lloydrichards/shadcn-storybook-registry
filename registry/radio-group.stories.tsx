@@ -1,3 +1,4 @@
+import { expect, userEvent, waitFor } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -36,3 +37,24 @@ type Story = StoryObj<typeof meta>;
  * The default form of the radio group.
  */
 export const Default: Story = {};
+
+export const ShouldToggleRadio: Story = {
+  name: "when clicking on a radio button, it should toggle its state",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas, step }) => {
+    const radios = await canvas.findAllByRole("radio");
+    expect(radios).toHaveLength(3);
+
+    await step("click the default radio button", async () => {
+      await userEvent.click(radios[0]);
+      await waitFor(() => expect(radios[0]).toBeChecked());
+      await waitFor(() => expect(radios[1]).not.toBeChecked());
+    });
+
+    await step("click the comfortable radio button", async () => {
+      await userEvent.click(radios[1]);
+      await waitFor(() => expect(radios[1]).toBeChecked());
+      await waitFor(() => expect(radios[0]).not.toBeChecked());
+    });
+  },
+};

@@ -6,6 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * Displays rich content in a portal, triggered by a button.
@@ -35,3 +36,28 @@ type Story = StoryObj<typeof meta>;
  * The default form of the popover.
  */
 export const Default: Story = {};
+
+export const ShouldOpenClose: Story = {
+  name: "when clicking the trigger, should open and close the popover",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("click the trigger to open the popover", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toBeInTheDocument();
+    });
+
+    await step("click the trigger to close the popover", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
+  },
+};

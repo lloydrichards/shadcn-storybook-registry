@@ -1,3 +1,4 @@
+import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -72,3 +73,29 @@ export const Size: Story = {
     className: "mx-12 w-full max-w-xs",
   },
 };
+
+export const ShouldNavigate: Story = {
+  name: "when clicking next/previous buttons, should navigate through slides",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas, step }) => {
+    const slides = await canvas.findAllByRole("group");
+    expect(slides).toHaveLength(5);
+    const nextBtn = await canvas.findByRole("button", { name: /next/i });
+    const prevBtn = await canvas.findByRole("button", {
+      name: /previous/i,
+    });
+
+    await step("navigate to the last slide", async () => {
+      for (let i = 0; i < slides.length - 1; i++) {
+        await userEvent.click(nextBtn);
+      }
+    });
+
+    await step("navigate back to the first slide", async () => {
+      for (let i = slides.length - 1; i > 0; i--) {
+        await userEvent.click(prevBtn);
+      }
+    });
+  },
+};
+//

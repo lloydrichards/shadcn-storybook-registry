@@ -1,3 +1,4 @@
+import { expect, userEvent, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -33,11 +34,9 @@ const meta = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="gap-4">
-          <button className="hover:underline">Cancel</button>
-          <DialogClose>
-            <button className="bg-primary text-primary-foreground rounded px-4 py-2">
-              Continue
-            </button>
+          <DialogClose className="hover:underline">Cancel</DialogClose>
+          <DialogClose className="bg-primary text-primary-foreground rounded px-4 py-2">
+            Continue
           </DialogClose>
         </DialogFooter>
       </DialogContent>
@@ -56,3 +55,84 @@ type Story = StoryObj<typeof meta>;
  * The default form of the dialog.
  */
 export const Default: Story = {};
+
+export const ShouldOpenCloseWithContinue: Story = {
+  name: "when clicking Continue button, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toHaveAttribute("data-state", "open");
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /continue/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
+  },
+};
+
+export const ShouldOpenCloseWithCancel: Story = {
+  name: "when clicking Cancel button, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toHaveAttribute("data-state", "open");
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /cancel/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
+  },
+};
+
+export const ShouldOpenCloseCross: Story = {
+  name: "when clicking Close icon, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toHaveAttribute("data-state", "open");
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /close/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
+  },
+};

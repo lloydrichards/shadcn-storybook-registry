@@ -10,6 +10,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { expect, userEvent } from "storybook/test";
 
 /**
  * Fast, composable, unstyled command menu for React.
@@ -54,3 +55,38 @@ type Story = StoryObj<typeof meta>;
  * The default form of the command.
  */
 export const Default: Story = {};
+
+export const ShouldFindExact: Story = {
+  name: "when typing an exact match, should find one result",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole("combobox");
+
+    await userEvent.type(input, "calendar", { delay: 100 });
+    expect(canvas.getAllByRole("option", { name: /calendar/i })).toHaveLength(
+      1,
+    );
+  },
+};
+export const ShouldFindPartial: Story = {
+  name: "when typing a partial match, should find multiple results",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole("combobox");
+
+    await userEvent.type(input, "se", { delay: 100 });
+    expect(canvas.getAllByRole("option").length).toBeGreaterThan(1);
+    expect(canvas.getAllByRole("option", { name: /search/i })).toHaveLength(1);
+  },
+};
+export const ShouldFindNone: Story = {
+  name: "when typing no match, should find no results",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole("combobox");
+
+    await userEvent.type(input, "story", { delay: 100 });
+    expect(canvas.queryAllByRole("option", { hidden: false })).toHaveLength(0);
+    expect(canvas.getByText(/no results/i)).toBeVisible();
+  },
+};

@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Checkbox } from "@/components/ui/checkbox";
+import { expect, userEvent } from "storybook/test";
 
 /**
  * A control that allows the user to toggle between checked and not checked.
@@ -47,5 +48,28 @@ export const Disabled: Story = {
   args: {
     id: "disabled-terms",
     disabled: true,
+  },
+};
+
+export const ShouldToggleCheck: Story = {
+  name: "when the checkbox is clicked, should toggle between checked and not checked",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas, step }) => {
+    const checkbox = await canvas.getByRole("checkbox");
+
+    await step("check the checkbox", async () => {
+      await userEvent.click(checkbox);
+      expect(checkbox).toBeChecked();
+    });
+
+    await step("uncheck the checkbox", async () => {
+      await userEvent.click(checkbox, { delay: 100 });
+      expect(checkbox).not.toBeChecked();
+    });
+
+    await step("check the checkbox again", async () => {
+      await userEvent.click(checkbox, { delay: 100 });
+      expect(checkbox).toBeChecked();
+    });
   },
 };

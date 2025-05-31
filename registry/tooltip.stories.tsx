@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 
 /**
  * A popup that displays information related to an element when the element
@@ -81,5 +82,36 @@ export const Left: Story = {
 export const Right: Story = {
   args: {
     side: "right",
+  },
+};
+
+export const ShouldShowOnHover: Story = {
+  name: "when hovering over trigger, should show hover tooltip content",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", { name: /add/i });
+
+    await step("hover over trigger", async () => {
+      await userEvent.hover(triggerBtn);
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="tooltip-content"]',
+          ),
+        ).toBeVisible(),
+      );
+    });
+
+    await step("unhover trigger", async () => {
+      await userEvent.unhover(triggerBtn);
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="tooltip-content"]',
+          ),
+        ).not.toBeVisible(),
+      );
+    });
   },
 };

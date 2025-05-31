@@ -1,3 +1,4 @@
+import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -82,4 +83,20 @@ export const WithButton: Story = {
       </button>
     </div>
   ),
+};
+
+export const ShouldEnterText: Story = {
+  name: "when user enters text, should see it in the input field",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas, step }) => {
+    const input = await canvas.findByPlaceholderText(/email/i);
+    const mockedInput = "mocked@shadcn.com";
+
+    await step("focus and type into the input field", async () => {
+      await userEvent.click(input);
+      await userEvent.type(input, mockedInput);
+    });
+
+    expect(input).toHaveValue(mockedInput);
+  },
 };
