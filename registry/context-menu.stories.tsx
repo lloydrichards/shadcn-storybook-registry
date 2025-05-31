@@ -157,9 +157,8 @@ export const WithRadioGroup: Story = {
 export const RightClickAndInteract: Story = {
   name: "when right-clicking the trigger area, the menu appears and can be interacted with",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const body = within(canvasElement.parentElement!);
+  play: async ({ canvasElement, canvas }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Simulate a right-click on the trigger element
     await userEvent.pointer({
@@ -171,8 +170,8 @@ export const RightClickAndInteract: Story = {
       },
     });
 
-    expect(await body.findByRole("menu")).toBeInTheDocument();
-    const items = await body.findAllByRole("menuitem");
+    expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    const items = await canvasBody.findAllByRole("menuitem");
     expect(items).toHaveLength(4);
 
     // Click the first item to close the menu

@@ -89,8 +89,8 @@ export const ShouldShowHover: Story = {
   name: "when hovering over trigger, should show hover tooltip content",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    const triggerBtn = await canvas.findByRole("button", { name: /add/i });
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", { name: /add/i });
 
     // Hover over the trigger element
     await userEvent.hover(triggerBtn);
