@@ -90,7 +90,7 @@ export const ShouldShowHover: Story = {
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
-    const triggerBtn = await canvas.findByRole("button", { name: "Add" });
+    const triggerBtn = await canvas.findByRole("button", { name: /add/i });
 
     // Hover over the trigger element
     await userEvent.hover(triggerBtn);

@@ -105,14 +105,16 @@ export const ShouldOpenCloseCross: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
 
     const dialog = await canvas.findByRole("dialog");
     expect(dialog).toBeInTheDocument();
     expect(dialog).toHaveAttribute("data-state", "open");
 
     // Close the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: "Close" }));
+    await userEvent.click(
+      await canvas.findByRole("button", { name: /close/i }),
+    );
     expect(dialog).toHaveAttribute("data-state", "closed");
   },
 };

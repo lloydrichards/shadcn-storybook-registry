@@ -57,7 +57,7 @@ export const ShouldShowHover: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     // Hover over the trigger element
-    await userEvent.hover(await canvas.findByText("Hover"));
+    await userEvent.hover(await canvas.findByText(/hover/i));
     await waitFor(() =>
       expect(
         canvasElement.ownerDocument.body.querySelector(
@@ -67,7 +67,7 @@ export const ShouldShowHover: Story = {
     );
 
     // Unhover the trigger element
-    await userEvent.unhover(await canvas.findByText("Hover"));
+    await userEvent.unhover(await canvas.findByText(/hover/i));
     await waitFor(() =>
       expect(
         canvasElement.ownerDocument.body.querySelector(

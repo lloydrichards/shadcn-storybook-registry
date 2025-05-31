@@ -55,7 +55,7 @@ export const ShouldShowToast: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvas.findByRole("button", {
-      name: "Show Toast",
+      name: /show/i,
     });
 
     // Create a toast
@@ -79,14 +79,14 @@ export const ShouldCloseToast: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvas.findByRole("button", {
-      name: "Show Toast",
+      name: /show/i,
     });
 
     // Create a toast
     await userEvent.click(triggerBtn);
 
     // Close the toast by clicking the close button
-    await userEvent.click(await canvas.findByRole("button", { name: "Undo" }));
+    await userEvent.click(await canvas.findByRole("button", { name: /undo/i }));
     await waitFor(() =>
       expect(canvas.queryByRole("listitem")).not.toBeInTheDocument(),
     );

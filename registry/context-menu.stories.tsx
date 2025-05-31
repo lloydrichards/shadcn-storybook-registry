@@ -164,7 +164,7 @@ export const RightClickAndInteract: Story = {
     // Simulate a right-click on the trigger element
     await userEvent.pointer({
       keys: "[MouseRight>]",
-      target: await canvas.findByText("Right click here"),
+      target: await canvas.findByText(/click here/i),
       coords: {
         x: canvasElement.clientWidth / 2,
         y: canvasElement.clientHeight / 2,
