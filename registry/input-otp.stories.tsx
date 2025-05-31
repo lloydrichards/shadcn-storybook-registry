@@ -1,4 +1,4 @@
-import { expect, fn, userEvent, within } from "storybook/test";
+import { expect, fn, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
@@ -86,8 +86,7 @@ export const SeparatedGroup: Story = {
 export const ShouldEnterText: Story = {
   name: "when typing text, should call onChange and onComplete",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+  play: async ({ args, canvas }) => {
     const inputTextbox = await canvas.findByRole("textbox");
 
     // Focus and type into the input textbox
@@ -105,8 +104,7 @@ export const ShouldEnterNumbers: Story = {
   ...OnlyNumbers,
   name: "when only numbers are allowed, should call onChange for numbers and onComplete",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+  play: async ({ args, canvas }) => {
     const inputTextbox = await canvas.findByRole("textbox");
 
     // Focus and type into the input textbox

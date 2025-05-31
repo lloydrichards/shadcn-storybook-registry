@@ -53,22 +53,22 @@ export const ShouldShowToast: Story = {
   name: "when clicking Show Toast button, should show a toast",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    const triggerBtn = await canvas.findByRole("button", {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
 
     // Create a toast
     await userEvent.click(triggerBtn);
     await waitFor(() =>
-      expect(canvas.queryByRole("listitem")).toBeInTheDocument(),
+      expect(canvasBody.queryByRole("listitem")).toBeInTheDocument(),
     );
 
     // Create more toasts
     await userEvent.click(triggerBtn);
     await userEvent.click(triggerBtn);
     await waitFor(() =>
-      expect(canvas.getAllByRole("listitem")).toHaveLength(3),
+      expect(canvasBody.getAllByRole("listitem")).toHaveLength(3),
     );
   },
 };
@@ -77,8 +77,8 @@ export const ShouldCloseToast: Story = {
   name: "when clicking the close button, should close the toast",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    const triggerBtn = await canvas.findByRole("button", {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
 
@@ -86,9 +86,9 @@ export const ShouldCloseToast: Story = {
     await userEvent.click(triggerBtn);
 
     // Close the toast by clicking the close button
-    await userEvent.click(await canvas.findByRole("button", { name: /undo/i }));
+    await userEvent.click(await canvasBody.findByRole("button", { name: /undo/i }));
     await waitFor(() =>
-      expect(canvas.queryByRole("listitem")).not.toBeInTheDocument(),
+      expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
     );
   },
 };
