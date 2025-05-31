@@ -50,7 +50,7 @@ export const Instant: Story = {
   },
 };
 
-export const ShouldShowHover: Story = {
+export const ShouldShowOnHover: Story = {
   name: "when hovering over trigger, should show hover card content",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {

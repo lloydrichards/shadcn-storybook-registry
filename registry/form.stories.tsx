@@ -86,7 +86,7 @@ const ProfileForm = (args: Story["args"]) => {
  */
 export const Default: Story = {};
 
-export const ShouldSucceedSubmit: Story = {
+export const ShouldSucceedOnSubmit: Story = {
   name: "when typing a valid username, should not show an error message",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {
@@ -110,7 +110,7 @@ export const ShouldSucceedSubmit: Story = {
   },
 };
 
-export const ShouldWarnSubmit: Story = {
+export const ShouldWarnOnSubmit: Story = {
   name: "when typing a short username, should show an error message",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {

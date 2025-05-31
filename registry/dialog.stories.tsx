@@ -56,7 +56,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const ShouldOpenCloseContinue: Story = {
+export const ShouldOpenCloseWithContinue: Story = {
   name: "when clicking Continue button, should close the dialog",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
@@ -83,7 +83,7 @@ export const ShouldOpenCloseContinue: Story = {
   },
 };
 
-export const ShouldOpenCloseCancel: Story = {
+export const ShouldOpenCloseWithCancel: Story = {
   name: "when clicking Cancel button, should close the dialog",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
