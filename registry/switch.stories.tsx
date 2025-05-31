@@ -1,3 +1,4 @@
+import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -44,5 +45,21 @@ export const Disabled: Story = {
   args: {
     id: "disabled-switch",
     disabled: true,
+  },
+};
+
+export const ShouldToggle: Story = {
+  name: "when clicking the switch, should toggle it on and off",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvas }) => {
+    const switchBtn = await canvas.findByRole("switch");
+
+    // Click the switch to toggle it on
+    await userEvent.click(switchBtn);
+    await expect(switchBtn).toBeChecked();
+
+    // Click the switch to toggle it off
+    await userEvent.click(switchBtn);
+    await expect(switchBtn).not.toBeChecked();
   },
 };
