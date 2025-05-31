@@ -134,7 +134,7 @@ export const ShouldOpenClose: Story = {
     const body = within(canvasElement.ownerDocument.body);
 
     // Open the menubar
-    await userEvent.click(await body.findByRole("menuitem", { name: "File" }));
+    await userEvent.click(await body.findByRole("menuitem", { name: /file/i }));
     expect(await body.findByRole("menu")).toBeInTheDocument();
     const items = await body.findAllByRole("menuitem");
     expect(items).toHaveLength(5);

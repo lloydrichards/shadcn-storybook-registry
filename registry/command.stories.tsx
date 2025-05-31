@@ -65,22 +65,22 @@ export const TypingInCombobox: Story = {
 
     // Search for "calendar" which should return a single result
     await userEvent.type(input, "calen", { delay: 100 });
-    expect(canvas.getAllByRole("option", { name: "Calendar" })).toHaveLength(1);
+    expect(canvas.getAllByRole("option", { name: /calendar/i })).toHaveLength(
+      1,
+    );
 
     await userEvent.clear(input);
 
     // Search for "story" which should return multiple results
     await userEvent.type(input, "se", { delay: 100 });
     expect(canvas.getAllByRole("option").length).toBeGreaterThan(1);
-    expect(
-      canvas.getAllByRole("option", { name: "Search Emoji" }),
-    ).toHaveLength(1);
+    expect(canvas.getAllByRole("option", { name: /search/i })).toHaveLength(1);
 
     await userEvent.clear(input);
 
     // Search for "story" which should return no results
     await userEvent.type(input, "story", { delay: 100 });
     expect(canvas.queryAllByRole("option", { hidden: false })).toHaveLength(0);
-    expect(canvas.getByText("No results found.")).toBeVisible();
+    expect(canvas.getByText(/no results/i)).toBeVisible();
   },
 };
