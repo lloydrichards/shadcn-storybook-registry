@@ -102,7 +102,7 @@ export const ShouldEnterText: Story = {
   },
 };
 
-export const ShouldEnterNumbers: Story = {
+export const ShouldEnterOnlyNumbers: Story = {
   ...OnlyNumbers,
   name: "when only numbers are allowed, should call onChange for numbers and onComplete",
   tags: ["!dev", "!autodocs"],

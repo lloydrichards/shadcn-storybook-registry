@@ -178,9 +178,9 @@ export const Footer: Story = {
   ),
 };
 
-export const ShouldOpenClose: Story = {
+export const ShouldCloseOpen: Story = {
   ...Simple,
-  name: "when clicking the trigger, should open and close the sidebar",
+  name: "when clicking the trigger, should close and open the sidebar",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {
     const sidebarBtn = await canvas.findByRole("button", {

@@ -55,7 +55,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const OpenAndClose: Story = {
+export const ShouldOpenClose: Story = {
   name: "when alert dialog trigger is pressed, should open the dialog and be able to close it",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, canvas, step }) => {

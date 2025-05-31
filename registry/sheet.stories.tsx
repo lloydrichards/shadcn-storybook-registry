@@ -66,7 +66,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const ShouldOpenCloseSubmit: Story = {
+export const ShouldOpenCloseWithSubmit: Story = {
   name: "when clicking Submit button, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
@@ -93,7 +93,7 @@ export const ShouldOpenCloseSubmit: Story = {
   },
 };
 
-export const ShouldOpenCloseCancel: Story = {
+export const ShouldOpenCloseWithCancel: Story = {
   name: "when clicking Cancel button, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
@@ -120,7 +120,7 @@ export const ShouldOpenCloseCancel: Story = {
   },
 };
 
-export const ShouldOpenCloseCross: Story = {
+export const ShouldOpenCloseWithClose: Story = {
   name: "when clicking Close icon, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {

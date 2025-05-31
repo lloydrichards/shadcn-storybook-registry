@@ -85,8 +85,8 @@ export const WithButton: Story = {
   ),
 };
 
-export const ShouldEnterEmail: Story = {
-  name: "when user enters email, should see it in the input field",
+export const ShouldEnterText: Story = {
+  name: "when user enters text, should see it in the input field",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {
     const input = await canvas.findByPlaceholderText(/email/i);
