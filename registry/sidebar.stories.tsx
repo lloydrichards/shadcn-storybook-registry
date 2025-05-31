@@ -1,3 +1,4 @@
+import { userEvent, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -175,4 +176,23 @@ export const Footer: Story = {
       </SidebarFooter>
     </Sidebar>
   ),
+};
+
+export const ShouldOpenClose: Story = {
+  ...Simple,
+  name: "when clicking the trigger, should open and close the sidebar",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const body = canvasElement.ownerDocument.body;
+    const canvas = within(body);
+
+    const sidebarBtn = await canvas.findByRole("button", {
+      name: "Toggle Sidebar",
+    });
+    // Close the sidebar
+    await userEvent.click(sidebarBtn);
+
+    // Reopen the sidebar
+    await userEvent.click(sidebarBtn);
+  },
 };
