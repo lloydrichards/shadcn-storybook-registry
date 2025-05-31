@@ -89,43 +89,47 @@ export const Default: Story = {};
 export const ShouldSucceedSubmit: Story = {
   name: "when typing a valid username, should not show an error message",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
-    // Focus and type into the username field
-    await userEvent.type(
-      await canvas.findByRole("textbox", { name: /username/i }),
-      "mock user",
-    );
+  play: async ({ canvas, step }) => {
+    await step("Type a valid username", async () => {
+      await userEvent.type(
+        await canvas.findByRole("textbox", { name: /username/i }),
+        "mockuser",
+      );
+    });
 
-    // Click the submit button
-    await userEvent.click(
-      await canvas.findByRole("button", { name: /submit/i }),
-    );
-    expect(
-      await canvas.queryByText(/username must be at least 6 characters/i, {
-        exact: true,
-      }),
-    ).toBeNull();
+    await step("Click the submit button", async () => {
+      await userEvent.click(
+        await canvas.findByRole("button", { name: /submit/i }),
+      );
+      expect(
+        await canvas.queryByText(/username must be at least 6 characters/i, {
+          exact: true,
+        }),
+      ).toBeNull();
+    });
   },
 };
 
 export const ShouldWarnSubmit: Story = {
   name: "when typing a short username, should show an error message",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
-    // Focus and type into the username field
-    await userEvent.type(
-      await canvas.findByRole("textbox", { name: /username/i }),
-      "fail",
-    );
+  play: async ({ canvas, step }) => {
+    await step("Type a short username", async () => {
+      await userEvent.type(
+        await canvas.findByRole("textbox", { name: /username/i }),
+        "fail",
+      );
+    });
 
-    // Click the submit button
-    await userEvent.click(
-      await canvas.findByRole("button", { name: /submit/i }),
-    );
-    expect(
-      await canvas.queryByText(/username must be at least 6 characters/i, {
-        exact: true,
-      }),
-    ).toBeVisible();
+    await step("Click the submit button", async () => {
+      await userEvent.click(
+        await canvas.findByRole("button", { name: /submit/i }),
+      );
+      expect(
+        await canvas.queryByText(/username must be at least 6 characters/i, {
+          exact: true,
+        }),
+      ).toBeVisible();
+    });
   },
 };

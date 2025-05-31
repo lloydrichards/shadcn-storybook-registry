@@ -51,15 +51,17 @@ export const Disabled: Story = {
 export const ShouldToggle: Story = {
   name: "when clicking the switch, should toggle it on and off",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const switchBtn = await canvas.findByRole("switch");
 
-    // Click the switch to toggle it on
-    await userEvent.click(switchBtn);
-    await expect(switchBtn).toBeChecked();
+    await step("toggle the switch on", async () => {
+      await userEvent.click(switchBtn);
+      await expect(switchBtn).toBeChecked();
+    });
 
-    // Click the switch to toggle it off
-    await userEvent.click(switchBtn);
-    await expect(switchBtn).not.toBeChecked();
+    await step("toggle the switch off", async () => {
+      await userEvent.click(switchBtn);
+      await expect(switchBtn).not.toBeChecked();
+    });
   },
 };

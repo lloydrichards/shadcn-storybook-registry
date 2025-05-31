@@ -53,27 +53,28 @@ export const Instant: Story = {
 export const ShouldShowHover: Story = {
   name: "when hovering over trigger, should show hover card content",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    // Hover over the trigger element
-    await userEvent.hover(await canvasBody.findByText(/hover/i));
-    await waitFor(() =>
-      expect(
-        canvasElement.ownerDocument.body.querySelector(
-          '[data-slot="hover-card-content"]',
-        ),
-      ).toBeVisible(),
-    );
-
-    // Unhover the trigger element
-    await userEvent.unhover(await canvasBody.findByText(/hover/i));
-    await waitFor(() =>
-      expect(
-        canvasElement.ownerDocument.body.querySelector(
-          '[data-slot="hover-card-content"]',
-        ),
-      ).toBeNull(),
-    );
+    await step("Hover over the trigger element", async () => {
+      await userEvent.hover(await canvasBody.findByText(/hover/i));
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="hover-card-content"]',
+          ),
+        ).toBeVisible(),
+      );
+    });
+    await step("Unhover the trigger element", async () => {
+      await userEvent.unhover(await canvasBody.findByText(/hover/i));
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="hover-card-content"]',
+          ),
+        ).toBeNull(),
+      );
+    });
   },
 };

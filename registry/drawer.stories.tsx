@@ -59,51 +59,61 @@ export const Default: Story = {};
 export const ShouldOpenCloseSubmit: Story = {
   name: "when clicking Submit button, should close the drawer",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvasElement }) => {
+  play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    // Open the dialog
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /open/i }),
-    );
-    await expect(args.onOpenChange).toHaveBeenCalled();
+    await step("Open the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      await expect(args.onOpenChange).toHaveBeenCalled();
 
-    const dialog = await canvasBody.findByRole("dialog");
-    expect(dialog).toBeInTheDocument();
-    expect(dialog).toHaveAttribute("data-state", "open");
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toHaveAttribute("data-state", "open");
+    });
 
-    // Close the dialog
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /submit/i }),
-      { delay: 100 },
-    );
-    await expect(args.onClose).toHaveBeenCalled();
-    expect(dialog).toHaveAttribute("data-state", "closed");
+    await step("Close the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /submit/i }),
+        { delay: 100 },
+      );
+      await expect(args.onClose).toHaveBeenCalled();
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
   },
 };
 
 export const ShouldOpenCloseCancel: Story = {
   name: "when clicking Cancel button, should close the drawer",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvasElement }) => {
+  play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    // Open the dialog
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /open/i }),
-    );
-    await expect(args.onOpenChange).toHaveBeenCalled();
+    await step("Open the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      await expect(args.onOpenChange).toHaveBeenCalled();
 
-    const dialog = await canvasBody.findByRole("dialog");
-    expect(dialog).toBeInTheDocument();
-    expect(dialog).toHaveAttribute("data-state", "open");
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toHaveAttribute("data-state", "open");
+    });
 
-    // Close the dialog
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /cancel/i }),
-      { delay: 100 },
-    );
-    await expect(args.onClose).toHaveBeenCalled();
-    expect(dialog).toHaveAttribute("data-state", "closed");
+    await step("Close the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /cancel/i }),
+        { delay: 100 },
+      );
+      await expect(args.onClose).toHaveBeenCalled();
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
   },
 };

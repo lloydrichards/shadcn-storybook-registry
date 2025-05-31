@@ -52,43 +52,49 @@ export const Default: Story = {};
 export const ShouldShowToast: Story = {
   name: "when clicking Show Toast button, should show a toast",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
 
-    // Create a toast
-    await userEvent.click(triggerBtn);
-    await waitFor(() =>
-      expect(canvasBody.queryByRole("listitem")).toBeInTheDocument(),
-    );
+    await step("create a toast", async () => {
+      await userEvent.click(triggerBtn);
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("listitem")).toBeInTheDocument(),
+      );
+    });
 
-    // Create more toasts
-    await userEvent.click(triggerBtn);
-    await userEvent.click(triggerBtn);
-    await waitFor(() =>
-      expect(canvasBody.getAllByRole("listitem")).toHaveLength(3),
-    );
+    await step("create more toasts", async () => {
+      await userEvent.click(triggerBtn);
+      await userEvent.click(triggerBtn);
+      await waitFor(() =>
+        expect(canvasBody.getAllByRole("listitem")).toHaveLength(3),
+      );
+    });
   },
 };
 
 export const ShouldCloseToast: Story = {
   name: "when clicking the close button, should close the toast",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
 
-    // Create a toast
-    await userEvent.click(triggerBtn);
+    await step("create a toast", async () => {
+      await userEvent.click(triggerBtn);
+    });
 
-    // Close the toast by clicking the close button
-    await userEvent.click(await canvasBody.findByRole("button", { name: /undo/i }));
-    await waitFor(() =>
-      expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
-    );
+    await step("close the toast", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /undo/i }),
+      );
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
+      );
+    });
   },
 };

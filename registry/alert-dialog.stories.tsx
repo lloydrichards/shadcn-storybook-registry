@@ -58,15 +58,24 @@ export const Default: Story = {};
 export const OpenAndClose: Story = {
   name: "when alert dialog trigger is pressed, should open the dialog and be able to close it",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement, canvas }) => {
+  play: async ({ canvasElement, canvas, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
-    const openButton = await canvas.getByRole("button", {
-      name: /open/i,
+
+    await step("open the alert dialog", async () => {
+      await userEvent.click(
+        await canvas.getByRole("button", {
+          name: /open/i,
+        }),
+      );
     });
-    await userEvent.click(openButton);
-    const cancelButton = await canvasBody.getByRole("button", {
-      name: /cancel/i,
+
+    await step("close the alert dialog", async () => {
+      await userEvent.click(
+        await canvasBody.getByRole("button", {
+          name: /cancel/i,
+        }),
+        { delay: 100 },
+      );
     });
-    await userEvent.click(cancelButton, { delay: 100 });
   },
 };
