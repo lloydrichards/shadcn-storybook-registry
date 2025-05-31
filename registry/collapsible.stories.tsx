@@ -7,7 +7,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { expect, userEvent, waitFor } from "storybook/test";
+import { expect, userEvent } from "storybook/test";
 
 /**
  * An interactive component which expands/collapses a panel.
@@ -59,17 +59,17 @@ export const Disabled: Story = {
 export const OpenAndClose: Story = {
   name: "when collapsable trigger is clicked, should show content",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas, canvasElement }) => {
+  play: async ({ canvas, step }) => {
     const trigger = await canvas.findByRole("button");
 
-    // Open the collapsible
-    await userEvent.click(trigger, { delay: 100 });
-    const collapsableContent = await waitFor(() =>
-      canvasElement.querySelector('[data-slot="collapsable content"]'),
-    );
+    await step("Open the collapsible", async () => {
+      await userEvent.click(trigger, { delay: 100 });
+      expect(await canvas.queryByText(/yes/i, { exact: true })).toBeVisible();
+    });
 
-    // Close the collapsible
-    await userEvent.click(trigger, { delay: 100 });
-    await waitFor(() => expect(collapsableContent).toBeNull());
+    await step("Close the collapsible", async () => {
+      await userEvent.click(trigger, { delay: 100 });
+      expect(await canvas.queryByText(/yes/i, { exact: true })).toBeNull();
+    });
   },
 };

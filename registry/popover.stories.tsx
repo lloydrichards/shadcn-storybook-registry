@@ -40,20 +40,24 @@ export const Default: Story = {};
 export const ShouldOpenClose: Story = {
   name: "when clicking the trigger, should open and close the popover",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    // Show the popover
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /open/i }),
-    );
-    const popover = await canvasBody.findByRole("dialog");
-    expect(popover).toBeInTheDocument();
+    await step("click the trigger to open the popover", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toBeInTheDocument();
+    });
 
-    // Click the trigger to hide the popover
-    await userEvent.click(
-      await canvasBody.findByRole("button", { name: /open/i }),
-    );
-    expect(popover).toHaveAttribute("data-state", "closed");
+    await step("click the trigger to close the popover", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
+        "data-state",
+        "closed",
+      );
+    });
   },
 };

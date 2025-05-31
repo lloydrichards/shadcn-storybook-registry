@@ -130,18 +130,21 @@ export const WithCheckboxItems: Story = {
 export const ShouldOpenClose: Story = {
   name: "when clicking an item, should close the menubar",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    // Open the menubar
-    await userEvent.click(
-      await canvasBody.findByRole("menuitem", { name: /file/i }),
-    );
-    expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    await step("open the menubar", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("menuitem", { name: /file/i }),
+      );
+      expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    });
+
     const items = await canvasBody.findAllByRole("menuitem");
     expect(items).toHaveLength(5);
 
-    // Click the first item to close the menubar
-    await userEvent.click(items[0], { delay: 100 });
+    await step("click the first item to close the menubar", async () => {
+      await userEvent.click(items[0], { delay: 100 });
+    });
   },
 };

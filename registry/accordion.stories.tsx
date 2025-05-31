@@ -67,23 +67,25 @@ export const TestOneTab: Story = {
     type: "single",
   },
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const accordions = await canvas.getAllByRole("button");
 
-    // Open the tabs one at a time
-    for (const trigger of accordions) {
-      await userEvent.click(trigger);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(1);
-      });
-    }
+    await step(`open accordion items one at a time`, async () => {
+      for (const trigger of accordions) {
+        await userEvent.click(trigger);
+        await waitFor(async () => {
+          const content = await canvas.findAllByRole("region");
+          return expect(content.length).toBe(1);
+        });
+      }
+    });
 
-    // Close the last opened tab
-    await userEvent.click(accordions[accordions.length - 1]);
-    await waitFor(async () => {
-      const content = await canvas.queryByRole("region");
-      return expect(content).toBeFalsy();
+    await step("close the last opened tab", async () => {
+      await userEvent.click(accordions[accordions.length - 1]);
+      await waitFor(async () => {
+        const content = await canvas.queryByRole("region");
+        return expect(content).toBeFalsy();
+      });
     });
   },
 };
@@ -94,32 +96,35 @@ export const TestAllTabs: Story = {
     type: "multiple",
   },
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const accordions = await canvas.getAllByRole("button");
 
-    // Open all tabs one at a time
-    for (let i = 0; i < accordions.length; i++) {
-      await userEvent.click(accordions[i]);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(i + 1);
-      });
-    }
+    await step("open accordion items one at a time", async () => {
+      for (let i = 0; i < accordions.length; i++) {
+        await waitFor(async () => {
+          await userEvent.click(accordions[i]);
+          const content = await canvas.findAllByRole("region");
+          return expect(content.length).toBe(i + 1);
+        });
+      }
+    });
 
-    // Close all tabs one at a time
-    for (let i = accordions.length - 1; i > 0; i--) {
-      await userEvent.click(accordions[i]);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(i);
-      });
-    }
+    await step("close accordion items one at a time", async () => {
+      for (let i = accordions.length - 1; i > 0; i--) {
+        await userEvent.click(accordions[i]);
+        await waitFor(async () => {
+          const content = await canvas.findAllByRole("region");
+          return expect(content.length).toBe(i);
+        });
+      }
+    });
 
-    // Close the last opened tab
-    await userEvent.click(accordions[0]);
-    await waitFor(async () => {
-      const content = await canvas.queryByRole("region");
-      return expect(content).toBeFalsy();
+    await step("close the last opened tab", async () => {
+      await userEvent.click(accordions[0]);
+      await waitFor(async () => {
+        const content = await canvas.queryByRole("region");
+        return expect(content).toBeFalsy();
+      });
     });
   },
 };

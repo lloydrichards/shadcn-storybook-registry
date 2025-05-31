@@ -163,16 +163,18 @@ export const WithCheckboxes: Story = {
 export const ShouldOpenClose: Story = {
   name: "when clicking an item, should close the dropdown menu",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    // Open the dropdown menu
-    await userEvent.click(await body.findByRole("button", { name: /open/i }));
-    expect(await body.findByRole("menu")).toBeInTheDocument();
+    await step("Open the dropdown menu", async () => {
+      await userEvent.click(await body.findByRole("button", { name: /open/i }));
+      expect(await body.findByRole("menu")).toBeInTheDocument();
+    });
     const items = await body.findAllByRole("menuitem");
     expect(items).toHaveLength(4);
 
-    // Click the first item to close the menu
-    await userEvent.click(items[0], { delay: 100 });
+    await step("Click the first menu item", async () => {
+      await userEvent.click(items[0], { delay: 100 });
+    });
   },
 };

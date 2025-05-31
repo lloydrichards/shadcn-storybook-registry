@@ -88,28 +88,30 @@ export const Right: Story = {
 export const ShouldShowHover: Story = {
   name: "when hovering over trigger, should show hover tooltip content",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvasBody.findByRole("button", { name: /add/i });
 
-    // Hover over the trigger element
-    await userEvent.hover(triggerBtn);
-    await waitFor(() =>
-      expect(
-        canvasElement.ownerDocument.body.querySelector(
-          '[data-slot="tooltip-content"]',
-        ),
-      ).toBeVisible(),
-    );
+    await step("hover over trigger", async () => {
+      await userEvent.hover(triggerBtn);
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="tooltip-content"]',
+          ),
+        ).toBeVisible(),
+      );
+    });
 
-    // Unhover the trigger element
-    await userEvent.unhover(triggerBtn);
-    await waitFor(() =>
-      expect(
-        canvasElement.ownerDocument.body.querySelector(
-          '[data-slot="tooltip-content"]',
-        ),
-      ).not.toBeVisible(),
-    );
+    await step("unhover trigger", async () => {
+      await userEvent.unhover(triggerBtn);
+      await waitFor(() =>
+        expect(
+          canvasElement.ownerDocument.body.querySelector(
+            '[data-slot="tooltip-content"]',
+          ),
+        ).not.toBeVisible(),
+      );
+    });
   },
 };

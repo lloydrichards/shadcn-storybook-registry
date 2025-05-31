@@ -54,13 +54,22 @@ export const Disabled: Story = {
 export const CheckAndUncheck: Story = {
   name: "when the checkbox is clicked, should toggle between checked and not checked",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const checkbox = await canvas.getByRole("checkbox");
-    await userEvent.click(checkbox);
-    expect(checkbox).toBeChecked();
-    await userEvent.click(checkbox, { delay: 100 });
-    expect(checkbox).not.toBeChecked();
-    await userEvent.click(checkbox, { delay: 100 });
-    expect(checkbox).toBeChecked();
+
+    await step("check the checkbox", async () => {
+      await userEvent.click(checkbox);
+      expect(checkbox).toBeChecked();
+    });
+
+    await step("uncheck the checkbox", async () => {
+      await userEvent.click(checkbox, { delay: 100 });
+      expect(checkbox).not.toBeChecked();
+    });
+
+    await step("check the checkbox again", async () => {
+      await userEvent.click(checkbox, { delay: 100 });
+      expect(checkbox).toBeChecked();
+    });
   },
 };

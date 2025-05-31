@@ -88,13 +88,14 @@ export const WithButton: Story = {
 export const ShouldEnterEmail: Story = {
   name: "when user enters email, should see it in the input field",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const input = await canvas.findByPlaceholderText(/email/i);
-
-    // Focus and type into the input field
-    await userEvent.click(input);
     const mockedInput = "mocked@shadcn.com";
-    await userEvent.type(input, mockedInput);
+
+    await step("focus and type into the input field", async () => {
+      await userEvent.click(input);
+      await userEvent.type(input, mockedInput);
+    });
 
     expect(input).toHaveValue(mockedInput);
   },

@@ -86,17 +86,19 @@ export const SeparatedGroup: Story = {
 export const ShouldEnterText: Story = {
   name: "when typing text, should call onChange and onComplete",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvas }) => {
+  play: async ({ args, canvas, step }) => {
     const inputTextbox = await canvas.findByRole("textbox");
 
-    // Focus and type into the input textbox
-    await userEvent.click(inputTextbox);
-    await userEvent.type(inputTextbox, "mocked");
-    expect(args.onChange).toHaveBeenCalledTimes(6);
+    await step("type into input textbox", async () => {
+      await userEvent.click(inputTextbox);
+      await userEvent.type(inputTextbox, "mocked");
+      expect(args.onChange).toHaveBeenCalledTimes(6);
+    });
 
-    // Finish typing by pressing Enter
-    await userEvent.keyboard("{enter}");
-    expect(args.onComplete).toHaveBeenCalledTimes(1);
+    await step("finish typing by pressing Enter", async () => {
+      await userEvent.keyboard("{enter}");
+      expect(args.onComplete).toHaveBeenCalledTimes(1);
+    });
   },
 };
 
@@ -104,19 +106,23 @@ export const ShouldEnterNumbers: Story = {
   ...OnlyNumbers,
   name: "when only numbers are allowed, should call onChange for numbers and onComplete",
   tags: ["!dev", "!autodocs"],
-  play: async ({ args, canvas }) => {
+  play: async ({ args, canvas, step }) => {
     const inputTextbox = await canvas.findByRole("textbox");
 
-    // Focus and type into the input textbox
-    await userEvent.click(inputTextbox);
-    await userEvent.type(inputTextbox, "mocked");
-    expect(args.onChange).toHaveBeenCalledTimes(0);
+    await step("type text into input textbox", async () => {
+      await userEvent.click(inputTextbox);
+      await userEvent.type(inputTextbox, "mocked");
+      expect(args.onChange).toHaveBeenCalledTimes(0);
+    });
 
-    await userEvent.type(inputTextbox, "123456");
-    expect(args.onChange).toHaveBeenCalledTimes(6);
+    await step("type numbers into input textbox", async () => {
+      await userEvent.type(inputTextbox, "123456");
+      expect(args.onChange).toHaveBeenCalledTimes(6);
+    });
 
-    // Finish typing by pressing Enter
-    await userEvent.keyboard("{enter}");
-    expect(args.onComplete).toHaveBeenCalledTimes(1);
+    await step("finish typing by pressing Enter", async () => {
+      await userEvent.keyboard("{enter}");
+      expect(args.onComplete).toHaveBeenCalledTimes(1);
+    });
   },
 };

@@ -77,7 +77,7 @@ export const Size: Story = {
 export const ShouldNavigate: Story = {
   name: "when clicking next/previous buttons, should navigate through slides",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const slides = await canvas.findAllByRole("group");
     expect(slides).toHaveLength(5);
     const nextBtn = await canvas.findByRole("button", { name: /next/i });
@@ -85,15 +85,17 @@ export const ShouldNavigate: Story = {
       name: /previous/i,
     });
 
-    // Navigate to the last slide
-    for (let i = 0; i < slides.length - 1; i++) {
-      await userEvent.click(nextBtn);
-    }
+    await step("navigate to the last slide", async () => {
+      for (let i = 0; i < slides.length - 1; i++) {
+        await userEvent.click(nextBtn);
+      }
+    });
 
-    // Navigate back to the first slide
-    for (let i = slides.length - 1; i > 0; i--) {
-      await userEvent.click(prevBtn);
-    }
+    await step("navigate back to the first slide", async () => {
+      for (let i = slides.length - 1; i > 0; i--) {
+        await userEvent.click(prevBtn);
+      }
+    });
   },
 };
 //
