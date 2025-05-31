@@ -182,14 +182,16 @@ export const ShouldOpenClose: Story = {
   ...Simple,
   name: "when clicking the trigger, should open and close the sidebar",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, step }) => {
     const sidebarBtn = await canvas.findByRole("button", {
       name: /toggle/i,
     });
-    // Close the sidebar
-    await userEvent.click(sidebarBtn);
+    await step("close the sidebar", async () => {
+      await userEvent.click(sidebarBtn);
+    });
 
-    // Reopen the sidebar
-    await userEvent.click(sidebarBtn);
+    await step("reopen the sidebar", async () => {
+      await userEvent.click(sidebarBtn);
+    });
   },
 };
