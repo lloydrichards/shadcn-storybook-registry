@@ -51,7 +51,7 @@ export const Disabled: Story = {
   },
 };
 
-export const CheckAndUncheck: Story = {
+export const ShouldToggleCheck: Story = {
   name: "when the checkbox is clicked, should toggle between checked and not checked",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {

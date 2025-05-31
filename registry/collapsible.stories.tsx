@@ -56,7 +56,7 @@ export const Disabled: Story = {
   },
 };
 
-export const OpenAndClose: Story = {
+export const ShouldOpenClose: Story = {
   name: "when collapsable trigger is clicked, should show content",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {

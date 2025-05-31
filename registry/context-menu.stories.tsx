@@ -154,7 +154,7 @@ export const WithRadioGroup: Story = {
   ),
 };
 
-export const RightClickAndInteract: Story = {
+export const ShouldOpenClose: Story = {
   name: "when right-clicking the trigger area, the menu appears and can be interacted with",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, canvas, step }) => {

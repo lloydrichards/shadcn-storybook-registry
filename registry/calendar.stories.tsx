@@ -82,7 +82,7 @@ export const MultipleMonths: Story = {
   },
 };
 
-export const ChangeMonths: Story = {
+export const ShouldChangeMonths: Story = {
   name: "when using the calendar navigation, should change months",
   tags: ["!dev", "!autodocs"],
   args: {

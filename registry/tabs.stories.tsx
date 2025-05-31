@@ -43,7 +43,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const ShouldChange: Story = {
+export const ShouldChangeTabs: Story = {
   name: "when clicking a tab, should change the content",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {

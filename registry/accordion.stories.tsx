@@ -61,7 +61,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const TestOneTab: Story = {
+export const ShouldOnlyOpenOne: Story = {
   name: "when accordions are clicked, should open only one item at a time",
   args: {
     type: "single",
@@ -89,7 +89,7 @@ export const TestOneTab: Story = {
   },
 };
 
-export const TestAllTabs: Story = {
+export const ShouldOpenAll: Story = {
   name: "when accordions are clicked, should open all items one at a time",
   args: {
     type: "multiple",
