@@ -92,16 +92,16 @@ export const ShouldSucceedSubmit: Story = {
   play: async ({ canvas }) => {
     // Focus and type into the username field
     await userEvent.type(
-      await canvas.findByRole("textbox", { name: "Username" }),
+      await canvas.findByRole("textbox", { name: /username/i }),
       "mock user",
     );
 
     // Click the submit button
     await userEvent.click(
-      await canvas.findByRole("button", { name: "Submit" }),
+      await canvas.findByRole("button", { name: /submit/i }),
     );
     expect(
-      await canvas.queryByText("Username must be at least 6 characters.", {
+      await canvas.queryByText(/username must be at least 6 characters/i, {
         exact: true,
       }),
     ).toBeNull();
@@ -114,16 +114,16 @@ export const ShouldWarnSubmit: Story = {
   play: async ({ canvas }) => {
     // Focus and type into the username field
     await userEvent.type(
-      await canvas.findByRole("textbox", { name: "Username" }),
+      await canvas.findByRole("textbox", { name: /username/i }),
       "fail",
     );
 
     // Click the submit button
     await userEvent.click(
-      await canvas.findByRole("button", { name: "Submit" }),
+      await canvas.findByRole("button", { name: /submit/i }),
     );
     expect(
-      await canvas.queryByText("Username must be at least 6 characters.", {
+      await canvas.queryByText(/username must be at least 6 characters/i, {
         exact: true,
       }),
     ).toBeVisible();

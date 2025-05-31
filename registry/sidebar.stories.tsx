@@ -187,7 +187,7 @@ export const ShouldOpenClose: Story = {
     const canvas = within(body);
 
     const sidebarBtn = await canvas.findByRole("button", {
-      name: "Toggle Sidebar",
+      name: /toggle/i,
     });
     // Close the sidebar
     await userEvent.click(sidebarBtn);

@@ -89,12 +89,13 @@ export const ShouldEnterEmail: Story = {
   name: "when user enters email, should see it in the input field",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas }) => {
-    const input = await canvas.findByPlaceholderText("Email", { exact: true });
+    const input = await canvas.findByPlaceholderText(/email/i);
 
     // Focus and type into the input field
     await userEvent.click(input);
-    await userEvent.type(input, "mock@shadcn.com");
+    const mockedInput = "mocked@shadcn.com";
+    await userEvent.type(input, mockedInput);
 
-    expect(input).toHaveValue("mock@shadcn.com");
+    expect(input).toHaveValue(mockedInput);
   },
 };

@@ -63,7 +63,7 @@ export const ShouldOpenCloseSubmit: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
     await expect(args.onOpenChange).toHaveBeenCalled();
 
     const dialog = await canvas.findByRole("dialog");
@@ -72,7 +72,7 @@ export const ShouldOpenCloseSubmit: Story = {
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: "Submit" }),
+      await canvas.findByRole("button", { name: /submit/i }),
       { delay: 100 },
     );
     await expect(args.onClose).toHaveBeenCalled();
@@ -87,7 +87,7 @@ export const ShouldOpenCloseCancel: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: "Open" }));
+    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
     await expect(args.onOpenChange).toHaveBeenCalled();
 
     const dialog = await canvas.findByRole("dialog");
@@ -96,7 +96,7 @@ export const ShouldOpenCloseCancel: Story = {
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: "Cancel" }),
+      await canvas.findByRole("button", { name: /cancel/i }),
       { delay: 100 },
     );
     await expect(args.onClose).toHaveBeenCalled();

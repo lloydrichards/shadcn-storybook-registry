@@ -167,7 +167,7 @@ export const ShouldOpenClose: Story = {
     const body = within(canvasElement.ownerDocument.body);
 
     // Open the dropdown menu
-    await userEvent.click(await body.findByRole("button", { name: "Open" }));
+    await userEvent.click(await body.findByRole("button", { name: /open/i }));
     expect(await body.findByRole("menu")).toBeInTheDocument();
     const items = await body.findAllByRole("menuitem");
     expect(items).toHaveLength(4);

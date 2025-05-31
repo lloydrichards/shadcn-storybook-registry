@@ -80,9 +80,9 @@ export const ShouldNavigate: Story = {
   play: async ({ canvas }) => {
     const slides = await canvas.findAllByRole("group");
     expect(slides).toHaveLength(5);
-    const nextBtn = await canvas.findByRole("button", { name: "Next slide" });
+    const nextBtn = await canvas.findByRole("button", { name: /next/i });
     const prevBtn = await canvas.findByRole("button", {
-      name: "Previous slide",
+      name: /previous/i,
     });
 
     // Navigate to the last slide

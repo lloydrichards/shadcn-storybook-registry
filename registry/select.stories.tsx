@@ -83,14 +83,18 @@ export const ShouldSelectOption: Story = {
 
     // Open the select dropdown
     await userEvent.click(select);
-    await userEvent.click(await canvas.findByRole("option", { name: "Apple" }));
-    expect(select).toHaveTextContent("Apple");
+    await userEvent.click(
+      await canvas.findByRole("option", { name: /banana/i }),
+    );
+    expect(select).toHaveTextContent("Banana");
 
     // Verify that the option is selected
     await userEvent.click(select);
     expect(
-      await canvas.findByRole("option", { name: "Apple" }),
+      await canvas.findByRole("option", { name: /banana/i }),
     ).toHaveAttribute("data-state", "checked");
-    await userEvent.click(await canvas.findByRole("option", { name: "Apple" }));
+    await userEvent.click(
+      await canvas.findByRole("option", { name: /banana/i }),
+    );
   },
 };

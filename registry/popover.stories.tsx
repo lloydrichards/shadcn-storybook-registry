@@ -44,12 +44,12 @@ export const ShouldOpenClose: Story = {
     const body = within(canvasElement.ownerDocument.body);
 
     // Show the popover
-    await userEvent.click(await body.findByRole("button", { name: "Open" }));
+    await userEvent.click(await body.findByRole("button", { name: /open/i }));
     const popover = await body.findByRole("dialog");
     expect(popover).toBeInTheDocument();
 
     // Click the trigger to hide the popover
-    await userEvent.click(await body.findByRole("button", { name: "Open" }));
+    await userEvent.click(await body.findByRole("button", { name: /open/i }));
     expect(popover).toHaveAttribute("data-state", "closed");
   },
 };
