@@ -1,4 +1,5 @@
 import { action } from "storybook/actions";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { toast } from "sonner";
@@ -19,16 +20,6 @@ const meta: Meta<typeof Toaster> = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Toaster>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-/**
- * The default form of the toaster.
- */
-export const Default: Story = {
   render: (args) => (
     <div className="flex min-h-96 items-center justify-center space-x-2">
       <button
@@ -47,4 +38,57 @@ export const Default: Story = {
       <Toaster {...args} />
     </div>
   ),
+} satisfies Meta<typeof Toaster>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the toaster.
+ */
+export const Default: Story = {};
+
+export const ShouldShowToast: Story = {
+  name: "when clicking Show Toast button, should show a toast",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvas.findByRole("button", {
+      name: "Show Toast",
+    });
+
+    // Create a toast
+    await userEvent.click(triggerBtn);
+    await waitFor(() =>
+      expect(canvas.queryByRole("listitem")).toBeInTheDocument(),
+    );
+
+    // Create more toasts
+    await userEvent.click(triggerBtn);
+    await userEvent.click(triggerBtn);
+    await waitFor(() =>
+      expect(canvas.getAllByRole("listitem")).toHaveLength(3),
+    );
+  },
+};
+
+export const ShouldCloseToast: Story = {
+  name: "when clicking the close button, should close the toast",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvas.findByRole("button", {
+      name: "Show Toast",
+    });
+
+    // Create a toast
+    await userEvent.click(triggerBtn);
+
+    // Close the toast by clicking the close button
+    await userEvent.click(await canvas.findByRole("button", { name: "Undo" }));
+    await waitFor(() =>
+      expect(canvas.queryByRole("listitem")).not.toBeInTheDocument(),
+    );
+  },
 };
