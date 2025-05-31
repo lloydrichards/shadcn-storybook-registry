@@ -1,3 +1,4 @@
+import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -41,3 +42,33 @@ type Story = StoryObj<typeof meta>;
  * The default form of the tabs.
  */
 export const Default: Story = {};
+
+export const ShouldChange: Story = {
+  name: "when clicking a tab, should change the content",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const tabs = await canvas.findAllByRole("tab");
+
+    for (let i = 0; i < tabs.length; i++) {
+      const tab = tabs[i];
+
+      // Click the tab to change the content
+      await userEvent.click(tab);
+      await waitFor(() => expect(tab).toHaveAttribute("aria-selected", "true"));
+      await expect(
+        await canvas.queryByRole("tabpanel", { name: tabs[i].innerText }),
+      ).toBeVisible();
+
+      // Check that the other tabs are not selected
+      for (let j = 0; j < tabs.length; j++) {
+        if (j !== i) {
+          expect(tabs[j]).toHaveAttribute("aria-selected", "false");
+          expect(
+            await canvas.queryByRole("tabpanel", { name: tabs[j].innerText }),
+          ).toBeNull();
+        }
+      }
+    }
+  },
+};
