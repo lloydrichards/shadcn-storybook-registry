@@ -1,4 +1,4 @@
-import { userEvent, within } from "storybook/test";
+import { userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -182,10 +182,7 @@ export const ShouldOpenClose: Story = {
   ...Simple,
   name: "when clicking the trigger, should open and close the sidebar",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const body = canvasElement.ownerDocument.body;
-    const canvas = within(body);
-
+  play: async ({ canvas }) => {
     const sidebarBtn = await canvas.findByRole("button", {
       name: /toggle/i,
     });

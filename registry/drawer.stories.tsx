@@ -60,19 +60,21 @@ export const ShouldOpenCloseSubmit: Story = {
   name: "when clicking Submit button, should close the drawer",
   tags: ["!dev", "!autodocs"],
   play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
+    await userEvent.click(
+      await canvasBody.findByRole("button", { name: /open/i }),
+    );
     await expect(args.onOpenChange).toHaveBeenCalled();
 
-    const dialog = await canvas.findByRole("dialog");
+    const dialog = await canvasBody.findByRole("dialog");
     expect(dialog).toBeInTheDocument();
     expect(dialog).toHaveAttribute("data-state", "open");
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: /submit/i }),
+      await canvasBody.findByRole("button", { name: /submit/i }),
       { delay: 100 },
     );
     await expect(args.onClose).toHaveBeenCalled();
@@ -84,19 +86,21 @@ export const ShouldOpenCloseCancel: Story = {
   name: "when clicking Cancel button, should close the drawer",
   tags: ["!dev", "!autodocs"],
   play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
+    await userEvent.click(
+      await canvasBody.findByRole("button", { name: /open/i }),
+    );
     await expect(args.onOpenChange).toHaveBeenCalled();
 
-    const dialog = await canvas.findByRole("dialog");
+    const dialog = await canvasBody.findByRole("dialog");
     expect(dialog).toBeInTheDocument();
     expect(dialog).toHaveAttribute("data-state", "open");
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: /cancel/i }),
+      await canvasBody.findByRole("button", { name: /cancel/i }),
       { delay: 100 },
     );
     await expect(args.onClose).toHaveBeenCalled();

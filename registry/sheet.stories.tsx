@@ -70,18 +70,18 @@ export const ShouldOpenCloseSubmit: Story = {
   name: "when clicking Submit button, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
+    await userEvent.click(await canvasBody.findByRole("button", { name: /open/i }));
 
-    const sheet = await canvas.findByRole("dialog");
+    const sheet = await canvasBody.findByRole("dialog");
     expect(sheet).toBeInTheDocument();
     expect(sheet).toHaveAttribute("data-state", "open");
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: /submit/i }),
+      await canvasBody.findByRole("button", { name: /submit/i }),
       { delay: 100 },
     );
     expect(sheet).toHaveAttribute("data-state", "closed");
@@ -92,18 +92,18 @@ export const ShouldOpenCloseCancel: Story = {
   name: "when clicking Cancel button, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the dialog
-    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
+    await userEvent.click(await canvasBody.findByRole("button", { name: /open/i }));
 
-    const sheet = await canvas.findByRole("dialog");
+    const sheet = await canvasBody.findByRole("dialog");
     expect(sheet).toBeInTheDocument();
     expect(sheet).toHaveAttribute("data-state", "open");
 
     // Close the dialog
     await userEvent.click(
-      await canvas.findByRole("button", { name: /cancel/i }),
+      await canvasBody.findByRole("button", { name: /cancel/i }),
       { delay: 100 },
     );
     expect(sheet).toHaveAttribute("data-state", "closed");
@@ -114,18 +114,20 @@ export const ShouldOpenCloseCross: Story = {
   name: "when clicking Close icon, should close the sheet",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the sheet
-    await userEvent.click(await canvas.findByRole("button", { name: /open/i }));
+    await userEvent.click(
+      await canvasBody.findByRole("button", { name: /open/i }),
+    );
 
-    const sheet = await canvas.findByRole("dialog");
+    const sheet = await canvasBody.findByRole("dialog");
     expect(sheet).toBeInTheDocument();
     expect(sheet).toHaveAttribute("data-state", "open");
 
     // Close the sheet
     await userEvent.click(
-      await canvas.findByRole("button", { name: /close/i }),
+      await canvasBody.findByRole("button", { name: /close/i }),
     );
     expect(sheet).toHaveAttribute("data-state", "closed");
   },

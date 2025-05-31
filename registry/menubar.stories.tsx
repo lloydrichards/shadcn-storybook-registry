@@ -131,12 +131,14 @@ export const ShouldOpenClose: Story = {
   name: "when clicking an item, should close the menubar",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const body = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Open the menubar
-    await userEvent.click(await body.findByRole("menuitem", { name: /file/i }));
-    expect(await body.findByRole("menu")).toBeInTheDocument();
-    const items = await body.findAllByRole("menuitem");
+    await userEvent.click(
+      await canvasBody.findByRole("menuitem", { name: /file/i }),
+    );
+    expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    const items = await canvasBody.findAllByRole("menuitem");
     expect(items).toHaveLength(5);
 
     // Click the first item to close the menubar

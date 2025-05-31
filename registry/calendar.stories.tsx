@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { addDays } from "date-fns";
 
 import { Calendar } from "@/components/ui/calendar";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent } from "storybook/test";
 
 /**
  * A date field component that allows users to enter and edit date.
@@ -88,8 +88,7 @@ export const ChangeMonths: Story = {
   args: {
     defaultMonth: new Date(2000, 8),
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const title = await canvas.findByText(/2000/i);
     const startTitle = title.textContent || "";
     const backBtn = await canvas.findByRole("button", {

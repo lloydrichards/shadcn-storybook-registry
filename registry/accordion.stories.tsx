@@ -1,6 +1,6 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, userEvent, waitFor, within } from "storybook/test";
+import { expect, userEvent, waitFor } from "storybook/test";
 
 import {
   Accordion,
@@ -67,8 +67,7 @@ export const TestOneTab: Story = {
     type: "single",
   },
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const accordions = await canvas.getAllByRole("button");
 
     // Open the tabs one at a time
@@ -95,8 +94,7 @@ export const TestAllTabs: Story = {
     type: "multiple",
   },
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const accordions = await canvas.getAllByRole("button");
 
     // Open all tabs one at a time

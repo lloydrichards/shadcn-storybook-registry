@@ -1,4 +1,4 @@
-import { expect, userEvent, waitFor, within } from "storybook/test";
+import { expect, userEvent, waitFor } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -46,8 +46,7 @@ export const Default: Story = {};
 export const ShouldChange: Story = {
   name: "when clicking a tab, should change the content",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+  play: async ({ canvas }) => {
     const tabs = await canvas.findAllByRole("tab");
 
     for (let i = 0; i < tabs.length; i++) {

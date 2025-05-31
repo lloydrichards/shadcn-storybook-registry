@@ -10,7 +10,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent } from "storybook/test";
 
 /**
  * Fast, composable, unstyled command menu for React.
@@ -59,8 +59,7 @@ export const Default: Story = {};
 export const TypingInCombobox: Story = {
   name: "when typing into the combobox, should filter results",
   tags: ["!dev", "!autodocs"],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const input = canvas.getByRole("combobox");
 
     // Search for "calendar" which should return a single result

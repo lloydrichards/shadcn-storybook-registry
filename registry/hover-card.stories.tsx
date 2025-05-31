@@ -54,10 +54,10 @@ export const ShouldShowHover: Story = {
   name: "when hovering over trigger, should show hover card content",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
     // Hover over the trigger element
-    await userEvent.hover(await canvas.findByText(/hover/i));
+    await userEvent.hover(await canvasBody.findByText(/hover/i));
     await waitFor(() =>
       expect(
         canvasElement.ownerDocument.body.querySelector(
@@ -67,7 +67,7 @@ export const ShouldShowHover: Story = {
     );
 
     // Unhover the trigger element
-    await userEvent.unhover(await canvas.findByText(/hover/i));
+    await userEvent.unhover(await canvasBody.findByText(/hover/i));
     await waitFor(() =>
       expect(
         canvasElement.ownerDocument.body.querySelector(

@@ -78,23 +78,23 @@ export const ShouldSelectOption: Story = {
   name: "when an option is selected, should be checked",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    const select = await canvas.findByRole("combobox");
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const select = await canvasBody.findByRole("combobox");
 
     // Open the select dropdown
     await userEvent.click(select);
     await userEvent.click(
-      await canvas.findByRole("option", { name: /banana/i }),
+      await canvasBody.findByRole("option", { name: /banana/i }),
     );
     expect(select).toHaveTextContent("Banana");
 
     // Verify that the option is selected
     await userEvent.click(select);
     expect(
-      await canvas.findByRole("option", { name: /banana/i }),
+      await canvasBody.findByRole("option", { name: /banana/i }),
     ).toHaveAttribute("data-state", "checked");
     await userEvent.click(
-      await canvas.findByRole("option", { name: /banana/i }),
+      await canvasBody.findByRole("option", { name: /banana/i }),
     );
   },
 };
