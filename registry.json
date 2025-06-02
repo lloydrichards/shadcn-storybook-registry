@@ -754,6 +754,22 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "color-story",
+      "title": "Color Story",
+      "type": "registry:ui",
+      "meta": {
+        "type": "design",
+        "story": "ui-color"
+      },
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/color.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
