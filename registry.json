@@ -743,6 +743,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "typography-story",
+      "title": "Typography Story",
+      "type": "registry:ui",
+      "meta": {
+        "story": "ui-typography"
+      },
+      "files": [
+        {
+          "path": "registry/tokens/typography.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
