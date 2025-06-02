@@ -770,6 +770,22 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "radius-story",
+      "title": "Radius Story",
+      "type": "registry:ui",
+      "meta": {
+        "type": "design",
+        "story": "ui-radius"
+      },
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/radius.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
