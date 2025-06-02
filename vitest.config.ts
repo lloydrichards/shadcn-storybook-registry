@@ -14,7 +14,7 @@ const dirname =
 export default defineConfig({
   test: {
     passWithNoTests: true,
-    workspace: [
+    projects: [
       {
         extends: true,
         plugins: [
