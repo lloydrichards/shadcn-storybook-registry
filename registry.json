@@ -729,6 +729,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "radius-story",
+      "title": "Radius Story",
+      "type": "registry:ui",
+      "meta": {
+        "story": "ui-radius"
+      },
+      "files": [
+        {
+          "path": "registry/tokens/radius.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radius-story",
+  "type": "registry:ui",
+  "title": "Radius Story",
+  "files": [
+    {
+      "path": "registry/tokens/radius.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\ntype Radius = {\n  name: string;\n  value: string;\n};\nconst meta: Meta<{\n  radius: Radius[];\n}> = {\n  title: \"design/Radius\",\n  argTypes: {},\n  render: (args) => (\n    <table className=\"text-foreground w-full table-auto text-left text-sm rtl:text-right\">\n      <thead className=\"bg-muted text-xs uppercase\">\n        <tr>\n          <th scope=\"col\" className=\"px-6 py-3\">\n            Name\n          </th>\n          <th scope=\"col\" className=\"hidden px-6 py-3 sm:table-cell\">\n            Size\n          </th>\n          <th scope=\"col\" className=\"px-6 py-3\">\n            <span className=\"sr-only\">Preview</span>\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        {args.radius.map(({ name, value }) => {\n          const style = window.getComputedStyle(document.body);\n          const radius = style.getPropertyValue(value);\n          return (\n            <tr key={name} className=\"bg-card border-b\">\n              <td className=\"px-6 py-2\">{name}</td>\n              <td className=\"hidden px-6 py-2 sm:table-cell\">{value}</td>\n              <td className=\"px-6 py-2\">\n                <div\n                  className=\"bg-background size-20 border-2\"\n                  style={{ borderRadius: radius }}\n                />\n              </td>\n            </tr>\n          );\n        })}\n      </tbody>\n    </table>\n  ),\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const Core: Story = {\n  args: {\n    radius: [\n      { name: \"xs\", value: \"--radius-xs\" },\n      { name: \"sm\", value: \"--radius-sm\" },\n      { name: \"md\", value: \"--radius-md\" },\n      { name: \"lg\", value: \"--radius-lg\" },\n    ],\n  },\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "story": "ui-radius"
+  }
+}
