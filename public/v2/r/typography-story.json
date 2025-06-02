@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-story",
+  "type": "registry:ui",
+  "title": "Typography Story",
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/tokens/typography.stories.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@/components/ui/table\";\nimport { CSSProperties } from \"react\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\ntype Typography = {\n  name: string;\n  value: string;\n};\n\nconst TypographyBlock = ({\n  cssKey,\n  value,\n  children,\n}: {\n  cssKey: keyof CSSProperties;\n  value: string;\n  children: React.ReactNode;\n}) => {\n  const style = window.getComputedStyle(document.body);\n  const resolved = style.getPropertyValue(value);\n\n  return (\n    <p className=\"line-clamp-1\" style={{ [cssKey]: resolved }}>\n      {children}\n    </p>\n  );\n};\n\nconst meta: Meta<{\n  children: string;\n  cssKey: keyof CSSProperties;\n  properties: Typography[];\n}> = {\n  title: \"design/Typography\",\n  argTypes: {},\n  args: {\n    children: \"Typeface\",\n  },\n  render: (args) => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Name</TableHead>\n          <TableHead>Property</TableHead>\n          <TableHead>\n            <span className=\"sr-only\">Preview</span>\n          </TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {args.properties.map(({ name, value }) => (\n          <TableRow key={name} className=\"bg-card border-b\">\n            <TableCell className=\"px-6 py-4\">{name}</TableCell>\n            <TableCell className=\"hidden px-6 py-4 sm:table-cell\">\n              {value}\n            </TableCell>\n            <TableCell className=\"px-6 py-4 leading-tight\">\n              <TypographyBlock cssKey={args.cssKey} value={value}>\n                {args.children}\n              </TypographyBlock>\n            </TableCell>\n          </TableRow>\n        ))}\n      </TableBody>\n    </Table>\n  ),\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const FontFamily: Story = {\n  args: {\n    cssKey: \"fontFamily\",\n    properties: [\n      { name: \"sans\", value: \"--font-sans\" },\n      { name: \"serif\", value: \"--font-serif\" },\n      { name: \"mono\", value: \"--font-mono\" },\n    ],\n  },\n};\nexport const FontSize: Story = {\n  args: {\n    cssKey: \"fontSize\",\n    properties: [\n      { name: \"xs\", value: \"--text-xs\" },\n      { name: \"sm\", value: \"--text-sm\" },\n      { name: \"base\", value: \"--text-base\" },\n      { name: \"lg\", value: \"--text-lg\" },\n      { name: \"xl\", value: \"--text-xl\" },\n      { name: \"2xl\", value: \"--text-2xl\" },\n      { name: \"3xl\", value: \"--text-3xl\" },\n      { name: \"4xl\", value: \"--text-4xl\" },\n      { name: \"5xl\", value: \"--text-5xl\" },\n      { name: \"6xl\", value: \"--text-6xl\" },\n    ],\n  },\n};\nexport const FontWeight: Story = {\n  args: {\n    cssKey: \"fontWeight\",\n    properties: [\n      { name: \"thin\", value: \"--font-weight-thin\" },\n      { name: \"extralight\", value: \"--font-weight-extralight\" },\n      { name: \"light\", value: \"--font-weight-light\" },\n      { name: \"normal\", value: \"--font-weight-normal\" },\n      { name: \"medium\", value: \"--font-weight-medium\" },\n      { name: \"semibold\", value: \"--font-weight-semibold\" },\n      { name: \"bold\", value: \"--font-weight-bold\" },\n      { name: \"extrabold\", value: \"--font-weight-extrabold\" },\n      { name: \"black\", value: \"--font-weight-black\" },\n    ],\n  },\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "type": "design",
+    "story": "ui-typography"
+  }
+}
