@@ -1,3 +1,39 @@
+# [0.5.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.4.1...v0.5.0) (2025-06-06)
+
+
+### Features
+
+* 🧪 add interaction test for carousel story ([f3e9aff](https://github.com/lloydrichards/shadcn-storybook-registry/commit/f3e9affed5837d95a62b1d6d49b392019558d668))
+* 🧪 add interaction test for checkbox ([0b5bed6](https://github.com/lloydrichards/shadcn-storybook-registry/commit/0b5bed69995d77f19f3b178d9dd0dad8d8f16b16))
+* 🧪 add interaction test for collapsable story ([37bfad5](https://github.com/lloydrichards/shadcn-storybook-registry/commit/37bfad53db19cd13868f42155fad2514e2d74dab))
+* 🧪 add interaction test for context-menu story ([21e2751](https://github.com/lloydrichards/shadcn-storybook-registry/commit/21e27510561d1ffa09d6742a277e807392d2aec3))
+* 🧪 add interaction test for dialog story ([930bc13](https://github.com/lloydrichards/shadcn-storybook-registry/commit/930bc132890c0e3159a2182bc007e23ecd8d0a0b))
+* 🧪 add interaction test for drawer story ([70fa3cf](https://github.com/lloydrichards/shadcn-storybook-registry/commit/70fa3cf62a1e3ea916fe56bac2635e3baf902016))
+* 🧪 add interaction test for dropdown-menu story ([fade0b4](https://github.com/lloydrichards/shadcn-storybook-registry/commit/fade0b49db8d1fe50c94e832af7a6612746b315d))
+* 🧪 add interaction test for form story ([1b5b4f6](https://github.com/lloydrichards/shadcn-storybook-registry/commit/1b5b4f64e2d38a2486bbc906476d1fa57f951c19))
+* 🧪 add interaction test for hover-card story ([aaa0aab](https://github.com/lloydrichards/shadcn-storybook-registry/commit/aaa0aab93f8de357d359c968376c0dec270e11b9))
+* 🧪 add interaction test for input story ([ff1eb0d](https://github.com/lloydrichards/shadcn-storybook-registry/commit/ff1eb0ddc82813fd304a1ed90faa8d93e1a7040a))
+* 🧪 add interaction test for input-otp story ([657c6be](https://github.com/lloydrichards/shadcn-storybook-registry/commit/657c6be43ec059bd54b3ddd2dfa1e481e168cd5e))
+* 🧪 add interaction test for menubar story ([b3682f5](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b3682f5f0f6c73b591f2bb7a7a0dbfae96227904))
+* 🧪 add interaction test for popover story ([b93cb66](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b93cb6612eecf644eb6e918d8579273a7995bbdb))
+* 🧪 add interaction test for radio-group story ([2b9940e](https://github.com/lloydrichards/shadcn-storybook-registry/commit/2b9940ec7b2ebe610eb6771a98804450317338f3))
+* 🧪 add interaction test for select story ([6e58de4](https://github.com/lloydrichards/shadcn-storybook-registry/commit/6e58de4734854550272b1638f047ba39ae004595))
+* 🧪 add interaction test for sheet story ([eab3889](https://github.com/lloydrichards/shadcn-storybook-registry/commit/eab388900a064c1e3b046d4168610fc64fe94226))
+* 🧪 add interaction test for sidebar story ([77c07d2](https://github.com/lloydrichards/shadcn-storybook-registry/commit/77c07d2164227ff201c91364ade499b90ce75f41))
+* 🧪 add interaction test for sonner story ([38da617](https://github.com/lloydrichards/shadcn-storybook-registry/commit/38da617d54ffc86eac345e683b77a7371073b822))
+* 🧪 add interaction test for switch story ([b3e8c7c](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b3e8c7c817e668fa3168d3f6500889e1c9bce2f1))
+* 🧪 add interaction test for tabs story ([e3d3995](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e3d3995d3e9096eacc81f65cd33740bfe84800c7))
+* 🧪 add interaction test for tooltip story ([0c27502](https://github.com/lloydrichards/shadcn-storybook-registry/commit/0c27502bd714f1b69eccfb8f2ad120934b01746a))
+* 🧪 add interaction test to command story ([8c46fc3](https://github.com/lloydrichards/shadcn-storybook-registry/commit/8c46fc347971e5a02def45a93f0b7e58e35af5ab))
+* 🧪 add interaction tests to accordion story ([e910071](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e910071802bc873953b99c44e167d28448eca20a))
+* 🧪 add interaction tests to alert dialog story ([aafb30a](https://github.com/lloydrichards/shadcn-storybook-registry/commit/aafb30a6afb46a74ce10750ca4700362a009f7d0))
+* 🧪 add interaction tests to calendar story ([56c9b5d](https://github.com/lloydrichards/shadcn-storybook-registry/commit/56c9b5d4bfc108506ea6ee55356eba0bfbfc1931))
+
+
+### Reverts
+
+* add back storybook-test ([5f97fe1](https://github.com/lloydrichards/shadcn-storybook-registry/commit/5f97fe169bc25b379e201477238bd592fd580422))
+
 ## [0.4.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.4.0...v0.4.1) (2025-05-13)
 
 
