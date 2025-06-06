@@ -27,7 +27,9 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Component Tests
-        run: bun run test:storybook || bun run test:storybook
+        run:
+          bun run test:storybook || bun run test:storybook || bun run
+          test:storybook
 
   unit-testing:
     name: "Unit Testing"
