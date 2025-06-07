@@ -715,6 +715,48 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "color-story",
+      "title": "Color Story",
+      "type": "registry:ui",
+      "meta": {
+        "story": "ui-color"
+      },
+      "files": [
+        {
+          "path": "registry/tokens/color.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radius-story",
+      "title": "Radius Story",
+      "type": "registry:ui",
+      "meta": {
+        "story": "ui-radius"
+      },
+      "files": [
+        {
+          "path": "registry/tokens/radius.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "typography-story",
+      "title": "Typography Story",
+      "type": "registry:ui",
+      "meta": {
+        "story": "ui-typography"
+      },
+      "files": [
+        {
+          "path": "registry/tokens/typography.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
