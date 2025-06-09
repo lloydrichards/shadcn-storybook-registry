@@ -3,16 +3,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Code2 } from "lucide-react";
-import Link from "next/link";
+import { Footer } from "./Footer";
 import "./globals.css";
+import { Header } from "./Header";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,33 +39,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="bg-primary flex flex-row-reverse px-4 py-2">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                <Link href="/storybook">Storybook</Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </header>
+        <Header />
         {children}
-        <footer className="flex flex-row items-center justify-between px-4 py-2">
-          <Button variant="link" asChild>
-            <a href="https://www.lloydrichards.dev" target="_blank">
-              lloydrichards.dev
-            </a>
-          </Button>
-          <Button variant="link" asChild>
-            <a
-              href="https://github.com/lloydrichards/shadcn-storybook-registry"
-              target="_blank"
-            >
-              <Code2 size={24} /> Repo
-            </a>
-          </Button>
-        </footer>
+        <Footer />
         <Analytics />
         <SpeedInsights />
+        <Toaster />
       </body>
     </html>
   );

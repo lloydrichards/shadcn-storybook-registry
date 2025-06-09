@@ -1,4 +1,4 @@
-import CommandBlock from "@/components/command-block";
+import { CommandBlock } from "@/components/command-block";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {

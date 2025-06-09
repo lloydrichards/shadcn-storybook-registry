@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Copy } from "lucide-react";
 import { Input } from "./ui/input";
+import { toast } from "sonner";
 
-const CommandBlock = ({ command }: { command: string }) => {
+export const CommandBlock = ({ command }: { command: string }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
+    toast("Copied to clipboard");
     navigator.clipboard.writeText(command).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
@@ -35,5 +37,3 @@ const CommandBlock = ({ command }: { command: string }) => {
     </div>
   );
 };
-
-export default CommandBlock;
