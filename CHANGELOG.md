@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.5.0...v0.5.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* correct dependencies ([18d80a2](https://github.com/lloydrichards/shadcn-storybook-registry/commit/18d80a26e683ac67e6c5e189f7589e96324fc086))
+
 # [0.5.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.4.1...v0.5.0) (2025-06-06)
 
 
