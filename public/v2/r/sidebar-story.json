@@ -3,6 +3,9 @@
   "name": "sidebar-story",
   "type": "registry:ui",
   "title": "Sidebar Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "sidebar",
     "dropdown-menu"

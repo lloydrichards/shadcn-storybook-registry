@@ -3,6 +3,9 @@
   "name": "toggle-group-story",
   "type": "registry:ui",
   "title": "Toggle Group Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "toggle-group"
   ],

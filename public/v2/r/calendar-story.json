@@ -3,6 +3,9 @@
   "name": "calendar-story",
   "type": "registry:ui",
   "title": "Calendar Story",
+  "dependencies": [
+    "date-fns"
+  ],
   "registryDependencies": [
     "calendar"
   ],

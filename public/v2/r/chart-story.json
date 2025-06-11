@@ -3,6 +3,9 @@
   "name": "chart-story",
   "type": "registry:ui",
   "title": "Chart Story",
+  "dependencies": [
+    "recharts"
+  ],
   "registryDependencies": [
     "chart"
   ],

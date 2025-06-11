@@ -3,6 +3,9 @@
   "name": "input-otp-story",
   "type": "registry:ui",
   "title": "Input OTP Story",
+  "dependencies": [
+    "input-otp"
+  ],
   "registryDependencies": [
     "input-otp"
   ],

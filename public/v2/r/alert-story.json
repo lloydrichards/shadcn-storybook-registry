@@ -3,6 +3,9 @@
   "name": "alert-story",
   "type": "registry:ui",
   "title": "Alert Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "alert"
   ],

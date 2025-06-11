@@ -3,6 +3,9 @@
   "name": "button-story",
   "type": "registry:file",
   "title": "Button Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "button"
   ],

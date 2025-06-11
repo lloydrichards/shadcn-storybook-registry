@@ -1,6 +1,5 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { CommandSeparator } from "cmdk";
 
 import {
   Command,
@@ -9,8 +8,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from "@/components/ui/command";
-import { within, userEvent, expect } from "storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * Fast, composable, unstyled command menu for React.

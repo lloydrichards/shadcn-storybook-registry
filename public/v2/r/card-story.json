@@ -3,6 +3,9 @@
   "name": "card-story",
   "type": "registry:ui",
   "title": "Card Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "card",
     "button"

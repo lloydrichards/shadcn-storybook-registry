@@ -3,6 +3,9 @@
   "name": "collapsible-story",
   "type": "registry:ui",
   "title": "Collapsible Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "collapsible"
   ],

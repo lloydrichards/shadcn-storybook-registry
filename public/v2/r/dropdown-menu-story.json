@@ -3,6 +3,9 @@
   "name": "dropdown-menu-story",
   "type": "registry:ui",
   "title": "Dropdown Menu Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "dropdown-menu"
   ],

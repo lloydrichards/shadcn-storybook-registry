@@ -3,6 +3,9 @@
   "name": "breadcrumb-story",
   "type": "registry:ui",
   "title": "Breadcrumb Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "breadcrumb"
   ],

@@ -3,6 +3,9 @@
   "name": "tooltip-story",
   "type": "registry:ui",
   "title": "Tooltip Story",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "tooltip"
   ],

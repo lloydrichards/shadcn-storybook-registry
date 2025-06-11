@@ -4,7 +4,8 @@
   "type": "registry:ui",
   "title": "Switch Story",
   "registryDependencies": [
-    "switch"
+    "switch",
+    "label"
   ],
   "files": [
     {
