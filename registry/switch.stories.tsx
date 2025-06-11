@@ -3,6 +3,7 @@ import { expect, userEvent } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 /**
  * A control that allows the user to toggle between checked and not checked.
@@ -18,9 +19,7 @@ const meta = {
   render: (args) => (
     <div className="flex items-center space-x-2">
       <Switch {...args} />
-      <label htmlFor={args.id} className="peer-disabled:text-foreground/50">
-        Airplane Mode
-      </label>
+      <Label htmlFor={args.id}>Airplane Mode</Label>
     </div>
   ),
 } satisfies Meta<typeof Switch>;

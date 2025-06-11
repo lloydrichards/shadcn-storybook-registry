@@ -2,7 +2,9 @@ import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 /**
  * Displays a form input field or a component that looks like an input field.
@@ -47,7 +49,7 @@ export const Disabled: Story = {
 export const WithLabel: Story = {
   render: (args) => (
     <div className="grid items-center gap-1.5">
-      <label htmlFor="email">{args.placeholder}</label>
+      <Label htmlFor="email">{args.placeholder}</Label>
       <Input {...args} id="email" />
     </div>
   ),
@@ -60,7 +62,7 @@ export const WithLabel: Story = {
 export const WithHelperText: Story = {
   render: (args) => (
     <div className="grid items-center gap-1.5">
-      <label htmlFor="email-2">{args.placeholder}</label>
+      <Label htmlFor="email-2">{args.placeholder}</Label>
       <Input {...args} id="email-2" />
       <p className="text-foreground/60 text-sm">Enter your email address.</p>
     </div>
@@ -75,12 +77,7 @@ export const WithButton: Story = {
   render: (args) => (
     <div className="flex items-center space-x-2">
       <Input {...args} />
-      <button
-        className="bg-primary text-primary-foreground rounded px-4 py-2"
-        type="submit"
-      >
-        Subscribe
-      </button>
+      <Button type="submit">Subscribe</Button>
     </div>
   ),
 };

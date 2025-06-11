@@ -145,7 +145,7 @@
       "meta": {
         "story": "ui-card"
       },
-      "registryDependencies": ["card"],
+      "registryDependencies": ["card", "button"],
       "files": [
         {
           "path": "registry/card.stories.tsx",
@@ -191,7 +191,7 @@
       "meta": {
         "story": "ui-checkbox"
       },
-      "registryDependencies": ["checkbox"],
+      "registryDependencies": ["checkbox", "label"],
       "files": [
         {
           "path": "registry/checkbox.stories.tsx",
@@ -303,7 +303,7 @@
         "zod",
         "react-hook-form"
       ],
-      "registryDependencies": ["button", "label"],
+      "registryDependencies": ["button", "form"],
       "files": [
         {
           "path": "registry/form.stories.tsx",
@@ -333,7 +333,7 @@
       "meta": {
         "story": "ui-input"
       },
-      "registryDependencies": ["input"],
+      "registryDependencies": ["input", "label", "button"],
       "files": [
         {
           "path": "registry/input.stories.tsx",
@@ -453,7 +453,7 @@
       "meta": {
         "story": "ui-radiogroup"
       },
-      "registryDependencies": ["radio-group"],
+      "registryDependencies": ["radio-group", "label"],
       "files": [
         {
           "path": "registry/radio-group.stories.tsx",
@@ -588,7 +588,8 @@
       "meta": {
         "story": "ui-sonner"
       },
-      "dependencies": ["sonner", "next-themes"],
+      "dependencies": ["sonner"],
+      "registryDependencies": ["sonner", "button"],
       "files": [
         {
           "path": "registry/sonner.stories.tsx",
@@ -648,7 +649,7 @@
       "meta": {
         "story": "ui-textarea"
       },
-      "registryDependencies": ["textarea"],
+      "registryDependencies": ["textarea", "button", "label"],
       "files": [
         {
           "path": "registry/textarea.stories.tsx",

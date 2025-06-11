@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { BellRing } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -55,7 +56,7 @@ const meta = {
         ))}
       </CardContent>
       <CardFooter>
-        <button className="hover:underline">Close</button>
+        <Button variant="link">Close</Button>
       </CardFooter>
     </Card>
   ),

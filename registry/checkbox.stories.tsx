@@ -2,7 +2,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { userEvent, within, expect } from "storybook/test";
+import { Label } from "@/components/ui/label";
+import { expect, userEvent, within } from "storybook/test";
 
 /**
  * A control that allows the user to toggle between checked and not checked.
@@ -19,12 +20,7 @@ const meta: Meta<typeof Checkbox> = {
   render: (args) => (
     <div className="flex space-x-2">
       <Checkbox {...args} />
-      <label
-        htmlFor={args.id}
-        className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
-      >
-        Accept terms and conditions
-      </label>
+      <Label htmlFor={args.id}>Accept terms and conditions</Label>
     </div>
   ),
   parameters: {

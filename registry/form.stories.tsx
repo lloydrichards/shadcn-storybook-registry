@@ -6,6 +6,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -70,12 +71,7 @@ const ProfileForm = (args: Story["args"]) => {
             </FormItem>
           )}
         />
-        <button
-          className="bg-primary text-primary-foreground rounded px-4 py-2"
-          type="submit"
-        >
-          Submit
-        </button>
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   );

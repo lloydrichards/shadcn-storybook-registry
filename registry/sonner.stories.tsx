@@ -4,6 +4,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { toast } from "sonner";
 
+import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
 /**
@@ -22,7 +23,7 @@ const meta: Meta<typeof Toaster> = {
   },
   render: (args) => (
     <div className="flex min-h-96 items-center justify-center space-x-2">
-      <button
+      <Button
         onClick={() =>
           toast("Event has been created", {
             description: new Date().toLocaleString(),
@@ -34,7 +35,7 @@ const meta: Meta<typeof Toaster> = {
         }
       >
         Show Toast
-      </button>
+      </Button>
       <Toaster {...args} />
     </div>
   ),
