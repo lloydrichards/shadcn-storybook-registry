@@ -16,6 +16,7 @@
     }
   ],
   "meta": {
+    "type": "ui",
     "story": "ui-textarea"
   }
 }

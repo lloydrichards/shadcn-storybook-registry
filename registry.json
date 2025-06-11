@@ -8,6 +8,7 @@
       "title": "Accordion Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-accordion"
       },
       "registryDependencies": ["accordion"],
@@ -23,6 +24,7 @@
       "title": "Alert Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-alert"
       },
       "registryDependencies": ["alert"],
@@ -39,6 +41,7 @@
       "title": "Alert Dialog Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-alertdialog"
       },
       "registryDependencies": ["alert-dialog"],
@@ -54,6 +57,7 @@
       "title": "Aspect Ratio Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-aspectratio"
       },
       "registryDependencies": ["aspect-ratio"],
@@ -69,6 +73,7 @@
       "title": "Avatar Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-avatar"
       },
       "registryDependencies": ["avatar"],
@@ -84,6 +89,7 @@
       "title": "Badge Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-badge"
       },
       "registryDependencies": ["badge"],
@@ -99,6 +105,7 @@
       "title": "Breadcrumb Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-breadcrumb"
       },
       "registryDependencies": ["breadcrumb"],
@@ -115,6 +122,7 @@
       "title": "Button Story",
       "type": "registry:file",
       "meta": {
+        "type": "ui",
         "story": "ui-button"
       },
       "registryDependencies": ["button"],
@@ -131,6 +139,7 @@
       "title": "Calendar Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-calendar"
       },
       "registryDependencies": ["calendar"],
@@ -147,6 +156,7 @@
       "title": "Card Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-card"
       },
       "registryDependencies": ["card", "button"],
@@ -163,6 +173,7 @@
       "title": "Carousel Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-carousel"
       },
       "registryDependencies": ["carousel"],
@@ -179,6 +190,7 @@
       "title": "Chart Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-chart"
       },
       "registryDependencies": ["chart"],
@@ -195,6 +207,7 @@
       "title": "Checkbox Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-checkbox"
       },
       "registryDependencies": ["checkbox", "label"],
@@ -210,6 +223,7 @@
       "title": "Collapsible Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-collapsible"
       },
       "registryDependencies": ["collapsible"],
@@ -226,6 +240,7 @@
       "title": "Command Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-command"
       },
       "registryDependencies": ["dialog", "command"],
@@ -241,6 +256,7 @@
       "title": "Context Menu Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-contextmenu"
       },
       "registryDependencies": ["context-menu"],
@@ -256,6 +272,7 @@
       "title": "Dialog Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-dialog"
       },
       "registryDependencies": ["dialog"],
@@ -271,6 +288,7 @@
       "title": "Drawer Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-drawer"
       },
       "registryDependencies": ["drawer"],
@@ -286,6 +304,7 @@
       "title": "Dropdown Menu Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-dropdownmenu"
       },
       "registryDependencies": ["dropdown-menu"],
@@ -302,6 +321,7 @@
       "title": "Form Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-form"
       },
       "registryDependencies": ["button", "form"],
@@ -318,6 +338,7 @@
       "title": "Hover Card Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-hovercard"
       },
       "registryDependencies": ["hover-card"],
@@ -333,6 +354,7 @@
       "title": "Input Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-input"
       },
       "registryDependencies": ["input", "label", "button"],
@@ -348,6 +370,7 @@
       "title": "Input OTP Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-inputotp"
       },
       "registryDependencies": ["input-otp"],
@@ -364,6 +387,7 @@
       "title": "Label Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-label"
       },
       "registryDependencies": ["label"],
@@ -379,6 +403,7 @@
       "title": "Menubar Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-menubar"
       },
       "registryDependencies": ["menubar"],
@@ -394,6 +419,7 @@
       "title": "Navigation Menu Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-navigationmenu"
       },
       "registryDependencies": ["navigation-menu"],
@@ -409,6 +435,7 @@
       "title": "Pagination Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-pagination"
       },
       "registryDependencies": ["button"],
@@ -424,6 +451,7 @@
       "title": "Popover Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-popover"
       },
       "registryDependencies": ["popover"],
@@ -439,6 +467,7 @@
       "title": "Progress Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-progress"
       },
       "registryDependencies": ["progress"],
@@ -454,6 +483,7 @@
       "title": "Radio Group Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-radiogroup"
       },
       "registryDependencies": ["radio-group", "label"],
@@ -469,6 +499,7 @@
       "title": "Resizable Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-resizablepanelgroup"
       },
       "registryDependencies": ["resizable"],
@@ -484,6 +515,7 @@
       "title": "Scroll Area Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-scrollarea"
       },
       "registryDependencies": ["scroll-area"],
@@ -499,6 +531,7 @@
       "title": "Select Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-select"
       },
       "registryDependencies": ["select"],
@@ -514,6 +547,7 @@
       "title": "Separator Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-separator"
       },
       "registryDependencies": ["separator"],
@@ -529,6 +563,7 @@
       "title": "Sheet Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-sheet"
       },
       "registryDependencies": ["sheet"],
@@ -544,6 +579,7 @@
       "title": "Sidebar Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-sidebar"
       },
       "registryDependencies": ["sidebar", "dropdown-menu"],
@@ -560,6 +596,7 @@
       "title": "Skeleton Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-skeleton"
       },
       "registryDependencies": ["skeleton"],
@@ -575,6 +612,7 @@
       "title": "Slider Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-slider"
       },
       "registryDependencies": ["slider"],
@@ -590,6 +628,7 @@
       "title": "Sonner Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-sonner"
       },
       "registryDependencies": ["sonner", "button"],
@@ -606,6 +645,7 @@
       "title": "Switch Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-switch"
       },
       "registryDependencies": ["switch", "label"],
@@ -621,6 +661,7 @@
       "title": "Table Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-table"
       },
       "registryDependencies": ["table"],
@@ -636,6 +677,7 @@
       "title": "Tabs Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-tabs"
       },
       "registryDependencies": ["tabs"],
@@ -651,6 +693,7 @@
       "title": "Textarea Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-textarea"
       },
       "registryDependencies": ["textarea", "button", "label"],
@@ -666,6 +709,7 @@
       "title": "Toggle Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-toggle"
       },
       "registryDependencies": ["toggle"],
@@ -682,6 +726,7 @@
       "title": "Toggle Group Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-togglegroup"
       },
       "registryDependencies": ["toggle-group"],
@@ -698,6 +743,7 @@
       "title": "Tooltip Story",
       "type": "registry:ui",
       "meta": {
+        "type": "ui",
         "story": "ui-tooltip"
       },
       "registryDependencies": ["tooltip"],

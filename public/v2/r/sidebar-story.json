@@ -18,6 +18,7 @@
     }
   ],
   "meta": {
+    "type": "ui",
     "story": "ui-sidebar"
   }
 }

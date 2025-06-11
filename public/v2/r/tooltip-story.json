@@ -17,6 +17,7 @@
     }
   ],
   "meta": {
+    "type": "ui",
     "story": "ui-tooltip"
   }
 }

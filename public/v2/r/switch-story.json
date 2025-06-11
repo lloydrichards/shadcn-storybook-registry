@@ -15,6 +15,7 @@
     }
   ],
   "meta": {
+    "type": "ui",
     "story": "ui-switch"
   }
 }
