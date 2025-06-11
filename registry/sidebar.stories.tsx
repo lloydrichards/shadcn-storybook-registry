@@ -3,6 +3,12 @@ import { userEvent } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -25,12 +31,6 @@ import {
   Settings,
   User2,
 } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 /**
  * A composable, themeable and customizable sidebar component.

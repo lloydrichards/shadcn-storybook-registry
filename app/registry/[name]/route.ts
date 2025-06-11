@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
+import path from "path";
 import { registryItemSchema } from "shadcn/registry";
 
 // Use the registry.json file to generate static paths.

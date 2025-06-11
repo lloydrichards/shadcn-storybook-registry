@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
-import { Button } from "./ui/button";
 import { Copy } from "lucide-react";
-import { Input } from "./ui/input";
+import { useState } from "react";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export const CommandBlock = ({ command }: { command: string }) => {
   const [copied, setCopied] = useState(false);
