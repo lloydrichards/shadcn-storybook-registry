@@ -9,6 +9,7 @@
             { "type": "breaking", "release": "major" },
             { "type": "feat", "release": "minor" },
             { "type": "fix", "release": "patch" },
+            { "type": "refactor", "release": "patch" },
             { "type": "hotfix", "release": "patch" },
             { "type": "perf", "release": "patch" }
           ],
