@@ -28,8 +28,7 @@ jobs:
 
       - name: Run Component Tests
         run:
-          bun run test:storybook || bun run test:storybook || bun run
-          test:storybook
+          bun run test:storybook
 
   unit-testing:
     name: "Unit Testing"
