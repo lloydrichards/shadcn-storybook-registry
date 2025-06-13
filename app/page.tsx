@@ -1,6 +1,4 @@
-import { CommandBlock } from "@/components/command-block";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -10,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getBaseUrl } from "@/lib/utils";
+import { RegistryItemRow } from "../components/registry_item_row";
 
 const Home = async () => {
   const registryData = await import("@/registry.json");
@@ -64,35 +62,27 @@ const Home = async () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {registry.items.map((item) => (
-              <TableRow key={item.name}>
-                <TableCell className="w-50 font-medium">{item.title}</TableCell>
-                <TableCell>
-                  <Button variant="link" asChild>
-                    <a
-                      target="_blank"
-                      href={`${getBaseUrl()}/registry/${item.name}`}
-                    >
-                      Link
-                    </a>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button variant="link" asChild>
-                    <a
-                      href={`${getBaseUrl()}/storybook/?path=/docs/${item.meta.story}--docs`}
-                    >
-                      Story
-                    </a>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <CommandBlock
-                    command={`npx shadcn@latest add ${getBaseUrl()}/registry/${item.name}`}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+            <TableRow className="hover:bg-background border-b-0">
+              <TableCell className="pt-8 text-xs uppercase">
+                Component <span className="text-muted-foreground">Stories</span>
+              </TableCell>
+            </TableRow>
+            {registry.items
+              .filter((item) => item.meta.type === "ui")
+              .map((item) => (
+                <RegistryItemRow key={item.name} item={item} />
+              ))}
+            <TableRow className="hover:bg-background border-b-0">
+              <TableCell className="pt-8 text-xs uppercase">
+                Design System{" "}
+                <span className="text-muted-foreground">Stories</span>
+              </TableCell>
+            </TableRow>
+            {registry.items
+              .filter((item) => item.meta.type === "design")
+              .map((item) => (
+                <RegistryItemRow key={item.name} item={item} />
+              ))}
           </TableBody>
         </Table>
       </main>
