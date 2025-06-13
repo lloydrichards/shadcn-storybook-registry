@@ -1,3 +1,5 @@
+const { type } = require("os");
+
 module.exports = {
   branches: [{ name: "main" }],
   plugins: [
@@ -37,8 +39,7 @@ module.exports = {
             if (!typeMap[commit.type]) return;
 
             // Format the type nicely for changelog sections
-            commit.type = typeMap[commit.type];
-            return commit;
+            return { ...commit, type: typeMap[commit.type] };
           },
         },
       },
