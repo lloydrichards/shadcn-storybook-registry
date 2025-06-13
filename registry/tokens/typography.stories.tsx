@@ -34,6 +34,9 @@ const TypographyBlock = ({
   );
 };
 
+/**
+ * Typography tokens for the design system
+ */
 const meta: Meta<{
   children: string;
   cssKey: keyof CSSProperties;
@@ -57,12 +60,10 @@ const meta: Meta<{
       </TableHeader>
       <TableBody>
         {args.properties.map(({ name, value }) => (
-          <TableRow key={name} className="bg-card border-b">
-            <TableCell className="px-6 py-4">{name}</TableCell>
-            <TableCell className="hidden px-6 py-4 sm:table-cell">
-              {value}
-            </TableCell>
-            <TableCell className="px-6 py-4 leading-tight">
+          <TableRow key={name}>
+            <TableCell>{name}</TableCell>
+            <TableCell>{value}</TableCell>
+            <TableCell>
               <TypographyBlock cssKey={args.cssKey} value={value}>
                 {args.children}
               </TypographyBlock>
@@ -78,6 +79,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/**
+ * Font family tokens for the design system.
+ */
 export const FontFamily: Story = {
   args: {
     cssKey: "fontFamily",
@@ -88,6 +92,10 @@ export const FontFamily: Story = {
     ],
   },
 };
+
+/**
+ * Font size tokens for the design system.
+ */
 export const FontSize: Story = {
   args: {
     cssKey: "fontSize",
@@ -105,6 +113,10 @@ export const FontSize: Story = {
     ],
   },
 };
+
+/**
+ * Font weight tokens for the design system.
+ */
 export const FontWeight: Story = {
   args: {
     cssKey: "fontWeight",

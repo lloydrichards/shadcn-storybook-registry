@@ -37,6 +37,9 @@ const SwatchList = ({ colors }: { colors: Record<string, string> }) => {
   );
 };
 
+/**
+ * Color tokens for the design system
+ */
 const meta: Meta<{
   swatch: Swatch[];
 }> = {
@@ -70,6 +73,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/**
+ * Functional color tokens are used to define the core colors of the design system.
+ * These colors are used throughout the application for backgrounds, text, borders, etc.
+ */
 export const Functional: Story = {
   args: {
     swatch: [
@@ -140,6 +147,10 @@ export const Functional: Story = {
   },
 };
 
+/**
+ * Component color tokens are used to define the colors of specific components in the design system.
+ * These colors are used to style components like buttons, inputs, and alerts.
+ */
 export const Component: Story = {
   args: {
     swatch: [

@@ -29,6 +29,10 @@ const RadiusTile = ({ value }: Pick<Radius, "value">) => {
     </div>
   );
 };
+
+/**
+ * Radius tokens for the design system
+ */
 const meta: Meta<{
   radius: Radius[];
 }> = {
@@ -62,6 +66,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/**
+ * The default radius tokens for the design system.
+ */
 export const Core: Story = {
   args: {
     radius: [
