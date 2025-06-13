@@ -1,3 +1,17 @@
+# [0.6.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.5.1...v0.6.0) (2025-06-13)
+
+
+### ♻️ Refactoring
+
+* add sections to table ([](https://github.com/lloydrichards/shadcn-storybook-registry/commit/a836318dc7034df9b1e6dbdb1998d13c238e901c))
+
+
+### ✨ Feature
+
+* add color story ([](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e106d2350705f92908e60c8a4143d7d1c641538c))
+* add radius story ([](https://github.com/lloydrichards/shadcn-storybook-registry/commit/589eb65080738137d646411539d7d500c86b347d))
+* add typography story ([](https://github.com/lloydrichards/shadcn-storybook-registry/commit/f5fdf131c12ad82a1e3f4a266b554c030ba5c1d5))
+
 ## [0.5.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.5.0...v0.5.1) (2025-06-11)
 
 
