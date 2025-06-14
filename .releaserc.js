@@ -1,4 +1,4 @@
-const { type } = require("os");
+const COMMIT_HASH_LENGTH = 7;
 
 module.exports = {
   branches: [{ name: "main" }],
@@ -23,9 +23,8 @@ module.exports = {
     [
       "@semantic-release/release-notes-generator",
       {
-        preset: "angular",
         writerOpts: {
-          transform(commit) {
+          transform(commit, context) {
             const typeMap = {
               breaking: "💥 Breaking Change",
               feat: "✨ Feature",
@@ -38,8 +37,52 @@ module.exports = {
             // Skip unknown types
             if (!typeMap[commit.type]) return;
 
-            // Format the type nicely for changelog sections
-            return { ...commit, type: typeMap[commit.type] };
+            const issues = [];
+            let { subject } = commit;
+
+            if (typeof subject === "string") {
+              let url = context.repository
+                ? `${context.host}/${context.owner}/${context.repository}`
+                : context.repoUrl;
+
+              if (url) {
+                url = `${url}/issues/`;
+                // Issue URLs.
+                subject = subject.replace(/#([0-9]+)/g, (_, issue) => {
+                  issues.push(issue);
+                  return `[#${issue}](${url}${issue})`;
+                });
+              }
+
+              if (context.host) {
+                // User URLs.
+                subject = subject.replace(
+                  /\B@([a-z0-9](?:-?[a-z0-9/]){0,38})/g,
+                  (_, username) => {
+                    if (username.includes("/")) {
+                      return `@${username}`;
+                    }
+
+                    return `[@${username}](${context.host}/${username})`;
+                  },
+                );
+              }
+            }
+
+            return {
+              type: typeMap[commit.type],
+              note: commit.notes,
+              scope: commit.scope === "*" ? "" : commit.scope,
+              shortHash:
+                typeof commit.hash === "string"
+                  ? commit.hash.substring(0, COMMIT_HASH_LENGTH)
+                  : commit.shortHash,
+              subject,
+              // remove references that already appear in the subject
+              references: commit.references.filter(
+                (reference) => !issues.includes(reference.issue),
+              ),
+            };
           },
         },
       },
