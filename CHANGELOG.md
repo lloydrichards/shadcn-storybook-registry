@@ -1,3 +1,11 @@
+# [0.7.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.6.0...v0.7.0) (2025-06-20)
+
+
+### ✨ Feature
+
+* add all stories ([cc20adf](https://github.com/lloydrichards/shadcn-storybook-registry/commit/cc20adf44deef430c5ca8ea4d831bbfeaf9bc3b8)), closes [#2](https://github.com/lloydrichards/shadcn-storybook-registry/issues/2)
+* add DatePicker story ([3b1d610](https://github.com/lloydrichards/shadcn-storybook-registry/commit/3b1d6102bdbfbf0dce6b888c2826e33e247bca8d)), closes [#5](https://github.com/lloydrichards/shadcn-storybook-registry/issues/5)
+
 # [0.6.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.5.1...v0.6.0) (2025-06-13)
 
 
