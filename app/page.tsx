@@ -55,6 +55,16 @@ const Home = async () => {
               .map((item) => (
                 <RegistryItemRow key={item.name} item={item} />
               ))}
+            <TableRow className="hover:bg-background border-b-0">
+              <TableCell className="pt-8 text-xs uppercase">
+                Misc. <span className="text-muted-foreground">Stories</span>
+              </TableCell>
+            </TableRow>
+            {registry.items
+              .filter((item) => item.meta.type === "misc")
+              .map((item) => (
+                <RegistryItemRow key={item.name} item={item} />
+              ))}
           </TableBody>
         </Table>
       </main>

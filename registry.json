@@ -825,6 +825,250 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "all-stories",
+      "title": "All Stories",
+      "type": "registry:ui",
+      "meta": {
+        "type": "misc",
+        "story": ""
+      },
+      "registryDependencies": [
+        "accordion",
+        "alert",
+        "alert-dialog",
+        "aspect-ratio",
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "calendar",
+        "card",
+        "carousel",
+        "chart",
+        "checkbox",
+        "collapsible",
+        "dialog",
+        "command",
+        "context-menu",
+        "drawer",
+        "dropdown-menu",
+        "label",
+        "hover-card",
+        "input",
+        "input-otp",
+        "menubar",
+        "navigation-menu",
+        "popover",
+        "progress",
+        "radio-group",
+        "resizable",
+        "scroll-area",
+        "select",
+        "separator",
+        "sheet",
+        "sidebar",
+        "skeleton",
+        "slider",
+        "switch",
+        "table",
+        "tabs",
+        "textarea",
+        "toggle",
+        "toggle-group",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/accordion.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/alert.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/alert-dialog.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/aspect-ratio.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/avatar.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/badge.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/breadcrumb.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/button.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/calendar.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/card.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/carousel.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/chart.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/checkbox.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/collapsible.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/command.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/context-menu.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/date-picker.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/dialog.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/drawer.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/dropdown-menu.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/form.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/hover-card.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/input.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/input-otp.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/label.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/menubar.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/navigation-menu.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/pagination.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/popover.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/progress.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/radio-group.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/resizable.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/scroll-area.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/select.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/separator.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/sheet.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/sidebar.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/skeleton.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/slider.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/sonner.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/switch.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/table.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tabs.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/textarea.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/toggle.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/toggle-group.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tooltip.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
