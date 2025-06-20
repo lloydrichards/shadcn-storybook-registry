@@ -1,4 +1,3 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   Table,
   TableBody,
@@ -24,33 +23,6 @@ const Home = async () => {
             A collection of stories for the components of Shadcn/ui
           </p>
         </section>
-        <Alert>
-          <AlertTitle>Migrating to Storybook v9</AlertTitle>
-          <AlertDescription className="gap-2">
-            <p>
-              The registry is now using Storybook v9. This means that the
-              components are now using the latest <code>storybook/*</code>{" "}
-              packages. Depending on the framework you are using, you may need
-              to update the stories once imported.
-            </p>
-            <p>
-              If you have not migrated to Storybook v9 yet, you can still use
-              the previous registry by replacing the <code>**/registry/**</code>{" "}
-              path with <code>**/v1/r/**</code>. These versions will be kept as
-              an archive and never updated.
-            </p>
-            <p>
-              If you have any questions, please open an issue on the{" "}
-              <a
-                href="https://github.com/lloydrichards/shadcn-storybook-registry"
-                target="_blank"
-                className="text-blue-500 underline"
-              >
-                GitHub repository
-              </a>
-            </p>
-          </AlertDescription>
-        </Alert>
         <Table className="table-fixed">
           <TableCaption>A list of all registry items</TableCaption>
           <TableHeader>
