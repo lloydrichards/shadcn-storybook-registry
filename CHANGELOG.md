@@ -1,3 +1,23 @@
+# [0.8.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.7.0...v0.8.0) (2025-07-01)
+
+
+### ♻️ Refactoring
+
+* expand typography stories ([e2d8d17](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e2d8d1701130e10bde43cdcc790bfa466ddfbc08))
+* improve color stories ([320e620](https://github.com/lloydrichards/shadcn-storybook-registry/commit/320e62077f8f53ccbe6bb3bb917a2bfaec30b645))
+* improve radius stories ([65fba92](https://github.com/lloydrichards/shadcn-storybook-registry/commit/65fba92fd35afd6ebaef55b143d19911754e9f69))
+
+
+### ✨ Feature
+
+* ✨ add shadow story ([41fca00](https://github.com/lloydrichards/shadcn-storybook-registry/commit/41fca004753a14db53886e4b5ad0157360479d23))
+* ✨ add spacing story ([5bb5739](https://github.com/lloydrichards/shadcn-storybook-registry/commit/5bb57399182ad2d8c7e9be63c556f7e298784808))
+
+
+### 🐛 Bug Fix
+
+* types of rechart in v3 ([55845a7](https://github.com/lloydrichards/shadcn-storybook-registry/commit/55845a7889acc2cf07857dc11e5162796c42915e))
+
 # [0.7.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.6.0...v0.7.0) (2025-06-20)
 
 
