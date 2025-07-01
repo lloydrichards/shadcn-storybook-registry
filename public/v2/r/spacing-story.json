@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spacing-story",
+  "type": "registry:ui",
+  "title": "Spacing Story",
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/tokens/spacing.stories.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@/components/ui/table\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\ntype Spacing = {\n  name: string;\n  value: number;\n};\n\nconst SpacingRow = ({ value, name }: Spacing) => {\n  const style = window.getComputedStyle(document.body);\n  const size = style.getPropertyValue(\"--spacing\");\n  const rem = parseFloat(size) * value;\n  const pixels = parseFloat(size) * 16 * value;\n  return (\n    <TableRow>\n      <TableCell>{name}</TableCell>\n      <TableCell>{rem}rem</TableCell>\n      <TableCell>{pixels}px</TableCell>\n      <TableCell className=\"w-full\">\n        <div className=\"bg-muted border\">\n          <div className=\"bg-primary h-4\" style={{ width: pixels }} />\n        </div>\n      </TableCell>\n    </TableRow>\n  );\n};\n\n/**\n * Spacing tokens for the design system\n */\nconst meta: Meta<{\n  scale: Spacing[];\n}> = {\n  title: \"design/Spacing\",\n  argTypes: {},\n  render: (args) => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Name</TableHead>\n          <TableHead>Size</TableHead>\n          <TableHead>Pixels</TableHead>\n          <TableHead className=\"hidden sm:table-cell\">\n            <span className=\"sr-only\">Preview</span>\n          </TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {args.scale.map(({ name, value }, idx) => (\n          <SpacingRow key={idx} value={value} name={name} />\n        ))}\n      </TableBody>\n    </Table>\n  ),\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * Spacing values used for padding, margins, and layout.\n */\nexport const Core: Story = {\n  args: {\n    scale: [\n      { name: \"x-1\", value: 1 },\n      { name: \"x-4\", value: 4 },\n      { name: \"x-8\", value: 8 },\n      { name: \"x-12\", value: 12 },\n      { name: \"x-16\", value: 16 },\n      { name: \"x-20\", value: 20 },\n      { name: \"x-24\", value: 24 },\n      { name: \"x-28\", value: 28 },\n      { name: \"x-32\", value: 32 },\n      { name: \"x-36\", value: 36 },\n      { name: \"x-40\", value: 40 },\n      { name: \"x-44\", value: 44 },\n      { name: \"x-48\", value: 48 },\n      { name: \"x-52\", value: 52 },\n      { name: \"x-56\", value: 56 },\n      { name: \"x-60\", value: 60 },\n      { name: \"x-64\", value: 64 },\n      { name: \"x-68\", value: 68 },\n      { name: \"x-72\", value: 72 },\n      { name: \"x-76\", value: 76 },\n      { name: \"x-80\", value: 80 },\n    ],\n  },\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "type": "design",
+    "story": "ui-spacing"
+  }
+}

@@ -827,6 +827,22 @@
       ]
     },
     {
+      "name": "spacing-story",
+      "title": "Spacing Story",
+      "type": "registry:ui",
+      "meta": {
+        "type": "design",
+        "story": "ui-spacing"
+      },
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/spacing.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "typography-story",
       "title": "Typography Story",
       "type": "registry:ui",
