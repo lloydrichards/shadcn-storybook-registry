@@ -21,7 +21,7 @@ const RadiusTile = ({ value }: Pick<Radius, "value">) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <div
-        className="bg-background size-20 border-2"
+        className="bg-card size-20 border-2"
         style={{ borderRadius: radius }}
       />
       <p className="text-center text-xs opacity-70">{value}</p>
@@ -42,7 +42,7 @@ const meta: Meta<{
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Name</TableHead>={" "}
+          <TableHead>Name</TableHead>
           <TableHead>
             <span className="sr-only">Preview</span>
           </TableHead>
@@ -67,7 +67,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * The default radius tokens for the design system.
+ * Border radius tokens used for UI elements like buttons, cards, and modals.
  */
 export const Core: Story = {
   args: {
