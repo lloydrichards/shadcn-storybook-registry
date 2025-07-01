@@ -29,6 +29,7 @@ export const RegistryItemRow: FC<{
       <TableCell>
         <CommandBlock
           command={`npx shadcn@latest add ${getBaseUrl()}/registry/${item.name}`}
+          name={item.name}
         />
       </TableCell>
     </TableRow>

@@ -5,7 +5,13 @@ import { Copy } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export const CommandBlock = ({ command }: { command: string }) => {
+export const CommandBlock = ({
+  command,
+  name,
+}: {
+  command: string;
+  name: string;
+}) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -30,6 +36,8 @@ export const CommandBlock = ({ command }: { command: string }) => {
         className="h-10 w-14 rounded-none rounded-r-md"
         size="icon"
         onClick={handleCopy}
+        data-umami-event="Copy command button"
+        data-umami-event-name={name}
       >
         <span className="sr-only">Copy command</span>
         <Copy />

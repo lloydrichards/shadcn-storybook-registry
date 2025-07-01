@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import "./globals.css";
@@ -36,6 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        defer
+        src="https://umami.lloydrichards.dev/script.js"
+        data-website-id="2320b250-d7ac-480b-a749-665579e07bdb"
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
