@@ -6,41 +6,52 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CSSProperties } from "react";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import type { CSSProperties, ReactNode } from "react";
 
 type Typography = {
   name: string;
   value: string;
 };
 
-const TypographyBlock = ({
-  cssKey,
+const TypographyRow = ({
   value,
+  name,
+  styleKey,
   children,
 }: {
-  cssKey: keyof CSSProperties;
   value: string;
-  children: React.ReactNode;
+  name: string;
+  styleKey: keyof CSSProperties;
+  children?: ReactNode;
 }) => {
   const style = window.getComputedStyle(document.body);
-  const resolved = style.getPropertyValue(value);
-
+  const styleValue = style.getPropertyValue(value);
   return (
-    <p className="line-clamp-1" style={{ [cssKey]: resolved }}>
-      {children}
-    </p>
+    <TableRow>
+      <TableCell>{name}</TableCell>
+      <TableCell>
+        {styleValue.split(",").map((v, idx) => (
+          <p key={`prop-${idx}`}>{v}</p>
+        ))}
+      </TableCell>
+      <TableCell>
+        <div style={{ [styleKey]: styleValue }} className="line-clamp-1">
+          {children}
+        </div>
+      </TableCell>
+    </TableRow>
   );
 };
 
 /**
- * Typography tokens for the design system
+ * Typography tokens for the design system.
  */
 const meta: Meta<{
   children: string;
-  cssKey: keyof CSSProperties;
-  properties: Typography[];
+  key: keyof CSSProperties;
+  property: Typography[];
 }> = {
   title: "design/Typography",
   argTypes: {},
@@ -59,16 +70,15 @@ const meta: Meta<{
         </TableRow>
       </TableHeader>
       <TableBody>
-        {args.properties.map(({ name, value }) => (
-          <TableRow key={name}>
-            <TableCell>{name}</TableCell>
-            <TableCell>{value}</TableCell>
-            <TableCell>
-              <TypographyBlock cssKey={args.cssKey} value={value}>
-                {args.children}
-              </TypographyBlock>
-            </TableCell>
-          </TableRow>
+        {args.property.map(({ name, value }) => (
+          <TypographyRow
+            key={name}
+            name={name}
+            value={value}
+            styleKey={args.key}
+          >
+            {args.children}
+          </TypographyRow>
         ))}
       </TableBody>
     </Table>
@@ -84,8 +94,8 @@ type Story = StoryObj<typeof meta>;
  */
 export const FontFamily: Story = {
   args: {
-    cssKey: "fontFamily",
-    properties: [
+    key: "fontFamily",
+    property: [
       { name: "sans", value: "--font-sans" },
       { name: "serif", value: "--font-serif" },
       { name: "mono", value: "--font-mono" },
@@ -98,8 +108,8 @@ export const FontFamily: Story = {
  */
 export const FontSize: Story = {
   args: {
-    cssKey: "fontSize",
-    properties: [
+    key: "fontSize",
+    property: [
       { name: "xs", value: "--text-xs" },
       { name: "sm", value: "--text-sm" },
       { name: "base", value: "--text-base" },
@@ -119,8 +129,8 @@ export const FontSize: Story = {
  */
 export const FontWeight: Story = {
   args: {
-    cssKey: "fontWeight",
-    properties: [
+    key: "fontWeight",
+    property: [
       { name: "thin", value: "--font-weight-thin" },
       { name: "extralight", value: "--font-weight-extralight" },
       { name: "light", value: "--font-weight-light" },
@@ -130,6 +140,23 @@ export const FontWeight: Story = {
       { name: "bold", value: "--font-weight-bold" },
       { name: "extrabold", value: "--font-weight-extrabold" },
       { name: "black", value: "--font-weight-black" },
+    ],
+  },
+};
+
+/**
+ * Letter Spacing tokens for the design system.
+ */
+export const LetterSpacing: Story = {
+  args: {
+    key: "letterSpacing",
+    property: [
+      { name: "tighter", value: "--tracking-tighter" },
+      { name: "tight", value: "--tracking-tight" },
+      { name: "normal", value: "--tracking-normal" },
+      { name: "wide", value: "--tracking-wide" },
+      { name: "wider", value: "--tracking-wider" },
+      { name: "widest", value: "--tracking-widest" },
     ],
   },
 };
