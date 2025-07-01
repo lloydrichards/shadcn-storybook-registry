@@ -115,28 +115,7 @@ export const Functional: Story = {
           foreground: "--muted-foreground",
         },
       },
-      {
-        name: "Card",
-        colors: {
-          default: "--card",
-          foreground: "--card-foreground",
-        },
-      },
-      {
-        name: "Popover",
-        colors: {
-          default: "--popover",
-          foreground: "--popover-foreground",
-        },
-      },
-      {
-        name: "Border",
-        colors: {
-          default: "--border",
-          input: "--input",
-          ring: "--ring",
-        },
-      },
+
       {
         name: "Destructive",
         colors: {
@@ -154,6 +133,33 @@ export const Functional: Story = {
 export const Component: Story = {
   args: {
     swatch: [
+      {
+        name: "Border",
+        colors: {
+          default: "--border",
+          ring: "--ring",
+        },
+      },
+      {
+        name: "Card",
+        colors: {
+          default: "--card",
+          foreground: "--card-foreground",
+        },
+      },
+      {
+        name: "Input",
+        colors: {
+          default: "--input",
+        },
+      },
+      {
+        name: "Popover",
+        colors: {
+          default: "--popover",
+          foreground: "--popover-foreground",
+        },
+      },
       {
         name: "Chart",
         colors: {
