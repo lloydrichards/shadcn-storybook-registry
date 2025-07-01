@@ -811,6 +811,22 @@
       ]
     },
     {
+      "name": "shadow-story",
+      "title": "Shadow Story",
+      "type": "registry:ui",
+      "meta": {
+        "type": "design",
+        "story": "ui-shadow"
+      },
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/shadow.stories.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "typography-story",
       "title": "Typography Story",
       "type": "registry:ui",

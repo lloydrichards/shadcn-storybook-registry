@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadow-story",
+  "type": "registry:ui",
+  "title": "Shadow Story",
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/tokens/shadow.stories.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@/components/ui/table\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\ntype Shadow = {\n  name: string;\n  value: string;\n};\n\nconst ShadowTile = ({ value }: Pick<Shadow, \"value\">) => {\n  const style = window.getComputedStyle(document.body);\n  const shadow = style.getPropertyValue(value);\n\n  return (\n    <div className=\"flex flex-col items-center gap-2\">\n      <div\n        className=\"bg-card size-20 rounded-md\"\n        style={{ boxShadow: shadow }}\n      />\n      <p className=\"text-center text-xs opacity-70\">{value}</p>\n      <p className=\"text-center text-xs\">{shadow}</p>\n    </div>\n  );\n};\n\n/**\n * Shadow tokens for the design system\n */\nconst meta: Meta<{\n  shadow: Shadow[];\n}> = {\n  title: \"design/Shadow\",\n  argTypes: {},\n  render: (args) => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Name</TableHead>\n          <TableHead>\n            <span className=\"sr-only shadow-2xl\">Preview</span>\n          </TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {args.shadow.map(({ name, value }) => (\n          <TableRow key={name}>\n            <TableCell>{name}</TableCell>\n            <TableCell>\n              <ShadowTile value={value} />\n            </TableCell>\n          </TableRow>\n        ))}\n      </TableBody>\n    </Table>\n  ),\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * Box shadow tokens used for UI elements like cards, modals, and overlays.\n */\nexport const Core: Story = {\n  args: {\n    shadow: [\n      { name: \"xxs\", value: \"--shadow-2xs\" },\n      { name: \"xs\", value: \"--shadow-xs\" },\n      { name: \"sm\", value: \"--shadow-sm\" },\n      { name: \"md\", value: \"--shadow-md\" },\n      { name: \"lg\", value: \"--shadow-lg\" },\n      { name: \"xl\", value: \"--shadow-xl\" },\n      { name: \"2xl\", value: \"--shadow-2xl\" },\n    ],\n  },\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "type": "design",
+    "story": "ui-shadow"
+  }
+}
