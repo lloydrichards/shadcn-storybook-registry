@@ -1099,6 +1099,26 @@
         {
           "path": "registry/tooltip.stories.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/tokens/color.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tokens/radius.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tokens/shadow.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tokens/spacing.stories.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/tokens/typography.stories.tsx",
+          "type": "registry:ui"
         }
       ]
     }
