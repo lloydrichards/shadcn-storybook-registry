@@ -1,0 +1,110 @@
+name: "Check"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run Lint
+        run: bun lint
+
+  verify-types:
+    name: "Types"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Verify Types
+        run: bun type-check
+
+  registry-build:
+    needs:
+      - lint
+      - verify-types
+    name: "Check Registry Build"
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Build Registry
+        run: bun registry:build
+
+      - name: Check for registry build changes
+        run: git diff --exit-code
+
+  formatting:
+    needs:
+      - lint
+      - verify-types
+    name: "Formatting"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Check Formatting
+        run: bun format:check
+
+  unit-test:
+    needs:
+      - formatting
+      - registry-build
+    name: "Unit Test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run Component Tests
+        run: bun run test:unit
+
+  component-test:
+    needs:
+      - formatting
+      - registry-build
+    name: "Storybook Test"
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run Component Tests
+        run: bun run test:storybook

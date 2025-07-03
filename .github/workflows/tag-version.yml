@@ -3,7 +3,7 @@ name: Tag Version
 on:
   workflow_run:
     workflows:
-      - Testing
+      - Check
     types:
       - completed
 
@@ -20,8 +20,8 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
     name: Tag New Version
     if: |
-      github.ref == 'refs/heads/main' && 
-      github.event.workflow_run.conclusion == 'success'
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
