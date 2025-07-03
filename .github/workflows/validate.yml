@@ -15,22 +15,27 @@ jobs:
     name: "Lint"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - run: bun install --frozen-lockfile --silent
-      - run: bun lint
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run Lint
+        run: bun lint
 
   verify-types:
     name: "Types"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - run: bun install --frozen-lockfile --silent
-      - run: bun run build
-      - run: bun type-check
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Verify Types
+        run: bun type-check
 
   formatting:
     needs:
@@ -39,9 +44,11 @@ jobs:
     name: "Formatting"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - run: bun install --frozen-lockfile --silent
-      - run: bun run build
-      - run: bun format:check
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Check Formatting
+        run: bun format:check

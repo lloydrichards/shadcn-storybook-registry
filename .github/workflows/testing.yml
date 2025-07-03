@@ -14,34 +14,28 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - name: Set Node.js 22.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
-      - name: Install dependencies
-        run: bun install --frozen-lockfile --silent
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
       - name: Install Playwright
         run: npx playwright install --with-deps
+
       - name: Run Component Tests
-        run:
-          bun run test:storybook
+        run: bun run test:storybook
 
   unit-testing:
     name: "Unit Testing"
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - name: Set Node.js 22.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: bun install --frozen-lockfile --silent
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
 
       - name: Run Unit Tests
         run: bun run test:unit
