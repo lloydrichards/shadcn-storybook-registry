@@ -1,3 +1,10 @@
+## [0.8.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.8.0...v0.8.1) (2025-07-03)
+
+
+### 🐛 Bug Fix
+
+* add design tokens to all stories ([b9f038b](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b9f038ba3853b92bbe83cc5985cb84642bf770af))
+
 # [0.8.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.7.0...v0.8.0) (2025-07-01)
 
 
