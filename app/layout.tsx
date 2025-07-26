@@ -40,7 +40,7 @@ export default function RootLayout({
       <Script
         defer
         src="https://umami.lloydrichards.dev/script.js"
-        data-website-id="2320b250-d7ac-480b-a749-665579e07bdb"
+        data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
       />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
