@@ -1,3 +1,15 @@
+# [0.9.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.8.1...v0.9.0) (2025-09-25)
+
+
+### ♻️ Refactoring
+
+* add arg types and tweak story names ([80e1f7c](https://github.com/lloydrichards/shadcn-storybook-registry/commit/80e1f7cc149bc8e56f254b7b9f26e1baa4372bb6))
+
+
+### ✨ Feature
+
+* upgrade shadcn to v3 ([cd154d0](https://github.com/lloydrichards/shadcn-storybook-registry/commit/cd154d0345f5080520706b55f9fa4713b386df5a))
+
 ## [0.8.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.8.0...v0.8.1) (2025-07-03)
 
 
