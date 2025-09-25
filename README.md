@@ -7,16 +7,30 @@ using the shadcn CLI to build the registry.
 
 ## How to Use
 
-The shadcn CLI allows you to import any component or file as long as you point
-it to a registry JSON. This registry is a JSON file that contains all the
-information needed to build the registry.
+### Add Registry to Your Project
 
-```bash
-npx shadcn@latest add <Registry URL>
+Configure this registry in your `components.json`:
+
+```json
+{
+  "registries": {
+    "@storybook": "https://registry.lloydrichards.dev/v2/r/{name}.json"
+  }
+}
 ```
 
-You can visit the [storybook registry](https://registry.lloydrichards.dev/) and
-copy the URL to the registry JSON file or copy the command directly.
+### Install Components
+
+```bash
+# Install using registry namespace
+npx shadcn@latest add @storybook/button-story
+
+# Or install directly via URL
+npx shadcn@latest add https://registry.lloydrichards.dev/v2/r/button-story.json
+```
+
+You can visit the [storybook registry](https://registry.lloydrichards.dev/) to
+browse available components and copy installation commands.
 
 ## How to Contribute
 
