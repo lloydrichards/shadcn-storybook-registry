@@ -7,13 +7,37 @@ import { Button } from "@/components/ui/button";
 /**
  * Displays a button or a component that looks like a button.
  */
-const meta = {
+const meta: Meta<typeof Button> = {
   title: "ui/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {
+    variant: {
+      control: "select",
+      options: [
+        "default",
+        "destructive",
+        "outline",
+        "secondary",
+        "ghost",
+        "link",
+      ],
+    },
+    size: {
+      control: "select",
+      options: ["default", "sm", "lg", "icon"],
+      if: { arg: "variant", neq: "link" },
+    },
     children: {
       control: "text",
+    },
+    disabled: {
+      control: "boolean",
+    },
+    asChild: {
+      table: {
+        disable: true,
+      },
     },
   },
   parameters: {
@@ -23,6 +47,7 @@ const meta = {
     variant: "default",
     size: "default",
     children: "Button",
+    disabled: false,
   },
 } satisfies Meta<typeof Button>;
 

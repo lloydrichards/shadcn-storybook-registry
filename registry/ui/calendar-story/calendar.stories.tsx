@@ -1,10 +1,9 @@
-import { action } from "storybook/actions";
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { addDays } from "date-fns";
+import { action } from "storybook/actions";
+import { expect, userEvent } from "storybook/test";
 
 import { Calendar } from "@/components/ui/calendar";
-import { expect, userEvent } from "storybook/test";
 
 /**
  * A date field component that allows users to enter and edit date.
@@ -13,12 +12,32 @@ const meta = {
   title: "ui/Calendar",
   component: Calendar,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    mode: {
+      table: {
+        disable: true,
+      },
+    },
+    disabled: {
+      control: "boolean",
+    },
+    numberOfMonths: {
+      control: "number",
+      description: "Number of months to display",
+    },
+    showOutsideDays: {
+      control: "boolean",
+      description: "Show days that fall outside the current month",
+    },
+  },
   args: {
     mode: "single",
     selected: new Date(),
     onSelect: action("onDayClick"),
     className: "rounded-md border w-fit",
+    disabled: false,
+    numberOfMonths: 1,
+    showOutsideDays: true,
   },
   parameters: {
     layout: "centered",
@@ -82,7 +101,7 @@ export const MultipleMonths: Story = {
   },
 };
 
-export const ShouldChangeMonths: Story = {
+export const ShouldNavigateMonthsWhenClicked: Story = {
   name: "when using the calendar navigation, should change months",
   tags: ["!dev", "!autodocs"],
   args: {

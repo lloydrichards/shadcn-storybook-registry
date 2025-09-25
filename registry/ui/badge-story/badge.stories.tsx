@@ -11,11 +11,17 @@ const meta = {
   component: Badge,
   tags: ["autodocs"],
   argTypes: {
+    variant: {
+      control: "select",
+      options: ["default", "secondary", "destructive", "outline"],
+    },
     children: {
       control: "text",
+      description: "Badge content",
     },
   },
   args: {
+    variant: "default",
     children: "Badge",
   },
   parameters: {

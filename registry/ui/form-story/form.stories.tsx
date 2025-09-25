@@ -1,9 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { action } from "storybook/actions";
-import { expect, userEvent } from "storybook/test";
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useForm } from "react-hook-form";
+import { action } from "storybook/actions";
+import { expect, userEvent } from "storybook/test";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -82,7 +81,7 @@ const ProfileForm = (args: Story["args"]) => {
  */
 export const Default: Story = {};
 
-export const ShouldSucceedOnSubmit: Story = {
+export const ShouldSucceedWhenValidInput: Story = {
   name: "when typing a valid username, should not show an error message",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {
@@ -106,7 +105,7 @@ export const ShouldSucceedOnSubmit: Story = {
   },
 };
 
-export const ShouldWarnOnSubmit: Story = {
+export const ShouldShowErrorWhenInvalidInput: Story = {
   name: "when typing a short username, should show an error message",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {

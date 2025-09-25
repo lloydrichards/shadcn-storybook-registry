@@ -83,7 +83,7 @@ export const SeparatedGroup: Story = {
   ),
 };
 
-export const ShouldEnterText: Story = {
+export const ShouldAcceptTextWhenTyping: Story = {
   name: "when typing text, should call onChange and onComplete",
   tags: ["!dev", "!autodocs"],
   play: async ({ args, canvas, step }) => {
@@ -102,7 +102,7 @@ export const ShouldEnterText: Story = {
   },
 };
 
-export const ShouldEnterOnlyNumbers: Story = {
+export const ShouldAcceptOnlyNumbersWhenRestricted: Story = {
   ...OnlyNumbers,
   name: "when only numbers are allowed, should call onChange for numbers and onComplete",
   tags: ["!dev", "!autodocs"],

@@ -19,13 +19,23 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     type: {
+      control: "radio",
+      description: "Type of accordion behavior",
       options: ["single", "multiple"],
-      control: { type: "radio" },
+    },
+    collapsible: {
+      control: "boolean",
+      description: "Can an open accordion be collapsed using the trigger",
+      if: { arg: "type", eq: "single" },
+    },
+    disabled: {
+      control: "boolean",
     },
   },
   args: {
     type: "single",
     collapsible: true,
+    disabled: false,
   },
   render: (args) => (
     <Accordion {...args}>
@@ -61,10 +71,10 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {};
 
-export const ShouldOnlyOpenOne: Story = {
+export const ShouldOnlyOpenOneWhenSingleType: Story = {
   name: "when accordions are clicked, should open only one item at a time",
   args: {
-    type: "single",
+    type: "single" as const,
   },
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement }) => {
@@ -89,7 +99,7 @@ export const ShouldOnlyOpenOne: Story = {
   },
 };
 
-export const ShouldOpenAll: Story = {
+export const ShouldOpenAllWhenMultipleType: Story = {
   name: "when accordions are clicked, should open all items one at a time",
   args: {
     type: "multiple",
