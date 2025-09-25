@@ -1,20 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "separator-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Separator Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating separator component usage and variants",
   "registryDependencies": [
     "separator"
   ],
   "files": [
     {
-      "path": "registry/separator.stories.tsx",
+      "path": "registry/ui/separator-story/separator.stories.tsx",
       "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Separator } from \"@/components/ui/separator\";\n\n/**\n * Visually or semantically separates content.\n */\nconst meta = {\n  title: \"ui/Separator\",\n  component: Separator,\n  tags: [\"autodocs\"],\n  argTypes: {},\n} satisfies Meta<typeof Separator>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * A separator between horizontal items.\n */\nexport const Horizontal: Story = {\n  render: () => (\n    <div className=\"flex h-12 items-center justify-center gap-2\">\n      <div>Left</div>\n      <Separator orientation=\"vertical\" />\n      <div>Right</div>\n    </div>\n  ),\n};\n\n/**\n * A separator between vertical items.\n */\nexport const Vertical: Story = {\n  render: () => (\n    <div className=\"flex flex-col items-center justify-center gap-2\">\n      <div>Top</div>\n      <Separator orientation=\"horizontal\" />\n      <div>Bottom</div>\n    </div>\n  ),\n};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-separator"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "separator",
+    "layout"
+  ]
 }

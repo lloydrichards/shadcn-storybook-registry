@@ -1,20 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Select Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating select component usage and variants",
   "registryDependencies": [
     "select"
   ],
   "files": [
     {
-      "path": "registry/select.stories.tsx",
+      "path": "registry/ui/select-story/select.stories.tsx",
       "content": "import { expect, fn, userEvent, within } from \"storybook/test\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectSeparator,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\n/**\n * Displays a list of options for the user to pick from—triggered by a button.\n */\nconst meta: Meta<typeof Select> = {\n  title: \"ui/Select\",\n  component: Select,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    onValueChange: fn(),\n  },\n  render: (args) => (\n    <Select {...args}>\n      <SelectTrigger title=\"Select\" className=\"w-96\">\n        <SelectValue placeholder=\"Select a fruit\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Fruits</SelectLabel>\n          <SelectItem value=\"apple\">Apple</SelectItem>\n          <SelectItem value=\"banana\">Banana</SelectItem>\n          <SelectItem value=\"blueberry\">Blueberry</SelectItem>\n          <SelectItem value=\"grapes\">Grapes</SelectItem>\n          <SelectItem value=\"pineapple\">Pineapple</SelectItem>\n        </SelectGroup>\n        <SelectSeparator />\n        <SelectGroup>\n          <SelectLabel>Vegetables</SelectLabel>\n          <SelectItem value=\"aubergine\">Aubergine</SelectItem>\n          <SelectItem value=\"broccoli\">Broccoli</SelectItem>\n          <SelectItem value=\"carrot\" disabled>\n            Carrot\n          </SelectItem>\n          <SelectItem value=\"courgette\">Courgette</SelectItem>\n          <SelectItem value=\"leek\">Leek</SelectItem>\n        </SelectGroup>\n        <SelectSeparator />\n        <SelectGroup>\n          <SelectLabel>Meat</SelectLabel>\n          <SelectItem value=\"beef\">Beef</SelectItem>\n          <SelectItem value=\"chicken\">Chicken</SelectItem>\n          <SelectItem value=\"lamb\">Lamb</SelectItem>\n          <SelectItem value=\"pork\">Pork</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Select>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the select.\n */\nexport const Default: Story = {};\n\nexport const ShouldSelectOption: Story = {\n  name: \"when an option is selected, should be checked\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n    const select = await canvasBody.findByRole(\"combobox\");\n\n    await step(\"open and select item\", async () => {\n      await userEvent.click(select);\n      await userEvent.click(\n        await canvasBody.findByRole(\"option\", { name: /banana/i }),\n      );\n      expect(select).toHaveTextContent(\"Banana\");\n    });\n\n    await step(\"verify the selected option\", async () => {\n      await userEvent.click(select);\n      expect(\n        await canvasBody.findByRole(\"option\", { name: /banana/i }),\n      ).toHaveAttribute(\"data-state\", \"checked\");\n      await userEvent.click(\n        await canvasBody.findByRole(\"option\", { name: /banana/i }),\n      );\n    });\n  },\n};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-select"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "select",
+    "form"
+  ]
 }

@@ -1,8 +1,10 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-otp-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Input OTP Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating OTP input component usage and variants",
   "dependencies": [
     "input-otp"
   ],
@@ -11,13 +13,16 @@
   ],
   "files": [
     {
-      "path": "registry/input-otp.stories.tsx",
+      "path": "registry/ui/input-otp-story/input-otp.stories.tsx",
       "content": "import { expect, fn, userEvent } from \"storybook/test\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from \"input-otp\";\n\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\";\n\n/**\n * Accessible one-time password component with copy paste functionality.\n */\nconst meta = {\n  title: \"ui/InputOTP\",\n  component: InputOTP,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    maxLength: 6,\n    onChange: fn(),\n    onComplete: fn(),\n    pattern: REGEXP_ONLY_DIGITS_AND_CHARS,\n    children: null,\n    \"aria-label\": \"One-time password\",\n  },\n\n  render: (args) => (\n    <InputOTP {...args} render={undefined}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof InputOTP>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the InputOTP field.\n */\nexport const Default: Story = {};\n\n/**\n * The number form of the InputOTP field.\n */\nexport const OnlyNumbers: Story = {\n  args: {\n    pattern: REGEXP_ONLY_DIGITS,\n  },\n};\n\n/**\n * Use multiple groups to separate the input slots.\n */\nexport const SeparatedGroup: Story = {\n  render: (args) => (\n    <InputOTP {...args} render={undefined}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n      </InputOTPGroup>\n      <InputOTPSeparator />\n      <InputOTPGroup>\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n};\n\nexport const ShouldEnterText: Story = {\n  name: \"when typing text, should call onChange and onComplete\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvas, step }) => {\n    const inputTextbox = await canvas.findByRole(\"textbox\");\n\n    await step(\"type into input textbox\", async () => {\n      await userEvent.click(inputTextbox);\n      await userEvent.type(inputTextbox, \"mocked\");\n      expect(args.onChange).toHaveBeenCalledTimes(6);\n    });\n\n    await step(\"finish typing by pressing Enter\", async () => {\n      await userEvent.keyboard(\"{enter}\");\n      expect(args.onComplete).toHaveBeenCalledTimes(1);\n    });\n  },\n};\n\nexport const ShouldEnterOnlyNumbers: Story = {\n  ...OnlyNumbers,\n  name: \"when only numbers are allowed, should call onChange for numbers and onComplete\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvas, step }) => {\n    const inputTextbox = await canvas.findByRole(\"textbox\");\n\n    await step(\"type text into input textbox\", async () => {\n      await userEvent.click(inputTextbox);\n      await userEvent.type(inputTextbox, \"mocked\");\n      expect(args.onChange).toHaveBeenCalledTimes(0);\n    });\n\n    await step(\"type numbers into input textbox\", async () => {\n      await userEvent.type(inputTextbox, \"123456\");\n      expect(args.onChange).toHaveBeenCalledTimes(6);\n    });\n\n    await step(\"finish typing by pressing Enter\", async () => {\n      await userEvent.keyboard(\"{enter}\");\n      expect(args.onComplete).toHaveBeenCalledTimes(1);\n    });\n  },\n};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-inputotp"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "input",
+    "otp",
+    "form"
+  ]
 }

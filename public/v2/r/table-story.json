@@ -1,20 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Table Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating table component usage and variants",
   "registryDependencies": [
     "table"
   ],
   "files": [
     {
-      "path": "registry/table.stories.tsx",
+      "path": "registry/ui/table-story/table.stories.tsx",
       "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  Table,\n  TableBody,\n  TableCaption,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@/components/ui/table\";\n\nconst invoices = [\n  {\n    invoice: \"INV001\",\n    paymentStatus: \"Paid\",\n    totalAmount: \"$250.00\",\n    paymentMethod: \"Credit Card\",\n  },\n  {\n    invoice: \"INV002\",\n    paymentStatus: \"Pending\",\n    totalAmount: \"$150.00\",\n    paymentMethod: \"PayPal\",\n  },\n  {\n    invoice: \"INV003\",\n    paymentStatus: \"Unpaid\",\n    totalAmount: \"$350.00\",\n    paymentMethod: \"Bank Transfer\",\n  },\n  {\n    invoice: \"INV004\",\n    paymentStatus: \"Paid\",\n    totalAmount: \"$450.00\",\n    paymentMethod: \"Credit Card\",\n  },\n];\n\n/**\n * Powerful table and datagrids built using TanStack Table.\n */\nconst meta = {\n  title: \"ui/Table\",\n  component: Table,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Table {...args}>\n      <TableCaption>A list of your recent invoices.</TableCaption>\n      <TableHeader>\n        <TableRow>\n          <TableHead className=\"w-[100px]\">Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead className=\"text-right\">Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {invoices.map((invoice) => (\n          <TableRow key={invoice.invoice}>\n            <TableCell className=\"font-medium\">{invoice.invoice}</TableCell>\n            <TableCell>{invoice.paymentStatus}</TableCell>\n            <TableCell>{invoice.paymentMethod}</TableCell>\n            <TableCell className=\"text-right\">{invoice.totalAmount}</TableCell>\n          </TableRow>\n        ))}\n      </TableBody>\n    </Table>\n  ),\n} satisfies Meta<typeof Table>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the table.\n */\nexport const Default: Story = {};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-table"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "table",
+    "data"
+  ]
 }

@@ -5,7 +5,7 @@ import { getBaseUrl } from "@/lib/utils";
 import { FC } from "react";
 
 export const RegistryItemRow: FC<{
-  item: { name: string; title: string; meta: { story: string } };
+  item: { name: string; title: string; description?: string };
 }> = ({ item }) => {
   return (
     <TableRow key={item.name}>
@@ -20,7 +20,7 @@ export const RegistryItemRow: FC<{
       <TableCell>
         <Button variant="link" asChild>
           <a
-            href={`${getBaseUrl()}/storybook/?path=/docs/${item.meta.story}--docs`}
+            href={`${getBaseUrl()}/storybook/?path=/docs/ui-${item.name.replace("-story", "")}--docs`}
           >
             Story
           </a>

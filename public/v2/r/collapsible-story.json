@@ -1,8 +1,10 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "collapsible-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Collapsible Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating collapsible component usage and variants",
   "dependencies": [
     "lucide-react"
   ],
@@ -11,13 +13,15 @@
   ],
   "files": [
     {
-      "path": "registry/collapsible.stories.tsx",
+      "path": "registry/ui/collapsible-story/collapsible.stories.tsx",
       "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { Info } from \"lucide-react\";\n\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/components/ui/collapsible\";\nimport { expect, userEvent } from \"storybook/test\";\n\n/**\n * An interactive component which expands/collapses a panel.\n */\nconst meta = {\n  title: \"ui/Collapsible\",\n  component: Collapsible,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    className: \"w-96\",\n    disabled: false,\n  },\n  render: (args) => (\n    <Collapsible {...args}>\n      <CollapsibleTrigger className=\"flex gap-2\">\n        <h3 className=\"font-semibold\">Can I use this in my project?</h3>\n        <Info className=\"size-6\" />\n      </CollapsibleTrigger>\n      <CollapsibleContent>\n        Yes. Free to use for personal and commercial projects. No attribution\n        required.\n      </CollapsibleContent>\n    </Collapsible>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Collapsible>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the collapsible.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `disabled` prop to disable the interaction.\n */\nexport const Disabled: Story = {\n  args: {\n    disabled: true,\n  },\n};\n\nexport const ShouldOpenClose: Story = {\n  name: \"when collapsable trigger is clicked, should show content\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, step }) => {\n    const trigger = await canvas.findByRole(\"button\");\n\n    await step(\"Open the collapsible\", async () => {\n      await userEvent.click(trigger, { delay: 100 });\n      expect(await canvas.queryByText(/yes/i, { exact: true })).toBeVisible();\n    });\n\n    await step(\"Close the collapsible\", async () => {\n      await userEvent.click(trigger, { delay: 100 });\n      expect(await canvas.queryByText(/yes/i, { exact: true })).toBeNull();\n    });\n  },\n};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-collapsible"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "collapsible",
+    "layout"
+  ]
 }

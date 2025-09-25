@@ -1,7 +1,6 @@
 import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
-import { registryItemSchema } from "shadcn/registry";
 
 // Use the registry.json file to generate static paths.
 export const generateStaticParams = async () => {
@@ -35,11 +34,8 @@ export async function GET(
       );
     }
 
-    // Validate before file operations.
-    const registryItem = registryItemSchema.parse(component);
-
     // If the component has no files, return a 400 error.
-    if (!registryItem.files?.length) {
+    if (!component.files?.length) {
       return NextResponse.json(
         { error: "Component has no files" },
         { status: 400 },
@@ -48,7 +44,7 @@ export async function GET(
 
     // Read all files in parallel.
     const filesWithContent = await Promise.all(
-      registryItem.files.map(async (file) => {
+      component.files.map(async (file: { path: string; type: string }) => {
         const filePath = path.join(process.cwd(), file.path);
         const content = await fs.readFile(filePath, "utf8");
         return { ...file, content };
@@ -56,7 +52,7 @@ export async function GET(
     );
 
     // Return the component with the files.
-    return NextResponse.json({ ...registryItem, files: filesWithContent });
+    return NextResponse.json({ ...component, files: filesWithContent });
   } catch (error) {
     console.error("Error processing component request:", error);
     return NextResponse.json(

@@ -1,20 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Avatar Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating avatar component usage and variants",
   "registryDependencies": [
     "avatar"
   ],
   "files": [
     {
-      "path": "registry/avatar.stories.tsx",
+      "path": "registry/ui/avatar-story/avatar.stories.tsx",
       "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\n/**\n * An image element with a fallback for representing the user.\n */\nconst meta = {\n  title: \"ui/Avatar\",\n  component: Avatar,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <Avatar {...args}>\n      <AvatarImage src=\"https://github.com/shadcn.png\" />\n      <AvatarFallback>CN</AvatarFallback>\n    </Avatar>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Avatar>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the avatar.\n */\nexport const Default: Story = {};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-avatar"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "avatar",
+    "profile"
+  ]
 }

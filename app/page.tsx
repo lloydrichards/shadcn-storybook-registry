@@ -40,7 +40,9 @@ const Home = async () => {
               </TableCell>
             </TableRow>
             {registry.items
-              .filter((item) => item.meta.type === "ui")
+              .filter(
+                (item) => item.categories && item.categories.includes("ui"),
+              )
               .map((item) => (
                 <RegistryItemRow key={item.name} item={item} />
               ))}
@@ -51,7 +53,9 @@ const Home = async () => {
               </TableCell>
             </TableRow>
             {registry.items
-              .filter((item) => item.meta.type === "design")
+              .filter(
+                (item) => item.categories && item.categories.includes("design"),
+              )
               .map((item) => (
                 <RegistryItemRow key={item.name} item={item} />
               ))}
@@ -61,7 +65,10 @@ const Home = async () => {
               </TableCell>
             </TableRow>
             {registry.items
-              .filter((item) => item.meta.type === "misc")
+              .filter(
+                (item) =>
+                  item.categories && item.categories.includes("utility"),
+              )
               .map((item) => (
                 <RegistryItemRow key={item.name} item={item} />
               ))}

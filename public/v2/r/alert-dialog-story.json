@@ -1,20 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert-dialog-story",
-  "type": "registry:ui",
+  "type": "registry:component",
   "title": "Alert Dialog Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating alert dialog component usage and variants",
   "registryDependencies": [
     "alert-dialog"
   ],
   "files": [
     {
-      "path": "registry/alert-dialog.stories.tsx",
+      "path": "registry/ui/alert-dialog-story/alert-dialog.stories.tsx",
       "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n} from \"@/components/ui/alert-dialog\";\nimport { userEvent, within } from \"storybook/test\";\n\n/**\n * A modal dialog that interrupts the user with important content and expects\n * a response.\n */\nconst meta = {\n  title: \"ui/AlertDialog\",\n  component: AlertDialog,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <AlertDialog {...args}>\n      <AlertDialogTrigger>Open</AlertDialogTrigger>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This action cannot be undone. This will permanently delete your\n            account and remove your data from our servers.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel>Cancel</AlertDialogCancel>\n          <AlertDialogAction>Continue</AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof AlertDialog>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the alert dialog.\n */\nexport const Default: Story = {};\n\nexport const ShouldOpenClose: Story = {\n  name: \"when alert dialog trigger is pressed, should open the dialog and be able to close it\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement, canvas, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n\n    await step(\"open the alert dialog\", async () => {\n      await userEvent.click(\n        await canvas.getByRole(\"button\", {\n          name: /open/i,\n        }),\n      );\n    });\n\n    await step(\"close the alert dialog\", async () => {\n      await userEvent.click(\n        await canvasBody.getByRole(\"button\", {\n          name: /cancel/i,\n        }),\n        { delay: 100 },\n      );\n    });\n  },\n};\n",
-      "type": "registry:ui"
+      "type": "registry:component"
     }
   ],
-  "meta": {
-    "type": "ui",
-    "story": "ui-alertdialog"
-  }
+  "categories": [
+    "ui",
+    "storybook",
+    "dialog",
+    "modal"
+  ]
 }
