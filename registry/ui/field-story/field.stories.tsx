@@ -1,184 +1,352 @@
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Loader2, Mail } from "lucide-react";
+import * as React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSeparator,
+  FieldSet,
+  FieldTitle,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
 
 /**
- * Displays a button or a component that looks like a button.
+ * Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
  */
-const meta: Meta<typeof Button> = {
-  title: "ui/Button",
-  component: Button,
+const meta: Meta<typeof Field> = {
+  title: "ui/Field",
+  component: Field,
   tags: ["autodocs"],
   argTypes: {
-    variant: {
+    orientation: {
       control: "select",
-      options: [
-        "default",
-        "destructive",
-        "outline",
-        "secondary",
-        "ghost",
-        "link",
-      ],
-    },
-    size: {
-      control: "select",
-      options: ["default", "sm", "lg", "icon"],
-      if: { arg: "variant", neq: "link" },
-    },
-    children: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-    asChild: {
-      table: {
-        disable: true,
-      },
+      options: ["vertical", "horizontal", "responsive"],
     },
   },
   parameters: {
     layout: "centered",
   },
   args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
-    disabled: false,
+    orientation: "vertical",
   },
-} satisfies Meta<typeof Button>;
+  decorators: (Story) => (
+    <div className="w-full max-w-md min-w-sm">
+      <Story />
+    </div>
+  ),
+} satisfies Meta<typeof Field>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * The default form of the button, used for primary actions and commands.
+ * Field with Input component for text input.
  */
-export const Default: Story = {};
-
-/**
- * Use the `outline` button to reduce emphasis on secondary actions, such as
- * canceling or dismissing a dialog.
- */
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-  },
-};
-
-/**
- * Use the `ghost` button is minimalistic and subtle, for less intrusive
- * actions.
- */
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-  },
-};
-
-/**
- * Use the `secondary` button to call for less emphasized actions, styled to
- * complement the primary button while being less conspicuous.
- */
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-/**
- * Use the `destructive` button to indicate errors, alerts, or the need for
- * immediate attention.
- */
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-  },
-};
-
-/**
- * Use the `link` button to reduce emphasis on tertiary actions, such as
- * hyperlink or navigation, providing a text-only interactive element.
- */
-export const Link: Story = {
-  args: {
-    variant: "link",
-  },
-};
-
-/**
- * Add the `disabled` prop to a button to prevent interactions and add a
- * loading indicator, such as a spinner, to signify an in-progress action.
- */
-export const Loading: Story = {
+export const WithInput: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Button
-    </Button>
+    <FieldSet>
+      <FieldGroup>
+        <Field {...args}>
+          <FieldLabel htmlFor="username">Username</FieldLabel>
+          <Input id="username" type="text" placeholder="Max Leiter" />
+          <FieldDescription>
+            Choose a unique username for your account.
+          </FieldDescription>
+        </Field>
+      </FieldGroup>
+    </FieldSet>
   ),
-  args: {
-    ...Outline.args,
-    disabled: true,
-  },
 };
 
 /**
- * Add an icon element to a button to enhance visual communication and
- * providing additional context for the action.
+ * Field with textarea for longer text input.
  */
-export const WithIcon: Story = {
+export const WithTextarea: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Mail className="mr-2 h-4 w-4" /> Login with Email Button
-    </Button>
+    <FieldSet>
+      <FieldGroup>
+        <Field {...args}>
+          <FieldLabel htmlFor="feedback">Feedback</FieldLabel>
+          <Textarea
+            id="feedback"
+            placeholder="Your feedback helps us improve..."
+            rows={4}
+          />
+          <FieldDescription>
+            Share your thoughts about our service.
+          </FieldDescription>
+        </Field>
+      </FieldGroup>
+    </FieldSet>
   ),
-  args: {
-    ...Secondary.args,
+};
+
+/**
+ * Field with Select component for dropdown selections.
+ */
+export const WithSelect: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <FieldLabel>Department</FieldLabel>
+      <Select>
+        <SelectTrigger>
+          <SelectValue placeholder="Choose department" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="engineering">Engineering</SelectItem>
+          <SelectItem value="design">Design</SelectItem>
+          <SelectItem value="marketing">Marketing</SelectItem>
+          <SelectItem value="sales">Sales</SelectItem>
+          <SelectItem value="support">Customer Support</SelectItem>
+          <SelectItem value="hr">Human Resources</SelectItem>
+          <SelectItem value="finance">Finance</SelectItem>
+          <SelectItem value="operations">Operations</SelectItem>
+        </SelectContent>
+      </Select>
+      <FieldDescription>
+        Select your department or area of work.
+      </FieldDescription>
+    </Field>
+  ),
+};
+
+/**
+ * Field with Slider component and dynamic value display.
+ */
+export const WithSlider: Story = {
+  render: () => {
+    const [value, setValue] = React.useState([200, 800]);
+    return (
+      <Field>
+        <FieldTitle>Price Range</FieldTitle>
+        <FieldDescription>
+          Set your budget range ($
+          <span className="font-medium tabular-nums">{value[0]}</span> -{" "}
+          <span className="font-medium tabular-nums">{value[1]}</span>).
+        </FieldDescription>
+        <Slider
+          value={value}
+          onValueChange={setValue}
+          max={1000}
+          min={0}
+          step={10}
+          className="mt-2 w-full"
+          aria-label="Price Range"
+        />
+      </Field>
+    );
   },
 };
 
 /**
- * Use the `sm` size for a smaller button, suitable for interfaces needing
- * compact elements without sacrificing usability.
+ * FieldSet with multiple related fields in a grid layout.
  */
-export const Small: Story = {
-  args: {
-    size: "sm",
-  },
+export const WithFieldset: Story = {
+  render: () => (
+    <div className="w-full max-w-md space-y-6">
+      <FieldSet>
+        <FieldLegend>Address Information</FieldLegend>
+        <FieldDescription>
+          We need your address to deliver your order.
+        </FieldDescription>
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="street">Street Address</FieldLabel>
+            <Input id="street" type="text" placeholder="123 Main St" />
+          </Field>
+          <div className="grid grid-cols-2 gap-4">
+            <Field>
+              <FieldLabel htmlFor="city">City</FieldLabel>
+              <Input id="city" type="text" placeholder="New York" />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="zip">Postal Code</FieldLabel>
+              <Input id="zip" type="text" placeholder="90502" />
+            </Field>
+          </div>
+        </FieldGroup>
+      </FieldSet>
+    </div>
+  ),
 };
 
 /**
- * Use the `lg` size for a larger button, offering better visibility and
- * easier interaction for users.
+ * Field with checkbox inputs using FieldSet structure.
  */
-export const Large: Story = {
-  args: {
-    size: "lg",
-  },
+export const WithCheckbox: Story = {
+  render: () => (
+    <FieldGroup>
+      <FieldSet>
+        <FieldLegend variant="label">
+          Show these items on the desktop
+        </FieldLegend>
+        <FieldDescription>
+          Select the items you want to show on the desktop.
+        </FieldDescription>
+        <FieldGroup className="gap-3">
+          <Field orientation="horizontal">
+            <Checkbox id="finder-pref-9k2-hard-disks-ljj" />
+            <FieldLabel
+              htmlFor="finder-pref-9k2-hard-disks-ljj"
+              className="font-normal"
+              defaultChecked
+            >
+              Hard disks
+            </FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <Checkbox id="finder-pref-9k2-external-disks-1yg" />
+            <FieldLabel
+              htmlFor="finder-pref-9k2-external-disks-1yg"
+              className="font-normal"
+            >
+              External disks
+            </FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <Checkbox id="finder-pref-9k2-cds-dvds-fzt" />
+            <FieldLabel
+              htmlFor="finder-pref-9k2-cds-dvds-fzt"
+              className="font-normal"
+            >
+              CDs, DVDs, and iPods
+            </FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <Checkbox id="finder-pref-9k2-connected-servers-6l2" />
+            <FieldLabel
+              htmlFor="finder-pref-9k2-connected-servers-6l2"
+              className="font-normal"
+            >
+              Connected servers
+            </FieldLabel>
+          </Field>
+        </FieldGroup>
+      </FieldSet>
+      <FieldSeparator />
+      <Field orientation="horizontal">
+        <Checkbox id="finder-pref-9k2-sync-folders-nep" defaultChecked />
+        <FieldContent>
+          <FieldLabel htmlFor="finder-pref-9k2-sync-folders-nep">
+            Sync Desktop & Documents folders
+          </FieldLabel>
+          <FieldDescription>
+            Your Desktop & Documents folders are being synced with iCloud Drive.
+            You can access them from other devices.
+          </FieldDescription>
+        </FieldContent>
+      </Field>
+    </FieldGroup>
+  ),
 };
 
 /**
- * Use the "icon" size for a button with only an icon.
+ * Field with RadioGroup for single selection.
  */
-export const Icon: Story = {
-  args: {
-    ...Secondary.args,
-    size: "icon",
-    title: "Mail",
-    children: <Mail />,
-  },
+export const WithRadio: Story = {
+  render: () => (
+    <FieldSet>
+      <FieldLabel>Subscription Plan</FieldLabel>
+      <FieldDescription>
+        Yearly and lifetime plans offer significant savings.
+      </FieldDescription>
+      <RadioGroup defaultValue="monthly">
+        <Field orientation="horizontal">
+          <RadioGroupItem value="monthly" id="plan-monthly" />
+          <FieldLabel htmlFor="plan-monthly" className="font-normal">
+            Monthly ($9.99/month)
+          </FieldLabel>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="yearly" id="plan-yearly" />
+          <FieldLabel htmlFor="plan-yearly" className="font-normal">
+            Yearly ($99.99/year)
+          </FieldLabel>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="lifetime" id="plan-lifetime" />
+          <FieldLabel htmlFor="plan-lifetime" className="font-normal">
+            Lifetime ($299.99)
+          </FieldLabel>
+        </Field>
+      </RadioGroup>
+    </FieldSet>
+  ),
 };
 
 /**
- * Add the `disabled` prop to prevent interactions with the button.
+ * Field with Switch in horizontal orientation.
  */
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+export const WithSwitch: Story = {
+  render: () => (
+    <Field orientation="horizontal">
+      <FieldContent>
+        <FieldLabel htmlFor="2fa">Multi-factor authentication</FieldLabel>
+        <FieldDescription>
+          Enable multi-factor authentication. If you do not have a two-factor
+          device, you can use a one-time code sent to your email.
+        </FieldDescription>
+      </FieldContent>
+      <Switch id="2fa" />
+    </Field>
+  ),
+};
+
+/**
+ * Selectable field groups with RadioItem for choice cards.
+ */
+export const ChoiceCard: Story = {
+  render: () => (
+    <FieldGroup>
+      <FieldSet>
+        <FieldLabel htmlFor="compute-environment-p8w">
+          Compute Environment
+        </FieldLabel>
+        <FieldDescription>
+          Select the compute environment for your cluster.
+        </FieldDescription>
+        <RadioGroup defaultValue="kubernetes">
+          <FieldLabel htmlFor="kubernetes-r2h">
+            <Field orientation="horizontal">
+              <FieldContent>
+                <FieldTitle>Kubernetes</FieldTitle>
+                <FieldDescription>
+                  Run GPU workloads on a K8s configured cluster.
+                </FieldDescription>
+              </FieldContent>
+              <RadioGroupItem value="kubernetes" id="kubernetes-r2h" />
+            </Field>
+          </FieldLabel>
+          <FieldLabel htmlFor="vm-z4k">
+            <Field orientation="horizontal">
+              <FieldContent>
+                <FieldTitle>Virtual Machine</FieldTitle>
+                <FieldDescription>
+                  Access a VM configured cluster to run GPU workloads.
+                </FieldDescription>
+              </FieldContent>
+              <RadioGroupItem value="vm" id="vm-z4k" />
+            </Field>
+          </FieldLabel>
+        </RadioGroup>
+      </FieldSet>
+    </FieldGroup>
+  ),
 };

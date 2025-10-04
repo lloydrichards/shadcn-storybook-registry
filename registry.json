@@ -370,6 +370,31 @@
       ]
     },
     {
+      "name": "field-story",
+      "type": "registry:component",
+      "title": "Field Story",
+      "description": "Interactive Storybook stories demonstrating field component usage and variants",
+      "categories": ["ui", "storybook", "field", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "input",
+        "radio-group",
+        "select",
+        "slider",
+        "switch",
+        "textarea"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/field-story/field.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "form-story",
       "type": "registry:component",
       "title": "Form Story",
