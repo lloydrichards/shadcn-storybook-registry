@@ -754,6 +754,21 @@
       ]
     },
     {
+      "name": "spinner-story",
+      "type": "registry:component",
+      "title": "Spinner Story",
+      "description": "Interactive Storybook stories demonstrating loading spinner component usage and variants",
+      "categories": ["ui", "storybook", "spinner", "loading"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["spinner", "button"],
+      "files": [
+        {
+          "path": "registry/ui/spinner-story/spinner.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "switch-story",
       "type": "registry:component",
       "title": "Switch Story",

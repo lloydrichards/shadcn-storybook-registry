@@ -1,184 +1,133 @@
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Loader2, Mail } from "lucide-react";
+import { ArrowUpIcon } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
+import { Item, ItemContent, ItemMedia, ItemTitle } from "@/components/ui/item";
+import { Spinner } from "@/components/ui/spinner";
 
 /**
- * Displays a button or a component that looks like a button.
+ * An indicator that can be used to show a loading state.
  */
-const meta: Meta<typeof Button> = {
-  title: "ui/Button",
-  component: Button,
+const meta: Meta<typeof Spinner> = {
+  title: "ui/Spinner",
+  component: Spinner,
   tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: "select",
-      options: [
-        "default",
-        "destructive",
-        "outline",
-        "secondary",
-        "ghost",
-        "link",
-      ],
-    },
-    size: {
-      control: "select",
-      options: ["default", "sm", "lg", "icon"],
-      if: { arg: "variant", neq: "link" },
-    },
-    children: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   parameters: {
     layout: "centered",
   },
-  args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
-    disabled: false,
-  },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Spinner>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * The default form of the button, used for primary actions and commands.
+ * The default spinner with payment processing example.
  */
-export const Default: Story = {};
-
-/**
- * Use the `outline` button to reduce emphasis on secondary actions, such as
- * canceling or dismissing a dialog.
- */
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-  },
-};
-
-/**
- * Use the `ghost` button is minimalistic and subtle, for less intrusive
- * actions.
- */
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-  },
-};
-
-/**
- * Use the `secondary` button to call for less emphasized actions, styled to
- * complement the primary button while being less conspicuous.
- */
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-/**
- * Use the `destructive` button to indicate errors, alerts, or the need for
- * immediate attention.
- */
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-  },
-};
-
-/**
- * Use the `link` button to reduce emphasis on tertiary actions, such as
- * hyperlink or navigation, providing a text-only interactive element.
- */
-export const Link: Story = {
-  args: {
-    variant: "link",
-  },
-};
-
-/**
- * Add the `disabled` prop to a button to prevent interactions and add a
- * loading indicator, such as a spinner, to signify an in-progress action.
- */
-export const Loading: Story = {
+export const WithItem: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Button
+    <div className="flex w-full max-w-xs flex-col gap-4 [--radius:1rem]">
+      <Item variant="muted">
+        <ItemMedia>
+          <Spinner {...args} />
+        </ItemMedia>
+        <ItemContent>
+          <ItemTitle className="line-clamp-1">Processing payment...</ItemTitle>
+        </ItemContent>
+        <ItemContent className="flex-none justify-end">
+          <span className="text-sm tabular-nums">$100.00</span>
+        </ItemContent>
+      </Item>
+    </div>
+  ),
+};
+
+/**
+ * Add a spinner to a button to indicate a loading state.
+ */
+export const WithButton: Story = {
+  render: (args) => (
+    <Button disabled size="sm">
+      <Spinner {...args} />
+      Loading...
     </Button>
   ),
-  args: {
-    ...Outline.args,
-    disabled: true,
-  },
 };
 
 /**
- * Add an icon element to a button to enhance visual communication and
- * providing additional context for the action.
+ * You can also use a spinner inside a badge.
  */
-export const WithIcon: Story = {
+export const WithBadge: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Mail className="mr-2 h-4 w-4" /> Login with Email Button
-    </Button>
+    <Badge>
+      <Spinner {...args} />
+      Syncing
+    </Badge>
   ),
-  args: {
-    ...Secondary.args,
-  },
 };
 
 /**
- * Use the `sm` size for a smaller button, suitable for interfaces needing
- * compact elements without sacrificing usability.
+ * Input Group can have spinners inside InputGroupAddon.
  */
-export const Small: Story = {
-  args: {
-    size: "sm",
-  },
+export const WithInputGroup: Story = {
+  render: (args) => (
+    <div className="flex w-full max-w-md flex-col gap-4">
+      <InputGroup>
+        <InputGroupInput placeholder="Send a message..." disabled />
+        <InputGroupAddon align="inline-end">
+          <Spinner {...args} />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup>
+        <InputGroupTextarea placeholder="Send a message..." disabled />
+        <InputGroupAddon align="block-end">
+          <Spinner /> Validating...
+          <InputGroupButton className="ml-auto" variant="default">
+            <ArrowUpIcon />
+            <span className="sr-only">Send</span>
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
 };
 
 /**
- * Use the `lg` size for a larger button, offering better visibility and
- * easier interaction for users.
+ * Spinner used in Empty component for loading states.
  */
-export const Large: Story = {
-  args: {
-    size: "lg",
-  },
-};
-
-/**
- * Use the "icon" size for a button with only an icon.
- */
-export const Icon: Story = {
-  args: {
-    ...Secondary.args,
-    size: "icon",
-    title: "Mail",
-    children: <Mail />,
-  },
-};
-
-/**
- * Add the `disabled` prop to prevent interactions with the button.
- */
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+export const WithEmpty: Story = {
+  render: (args) => (
+    <Empty className="w-full">
+      <EmptyHeader>
+        <EmptyMedia variant="icon">
+          <Spinner {...args} />
+        </EmptyMedia>
+        <EmptyTitle>Processing your request</EmptyTitle>
+        <EmptyDescription>
+          Please wait while we process your request. Do not refresh the page.
+        </EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
+        <Button variant="outline" size="sm">
+          Cancel
+        </Button>
+      </EmptyContent>
+    </Empty>
+  ),
 };
