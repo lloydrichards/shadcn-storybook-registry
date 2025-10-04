@@ -981,6 +981,7 @@
         "label",
         "hover-card",
         "input",
+        "input-group",
         "input-otp",
         "menubar",
         "navigation-menu",
@@ -1094,6 +1095,10 @@
         },
         {
           "path": "registry/ui/input-story/input.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/input-group-story/input-group.stories.tsx",
           "type": "registry:component"
         },
         {

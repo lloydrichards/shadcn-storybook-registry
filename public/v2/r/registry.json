@@ -128,6 +128,33 @@
       ]
     },
     {
+      "name": "button-group-story",
+      "type": "registry:component",
+      "title": "Button Group Story",
+      "description": "Interactive Storybook stories demonstrating button group component usage and variants",
+      "categories": ["ui", "storybook", "button-group", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "dropdown-menu",
+        "input",
+        "input-group",
+        "popover",
+        "select",
+        "separator",
+        "textarea",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/button-group-story/button-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "calendar-story",
       "type": "registry:component",
       "title": "Calendar Story",
@@ -321,6 +348,53 @@
       ]
     },
     {
+      "name": "empty-story",
+      "type": "registry:component",
+      "title": "Empty Story",
+      "description": "Interactive Storybook stories demonstrating empty state component usage and variants",
+      "categories": ["ui", "storybook", "empty", "placeholder"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "empty",
+        "input-group",
+        "kbd"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/empty-story/empty.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "field-story",
+      "type": "registry:component",
+      "title": "Field Story",
+      "description": "Interactive Storybook stories demonstrating field component usage and variants",
+      "categories": ["ui", "storybook", "field", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "input",
+        "radio-group",
+        "select",
+        "slider",
+        "switch",
+        "textarea"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/field-story/field.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "form-story",
       "type": "registry:component",
       "title": "Form Story",
@@ -352,6 +426,29 @@
       ]
     },
     {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group Story",
+      "description": "Interactive Storybook stories demonstrating input group component usage and variants",
+      "categories": ["ui", "storybook", "input", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button-group",
+        "dropdown-menu",
+        "input-group",
+        "label",
+        "popover",
+        "spinner",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group-story/input-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "input-story",
       "type": "registry:component",
       "title": "Input Story",
@@ -378,6 +475,38 @@
       "files": [
         {
           "path": "registry/ui/input-otp-story/input-otp.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "item-story",
+      "type": "registry:component",
+      "title": "Item Story",
+      "description": "Interactive Storybook stories demonstrating item component usage and variants",
+      "categories": ["ui", "storybook", "item", "list"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["avatar", "button", "dropdown-menu", "item"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/item-story/item.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "kbd-story",
+      "type": "registry:component",
+      "title": "Kbd Story",
+      "description": "Interactive Storybook stories demonstrating keyboard shortcut component usage and variants",
+      "categories": ["ui", "storybook", "kbd", "keyboard"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button-group", "input-group", "kbd", "tooltip"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/kbd-story/kbd.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -625,6 +754,21 @@
       ]
     },
     {
+      "name": "spinner-story",
+      "type": "registry:component",
+      "title": "Spinner Story",
+      "description": "Interactive Storybook stories demonstrating loading spinner component usage and variants",
+      "categories": ["ui", "storybook", "spinner", "loading"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["spinner", "button"],
+      "files": [
+        {
+          "path": "registry/ui/spinner-story/spinner.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "switch-story",
       "type": "registry:component",
       "title": "Switch Story",
@@ -837,6 +981,7 @@
         "label",
         "hover-card",
         "input",
+        "input-group",
         "input-otp",
         "menubar",
         "navigation-menu",
@@ -950,6 +1095,10 @@
         },
         {
           "path": "registry/ui/input-story/input.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/input-group-story/input-group.stories.tsx",
           "type": "registry:component"
         },
         {
