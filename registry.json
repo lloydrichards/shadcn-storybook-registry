@@ -128,6 +128,33 @@
       ]
     },
     {
+      "name": "button-group-story",
+      "type": "registry:component",
+      "title": "Button Group Story",
+      "description": "Interactive Storybook stories demonstrating button group component usage and variants",
+      "categories": ["ui", "storybook", "button-group", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "dropdown-menu",
+        "input",
+        "input-group",
+        "popover",
+        "select",
+        "separator",
+        "textarea",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/button-group-story/button-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "calendar-story",
       "type": "registry:component",
       "title": "Calendar Story",
