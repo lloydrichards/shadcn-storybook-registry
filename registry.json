@@ -480,6 +480,22 @@
       ]
     },
     {
+      "name": "item-story",
+      "type": "registry:component",
+      "title": "Item Story",
+      "description": "Interactive Storybook stories demonstrating item component usage and variants",
+      "categories": ["ui", "storybook", "item", "list"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["avatar", "button", "dropdown-menu", "item"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/item-story/item.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "label-story",
       "type": "registry:component",
       "title": "Label Story",
