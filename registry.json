@@ -426,6 +426,29 @@
       ]
     },
     {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group Story",
+      "description": "Interactive Storybook stories demonstrating input group component usage and variants",
+      "categories": ["ui", "storybook", "input", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button-group",
+        "dropdown-menu",
+        "input-group",
+        "label",
+        "popover",
+        "spinner",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group-story/input-group.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "input-story",
       "type": "registry:component",
       "title": "Input Story",

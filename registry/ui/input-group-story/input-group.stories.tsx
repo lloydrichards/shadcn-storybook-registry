@@ -1,184 +1,481 @@
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Loader2, Mail } from "lucide-react";
+import {
+  Check,
+  CheckIcon,
+  ChevronDownIcon,
+  Code,
+  Copy,
+  CornerDownLeft,
+  CreditCardIcon,
+  HelpCircle,
+  Info,
+  InfoIcon,
+  Link2Icon,
+  LoaderIcon,
+  MailIcon,
+  MoreHorizontal,
+  RefreshCcw,
+  SearchIcon,
+  Star,
+  StarIcon,
+} from "lucide-react";
+import * as React from "react";
 
-import { Button } from "@/components/ui/button";
+import { ButtonGroup, ButtonGroupText } from "@/components/ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Spinner } from "@/components/ui/spinner";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 /**
- * Displays a button or a component that looks like a button.
+ * Display additional information or actions to an input or textarea.
  */
-const meta: Meta<typeof Button> = {
-  title: "ui/Button",
-  component: Button,
+const meta: Meta<typeof InputGroup> = {
+  title: "ui/InputGroup",
+  component: InputGroup,
   tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: "select",
-      options: [
-        "default",
-        "destructive",
-        "outline",
-        "secondary",
-        "ghost",
-        "link",
-      ],
-    },
-    size: {
-      control: "select",
-      options: ["default", "sm", "lg", "icon"],
-      if: { arg: "variant", neq: "link" },
-    },
-    children: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   parameters: {
     layout: "centered",
   },
-  args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
-    disabled: false,
-  },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof InputGroup>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * The default form of the button, used for primary actions and commands.
+ * Input groups with icon addons for visual enhancement.
  */
-export const Default: Story = {};
-
-/**
- * Use the `outline` button to reduce emphasis on secondary actions, such as
- * canceling or dismissing a dialog.
- */
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-  },
-};
-
-/**
- * Use the `ghost` button is minimalistic and subtle, for less intrusive
- * actions.
- */
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-  },
-};
-
-/**
- * Use the `secondary` button to call for less emphasized actions, styled to
- * complement the primary button while being less conspicuous.
- */
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-/**
- * Use the `destructive` button to indicate errors, alerts, or the need for
- * immediate attention.
- */
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-  },
-};
-
-/**
- * Use the `link` button to reduce emphasis on tertiary actions, such as
- * hyperlink or navigation, providing a text-only interactive element.
- */
-export const Link: Story = {
-  args: {
-    variant: "link",
-  },
-};
-
-/**
- * Add the `disabled` prop to a button to prevent interactions and add a
- * loading indicator, such as a spinner, to signify an in-progress action.
- */
-export const Loading: Story = {
+export const WithIcons: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Button
-    </Button>
+    <div className="grid w-full max-w-sm gap-6">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Search..." />
+        <InputGroupAddon>
+          <SearchIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput type="email" placeholder="Enter your email" />
+        <InputGroupAddon>
+          <MailIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Card number" />
+        <InputGroupAddon>
+          <CreditCardIcon />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <CheckIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Card number" />
+        <InputGroupAddon align="inline-end">
+          <StarIcon />
+          <InfoIcon />
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
   ),
-  args: {
-    ...Outline.args,
-    disabled: true,
-  },
 };
 
 /**
- * Add an icon element to a button to enhance visual communication and
- * providing additional context for the action.
+ * Display additional text information alongside inputs.
  */
-export const WithIcon: Story = {
+export const WithText: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Mail className="mr-2 h-4 w-4" /> Login with Email Button
-    </Button>
+    <div className="grid w-full max-w-sm gap-6">
+      <InputGroup {...args}>
+        <InputGroupAddon>
+          <InputGroupText>$</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="0.00" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>USD</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupAddon>
+          <InputGroupText>https://</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="example.com" className="!pl-0.5" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>.com</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter your username" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>@company.com</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupTextarea placeholder="Enter your message" />
+        <InputGroupAddon align="block-end">
+          <InputGroupText className="text-muted-foreground text-xs">
+            120 characters left
+          </InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
   ),
-  args: {
-    ...Secondary.args,
+};
+
+/**
+ * Add buttons to perform actions within the input group.
+ */
+export const WithButtons: Story = {
+  render: (args) => {
+    const [isCopied, setIsCopied] = React.useState(false);
+    const [isFavorite, setIsFavorite] = React.useState(false);
+
+    const copyToClipboard = (text: string) => {
+      navigator.clipboard.writeText(text);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    };
+
+    return (
+      <div className="grid w-full max-w-sm gap-6">
+        <InputGroup {...args}>
+          <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
+          <InputGroupAddon align="inline-end">
+            <InputGroupButton
+              aria-label="Copy"
+              title="Copy"
+              size="icon-xs"
+              onClick={() => {
+                copyToClipboard("https://x.com/shadcn");
+              }}
+            >
+              {isCopied ? <Check /> : <Copy />}
+            </InputGroupButton>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup className="[--radius:9999px]">
+          <Popover>
+            <PopoverTrigger asChild>
+              <InputGroupAddon>
+                <InputGroupButton variant="secondary" size="icon-xs">
+                  <Info />
+                </InputGroupButton>
+              </InputGroupAddon>
+            </PopoverTrigger>
+            <PopoverContent
+              align="start"
+              className="flex flex-col gap-1 rounded-xl text-sm"
+            >
+              <p className="font-medium">Your connection is not secure.</p>
+              <p>
+                You should not enter any sensitive information on this site.
+              </p>
+            </PopoverContent>
+          </Popover>
+          <InputGroupAddon className="text-muted-foreground pl-1.5">
+            https://
+          </InputGroupAddon>
+          <InputGroupInput id="input-secure-19" />
+          <InputGroupAddon align="inline-end">
+            <InputGroupButton
+              onClick={() => setIsFavorite(!isFavorite)}
+              size="icon-xs"
+            >
+              <Star
+                data-favorite={isFavorite}
+                className="data-[favorite=true]:fill-blue-600 data-[favorite=true]:stroke-blue-600"
+              />
+            </InputGroupButton>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup {...args}>
+          <InputGroupInput placeholder="Type to search..." />
+          <InputGroupAddon align="inline-end">
+            <InputGroupButton variant="secondary">Search</InputGroupButton>
+          </InputGroupAddon>
+        </InputGroup>
+      </div>
+    );
   },
 };
 
 /**
- * Use the `sm` size for a smaller button, suitable for interfaces needing
- * compact elements without sacrificing usability.
+ * Add tooltips to provide additional context or help.
  */
-export const Small: Story = {
-  args: {
-    size: "sm",
+export const WithTooltips: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <TooltipProvider>
+        <InputGroup {...args}>
+          <InputGroupInput placeholder="Enter password" type="password" />
+          <InputGroupAddon align="inline-end">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InputGroupButton
+                  variant="ghost"
+                  aria-label="Info"
+                  size="icon-xs"
+                >
+                  <InfoIcon />
+                </InputGroupButton>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Password must be at least 8 characters</p>
+              </TooltipContent>
+            </Tooltip>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup {...args}>
+          <InputGroupInput placeholder="Your email address" />
+          <InputGroupAddon align="inline-end">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InputGroupButton
+                  variant="ghost"
+                  aria-label="Help"
+                  size="icon-xs"
+                >
+                  <HelpCircle />
+                </InputGroupButton>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>We'll use this to send you notifications</p>
+              </TooltipContent>
+            </Tooltip>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup {...args}>
+          <InputGroupInput placeholder="Enter API key" />
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <InputGroupAddon>
+                <InputGroupButton
+                  variant="ghost"
+                  aria-label="Help"
+                  size="icon-xs"
+                >
+                  <HelpCircle />
+                </InputGroupButton>
+              </InputGroupAddon>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Click for help with API keys</p>
+            </TooltipContent>
+          </Tooltip>
+        </InputGroup>
+      </TooltipProvider>
+    </div>
+  ),
+};
+
+/**
+ * Input groups also work with textarea components.
+ */
+export const WithTextarea: Story = {
+  render: (args) => {
+    return (
+      <div className="grid w-full max-w-md gap-4">
+        <InputGroup {...args}>
+          <InputGroupTextarea
+            id="textarea-code-32"
+            placeholder="console.log('Hello, world!');"
+            className="min-h-[200px]"
+          />
+          <InputGroupAddon align="block-end" className="border-t">
+            <InputGroupText>Line 1, Column 1</InputGroupText>
+            <InputGroupButton size="sm" className="ml-auto" variant="default">
+              Run <CornerDownLeft />
+            </InputGroupButton>
+          </InputGroupAddon>
+          <InputGroupAddon align="block-start" className="border-b">
+            <InputGroupText className="font-mono font-medium">
+              <Code />
+              script.js
+            </InputGroupText>
+            <InputGroupButton className="ml-auto" size="icon-xs">
+              <RefreshCcw />
+            </InputGroupButton>
+            <InputGroupButton variant="ghost" size="icon-xs">
+              <Copy />
+            </InputGroupButton>
+          </InputGroupAddon>
+        </InputGroup>
+      </div>
+    );
   },
 };
 
 /**
- * Use the `lg` size for a larger button, offering better visibility and
- * easier interaction for users.
+ * Show loading indicators while processing input.
  */
-export const Large: Story = {
-  args: {
-    size: "lg",
-  },
+export const WithSpinner: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args} data-disabled>
+        <InputGroupInput placeholder="Searching..." disabled />
+        <InputGroupAddon align="inline-end">
+          <Spinner />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Processing..." disabled />
+        <InputGroupAddon>
+          <Spinner />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Saving changes..." disabled />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>Saving...</InputGroupText>
+          <Spinner />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Refreshing data..." disabled />
+        <InputGroupAddon>
+          <LoaderIcon className="animate-spin" />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupText className="text-muted-foreground">
+            Please wait...
+          </InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
 };
 
 /**
- * Use the "icon" size for a button with only an icon.
+ * Add labels within input groups to improve accessibility.
  */
-export const Icon: Story = {
-  args: {
-    ...Secondary.args,
-    size: "icon",
-    title: "Mail",
-    children: <Mail />,
-  },
+export const WithLabels: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <TooltipProvider>
+        <InputGroup {...args}>
+          <InputGroupInput id="email" placeholder="shadcn" />
+          <InputGroupAddon>
+            <Label htmlFor="email">@</Label>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup {...args}>
+          <InputGroupInput id="email-2" placeholder="shadcn@vercel.com" />
+          <InputGroupAddon align="block-start">
+            <Label htmlFor="email-2" className="text-foreground">
+              Email
+            </Label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InputGroupButton
+                  variant="ghost"
+                  aria-label="Help"
+                  className="ml-auto rounded-full"
+                  size="icon-xs"
+                >
+                  <InfoIcon />
+                </InputGroupButton>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>We'll use this to send you notifications</p>
+              </TooltipContent>
+            </Tooltip>
+          </InputGroupAddon>
+        </InputGroup>
+      </TooltipProvider>
+    </div>
+  ),
 };
 
 /**
- * Add the `disabled` prop to prevent interactions with the button.
+ * Pair input groups with dropdown menus for complex interactions.
  */
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+export const WithDropdowns: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter file name" />
+        <InputGroupAddon align="inline-end">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <InputGroupButton
+                variant="ghost"
+                aria-label="More"
+                size="icon-xs"
+              >
+                <MoreHorizontal />
+              </InputGroupButton>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Copy path</DropdownMenuItem>
+              <DropdownMenuItem>Open location</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup className="[--radius:1rem]">
+        <InputGroupInput placeholder="Enter search query" />
+        <InputGroupAddon align="inline-end">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <InputGroupButton variant="ghost" className="!pr-1.5 text-xs">
+                Search In... <ChevronDownIcon className="size-3" />
+              </InputGroupButton>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="[--radius:0.95rem]">
+              <DropdownMenuItem>Documentation</DropdownMenuItem>
+              <DropdownMenuItem>Blog Posts</DropdownMenuItem>
+              <DropdownMenuItem>Changelog</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
+};
+
+/**
+ * Wrap input groups with button groups to create prefixes and suffixes.
+ */
+export const WithButtonGroup: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-6">
+      <ButtonGroup>
+        <ButtonGroupText asChild>
+          <Label htmlFor="url">https://</Label>
+        </ButtonGroupText>
+        <InputGroup {...args}>
+          <InputGroupInput id="url" />
+          <InputGroupAddon align="inline-end">
+            <Link2Icon />
+          </InputGroupAddon>
+        </InputGroup>
+        <ButtonGroupText>.com</ButtonGroupText>
+      </ButtonGroup>
+    </div>
+  ),
 };
