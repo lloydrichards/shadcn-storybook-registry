@@ -1,184 +1,129 @@
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Loader2, Mail } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 /**
- * Displays a button or a component that looks like a button.
+ * Used to display textual user input from keyboard.
  */
-const meta: Meta<typeof Button> = {
-  title: "ui/Button",
-  component: Button,
+const meta: Meta<typeof Kbd> = {
+  title: "ui/Kbd",
+  component: Kbd,
   tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: "select",
-      options: [
-        "default",
-        "destructive",
-        "outline",
-        "secondary",
-        "ghost",
-        "link",
-      ],
-    },
-    size: {
-      control: "select",
-      options: ["default", "sm", "lg", "icon"],
-      if: { arg: "variant", neq: "link" },
-    },
-    children: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   parameters: {
     layout: "centered",
   },
-  args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
-    disabled: false,
-  },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Kbd>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * The default form of the button, used for primary actions and commands.
+ * Use the KbdGroup component to group keyboard keys together.
  */
-export const Default: Story = {};
-
-/**
- * Use the `outline` button to reduce emphasis on secondary actions, such as
- * canceling or dismissing a dialog.
- */
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-  },
-};
-
-/**
- * Use the `ghost` button is minimalistic and subtle, for less intrusive
- * actions.
- */
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-  },
-};
-
-/**
- * Use the `secondary` button to call for less emphasized actions, styled to
- * complement the primary button while being less conspicuous.
- */
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-/**
- * Use the `destructive` button to indicate errors, alerts, or the need for
- * immediate attention.
- */
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-  },
-};
-
-/**
- * Use the `link` button to reduce emphasis on tertiary actions, such as
- * hyperlink or navigation, providing a text-only interactive element.
- */
-export const Link: Story = {
-  args: {
-    variant: "link",
-  },
-};
-
-/**
- * Add the `disabled` prop to a button to prevent interactions and add a
- * loading indicator, such as a spinner, to signify an in-progress action.
- */
-export const Loading: Story = {
+export const Group: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Button
-    </Button>
+    <div className="flex flex-col items-center gap-4">
+      <p className="text-muted-foreground text-sm">
+        Use{" "}
+        <KbdGroup>
+          <Kbd {...args}>Ctrl + B</Kbd>
+          <Kbd {...args}>Ctrl + K</Kbd>
+        </KbdGroup>{" "}
+        to open the command palette
+      </p>
+    </div>
   ),
-  args: {
-    ...Outline.args,
-    disabled: true,
-  },
 };
 
 /**
- * Add an icon element to a button to enhance visual communication and
- * providing additional context for the action.
+ * Use the Kbd component inside a Button component to display a keyboard key inside a button.
  */
-export const WithIcon: Story = {
+export const WithButton: Story = {
   render: (args) => (
-    <Button {...args}>
-      <Mail className="mr-2 h-4 w-4" /> Login with Email Button
-    </Button>
+    <div className="flex flex-wrap items-center gap-4">
+      <Button variant="outline" size="sm" className="pr-2">
+        Accept <Kbd {...args}>⏎</Kbd>
+      </Button>
+      <Button variant="outline" size="sm" className="pr-2">
+        Cancel <Kbd {...args}>Esc</Kbd>
+      </Button>
+    </div>
   ),
-  args: {
-    ...Secondary.args,
-  },
 };
 
 /**
- * Use the `sm` size for a smaller button, suitable for interfaces needing
- * compact elements without sacrificing usability.
+ * You can use the Kbd component inside a Tooltip component to display a tooltip with a keyboard key.
  */
-export const Small: Story = {
-  args: {
-    size: "sm",
-  },
+export const WithTooltip: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap gap-4">
+      <TooltipProvider>
+        <ButtonGroup>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="sm" variant="outline">
+                Save
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex items-center gap-2">
+                Save Changes <Kbd {...args}>S</Kbd>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="sm" variant="outline">
+                Print
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex items-center gap-2">
+                Print Document{" "}
+                <KbdGroup>
+                  <Kbd {...args}>Ctrl</Kbd>
+                  <Kbd {...args}>P</Kbd>
+                </KbdGroup>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </ButtonGroup>{" "}
+      </TooltipProvider>
+    </div>
+  ),
 };
 
 /**
- * Use the `lg` size for a larger button, offering better visibility and
- * easier interaction for users.
+ * You can use the Kbd component inside a InputGroupAddon component to display a keyboard key inside an input group.
  */
-export const Large: Story = {
-  args: {
-    size: "lg",
-  },
-};
-
-/**
- * Use the "icon" size for a button with only an icon.
- */
-export const Icon: Story = {
-  args: {
-    ...Secondary.args,
-    size: "icon",
-    title: "Mail",
-    children: <Mail />,
-  },
-};
-
-/**
- * Add the `disabled` prop to prevent interactions with the button.
- */
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+export const WithInputGroup: Story = {
+  render: (args) => (
+    <div className="flex w-full max-w-xs flex-col gap-6">
+      <InputGroup>
+        <InputGroupInput placeholder="Search..." />
+        <InputGroupAddon>
+          <SearchIcon />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <Kbd {...args}>⌘</Kbd>
+          <Kbd {...args}>K</Kbd>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
 };
