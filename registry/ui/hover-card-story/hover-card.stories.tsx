@@ -61,7 +61,7 @@ export const ShouldShowOnHover: Story = {
       await waitFor(() =>
         expect(
           canvasElement.ownerDocument.body.querySelector(
-            '[data-slot="hover-card-content"]',
+            "[data-radix-popper-content-wrapper]",
           ),
         ).toBeVisible(),
       );
@@ -71,7 +71,7 @@ export const ShouldShowOnHover: Story = {
       await waitFor(() =>
         expect(
           canvasElement.ownerDocument.body.querySelector(
-            '[data-slot="hover-card-content"]',
+            "[data-radix-popper-content-wrapper]",
           ),
         ).toBeNull(),
       );

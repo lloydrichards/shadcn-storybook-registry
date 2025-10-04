@@ -97,7 +97,7 @@ export const ShouldShowOnHover: Story = {
       await waitFor(() =>
         expect(
           canvasElement.ownerDocument.body.querySelector(
-            '[data-slot="tooltip-content"]',
+            "[data-radix-popper-content-wrapper]",
           ),
         ).toBeVisible(),
       );
@@ -105,13 +105,12 @@ export const ShouldShowOnHover: Story = {
 
     await step("unhover trigger", async () => {
       await userEvent.unhover(triggerBtn);
-      await waitFor(() =>
-        expect(
-          canvasElement.ownerDocument.body.querySelector(
-            '[data-slot="tooltip-content"]',
-          ),
-        ).not.toBeVisible(),
-      );
+      await waitFor(() => {
+        const tooltipElement = canvasElement.ownerDocument.body.querySelector(
+          "[data-radix-popper-content-wrapper]",
+        );
+        expect(tooltipElement).toBeNull();
+      });
     });
   },
 };
