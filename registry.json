@@ -348,6 +348,28 @@
       ]
     },
     {
+      "name": "empty-story",
+      "type": "registry:component",
+      "title": "Empty Story",
+      "description": "Interactive Storybook stories demonstrating empty state component usage and variants",
+      "categories": ["ui", "storybook", "empty", "placeholder"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "empty",
+        "input-group",
+        "kbd"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/empty-story/empty.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "form-story",
       "type": "registry:component",
       "title": "Form Story",
