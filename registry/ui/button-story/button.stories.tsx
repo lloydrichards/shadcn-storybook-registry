@@ -175,6 +175,30 @@ export const Icon: Story = {
 };
 
 /**
+ * Use the `icon-sm` size for a smaller icon-only button.
+ */
+export const IconSmall: Story = {
+  args: {
+    variant: "secondary",
+    size: "icon-sm",
+    title: "Mail",
+    children: <Mail />,
+  },
+};
+
+/**
+ * Use the `icon-lg` size for a larger icon-only button.
+ */
+export const IconLarge: Story = {
+  args: {
+    variant: "secondary",
+    size: "icon-lg",
+    title: "Mail",
+    children: <Mail />,
+  },
+};
+
+/**
  * Add the `disabled` prop to prevent interactions with the button.
  */
 export const Disabled: Story = {
