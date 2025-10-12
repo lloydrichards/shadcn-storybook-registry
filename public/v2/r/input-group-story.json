@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "input-group",
+  "name": "input-group-story",
   "type": "registry:component",
   "title": "Input Group Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",

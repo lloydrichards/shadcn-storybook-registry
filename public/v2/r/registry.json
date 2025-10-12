@@ -426,7 +426,7 @@
       ]
     },
     {
-      "name": "input-group",
+      "name": "input-group-story",
       "type": "registry:component",
       "title": "Input Group Story",
       "description": "Interactive Storybook stories demonstrating input group component usage and variants",
