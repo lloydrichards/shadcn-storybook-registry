@@ -18,27 +18,27 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * A separator between horizontal items.
+ * The default horizontal separator between vertical items.
  */
-export const Horizontal: Story = {
-  render: () => (
-    <div className="flex h-12 items-center justify-center gap-2">
-      <div>Left</div>
-      <Separator orientation="vertical" />
-      <div>Right</div>
-    </div>
-  ),
-};
-
-/**
- * A separator between vertical items.
- */
-export const Vertical: Story = {
+export const Default: Story = {
   render: () => (
     <div className="flex flex-col items-center justify-center gap-2">
       <div>Top</div>
       <Separator orientation="horizontal" />
       <div>Bottom</div>
+    </div>
+  ),
+};
+
+/**
+ * Use `orientation="vertical"` for a vertical separator between horizontal items.
+ */
+export const Vertical: Story = {
+  render: () => (
+    <div className="flex h-12 items-center justify-center gap-2">
+      <div>Left</div>
+      <Separator orientation="vertical" />
+      <div>Right</div>
     </div>
   ),
 };
