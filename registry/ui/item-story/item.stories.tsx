@@ -98,6 +98,98 @@ export const Default: Story = {
 };
 
 /**
+ * Use the `outline` variant to add a visible border to the item.
+ */
+export const Outline: Story = {
+  render: (args) => (
+    <div className="flex w-full max-w-md flex-col gap-6">
+      <Item {...args} variant="outline">
+        <ItemMedia>
+          <Avatar className="size-10">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </ItemMedia>
+        <ItemContent>
+          <ItemTitle>Software Update Available</ItemTitle>
+          <ItemDescription>
+            Version 2.0 is now available for download.
+          </ItemDescription>
+        </ItemContent>
+        <ItemActions>
+          <Button size="sm" variant="outline">
+            Update
+          </Button>
+        </ItemActions>
+      </Item>
+    </div>
+  ),
+};
+
+/**
+ * Use the `muted` variant to add a subtle background to the item.
+ */
+export const Muted: Story = {
+  render: (args) => (
+    <div className="flex w-full max-w-md flex-col gap-6">
+      <Item {...args} variant="muted">
+        <ItemMedia variant="icon">
+          <BadgeCheckIcon />
+        </ItemMedia>
+        <ItemContent>
+          <ItemTitle>Account Verified</ItemTitle>
+          <ItemDescription>
+            Your account has been successfully verified.
+          </ItemDescription>
+        </ItemContent>
+        <ItemActions>
+          <Button size="sm" variant="ghost">
+            Dismiss
+          </Button>
+        </ItemActions>
+      </Item>
+    </div>
+  ),
+};
+
+/**
+ * Use the `sm` size for a more compact item layout.
+ */
+export const Small: Story = {
+  render: (args) => (
+    <div className="flex w-full max-w-md flex-col gap-6">
+      <ItemGroup>
+        <Item {...args} variant="outline" size="sm">
+          <ItemMedia>
+            <Avatar className="size-8">
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </ItemMedia>
+          <ItemContent>
+            <ItemTitle>New message from shadcn</ItemTitle>
+            <ItemDescription>Hey, how are you doing?</ItemDescription>
+          </ItemContent>
+        </Item>
+        <ItemSeparator />
+        <Item variant="outline" size="sm">
+          <ItemMedia>
+            <Avatar className="size-8">
+              <AvatarImage src="https://github.com/maxleiter.png" />
+              <AvatarFallback>ML</AvatarFallback>
+            </Avatar>
+          </ItemMedia>
+          <ItemContent>
+            <ItemTitle>New message from maxleiter</ItemTitle>
+            <ItemDescription>Check out this new feature!</ItemDescription>
+          </ItemContent>
+        </Item>
+      </ItemGroup>
+    </div>
+  ),
+};
+
+/**
  * Item with icon media element.
  */
 export const WithIcon: Story = {
