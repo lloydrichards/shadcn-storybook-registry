@@ -1,3 +1,18 @@
+## [0.10.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.0...v0.10.1) (2025-10-12)
+
+
+### ♻️ Refactoring
+
+* missing stories for buttons ([e23957a](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e23957a901eb167bca41da3a652404a10b1ce1be))
+* missing stories for card ([e25199e](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e25199ec6b5ae9263a88d98a8e8b9585777d0e4e))
+* missing stories for item ([3c5abce](https://github.com/lloydrichards/shadcn-storybook-registry/commit/3c5abce56904bb5beb08c34daaab6bfecc7f150a))
+* missing stories for separator ([d05482c](https://github.com/lloydrichards/shadcn-storybook-registry/commit/d05482c0b8960da22e07439bcdaba74c20b42b24))
+
+
+### 🐛 Bug Fix
+
+* incorrect input-group name ([206e217](https://github.com/lloydrichards/shadcn-storybook-registry/commit/206e21733ce0bed6f5349d2381ca742369b56de1)), closes [#18](https://github.com/lloydrichards/shadcn-storybook-registry/issues/18)
+
 # [0.10.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.9.0...v0.10.0) (2025-10-04)
 
 
