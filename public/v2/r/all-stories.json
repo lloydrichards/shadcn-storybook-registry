@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "all-stories",
-  "type": "registry:component",
   "title": "All Stories",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Complete collection of all Storybook stories in the registry for bulk installation",
@@ -322,5 +321,6 @@
     "utility",
     "collection",
     "storybook"
-  ]
+  ],
+  "type": "registry:component"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-story",
-  "type": "registry:component",
   "title": "Avatar Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating avatar component usage and variants",
@@ -20,5 +19,6 @@
     "storybook",
     "avatar",
     "profile"
-  ]
+  ],
+  "type": "registry:component"
 }

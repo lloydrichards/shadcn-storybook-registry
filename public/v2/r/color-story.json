@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "color-story",
-  "type": "registry:component",
   "title": "Color Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Design system documentation and examples for color tokens and themes",
@@ -20,5 +19,6 @@
     "tokens",
     "storybook",
     "color"
-  ]
+  ],
+  "type": "registry:component"
 }

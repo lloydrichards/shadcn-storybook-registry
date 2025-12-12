@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "radio-group-story",
-  "type": "registry:component",
   "title": "Radio Group Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating radio group component usage and variants",
@@ -21,5 +20,6 @@
     "storybook",
     "radio",
     "form"
-  ]
+  ],
+  "type": "registry:component"
 }

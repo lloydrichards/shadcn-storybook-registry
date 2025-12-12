@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "pagination-story",
-  "type": "registry:component",
   "title": "Pagination Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating pagination component usage and variants",
@@ -20,5 +19,6 @@
     "storybook",
     "pagination",
     "navigation"
-  ]
+  ],
+  "type": "registry:component"
 }

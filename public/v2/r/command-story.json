@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command-story",
-  "type": "registry:component",
   "title": "Command Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating command component usage and variants",
@@ -21,5 +20,6 @@
     "storybook",
     "command",
     "search"
-  ]
+  ],
+  "type": "registry:component"
 }

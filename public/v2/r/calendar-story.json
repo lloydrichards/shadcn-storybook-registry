@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calendar-story",
-  "type": "registry:component",
   "title": "Calendar Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating calendar component usage and variants",
@@ -23,5 +22,6 @@
     "storybook",
     "calendar",
     "date"
-  ]
+  ],
+  "type": "registry:component"
 }

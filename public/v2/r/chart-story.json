@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-story",
-  "type": "registry:component",
   "title": "Chart Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating chart component usage and variants",
@@ -23,5 +22,6 @@
     "storybook",
     "chart",
     "data-visualization"
-  ]
+  ],
+  "type": "registry:component"
 }

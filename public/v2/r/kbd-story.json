@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "kbd-story",
-  "type": "registry:component",
   "title": "Kbd Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating keyboard shortcut component usage and variants",
@@ -26,5 +25,6 @@
     "storybook",
     "kbd",
     "keyboard"
-  ]
+  ],
+  "type": "registry:component"
 }

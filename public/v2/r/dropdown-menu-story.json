@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-menu-story",
-  "type": "registry:component",
   "title": "Dropdown Menu Story",
   "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
   "description": "Interactive Storybook stories demonstrating dropdown menu component usage and variants",
@@ -23,5 +22,6 @@
     "storybook",
     "dropdown",
     "menu"
-  ]
+  ],
+  "type": "registry:component"
 }
