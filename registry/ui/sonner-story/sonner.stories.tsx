@@ -4,8 +4,8 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
+import { Button } from "@/bases/radix/components/ui/button";
+import { Toaster } from "@/bases/radix/components/ui/sonner";
 
 /**
  * An opinionated toast component for React.

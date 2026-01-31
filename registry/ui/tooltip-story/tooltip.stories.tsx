@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/bases/radix/components/ui/tooltip";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 /**

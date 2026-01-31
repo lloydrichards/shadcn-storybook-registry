@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/bases/radix/components/ui/skeleton";
 
 /**
  * Use to show a placeholder while content is loading.

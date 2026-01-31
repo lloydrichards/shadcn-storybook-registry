@@ -2,15 +2,15 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/bases/radix/components/ui/button";
+import { Calendar } from "@/bases/radix/components/ui/calendar";
+import { Input } from "@/bases/radix/components/ui/input";
+import { Label } from "@/bases/radix/components/ui/label";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/bases/radix/components/ui/popover";
 import { CalendarIcon, ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 import { action } from "storybook/actions";

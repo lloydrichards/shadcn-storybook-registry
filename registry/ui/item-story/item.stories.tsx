@@ -11,14 +11,18 @@ import {
 import Image from "next/image";
 import * as React from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/bases/radix/components/ui/avatar";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/bases/radix/components/ui/dropdown-menu";
 import {
   Item,
   ItemActions,
@@ -29,7 +33,7 @@ import {
   ItemMedia,
   ItemSeparator,
   ItemTitle,
-} from "@/components/ui/item";
+} from "@/bases/radix/components/ui/item";
 
 /**
  * A versatile component that you can use to display any content.

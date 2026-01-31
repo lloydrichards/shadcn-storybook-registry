@@ -15,7 +15,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu";
+} from "@/bases/radix/components/ui/context-menu";
 import { expect, userEvent, within } from "storybook/test";
 
 /**

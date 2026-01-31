@@ -6,7 +6,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "@/bases/radix/components/ui/collapsible";
 import { expect, userEvent } from "storybook/test";
 
 /**

@@ -9,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/bases/radix/components/ui/table";
 
 const invoices = [
   {

@@ -3,7 +3,7 @@ import { addDays } from "date-fns";
 import { action } from "storybook/actions";
 import { expect, userEvent } from "storybook/test";
 
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/bases/radix/components/ui/calendar";
 
 /**
  * A date field component that allows users to enter and edit date.

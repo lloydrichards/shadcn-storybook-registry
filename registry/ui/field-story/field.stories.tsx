@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import * as React from "react";
 
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/bases/radix/components/ui/checkbox";
 import {
   Field,
   FieldContent,
@@ -13,19 +13,22 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@/bases/radix/components/ui/field";
+import { Input } from "@/bases/radix/components/ui/input";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/bases/radix/components/ui/radio-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
+} from "@/bases/radix/components/ui/select";
+import { Slider } from "@/bases/radix/components/ui/slider";
+import { Switch } from "@/bases/radix/components/ui/switch";
+import { Textarea } from "@/bases/radix/components/ui/textarea";
 
 /**
  * Combine labels, controls, and help text to compose accessible form fields and grouped inputs.

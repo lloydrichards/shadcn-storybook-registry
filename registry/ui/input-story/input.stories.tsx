@@ -2,9 +2,9 @@ import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/bases/radix/components/ui/button";
+import { Input } from "@/bases/radix/components/ui/input";
+import { Label } from "@/bases/radix/components/ui/label";
 
 /**
  * Displays a form input field or a component that looks like an input field.

@@ -135,7 +135,7 @@ describe("Registry API", () => {
 
   describe("should return 200", () => {
     it("when component exists and has files", async () => {
-      const mockFileContent = `import { Button } from "@/components/ui/button";
+      const mockFileContent = `import { Button } from "@/bases/radix/components/ui/button";
 export default { title: "Example/Button" };`;
 
       mockedReadFile.mockResolvedValue(mockFileContent);

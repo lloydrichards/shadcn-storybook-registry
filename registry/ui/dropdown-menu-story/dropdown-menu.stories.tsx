@@ -19,7 +19,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/bases/radix/components/ui/dropdown-menu";
 
 /**
  * Displays a menu to the user — such as a set of actions or functions —

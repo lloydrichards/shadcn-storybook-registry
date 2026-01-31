@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { ArrowUpIcon } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/bases/radix/components/ui/badge";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   Empty,
   EmptyContent,
@@ -10,16 +10,21 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/ui/empty";
+} from "@/bases/radix/components/ui/empty";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
   InputGroupTextarea,
-} from "@/components/ui/input-group";
-import { Item, ItemContent, ItemMedia, ItemTitle } from "@/components/ui/item";
-import { Spinner } from "@/components/ui/spinner";
+} from "@/bases/radix/components/ui/input-group";
+import {
+  Item,
+  ItemContent,
+  ItemMedia,
+  ItemTitle,
+} from "@/bases/radix/components/ui/item";
+import { Spinner } from "@/bases/radix/components/ui/spinner";
 
 /**
  * An indicator that can be used to show a loading state.

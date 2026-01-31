@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/bases/radix/components/ui/scroll-area";
 
 /**
  * Augments native scroll functionality for custom, cross-browser styling.

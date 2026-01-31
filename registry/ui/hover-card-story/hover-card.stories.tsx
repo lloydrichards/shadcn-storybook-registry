@@ -6,7 +6,7 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card";
+} from "@/bases/radix/components/ui/hover-card";
 
 /**
  * For sighted users to preview content available behind a link.

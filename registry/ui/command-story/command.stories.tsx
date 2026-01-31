@@ -9,7 +9,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/ui/command";
+} from "@/bases/radix/components/ui/command";
 import { expect, userEvent, within } from "storybook/test";
 
 /**

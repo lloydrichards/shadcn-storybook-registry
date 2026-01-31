@@ -9,7 +9,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/bases/radix/components/ui/pagination";
 
 /**
  * Pagination with page navigation, next and previous links.

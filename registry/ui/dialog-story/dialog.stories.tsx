@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/bases/radix/components/ui/dialog";
 
 /**
  * A window overlaid on either the primary window or another dialog window,

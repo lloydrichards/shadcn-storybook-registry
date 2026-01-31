@@ -5,15 +5,15 @@ import { action } from "storybook/actions";
 import { expect, userEvent } from "storybook/test";
 import * as z from "zod";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+} from "@/bases/radix/components/ui/field";
+import { Input } from "@/bases/radix/components/ui/input";
 
 const formSchema = z.object({
   username: z.string().min(6, {

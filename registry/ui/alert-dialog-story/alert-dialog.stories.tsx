@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/bases/radix/components/ui/alert-dialog";
 import { userEvent, within } from "storybook/test";
 
 /**

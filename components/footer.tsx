@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/bases/radix/components/ui/button";
 import { Code2 } from "lucide-react";
 
 export const Footer = () => {

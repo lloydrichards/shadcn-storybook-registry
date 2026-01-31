@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { BellRing } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   Card,
   CardAction,
@@ -11,7 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/bases/radix/components/ui/card";
 
 const notifications = [
   {

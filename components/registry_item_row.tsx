@@ -1,6 +1,6 @@
+import { Button } from "@/bases/radix/components/ui/button";
+import { TableCell, TableRow } from "@/bases/radix/components/ui/table";
 import { CommandBlock } from "@/components/command-block";
-import { Button } from "@/components/ui/button";
-import { TableCell, TableRow } from "@/components/ui/table";
 import { getBaseUrl } from "@/lib/utils";
 import { FC } from "react";
 

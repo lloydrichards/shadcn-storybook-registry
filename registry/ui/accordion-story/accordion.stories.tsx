@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/bases/radix/components/ui/accordion";
 
 /**
  * A vertically stacked set of interactive headings that each reveal a section

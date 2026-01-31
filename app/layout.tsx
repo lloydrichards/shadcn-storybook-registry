@@ -3,7 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/bases/radix/components/ui/sonner";
 import Script from "next/script";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";

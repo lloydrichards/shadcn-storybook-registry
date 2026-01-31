@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@/bases/radix/components/ui/progress";
 
 /**
  * Displays an indicator showing the completion progress of a task, typically

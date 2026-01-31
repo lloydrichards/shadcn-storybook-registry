@@ -22,13 +22,16 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
-import { ButtonGroup, ButtonGroupText } from "@/components/ui/button-group";
+import {
+  ButtonGroup,
+  ButtonGroupText,
+} from "@/bases/radix/components/ui/button-group";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/bases/radix/components/ui/dropdown-menu";
 import {
   InputGroup,
   InputGroupAddon,
@@ -36,20 +39,20 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/components/ui/input-group";
-import { Label } from "@/components/ui/label";
+} from "@/bases/radix/components/ui/input-group";
+import { Label } from "@/bases/radix/components/ui/label";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Spinner } from "@/components/ui/spinner";
+} from "@/bases/radix/components/ui/popover";
+import { Spinner } from "@/bases/radix/components/ui/spinner";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/bases/radix/components/ui/tooltip";
 
 /**
  * Display additional information or actions to an input or textarea.
