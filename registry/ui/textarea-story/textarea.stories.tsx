@@ -1,9 +1,9 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/bases/radix/components/ui/button";
+import { Label } from "@/bases/radix/components/ui/label";
+import { Textarea } from "@/bases/radix/components/ui/textarea";
 
 /**
  * Displays a form textarea or a component that looks like a textarea.

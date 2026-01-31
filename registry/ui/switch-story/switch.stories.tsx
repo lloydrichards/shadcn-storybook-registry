@@ -2,8 +2,8 @@ import { expect, userEvent } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+import { Label } from "@/bases/radix/components/ui/label";
+import { Switch } from "@/bases/radix/components/ui/switch";
 
 /**
  * A control that allows the user to toggle between checked and not checked.

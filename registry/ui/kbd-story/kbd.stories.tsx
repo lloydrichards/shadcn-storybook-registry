@@ -2,20 +2,20 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { SearchIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/button-group";
+import { Button } from "@/bases/radix/components/ui/button";
+import { ButtonGroup } from "@/bases/radix/components/ui/button-group";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Kbd, KbdGroup } from "@/components/ui/kbd";
+} from "@/bases/radix/components/ui/input-group";
+import { Kbd, KbdGroup } from "@/bases/radix/components/ui/kbd";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/bases/radix/components/ui/tooltip";
 
 /**
  * Used to display textual user input from keyboard.

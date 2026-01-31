@@ -8,8 +8,12 @@ import {
   SearchIcon,
 } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/bases/radix/components/ui/avatar";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   Empty,
   EmptyContent,
@@ -17,13 +21,13 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/ui/empty";
+} from "@/bases/radix/components/ui/empty";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Kbd } from "@/components/ui/kbd";
+} from "@/bases/radix/components/ui/input-group";
+import { Kbd } from "@/bases/radix/components/ui/kbd";
 
 /**
  * Use the Empty component to display a empty state.

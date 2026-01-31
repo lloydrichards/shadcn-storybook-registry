@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/bases/radix/components/ui/sheet";
 import { expect, userEvent, within } from "storybook/test";
 
 /**

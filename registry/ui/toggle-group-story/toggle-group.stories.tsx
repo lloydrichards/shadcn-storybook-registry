@@ -2,7 +2,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Bold, Italic, Underline } from "lucide-react";
 
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/bases/radix/components/ui/toggle-group";
 
 /**
  * A set of two-state buttons that can be toggled on or off.

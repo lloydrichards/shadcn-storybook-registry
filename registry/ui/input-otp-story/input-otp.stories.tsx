@@ -8,7 +8,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "@/bases/radix/components/ui/input-otp";
 
 /**
  * Accessible one-time password component with copy paste functionality.

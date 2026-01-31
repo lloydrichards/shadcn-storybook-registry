@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/bases/radix/components/ui/badge";
 
 /**
  * Displays a badge or a component that looks like a badge.

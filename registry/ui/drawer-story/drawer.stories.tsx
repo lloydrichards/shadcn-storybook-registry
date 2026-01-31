@@ -10,7 +10,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@/bases/radix/components/ui/drawer";
 import { expect, fn, userEvent, within } from "storybook/test";
 
 /**

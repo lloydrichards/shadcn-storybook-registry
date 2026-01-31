@@ -2,8 +2,11 @@ import { expect, userEvent, waitFor } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/bases/radix/components/ui/label";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/bases/radix/components/ui/radio-group";
 
 /**
  * A set of checkable buttons—known as radio buttons—where no more than one of

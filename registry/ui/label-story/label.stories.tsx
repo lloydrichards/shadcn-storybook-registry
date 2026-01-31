@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Label } from "@/components/ui/label";
+import { Label } from "@/bases/radix/components/ui/label";
 
 /**
  * Renders an accessible label associated with controls.

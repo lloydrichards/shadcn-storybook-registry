@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Slider } from "@/components/ui/slider";
+import { Slider } from "@/bases/radix/components/ui/slider";
 
 /**
  * An input where the user selects a value from within a given range.

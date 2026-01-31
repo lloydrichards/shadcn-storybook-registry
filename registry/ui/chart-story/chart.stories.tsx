@@ -20,7 +20,7 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/bases/radix/components/ui/chart";
 
 const multiSeriesData = [
   { month: "January", desktop: 186, mobile: 80 },

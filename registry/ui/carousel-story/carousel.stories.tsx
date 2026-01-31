@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/bases/radix/components/ui/carousel";
 
 /**
  * A carousel with motion and swipe built using Embla.

@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/bases/radix/components/ui/table";
 import { RegistryItemRow } from "../components/registry_item_row";
 
 const Home = async () => {

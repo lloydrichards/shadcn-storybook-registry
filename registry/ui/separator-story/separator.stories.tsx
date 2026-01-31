@@ -1,7 +1,7 @@
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/bases/radix/components/ui/separator";
 
 /**
  * Visually or semantically separates content.

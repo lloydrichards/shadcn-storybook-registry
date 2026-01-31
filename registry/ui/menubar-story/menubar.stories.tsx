@@ -17,7 +17,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/bases/radix/components/ui/menubar";
 import { expect, userEvent, within } from "storybook/test";
 
 /**

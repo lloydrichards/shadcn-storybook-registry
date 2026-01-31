@@ -9,7 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "@/bases/radix/components/ui/breadcrumb";
 
 /**
  * Displays the path to the current resource using a hierarchy of links.

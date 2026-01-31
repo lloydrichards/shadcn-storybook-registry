@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/bases/radix/components/ui/button";
+import { Input } from "@/bases/radix/components/ui/input";
 import { Copy } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";

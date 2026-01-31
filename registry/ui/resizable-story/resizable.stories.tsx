@@ -5,7 +5,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
+} from "@/bases/radix/components/ui/resizable";
 import { fn } from "storybook/test";
 /**
  * Accessible resizable panel groups and layouts with keyboard support.

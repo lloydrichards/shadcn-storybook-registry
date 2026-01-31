@@ -3,7 +3,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/bases/radix/components/ui/navigation-menu";
 import Link from "next/link";
 
 export const Header = () => (

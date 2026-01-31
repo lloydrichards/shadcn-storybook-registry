@@ -11,7 +11,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/bases/radix/components/ui/select";
 
 /**
  * Displays a list of options for the user to pick from—triggered by a button.

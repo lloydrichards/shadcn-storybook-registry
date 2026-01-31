@@ -5,7 +5,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/bases/radix/components/ui/popover";
 import { expect, userEvent, within } from "storybook/test";
 
 /**
