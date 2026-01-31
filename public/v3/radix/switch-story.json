@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-story",
+  "title": "Switch Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating switch component usage and variants",
+  "registryDependencies": [
+    "switch",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/switch-story/switch-radix.stories.tsx",
+      "content": "import { expect, userEvent } from \"storybook/test\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Label } from \"@/components/ui/label\";\nimport { Switch } from \"@/components/ui/switch\";\n\n/**\n * A control that allows the user to toggle between checked and not checked.\n */\nconst meta = {\n  title: \"ui/radix/Switch\",\n  component: Switch,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  parameters: {\n    layout: \"centered\",\n  },\n  render: (args) => (\n    <div className=\"flex items-center space-x-2\">\n      <Switch {...args} />\n      <Label htmlFor={args.id}>Airplane Mode</Label>\n    </div>\n  ),\n} satisfies Meta<typeof Switch>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the switch.\n */\nexport const Default: Story = {\n  args: {\n    id: \"default-switch\",\n  },\n};\n\n/**\n * Use the `disabled` prop to disable the switch.\n */\nexport const Disabled: Story = {\n  args: {\n    id: \"disabled-switch\",\n    disabled: true,\n  },\n};\n\nexport const ShouldToggle: Story = {\n  name: \"when clicking the switch, should toggle it on and off\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, step }) => {\n    const switchBtn = await canvas.findByRole(\"switch\");\n\n    await step(\"toggle the switch on\", async () => {\n      await userEvent.click(switchBtn);\n      await expect(switchBtn).toBeChecked();\n    });\n\n    await step(\"toggle the switch off\", async () => {\n      await userEvent.click(switchBtn);\n      await expect(switchBtn).not.toBeChecked();\n    });\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "switch",
+    "form"
+  ],
+  "type": "registry:component"
+}

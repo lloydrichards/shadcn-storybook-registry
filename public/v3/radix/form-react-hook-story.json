@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-react-hook-story",
+  "title": "Form (React Hook Form) Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating form usage with React Hook Form",
+  "dependencies": [
+    "@hookform/resolvers",
+    "zod",
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "button",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/form-story/form-react-hook-radix.stories.tsx",
+      "content": "import { zodResolver } from \"@hookform/resolvers/zod\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport type { ComponentProps } from \"react\";\nimport { Controller, useForm } from \"react-hook-form\";\nimport { action } from \"storybook/actions\";\nimport { expect, userEvent } from \"storybook/test\";\nimport * as z from \"zod\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\n\nconst formSchema = z.object({\n  username: z.string().min(6, {\n    message: \"Username must be at least 6 characters.\",\n  }),\n});\n\ntype ProfileFormValues = z.infer<typeof formSchema>;\n\nfunction ReactHookFormProfileForm(props: ComponentProps<\"form\">) {\n  const form = useForm<ProfileFormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      username: \"\",\n    },\n  });\n  function onSubmit(values: ProfileFormValues) {\n    action(\"onSubmit\")(values);\n  }\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"space-y-8\"\n      {...props}\n    >\n      <FieldGroup>\n        <Controller\n          control={form.control}\n          name=\"username\"\n          render={({ field, fieldState }) => (\n            <Field data-invalid={fieldState.invalid}>\n              <FieldLabel htmlFor=\"form-rhf-username\">Username</FieldLabel>\n              <Input\n                id=\"form-rhf-username\"\n                placeholder=\"username\"\n                aria-invalid={fieldState.invalid}\n                {...field}\n              />\n              <FieldDescription>\n                This is your public display name.\n              </FieldDescription>\n              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n            </Field>\n          )}\n        />\n      </FieldGroup>\n      <Button type=\"submit\">Submit</Button>\n    </form>\n  );\n}\n\n/**\n * Building forms with React Hook Form and Zod.\n */\nconst meta: Meta<typeof ReactHookFormProfileForm> = {\n  title: \"ui/radix/Form (React Hook Form)\",\n  component: ReactHookFormProfileForm,\n  tags: [\"autodocs\"],\n  argTypes: {},\n} satisfies Meta<typeof ReactHookFormProfileForm>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the form.\n */\nexport const Default: Story = {};\n\nexport const ShouldSucceedWhenValidInput: Story = {\n  name: \"when typing a valid username, should not show an error message\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, step }) => {\n    await step(\"Type a valid username\", async () => {\n      await userEvent.type(\n        await canvas.findByRole(\"textbox\", { name: /username/i }),\n        \"mockuser\",\n      );\n    });\n\n    await step(\"Click the submit button\", async () => {\n      await userEvent.click(\n        await canvas.findByRole(\"button\", { name: /submit/i }),\n      );\n      expect(\n        await canvas.queryByText(/username must be at least 6 characters/i, {\n          exact: true,\n        }),\n      ).toBeNull();\n    });\n  },\n};\n\nexport const ShouldShowErrorWhenInvalidInput: Story = {\n  name: \"when typing a short username, should show an error message\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, step }) => {\n    await step(\"Type a short username\", async () => {\n      await userEvent.type(\n        await canvas.findByRole(\"textbox\", { name: /username/i }),\n        \"fail\",\n      );\n    });\n\n    await step(\"Click the submit button\", async () => {\n      await userEvent.click(\n        await canvas.findByRole(\"button\", { name: /submit/i }),\n      );\n      expect(\n        await canvas.queryByText(/username must be at least 6 characters/i, {\n          exact: true,\n        }),\n      ).toBeVisible();\n    });\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "form",
+    "validation"
+  ],
+  "type": "registry:component"
+}

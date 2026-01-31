@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner-story",
+  "title": "Spinner Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating loading spinner component usage and variants",
+  "registryDependencies": [
+    "spinner",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/spinner-story/spinner-radix.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { ArrowUpIcon } from \"lucide-react\";\n\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n  InputGroupTextarea,\n} from \"@/components/ui/input-group\";\nimport {\n  Item,\n  ItemContent,\n  ItemMedia,\n  ItemTitle,\n} from \"@/components/ui/item\";\nimport { Spinner } from \"@/components/ui/spinner\";\n\n/**\n * An indicator that can be used to show a loading state.\n */\nconst meta: Meta<typeof Spinner> = {\n  title: \"ui/radix/Spinner\",\n  component: Spinner,\n  tags: [\"autodocs\"],\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Spinner>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default spinner with payment processing example.\n */\nexport const WithItem: Story = {\n  render: (args) => (\n    <div className=\"flex w-full max-w-xs flex-col gap-4 [--radius:1rem]\">\n      <Item variant=\"muted\">\n        <ItemMedia>\n          <Spinner {...args} />\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle className=\"line-clamp-1\">Processing payment...</ItemTitle>\n        </ItemContent>\n        <ItemContent className=\"flex-none justify-end\">\n          <span className=\"text-sm tabular-nums\">$100.00</span>\n        </ItemContent>\n      </Item>\n    </div>\n  ),\n};\n\n/**\n * Add a spinner to a button to indicate a loading state.\n */\nexport const WithButton: Story = {\n  render: (args) => (\n    <Button disabled size=\"sm\">\n      <Spinner {...args} />\n      Loading...\n    </Button>\n  ),\n};\n\n/**\n * You can also use a spinner inside a badge.\n */\nexport const WithBadge: Story = {\n  render: (args) => (\n    <Badge>\n      <Spinner {...args} />\n      Syncing\n    </Badge>\n  ),\n};\n\n/**\n * Input Group can have spinners inside InputGroupAddon.\n */\nexport const WithInputGroup: Story = {\n  render: (args) => (\n    <div className=\"flex w-full max-w-md flex-col gap-4\">\n      <InputGroup>\n        <InputGroupInput placeholder=\"Send a message...\" disabled />\n        <InputGroupAddon align=\"inline-end\">\n          <Spinner {...args} />\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupTextarea placeholder=\"Send a message...\" disabled />\n        <InputGroupAddon align=\"block-end\">\n          <Spinner /> Validating...\n          <InputGroupButton className=\"ml-auto\" variant=\"default\">\n            <ArrowUpIcon />\n            <span className=\"sr-only\">Send</span>\n          </InputGroupButton>\n        </InputGroupAddon>\n      </InputGroup>\n    </div>\n  ),\n};\n\n/**\n * Spinner used in Empty component for loading states.\n */\nexport const WithEmpty: Story = {\n  render: (args) => (\n    <Empty className=\"w-full\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <Spinner {...args} />\n        </EmptyMedia>\n        <EmptyTitle>Processing your request</EmptyTitle>\n        <EmptyDescription>\n          Please wait while we process your request. Do not refresh the page.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button variant=\"outline\" size=\"sm\">\n          Cancel\n        </Button>\n      </EmptyContent>\n    </Empty>\n  ),\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "spinner",
+    "loading"
+  ],
+  "type": "registry:component"
+}
