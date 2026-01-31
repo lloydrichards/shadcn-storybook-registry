@@ -1,35 +1,20 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { useForm } from "react-hook-form";
+import type { ComponentProps } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { action } from "storybook/actions";
 import { expect, userEvent } from "storybook/test";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-
-/**
- * Building forms with React Hook Form and Zod.
- */
-const meta: Meta<typeof Form> = {
-  title: "ui/Form",
-  component: Form,
-  tags: ["autodocs"],
-  argTypes: {},
-  render: (args) => <ProfileForm {...args} />,
-} satisfies Meta<typeof Form>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   username: z.string().min(6, {
@@ -37,44 +22,63 @@ const formSchema = z.object({
   }),
 });
 
-const ProfileForm = (args: Story["args"]) => {
-  const form = useForm<z.infer<typeof formSchema>>({
+type ProfileFormValues = z.infer<typeof formSchema>;
+
+function ReactHookFormProfileForm(props: ComponentProps<"form">) {
+  const form = useForm<ProfileFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: ProfileFormValues) {
     action("onSubmit")(values);
   }
   return (
-    <Form {...args} {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="space-y-8"
+      {...props}
+    >
+      <FieldGroup>
+        <Controller
           control={form.control}
           name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <input
-                  className="border-input bg-background w-full rounded-md border px-3 py-2"
-                  placeholder="username"
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor="form-rhf-username">Username</FieldLabel>
+              <Input
+                id="form-rhf-username"
+                placeholder="username"
+                aria-invalid={fieldState.invalid}
+                {...field}
+              />
+              <FieldDescription>
                 This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
+              </FieldDescription>
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
           )}
         />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+      </FieldGroup>
+      <Button type="submit">Submit</Button>
+    </form>
   );
-};
+}
+
+/**
+ * Building forms with React Hook Form and Zod.
+ */
+const meta: Meta<typeof ReactHookFormProfileForm> = {
+  title: "ui/Form (React Hook Form)",
+  component: ReactHookFormProfileForm,
+  tags: ["autodocs"],
+  argTypes: {},
+} satisfies Meta<typeof ReactHookFormProfileForm>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 /**
  * The default form of the form.

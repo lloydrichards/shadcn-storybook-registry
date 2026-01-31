@@ -395,17 +395,33 @@
       ]
     },
     {
-      "name": "form-story",
+      "name": "form-react-hook-story",
       "type": "registry:component",
-      "title": "Form Story",
-      "description": "Interactive Storybook stories demonstrating form component usage and variants",
+      "title": "Form (React Hook Form) Story",
+      "description": "Interactive Storybook stories demonstrating form usage with React Hook Form",
       "categories": ["ui", "storybook", "form", "validation"],
       "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
-      "registryDependencies": ["button", "form"],
+      "registryDependencies": ["button", "field", "input"],
       "dependencies": ["@hookform/resolvers", "zod", "react-hook-form"],
       "files": [
         {
-          "path": "registry/ui/form-story/form.stories.tsx",
+          "path": "registry/ui/form-story/form-react-hook.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "form-tanstack-story",
+      "type": "registry:component",
+      "title": "Form (TanStack Form) Story",
+      "description": "Interactive Storybook stories demonstrating form usage with TanStack Form",
+      "categories": ["ui", "storybook", "form", "validation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "field", "input"],
+      "dependencies": ["@tanstack/react-form", "zod"],
+      "files": [
+        {
+          "path": "registry/ui/form-story/form-tanstack.stories.tsx",
           "type": "registry:component"
         }
       ]
@@ -1086,7 +1102,11 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/ui/form-story/form.stories.tsx",
+          "path": "registry/ui/form-story/form-react-hook.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/form-story/form-tanstack.stories.tsx",
           "type": "registry:component"
         },
         {
