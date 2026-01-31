@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner-story",
+  "title": "Sonner Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating toast notifications usage and variants",
+  "dependencies": [
+    "sonner"
+  ],
+  "registryDependencies": [
+    "sonner",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/sonner-story/sonner-radix.stories.tsx",
+      "content": "import { action } from \"storybook/actions\";\nimport { expect, userEvent, waitFor, within } from \"storybook/test\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { toast } from \"sonner\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Toaster } from \"@/components/ui/sonner\";\n\n/**\n * An opinionated toast component for React.\n */\nconst meta: Meta<typeof Toaster> = {\n  title: \"ui/radix/Sonner\",\n  component: Toaster,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    position: \"bottom-right\",\n  },\n  parameters: {\n    layout: \"fullscreen\",\n  },\n  render: (args) => (\n    <div className=\"flex min-h-96 items-center justify-center space-x-2\">\n      <Button\n        onClick={() =>\n          toast(\"Event has been created\", {\n            description: new Date().toLocaleString(),\n            action: {\n              label: \"Undo\",\n              onClick: action(\"Undo clicked\"),\n            },\n          })\n        }\n      >\n        Show Toast\n      </Button>\n      <Toaster {...args} />\n    </div>\n  ),\n} satisfies Meta<typeof Toaster>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the toaster.\n */\nexport const Default: Story = {};\n\nexport const ShouldShowToast: Story = {\n  name: \"when clicking Show Toast button, should show a toast\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n    const triggerBtn = await canvasBody.findByRole(\"button\", {\n      name: /show/i,\n    });\n\n    await step(\"create a toast\", async () => {\n      await userEvent.click(triggerBtn);\n      await waitFor(() =>\n        expect(canvasBody.queryByRole(\"listitem\")).toBeInTheDocument(),\n      );\n    });\n\n    await step(\"create more toasts\", async () => {\n      await userEvent.click(triggerBtn);\n      await userEvent.click(triggerBtn);\n      await waitFor(() =>\n        expect(canvasBody.getAllByRole(\"listitem\")).toHaveLength(3),\n      );\n    });\n  },\n};\n\nexport const ShouldCloseToast: Story = {\n  name: \"when clicking the close button, should close the toast\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n    const triggerBtn = await canvasBody.findByRole(\"button\", {\n      name: /show/i,\n    });\n\n    await step(\"create a toast\", async () => {\n      await userEvent.click(triggerBtn);\n    });\n\n    await step(\"close the toast\", async () => {\n      await userEvent.click(\n        await canvasBody.findByRole(\"button\", { name: /undo/i }),\n      );\n      await waitFor(() =>\n        expect(canvasBody.queryByRole(\"listitem\")).not.toBeInTheDocument(),\n      );\n    });\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "toast",
+    "feedback"
+  ],
+  "type": "registry:component"
+}

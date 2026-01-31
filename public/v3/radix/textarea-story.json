@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-story",
+  "title": "Textarea Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating textarea component usage and variants",
+  "registryDependencies": [
+    "textarea",
+    "button",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/textarea-story/textarea-radix.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Label } from \"@/components/ui/label\";\nimport { Textarea } from \"@/components/ui/textarea\";\n\n/**\n * Displays a form textarea or a component that looks like a textarea.\n */\nconst meta = {\n  title: \"ui/radix/Textarea\",\n  component: Textarea,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    placeholder: \"Type your message here.\",\n    disabled: false,\n  },\n} satisfies Meta<typeof Textarea>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the textarea.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `disabled` prop to disable the textarea.\n */\nexport const Disabled: Story = {\n  args: {\n    disabled: true,\n  },\n};\n\n/**\n * Use the `Label` component to includes a clear, descriptive label above or\n * alongside the text area to guide users.\n */\nexport const WithLabel: Story = {\n  render: (args) => (\n    <div className=\"grid w-full gap-1.5\">\n      <Label htmlFor=\"message\">Your message</Label>\n      <Textarea {...args} id=\"message\" />\n    </div>\n  ),\n};\n\n/**\n * Use a text element below the text area to provide additional instructions\n * or information to users.\n */\nexport const WithText: Story = {\n  render: (args) => (\n    <div className=\"grid w-full gap-1.5\">\n      <Label htmlFor=\"message-2\">Your Message</Label>\n      <Textarea {...args} id=\"message-2\" />\n      <p className=\"text-sm text-slate-500\">\n        Your message will be copied to the support team.\n      </p>\n    </div>\n  ),\n};\n\n/**\n * Use the `Button` component to indicate that the text area can be submitted\n * or used to trigger an action.\n */\nexport const WithButton: Story = {\n  render: (args) => (\n    <div className=\"grid w-full gap-2\">\n      <Textarea {...args} />\n      <Button type=\"submit\">Send Message</Button>\n    </div>\n  ),\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "textarea",
+    "form"
+  ],
+  "type": "registry:component"
+}
