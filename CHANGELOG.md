@@ -1,3 +1,10 @@
+# [0.11.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.2...v0.11.0) (2026-01-31)
+
+
+### ✨ Feature
+
+* remove form and add library specific versions ([f5382b3](https://github.com/lloydrichards/shadcn-storybook-registry/commit/f5382b3c1eeaf84456e68391de07cf75d56762bb))
+
 ## [0.10.2](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.1...v0.10.2) (2026-01-31)
 
 
