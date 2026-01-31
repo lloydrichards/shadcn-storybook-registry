@@ -9,8 +9,8 @@
   ],
   "files": [
     {
-      "path": "registry/ui/progress-story/progress.stories.tsx",
-      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Progress } from \"@/bases/radix/components/ui/progress\";\n\n/**\n * Displays an indicator showing the completion progress of a task, typically\n * displayed as a progress bar.\n */\nconst meta = {\n  title: \"ui/Progress\",\n  component: Progress,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    \"aria-label\": \"Progress\",\n    value: 30,\n    max: 100,\n  },\n} satisfies Meta<typeof Progress>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the progress.\n */\nexport const Default: Story = {};\n\n/**\n * When the progress is indeterminate.\n */\nexport const Indeterminate: Story = {\n  args: {\n    value: undefined,\n  },\n};\n\n/**\n * When the progress is completed.\n */\nexport const Completed: Story = {\n  args: {\n    value: 100,\n  },\n};\n",
+      "path": "registry/ui/progress-story/progress-radix.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Progress } from \"@/bases/radix/components/ui/progress\";\n\n/**\n * Displays an indicator showing the completion progress of a task, typically\n * displayed as a progress bar.\n */\nconst meta = {\n  title: \"ui/radix/Progress\",\n  component: Progress,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    \"aria-label\": \"Progress\",\n    value: 30,\n    max: 100,\n  },\n} satisfies Meta<typeof Progress>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the progress.\n */\nexport const Default: Story = {};\n\n/**\n * When the progress is indeterminate.\n */\nexport const Indeterminate: Story = {\n  args: {\n    value: undefined,\n  },\n};\n\n/**\n * When the progress is completed.\n */\nexport const Completed: Story = {\n  args: {\n    value: 100,\n  },\n};\n",
       "type": "registry:component"
     }
   ],

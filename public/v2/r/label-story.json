@@ -9,8 +9,8 @@
   ],
   "files": [
     {
-      "path": "registry/ui/label-story/label.stories.tsx",
-      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Label } from \"@/bases/radix/components/ui/label\";\n\n/**\n * Renders an accessible label associated with controls.\n */\nconst meta = {\n  title: \"ui/Label\",\n  component: Label,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    children: \"Your email address\",\n    htmlFor: \"email\",\n  },\n} satisfies Meta<typeof Label>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof Label>;\n\n/**\n * The default form of the label.\n */\nexport const Default: Story = {};\n",
+      "path": "registry/ui/label-story/label-radix.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Label } from \"@/bases/radix/components/ui/label\";\n\n/**\n * Renders an accessible label associated with controls.\n */\nconst meta = {\n  title: \"ui/radix/Label\",\n  component: Label,\n  tags: [\"autodocs\"],\n  argTypes: {\n    children: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    children: \"Your email address\",\n    htmlFor: \"email\",\n  },\n} satisfies Meta<typeof Label>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof Label>;\n\n/**\n * The default form of the label.\n */\nexport const Default: Story = {};\n",
       "type": "registry:component"
     }
   ],
