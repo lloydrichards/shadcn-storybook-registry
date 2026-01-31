@@ -1,24 +1,24 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import storybook from "eslint-plugin-storybook";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [{
-  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
-}, ...compat.extends(
-  "next/core-web-vitals",
-  "next/typescript",
-  "plugin:storybook/recommended",
-), {
-  rules: {
-    "react/no-unescaped-entities": "off",
+const eslintConfig = [
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+    ],
   },
-}];
+  ...nextCoreWebVitals,
+  ...storybook.configs["flat/recommended"],
+  {
+    rules: {
+      "react/no-unescaped-entities": "off",
+      "react-hooks/purity": "warn",
+    },
+  },
+];
 
 export default eslintConfig;
