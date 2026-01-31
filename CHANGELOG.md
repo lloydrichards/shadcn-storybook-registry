@@ -1,3 +1,10 @@
+## [0.10.2](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.1...v0.10.2) (2026-01-31)
+
+
+### ♻️ Refactoring
+
+* upgrade to latest shadcn components ([52bceeb](https://github.com/lloydrichards/shadcn-storybook-registry/commit/52bceeb3e8a95a65238ba71842bacad6de167ebd))
+
 ## [0.10.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.0...v0.10.1) (2025-10-12)
 
 
