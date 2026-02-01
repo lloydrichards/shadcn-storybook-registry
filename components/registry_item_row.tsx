@@ -23,7 +23,7 @@ export const RegistryItemRow: FC<{
       <TableCell>
         <Button variant="link" asChild>
           <a
-            href={`${getBaseUrl()}/storybook/?path=/docs/ui-${item.name.replace("-story", "")}--docs`}
+            href={`${getBaseUrl()}/storybook/?path=/docs/ui-${registry}-${item.name.replace("-story", "")}--docs`}
           >
             Story
           </a>
