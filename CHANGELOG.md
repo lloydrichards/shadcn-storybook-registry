@@ -1,3 +1,25 @@
+# [0.12.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.11.0...v0.12.0) (2026-02-01)
+
+
+### ♻️ Refactoring
+
+* move current registry to use radix ([cc4226e](https://github.com/lloydrichards/shadcn-storybook-registry/commit/cc4226e24bc13622726d5665c82857b8a24dee4e))
+* tidy up registry config ([6c1f456](https://github.com/lloydrichards/shadcn-storybook-registry/commit/6c1f45665f25782a10935dca81017688bcbf8dc2))
+
+
+### ✨ Feature
+
+* add base versions of stories ([b1a1047](https://github.com/lloydrichards/shadcn-storybook-registry/commit/b1a1047706279106a9c440d87853fdb9506562ce))
+* add base-ui components ([dc2a85e](https://github.com/lloydrichards/shadcn-storybook-registry/commit/dc2a85eda8544c9abeb80fa6b4caa5447c7f0af7))
+* build v3 registries ([ce84a34](https://github.com/lloydrichards/shadcn-storybook-registry/commit/ce84a347a8e9d03f0226027fca64f6add65d6df7))
+
+
+### 🐛 Bug Fix
+
+* handle interaction tests for base ([c41841b](https://github.com/lloydrichards/shadcn-storybook-registry/commit/c41841b295d8576ca4ad551d05b9de71f0822a8a))
+* registry route with multi registries ([e7acc68](https://github.com/lloydrichards/shadcn-storybook-registry/commit/e7acc68feb02b898e4c949f8002e0b316a968822))
+* update storybook link in registry row item ([56d1eec](https://github.com/lloydrichards/shadcn-storybook-registry/commit/56d1eec5b2ad0294ba927ce715d71aa15de7465d))
+
 # [0.11.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.10.2...v0.11.0) (2026-01-31)
 
 
