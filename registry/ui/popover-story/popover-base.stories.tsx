@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/bases/base/components/ui/popover";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 
 /**
  * Displays rich content in a portal, triggered by a button.
@@ -54,10 +54,9 @@ export const ShouldOpenClose: Story = {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /open/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };

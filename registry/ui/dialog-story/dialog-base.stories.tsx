@@ -1,4 +1,4 @@
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -67,18 +67,18 @@ export const ShouldOpenCloseWithContinue: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const dialog = await canvasBody.findByRole("dialog");
-      expect(dialog).toBeInTheDocument();
-      expect(dialog).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(dialog).toHaveAttribute("data-open");
+      });
     });
 
     await step("Close the dialog", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /continue/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };
@@ -94,18 +94,18 @@ export const ShouldOpenCloseWithCancel: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const dialog = await canvasBody.findByRole("dialog");
-      expect(dialog).toBeInTheDocument();
-      expect(dialog).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(dialog).toHaveAttribute("data-open");
+      });
     });
 
     await step("Close the dialog", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /cancel/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };
@@ -121,18 +121,18 @@ export const ShouldOpenCloseCross: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const dialog = await canvasBody.findByRole("dialog");
-      expect(dialog).toBeInTheDocument();
-      expect(dialog).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(dialog).toHaveAttribute("data-open");
+      });
     });
 
     await step("Close the dialog", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /close/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };

@@ -173,6 +173,7 @@ export const WithButtons: Story = {
               aria-label="Copy"
               title="Copy"
               size="icon-xs"
+              nativeButton
               onClick={() => {
                 copyToClipboard("https://x.com/shadcn");
               }}
@@ -183,11 +184,20 @@ export const WithButtons: Story = {
         </InputGroup>
         <InputGroup className="[--radius:9999px]">
           <Popover>
-            <PopoverTrigger render={<InputGroupAddon />}>
-              <InputGroupButton variant="secondary" size="icon-xs">
+            <InputGroupAddon>
+              <PopoverTrigger
+                nativeButton
+                render={
+                  <InputGroupButton
+                    variant="secondary"
+                    size="icon-xs"
+                    nativeButton
+                  />
+                }
+              >
                 <Info />
-              </InputGroupButton>
-            </PopoverTrigger>
+              </PopoverTrigger>
+            </InputGroupAddon>
             <PopoverContent
               align="start"
               className="flex flex-col gap-1 rounded-xl text-sm"
@@ -206,6 +216,7 @@ export const WithButtons: Story = {
             <InputGroupButton
               onClick={() => setIsFavorite(!isFavorite)}
               size="icon-xs"
+              nativeButton
             >
               <Star
                 data-favorite={isFavorite}
@@ -217,7 +228,9 @@ export const WithButtons: Story = {
         <InputGroup {...args}>
           <InputGroupInput placeholder="Type to search..." />
           <InputGroupAddon align="inline-end">
-            <InputGroupButton variant="secondary">Search</InputGroupButton>
+            <InputGroupButton variant="secondary" nativeButton>
+              Search
+            </InputGroupButton>
           </InputGroupAddon>
         </InputGroup>
       </div>

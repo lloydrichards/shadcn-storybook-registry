@@ -11,7 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/bases/base/components/ui/sheet";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 
 /**
  * Extends the Dialog component to display content that complements the main
@@ -77,18 +77,18 @@ export const ShouldOpenCloseWithSubmit: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const sheet = await canvasBody.findByRole("dialog");
-      expect(sheet).toBeInTheDocument();
-      expect(sheet).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(sheet).toHaveAttribute("data-open");
+      });
     });
 
     await step("close the sheet", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /submit/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };
@@ -104,18 +104,18 @@ export const ShouldOpenCloseWithCancel: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const sheet = await canvasBody.findByRole("dialog");
-      expect(sheet).toBeInTheDocument();
-      expect(sheet).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(sheet).toHaveAttribute("data-open");
+      });
     });
 
     await step("close the sheet", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /cancel/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };
@@ -131,18 +131,18 @@ export const ShouldOpenCloseWithClose: Story = {
         await canvasBody.findByRole("button", { name: /open/i }),
       );
       const sheet = await canvasBody.findByRole("dialog");
-      expect(sheet).toBeInTheDocument();
-      expect(sheet).toHaveAttribute("data-state", "open");
+      await waitFor(() => {
+        expect(sheet).toHaveAttribute("data-open");
+      });
     });
 
     await step("close the sheet", async () => {
       await userEvent.click(
         await canvasBody.findByRole("button", { name: /close/i }),
       );
-      expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
     });
   },
 };
