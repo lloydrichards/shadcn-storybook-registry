@@ -1,4 +1,4 @@
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Mail, Plus, PlusCircle, Search, UserPlus } from "lucide-react";
@@ -34,12 +34,14 @@ const meta = {
     <DropdownMenu {...args}>
       <DropdownMenuTrigger>Open</DropdownMenuTrigger>
       <DropdownMenuContent className="w-44">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Billing</DropdownMenuItem>
+          <DropdownMenuItem>Team</DropdownMenuItem>
+          <DropdownMenuItem>Subscription</DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   ),
@@ -170,11 +172,14 @@ export const ShouldOpenClose: Story = {
       await userEvent.click(await body.findByRole("button", { name: /open/i }));
       expect(await body.findByRole("menu")).toBeInTheDocument();
     });
-    const items = await body.findAllByRole("menuitem");
-    expect(items).toHaveLength(4);
 
     await step("Click the first menu item", async () => {
+      const items = await body.findAllByRole("menuitem");
+      expect(items).toHaveLength(4);
       await userEvent.click(items[0], { delay: 100 });
+      await waitFor(() => {
+        expect(body.queryByRole("menu")).not.toBeInTheDocument();
+      });
     });
   },
 };

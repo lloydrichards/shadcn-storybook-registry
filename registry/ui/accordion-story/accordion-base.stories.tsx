@@ -73,21 +73,23 @@ export const ShouldOnlyOpenOneWhenSingleType: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const accordions = await canvas.getAllByRole("button");
+    const expandedCount = () =>
+      accordions.filter(
+        (trigger) => trigger.getAttribute("aria-expanded") === "true",
+      ).length;
 
     // Open the tabs one at a time
     for (const trigger of accordions) {
       await userEvent.click(trigger);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(1);
+      await waitFor(() => {
+        expect(expandedCount()).toBe(1);
       });
     }
 
     // Close the last opened tab
     await userEvent.click(accordions[accordions.length - 1]);
-    await waitFor(async () => {
-      const content = await canvas.queryByRole("region");
-      return expect(content).toBeFalsy();
+    await waitFor(() => {
+      expect(expandedCount()).toBe(0);
     });
   },
 };
@@ -101,30 +103,31 @@ export const ShouldOpenAllWhenMultipleType: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const accordions = await canvas.getAllByRole("button");
+    const expandedCount = () =>
+      accordions.filter(
+        (trigger) => trigger.getAttribute("aria-expanded") === "true",
+      ).length;
 
     // Open all tabs one at a time
     for (let i = 0; i < accordions.length; i++) {
       await userEvent.click(accordions[i]);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(i + 1);
+      await waitFor(() => {
+        expect(expandedCount()).toBe(i + 1);
       });
     }
 
     // Close all tabs one at a time
     for (let i = accordions.length - 1; i > 0; i--) {
       await userEvent.click(accordions[i]);
-      await waitFor(async () => {
-        const content = await canvas.findAllByRole("region");
-        return expect(content.length).toBe(i);
+      await waitFor(() => {
+        expect(expandedCount()).toBe(i);
       });
     }
 
     // Close the last opened tab
     await userEvent.click(accordions[0]);
-    await waitFor(async () => {
-      const content = await canvas.queryByRole("region");
-      return expect(content).toBeFalsy();
+    await waitFor(() => {
+      expect(expandedCount()).toBe(0);
     });
   },
 };

@@ -1,4 +1,4 @@
-import { expect, fn, userEvent, within } from "storybook/test";
+import { expect, fn, userEvent, waitFor, within } from "storybook/test";
 // Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
@@ -86,14 +86,20 @@ export const ShouldSelectOption: Story = {
       await userEvent.click(
         await canvasBody.findByRole("option", { name: /banana/i }),
       );
-      expect(select).toHaveTextContent("Banana");
+      await waitFor(() => {
+        expect(select).toHaveTextContent(/banana/i);
+      });
     });
 
     await step("verify the selected option", async () => {
       await userEvent.click(select);
-      expect(
-        await canvasBody.findByRole("option", { name: /banana/i }),
-      ).toHaveAttribute("data-state", "checked");
+      const options = await canvasBody.findAllByRole("option");
+      const selectedOption = options.find(
+        (option) =>
+          option.getAttribute("aria-selected") === "true" &&
+          /banana/i.test(option.textContent ?? ""),
+      );
+      expect(selectedOption).toBeDefined();
       await userEvent.click(
         await canvasBody.findByRole("option", { name: /banana/i }),
       );
