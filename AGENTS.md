@@ -3,8 +3,8 @@
 ## Project Overview
 
 This is a shadcn/ui Storybook registry focused on component documentation and
-distribution. Development centers on the `registry/` directory for Storybook
-stories that serve both documentation and installable component purposes.
+distribution. The registry now ships separate Base UI and Radix UI story sets,
+with v3 outputs for each registry.
 
 ## Quick Commands
 
@@ -21,19 +21,25 @@ stories that serve both documentation and installable component purposes.
 
 ### File Structure
 
-- Stories: `registry/*.stories.tsx` for UI components
-- Design tokens: `registry/tokens/*.stories.tsx` for Tailwind CSS token
-  documentation
-- Registry config: `registry.json` maps stories to dependencies
+- Stories: `registry/**/` with paired `*-base.stories.tsx` and
+  `*-radix.stories.tsx` files per story folder
+- Design tokens: `registry/tokens/**/` with base/radix story variants
+- Base/Radix implementations: `bases/{base,radix}/components/ui/*`
+- Registry configs: `registry.base.json` and `registry.radix.json`
+- Registry outputs: `public/v3/base` and `public/v3/radix`
 
 ### Story Categories
 
-- `ui/ComponentName` - Core shadcn/ui components
-- `design/TokenName` - Design token documentation (color, typography, spacing,
-  etc.)
+- `ui/base/ComponentName` - Base UI story variants
+- `ui/radix/ComponentName` - Radix UI story variants
+- `design/base/TokenName` - Base UI design token stories
+- `design/radix/TokenName` - Radix UI design token stories
 
 ### Story Naming & Documentation
 
+- Pair story files by registry suffix: `*-base.stories.tsx` and
+  `*-radix.stories.tsx`
+- Match story titles to the registry prefix (`ui/base/...` or `ui/radix/...`)
 - Follow existing JSDoc comment pattern for each story export
 - Example:
   `/** Use the 'outline' button to reduce emphasis on secondary actions */`
@@ -45,10 +51,10 @@ stories that serve both documentation and installable component purposes.
 
 ```typescript
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Component } from "@/components/ui/component";
+import { Component } from "@/bases/base/components/ui/component";
 
 const meta: Meta<typeof Component> = {
-  title: "ui/Component",
+  title: "ui/base/Component",
   component: Component,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
@@ -77,7 +83,10 @@ type Story = StoryObj<typeof meta>;
 
 ### Imports
 
-- **Always use**: `@/components/ui/` imports (required for registry build)
+- **Story imports**: use `@/bases/base/components/ui/` or
+  `@/bases/radix/components/ui/`
+- **Registry output**: postbuild rewrites `@/bases/*/components` to
+  `@/components` for published JSON
 - **Framework**: `@storybook/nextjs-vite` for type imports
 - **Icons**: `lucide-react` for consistent iconography
 
@@ -96,7 +105,8 @@ type Story = StoryObj<typeof meta>;
 
 ### Registry Entry
 
-Each story needs corresponding entry in `registry.json`:
+Each story needs corresponding entry in `registry.base.json` or
+`registry.radix.json`:
 
 ```json
 {
@@ -106,7 +116,12 @@ Each story needs corresponding entry in `registry.json`:
   "meta": { "type": "ui", "story": "ui-component" },
   "registryDependencies": ["component"],
   "dependencies": ["external-lib"],
-  "files": [{ "path": "registry/component.stories.tsx", "type": "registry:ui" }]
+  "files": [
+    {
+      "path": "registry/ui/component-story/component-base.stories.tsx",
+      "type": "registry:component"
+    }
+  ]
 }
 ```
 
@@ -139,8 +154,10 @@ Each story needs corresponding entry in `registry.json`:
 
 ## Important Notes
 
-- **Focus on registry development**: Only work on `registry/` directory and
-  Storybook files
+- **Focus on registry development**: Most work lives in `registry/`, but Base
+  and Radix component implementations live under `bases/`
+- **Registry builds**: run `bun run registry:build` to generate both v3
+  registries and apply postbuild import rewrites
 - **Maintain consistency**: Follow existing patterns in story structure and
   naming
 - **Test interactivity**: Add play functions for components with state changes
