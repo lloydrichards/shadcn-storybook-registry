@@ -1,3 +1,5 @@
+import { Button } from "@/bases/radix/components/ui/button";
+import { ButtonGroup } from "@/bases/radix/components/ui/button-group";
 import {
   Table,
   TableBody,
@@ -7,6 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/bases/radix/components/ui/table";
+import baseRegistry from "@/registry.base.json";
+import radixRegistry from "@/registry.radix.json";
 import { RegistryItemRow } from "../components/registry_item_row";
 
 type Registry = {
@@ -22,33 +26,25 @@ const registryConfig = {
   radix: {
     label: "Radix UI",
     url: "https://registry.lloydrichards.dev/v3/radix/{name}.json",
+    registry: radixRegistry,
     example: "button-story",
   },
   base: {
     label: "Base UI",
     url: "https://registry.lloydrichards.dev/v3/base/{name}.json",
+    registry: baseRegistry,
     example: "button-story",
   },
 } as const;
 
-const loadRegistry = async (selected: "radix" | "base") => {
-  if (selected === "base") {
-    const registryData = await import("@/registry.base.json");
-    return registryData.default as Registry;
-  }
-
-  const registryData = await import("@/registry.radix.json");
-  return registryData.default as Registry;
-};
-
 const Home = async ({
   searchParams,
 }: {
-  searchParams?: Promise<{ registry?: string }>;
+  searchParams?: Promise<{ registry?: keyof typeof registryConfig }>;
 }) => {
   const params = await searchParams;
-  const registrySelection = params?.registry === "base" ? "base" : "radix";
-  const registry = await loadRegistry(registrySelection);
+  const registrySelection = params?.registry || "radix";
+  const registry = registryConfig[registrySelection].registry;
   const selectedConfig = registryConfig[registrySelection];
   const exampleUrl = selectedConfig.url.replace(
     "{name}.json",
@@ -67,28 +63,26 @@ const Home = async ({
                 A collection of stories for the components of Shadcn/ui
               </p>
             </div>
-            <div className="bg-background inline-flex items-center gap-1 rounded-full border p-1 text-sm">
-              <a
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  registrySelection === "radix"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                href="?registry=radix"
+            <ButtonGroup>
+              <Button
+                asChild
+                variant={registrySelection === "radix" ? "default" : "outline"}
+                size="lg"
               >
-                Radix UI
-              </a>
-              <a
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  registrySelection === "base"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                href="?registry=base"
+                <a className="text-xl" href="?registry=radix">
+                  Radix UI
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant={registrySelection === "base" ? "default" : "outline"}
+                size="lg"
               >
-                Base UI
-              </a>
-            </div>
+                <a className="text-xl" href="?registry=base">
+                  Base UI
+                </a>
+              </Button>
+            </ButtonGroup>
           </div>
           <div className="bg-muted/40 text-muted-foreground rounded-2xl border p-4 text-sm">
             <p className="text-foreground">
