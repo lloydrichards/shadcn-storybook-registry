@@ -18,6 +18,19 @@ type Registry = {
   }>;
 };
 
+const registryConfig = {
+  radix: {
+    label: "Radix UI",
+    url: "https://registry.lloydrichards.dev/v3/radix/{name}.json",
+    example: "button-story",
+  },
+  base: {
+    label: "Base UI",
+    url: "https://registry.lloydrichards.dev/v3/base/{name}.json",
+    example: "button-story",
+  },
+} as const;
+
 const loadRegistry = async (selected: "radix" | "base") => {
   if (selected === "base") {
     const registryData = await import("@/registry.base.json");
@@ -36,6 +49,11 @@ const Home = async ({
   const params = await searchParams;
   const registrySelection = params?.registry === "base" ? "base" : "radix";
   const registry = await loadRegistry(registrySelection);
+  const selectedConfig = registryConfig[registrySelection];
+  const exampleUrl = selectedConfig.url.replace(
+    "{name}.json",
+    `${selectedConfig.example}.json`,
+  );
   return (
     <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
       <main className="flex flex-1 flex-col gap-8">
@@ -70,6 +88,38 @@ const Home = async ({
               >
                 Base UI
               </a>
+            </div>
+          </div>
+          <div className="bg-muted/40 text-muted-foreground rounded-2xl border p-4 text-sm">
+            <p className="text-foreground">
+              <span className="font-bold">Getting started:</span> pick a
+              registry from the toggle on the top right (between{" "}
+              {registryConfig.radix.label} and {registryConfig.base.label}) and
+              copy the matching setup below.
+            </p>
+            <div className="mt-3 grid gap-3">
+              <div className="bg-background rounded-xl border p-3">
+                <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
+                  components.json
+                </p>
+                <pre className="text-foreground mt-2 overflow-x-auto text-xs">
+                  {`{
+  // ...rest of your components.json
+  "registries": {
+    "@storybook": "${selectedConfig.url}"
+  }
+}`}
+                </pre>
+              </div>
+              <div className="bg-background rounded-xl border p-3">
+                <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
+                  Install
+                </p>
+                <pre className="text-foreground mt-2 overflow-x-auto text-xs">
+                  {`npx shadcn@latest add @storybook/${selectedConfig.example}
+npx shadcn@latest add ${exampleUrl}`}
+                </pre>
+              </div>
             </div>
           </div>
         </section>

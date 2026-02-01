@@ -11,10 +11,12 @@ using the shadcn CLI to build the registry.
 
 Configure this registry in your `components.json`:
 
-```json
+```jsonc
 {
   "registries": {
-    "@storybook": "https://registry.lloydrichards.dev/v2/r/{name}.json"
+    "@storybook": "https://registry.lloydrichards.dev/v3/radix/{name}.json"
+    // Or for base UI projects
+    // "@storybook": "https://registry.lloydrichards.dev/v3/base/{name}.json"
   }
 }
 ```
@@ -26,7 +28,8 @@ Configure this registry in your `components.json`:
 npx shadcn@latest add @storybook/button-story
 
 # Or install directly via URL
-npx shadcn@latest add https://registry.lloydrichards.dev/v2/r/button-story.json
+npx shadcn@latest add https://registry.lloydrichards.dev/v3/radix/button-story.json
+# npx shadcn@latest add https://registry.lloydrichards.dev/v3/base/button-story.json
 ```
 
 You can visit the [storybook registry](https://registry.lloydrichards.dev/) to
