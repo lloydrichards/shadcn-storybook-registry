@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-story",
+  "title": "Progress Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating progress component usage and variants",
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/progress-story/progress-base.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Progress } from \"@/components/ui/progress\";\n\n/**\n * Displays an indicator showing the completion progress of a task, typically\n * displayed as a progress bar.\n */\nconst meta = {\n  title: \"ui/base/Progress\",\n  component: Progress,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    \"aria-label\": \"Progress\",\n    value: 30,\n    max: 100,\n  },\n} satisfies Meta<typeof Progress>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the progress.\n */\nexport const Default: Story = {};\n\n/**\n * When the progress is indeterminate.\n */\nexport const Indeterminate: Story = {\n  args: {\n    value: undefined,\n  },\n};\n\n/**\n * When the progress is completed.\n */\nexport const Completed: Story = {\n  args: {\n    value: 100,\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "progress",
+    "feedback"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer-story",
+  "title": "Drawer Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating drawer component usage and variants",
+  "registryDependencies": [
+    "drawer"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/drawer-story/drawer-base.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  Drawer,\n  DrawerClose,\n  DrawerContent,\n  DrawerDescription,\n  DrawerFooter,\n  DrawerHeader,\n  DrawerTitle,\n  DrawerTrigger,\n} from \"@/components/ui/drawer\";\nimport { expect, fn, userEvent, within } from \"storybook/test\";\n\n/**\n * A drawer component for React.\n */\nconst meta = {\n  title: \"ui/base/Drawer\",\n  component: Drawer,\n  tags: [\"autodocs\"],\n  args: {\n    onOpenChange: fn(),\n    onClose: fn(),\n    onAnimationEnd: fn(),\n  },\n  render: (args) => (\n    <Drawer {...args}>\n      <DrawerTrigger>Open</DrawerTrigger>\n      <DrawerContent>\n        <DrawerHeader>\n          <DrawerTitle>Are you sure absolutely sure?</DrawerTitle>\n          <DrawerDescription>This action cannot be undone.</DrawerDescription>\n        </DrawerHeader>\n        <DrawerFooter>\n          <DrawerClose className=\"bg-primary text-primary-foreground rounded px-4 py-2\">\n            Submit\n          </DrawerClose>\n          <DrawerClose className=\"hover:underline\">Cancel</DrawerClose>\n        </DrawerFooter>\n      </DrawerContent>\n    </Drawer>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Drawer>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the drawer.\n */\nexport const Default: Story = {};\n\nexport const ShouldOpenCloseWithSubmit: Story = {\n  name: \"when clicking Submit button, should close the drawer\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvasElement, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n\n    await step(\"Open the drawer\", async () => {\n      await userEvent.click(\n        await canvasBody.findByRole(\"button\", { name: /open/i }),\n      );\n      await expect(args.onOpenChange).toHaveBeenCalled();\n\n      const dialog = await canvasBody.findByRole(\"dialog\");\n      expect(dialog).toBeInTheDocument();\n      expect(dialog).toHaveAttribute(\"data-state\", \"open\");\n    });\n\n    await step(\"Close the drawer\", async () => {\n      await userEvent.click(\n        await canvasBody.findByRole(\"button\", { name: /submit/i }),\n        { delay: 100 },\n      );\n      await expect(args.onClose).toHaveBeenCalled();\n      expect(await canvasBody.findByRole(\"dialog\")).toHaveAttribute(\n        \"data-state\",\n        \"closed\",\n      );\n    });\n  },\n};\n\nexport const ShouldOpenCloseWithCancel: Story = {\n  name: \"when clicking Cancel button, should close the drawer\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvasElement, step }) => {\n    const canvasBody = within(canvasElement.ownerDocument.body);\n\n    await step(\"Open the drawer\", async () => {\n      await userEvent.click(\n        await canvasBody.findByRole(\"button\", { name: /open/i }),\n      );\n      await expect(args.onOpenChange).toHaveBeenCalled();\n\n      const dialog = await canvasBody.findByRole(\"dialog\");\n      expect(dialog).toBeInTheDocument();\n      expect(dialog).toHaveAttribute(\"data-state\", \"open\");\n    });\n\n    await step(\"Close the drawer\", async () => {\n      await userEvent.click(\n        await canvasBody.findByRole(\"button\", { name: /cancel/i }),\n        { delay: 100 },\n      );\n      await expect(args.onClose).toHaveBeenCalled();\n      expect(await canvasBody.findByRole(\"dialog\")).toHaveAttribute(\n        \"data-state\",\n        \"closed\",\n      );\n    });\n  },\n};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "drawer",
+    "navigation"
+  ],
+  "type": "registry:component"
+}

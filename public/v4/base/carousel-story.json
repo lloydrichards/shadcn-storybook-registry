@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-story",
+  "title": "Carousel Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating carousel component usage and variants",
+  "dependencies": [
+    "embla-carousel-react"
+  ],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/carousel-story/carousel-base.stories.tsx",
+      "content": "import { expect, userEvent } from \"storybook/test\";\n// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/components/ui/carousel\";\n\n/**\n * A carousel with motion and swipe built using Embla.\n */\nconst meta: Meta<typeof Carousel> = {\n  title: \"ui/base/Carousel\",\n  component: Carousel,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    className: \"w-full max-w-xs\",\n  },\n  render: (args) => (\n    <Carousel {...args}>\n      <CarouselContent>\n        {Array.from({ length: 5 }).map((_, index) => (\n          <CarouselItem key={index}>\n            <div className=\"bg-card flex aspect-square items-center justify-center rounded border p-6\">\n              <span className=\"text-4xl font-semibold\">{index + 1}</span>\n            </div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Carousel>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the carousel.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `basis` utility class to change the size of the carousel.\n */\nexport const Size: Story = {\n  render: (args) => (\n    <Carousel {...args} className=\"mx-12 w-full max-w-xs\">\n      <CarouselContent>\n        {Array.from({ length: 5 }).map((_, index) => (\n          <CarouselItem key={index} className=\"basis-1/3\">\n            <div className=\"bg-card flex aspect-square items-center justify-center rounded border p-6\">\n              <span className=\"text-4xl font-semibold\">{index + 1}</span>\n            </div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  ),\n  args: {\n    className: \"mx-12 w-full max-w-xs\",\n  },\n};\n\nexport const ShouldNavigate: Story = {\n  name: \"when clicking next/previous buttons, should navigate through slides\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, step }) => {\n    const slides = await canvas.findAllByRole(\"group\");\n    expect(slides).toHaveLength(5);\n    const nextBtn = await canvas.findByRole(\"button\", { name: /next/i });\n    const prevBtn = await canvas.findByRole(\"button\", {\n      name: /previous/i,\n    });\n\n    await step(\"navigate to the last slide\", async () => {\n      for (let i = 0; i < slides.length - 1; i++) {\n        await userEvent.click(nextBtn);\n      }\n    });\n\n    await step(\"navigate back to the first slide\", async () => {\n      for (let i = slides.length - 1; i > 0; i--) {\n        await userEvent.click(prevBtn);\n      }\n    });\n  },\n};\n//\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "carousel",
+    "slider"
+  ],
+  "type": "registry:component"
+}
