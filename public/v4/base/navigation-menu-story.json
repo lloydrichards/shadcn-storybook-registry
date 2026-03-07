@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu-story",
+  "title": "Navigation Menu Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating navigation menu component usage and variants",
+  "registryDependencies": [
+    "navigation-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/navigation-menu-story/navigation-menu-base.stories.tsx",
+      "content": "// Replace nextjs-vite with the name of your framework\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger,\n  navigationMenuTriggerStyle,\n} from \"@/components/ui/navigation-menu\";\n\n/**\n * A collection of links for navigating websites.\n */\nconst meta = {\n  title: \"ui/base/NavigationMenu\",\n  component: NavigationMenu,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  render: (args) => (\n    <NavigationMenu {...args}>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuLink className={navigationMenuTriggerStyle()}>\n            Overview\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n        <NavigationMenuList>\n          <NavigationMenuItem>\n            <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>\n              Documentation\n            </NavigationMenuTrigger>\n            <NavigationMenuContent>\n              <ul className=\"grid w-96 p-2\">\n                <li>\n                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>\n                    API Reference\n                  </NavigationMenuLink>\n                </li>\n                <li>\n                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>\n                    Getting Started\n                  </NavigationMenuLink>\n                </li>\n                <li>\n                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>\n                    Guides\n                  </NavigationMenuLink>\n                </li>\n              </ul>\n            </NavigationMenuContent>\n          </NavigationMenuItem>\n        </NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuLink\n            className={navigationMenuTriggerStyle()}\n            href=\"https:www.google.com\"\n            target=\"_blank\"\n          >\n            External\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof NavigationMenu>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the navigation menu.\n */\nexport const Default: Story = {};\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "navigation",
+    "menu"
+  ],
+  "type": "registry:component"
+}
