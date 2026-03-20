@@ -84,7 +84,11 @@ export const Default: Story = {
           </Button>
         </ItemActions>
       </Item>
-      <Item variant="outline" size="sm" render={<a href="#" />}>
+      <Item
+        variant="outline"
+        size="sm"
+        render={(props) => <a href="#" {...props} />}
+      >
         <ItemMedia>
           <BadgeCheckIcon className="size-5" />
         </ItemMedia>
@@ -318,7 +322,7 @@ export const WithImage: Story = {
               key={song.title}
               {...args}
               variant="outline"
-              render={<a href="#" />}
+              render={(props) => <a href="#" {...props} />}
               role="listitem"
             >
               <ItemMedia variant="image">

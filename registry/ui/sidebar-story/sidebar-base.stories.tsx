@@ -121,7 +121,9 @@ export const Simple: Story = {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton render={<a href={item.url} />}>
+                  <SidebarMenuButton
+                    render={(props) => <a href={item.url} {...props} />}
+                  >
                     <item.icon />
                     <span>{item.title}</span>
                   </SidebarMenuButton>

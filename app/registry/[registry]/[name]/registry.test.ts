@@ -1,7 +1,7 @@
-import { promises as fs } from "fs";
+import { promises as fs } from "node:fs";
 import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { generateStaticParams, GET } from "./route";
+import { GET, generateStaticParams } from "./route";
 
 // Mock the file system module
 vi.mock("fs", () => ({

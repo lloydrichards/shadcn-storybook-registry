@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss"
-  ],
-  "tailwindFunctions": ["cva", "cn"],
-  "proseWrap": "always"
-}
