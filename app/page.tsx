@@ -13,15 +13,6 @@ import baseRegistry from "@/registry.base.json";
 import radixRegistry from "@/registry.radix.json";
 import { RegistryItemRow } from "../components/registry_item_row";
 
-type Registry = {
-  items: Array<{
-    name: string;
-    title: string;
-    description?: string;
-    categories?: string[];
-  }>;
-};
-
 const registryConfig = {
   radix: {
     label: "Radix UI",
@@ -134,9 +125,7 @@ npx shadcn@latest add ${exampleUrl}`}
               </TableCell>
             </TableRow>
             {registry.items
-              .filter(
-                (item) => item.categories && item.categories.includes("ui"),
-              )
+              .filter((item) => item.categories.includes("ui"))
               .map((item) => (
                 <RegistryItemRow
                   key={item.name}
@@ -151,9 +140,7 @@ npx shadcn@latest add ${exampleUrl}`}
               </TableCell>
             </TableRow>
             {registry.items
-              .filter(
-                (item) => item.categories && item.categories.includes("design"),
-              )
+              .filter((item) => item.categories.includes("design"))
               .map((item) => (
                 <RegistryItemRow
                   key={item.name}
@@ -167,10 +154,7 @@ npx shadcn@latest add ${exampleUrl}`}
               </TableCell>
             </TableRow>
             {registry.items
-              .filter(
-                (item) =>
-                  item.categories && item.categories.includes("utility"),
-              )
+              .filter((item) => item.categories.includes("utility"))
               .map((item) => (
                 <RegistryItemRow
                   key={item.name}

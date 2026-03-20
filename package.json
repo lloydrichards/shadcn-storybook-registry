@@ -7,13 +7,13 @@
     "clean": "rm -rf .next public/storybook node_modules",
     "build": "next build && bun run storybook:build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "biome lint",
     "test": "vitest run",
     "test:unit": "vitest run --project=unit",
     "test:storybook": "vitest run --project=storybook",
     "type-check": "tsc --noEmit",
-    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+    "format:write": "biome format --write",
+    "format:check": "biome format",
     "release": "semantic-release",
     "registry:build": "bun run registry:build-radix && bun run registry:build-base && bun run registry:postbuild",
     "registry:build-radix": "shadcn build registry.radix.json -o ./public/v3/radix",
@@ -39,7 +39,6 @@
     "lucide-react": "^0.577.0",
     "next": "^16.2.0",
     "next-themes": "^0.4.6",
-    "prettier": "^3.8.1",
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-day-picker": "^9.14.0",
@@ -55,7 +54,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
+    "@biomejs/biome": "2.4.8",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
@@ -70,24 +69,13 @@
     "@vitest/browser": "^4.1.0",
     "@vitest/browser-playwright": "^4.1.0",
     "@vitest/coverage-v8": "^4.1.0",
-    "eslint": "^10.0.3",
-    "eslint-config-next": "^16.2.0",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-storybook": "^10.3.1",
     "playwright": "^1.58.2",
     "postcss": "^8.5.8",
-    "prettier-plugin-organize-imports": "^4.3.0",
-    "prettier-plugin-tailwindcss": "^0.7.2",
     "semantic-release": "^25.0.3",
     "storybook": "^10.3.1",
     "storybook-addon-test-codegen": "^3.0.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }

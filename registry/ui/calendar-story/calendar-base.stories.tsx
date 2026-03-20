@@ -123,7 +123,7 @@ export const ShouldNavigateMonthsWhenClicked: Story = {
     }
     for (let i = 0; i < steps; i++) {
       await userEvent.click(nextBtn);
-      if (i == steps / 2 - 1) {
+      if (i === steps / 2 - 1) {
         expect(title).toHaveTextContent(startTitle);
         continue;
       }

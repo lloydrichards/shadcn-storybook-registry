@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className="flex flex-row items-center justify-between px-4 py-2">
       <Button variant="link" asChild>
-        <a href="https://www.lloydrichards.dev" target="_blank">
+        <a href="https://www.lloydrichards.dev" target="_blank" rel="noopener">
           lloydrichards.dev
         </a>
       </Button>
@@ -13,6 +13,7 @@ export const Footer = () => {
         <a
           href="https://github.com/lloydrichards/shadcn-storybook-registry"
           target="_blank"
+          rel="noopener"
         >
           <Code2 size={24} /> Repo
         </a>

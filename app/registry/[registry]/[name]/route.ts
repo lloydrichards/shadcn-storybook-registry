@@ -1,6 +1,6 @@
-import { promises as fs } from "fs";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { NextResponse } from "next/server";
-import path from "path";
 
 type RegistryName = "radix" | "base";
 type RegistryItemFile = { path: string; type: string };
@@ -49,7 +49,7 @@ export const generateStaticParams = async () => {
 
 // This route shows an example for serving a component using a route handler.
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ registry: string; name: string }> },
 ) {
   try {
