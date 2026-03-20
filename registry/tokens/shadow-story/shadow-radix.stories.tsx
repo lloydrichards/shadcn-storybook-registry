@@ -21,7 +21,7 @@ const ShadowTile = ({ value }: Pick<Shadow, "value">) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <div
-        className="bg-card size-20 rounded-md"
+        className="size-20 rounded-md bg-card"
         style={{ boxShadow: shadow }}
       />
       <p className="text-center text-xs opacity-70">{value}</p>

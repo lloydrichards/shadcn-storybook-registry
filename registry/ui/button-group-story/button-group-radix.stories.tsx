@@ -324,7 +324,7 @@ export const WithPopover: Story = {
         </PopoverTrigger>
         <PopoverContent align="end" className="rounded-xl p-0 text-sm">
           <div className="px-4 py-3">
-            <div className="text-sm font-medium">Agent Tasks</div>
+            <div className="font-medium text-sm">Agent Tasks</div>
           </div>
           <Separator />
           <div className="p-4 text-sm *:[p:not(:last-child)]:mb-2">

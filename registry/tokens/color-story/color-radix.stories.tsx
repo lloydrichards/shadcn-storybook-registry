@@ -24,7 +24,7 @@ const SwatchList = ({ colors }: { colors: Record<string, string> }) => {
         return (
           <div
             key={idx}
-            className="bg-background flex w-full flex-col gap-1 pb-3"
+            className="flex w-full flex-col gap-1 bg-background pb-3"
           >
             <div className="h-16 w-full" style={{ backgroundColor: color }} />
             <p className="text-center font-semibold">{name}</p>
