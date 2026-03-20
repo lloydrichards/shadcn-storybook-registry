@@ -200,7 +200,7 @@ export const WithButtons: Story = {
               </p>
             </PopoverContent>
           </Popover>
-          <InputGroupAddon className="text-muted-foreground pl-1.5">
+          <InputGroupAddon className="pl-1.5 text-muted-foreground">
             https://
           </InputGroupAddon>
           <InputGroupInput id="input-secure-19" />
@@ -316,7 +316,7 @@ export const WithTextarea: Story = {
             </InputGroupButton>
           </InputGroupAddon>
           <InputGroupAddon align="block-start" className="border-b">
-            <InputGroupText className="font-mono font-medium">
+            <InputGroupText className="font-medium font-mono">
               <Code />
               script.js
             </InputGroupText>

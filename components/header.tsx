@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 
 export const Header = () => (
-  <header className="bg-primary flex flex-row-reverse px-4 py-2">
+  <header className="flex flex-row-reverse bg-primary px-4 py-2">
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem className={navigationMenuTriggerStyle()}>

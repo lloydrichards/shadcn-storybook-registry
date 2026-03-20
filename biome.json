@@ -24,6 +24,14 @@
       "a11y": {
         "useValidAnchor": "off"
       },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "options": {
+            "functions": ["cn", "clsx", "cva"]
+          }
+        }
+      },
       "suspicious": {
         "noTemplateCurlyInString": "off",
         "noArrayIndexKey": "off"

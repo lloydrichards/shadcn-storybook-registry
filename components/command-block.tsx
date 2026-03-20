@@ -29,7 +29,7 @@ export const CommandBlock = ({
         value={command}
         readOnly
         aria-label="Copy command"
-        className="bg-accent data-[checked=true]:bg-card flex h-10 cursor-pointer items-center overflow-x-auto rounded-none rounded-l-md border px-2 font-mono whitespace-nowrap"
+        className="flex h-10 cursor-pointer items-center overflow-x-auto whitespace-nowrap rounded-none rounded-l-md border bg-accent px-2 font-mono data-[checked=true]:bg-card"
         onClick={handleCopy}
       />
       <Button

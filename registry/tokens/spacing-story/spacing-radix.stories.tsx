@@ -25,8 +25,8 @@ const SpacingRow = ({ value, name }: Spacing) => {
       <TableCell>{rem}rem</TableCell>
       <TableCell>{pixels}px</TableCell>
       <TableCell className="w-full">
-        <div className="bg-muted border">
-          <div className="bg-primary h-4" style={{ width: pixels }} />
+        <div className="border bg-muted">
+          <div className="h-4 bg-primary" style={{ width: pixels }} />
         </div>
       </TableCell>
     </TableRow>

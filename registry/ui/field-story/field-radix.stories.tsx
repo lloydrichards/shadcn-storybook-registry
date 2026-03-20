@@ -50,7 +50,7 @@ const meta: Meta<typeof Field> = {
     orientation: "vertical",
   },
   decorators: (Story) => (
-    <div className="w-full max-w-md min-w-sm">
+    <div className="w-full min-w-sm max-w-md">
       <Story />
     </div>
   ),
