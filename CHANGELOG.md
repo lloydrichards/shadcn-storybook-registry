@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.12.0...v0.12.1) (2026-05-18)
+
+
+### ♻️ Refactoring
+
+* **registry:** add target mappings for stories ([0992ed9](https://github.com/lloydrichards/shadcn-storybook-registry/commit/0992ed9a2446ab67a2d5826ccd0afdb3b378d5db))
+
 # [0.12.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.11.0...v0.12.0) (2026-02-01)
 
 
