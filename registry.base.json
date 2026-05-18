@@ -15,7 +15,8 @@
       "files": [
         {
           "path": "registry/ui/accordion-story/accordion-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/accordion.stories.tsx"
         }
       ]
     },
@@ -31,7 +32,8 @@
       "files": [
         {
           "path": "registry/ui/alert-story/alert-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/alert.stories.tsx"
         }
       ]
     },
@@ -46,7 +48,8 @@
       "files": [
         {
           "path": "registry/ui/alert-dialog-story/alert-dialog-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/alert-dialog.stories.tsx"
         }
       ]
     },
@@ -61,7 +64,8 @@
       "files": [
         {
           "path": "registry/ui/aspect-ratio-story/aspect-ratio-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/aspect-ratio.stories.tsx"
         }
       ]
     },
@@ -76,7 +80,8 @@
       "files": [
         {
           "path": "registry/ui/avatar-story/avatar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/avatar.stories.tsx"
         }
       ]
     },
@@ -91,7 +96,8 @@
       "files": [
         {
           "path": "registry/ui/badge-story/badge-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/badge.stories.tsx"
         }
       ]
     },
@@ -107,7 +113,8 @@
       "files": [
         {
           "path": "registry/ui/breadcrumb-story/breadcrumb-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/breadcrumb.stories.tsx"
         }
       ]
     },
@@ -123,7 +130,8 @@
       "files": [
         {
           "path": "registry/ui/button-story/button-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/button.stories.tsx"
         }
       ]
     },
@@ -150,7 +158,8 @@
       "files": [
         {
           "path": "registry/ui/button-group-story/button-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/button-group.stories.tsx"
         }
       ]
     },
@@ -166,7 +175,8 @@
       "files": [
         {
           "path": "registry/ui/calendar-story/calendar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/calendar.stories.tsx"
         }
       ]
     },
@@ -182,7 +192,8 @@
       "files": [
         {
           "path": "registry/ui/card-story/card-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/card.stories.tsx"
         }
       ]
     },
@@ -198,7 +209,8 @@
       "files": [
         {
           "path": "registry/ui/carousel-story/carousel-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/carousel.stories.tsx"
         }
       ]
     },
@@ -214,7 +226,8 @@
       "files": [
         {
           "path": "registry/ui/chart-story/chart-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/chart.stories.tsx"
         }
       ]
     },
@@ -229,7 +242,8 @@
       "files": [
         {
           "path": "registry/ui/checkbox-story/checkbox-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/checkbox.stories.tsx"
         }
       ]
     },
@@ -245,7 +259,8 @@
       "files": [
         {
           "path": "registry/ui/collapsible-story/collapsible-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/collapsible.stories.tsx"
         }
       ]
     },
@@ -260,7 +275,8 @@
       "files": [
         {
           "path": "registry/ui/command-story/command-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/command.stories.tsx"
         }
       ]
     },
@@ -275,7 +291,8 @@
       "files": [
         {
           "path": "registry/ui/context-menu-story/context-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/context-menu.stories.tsx"
         }
       ]
     },
@@ -297,7 +314,8 @@
       "files": [
         {
           "path": "registry/ui/date-picker-story/date-picker-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/date-picker.stories.tsx"
         }
       ]
     },
@@ -312,7 +330,8 @@
       "files": [
         {
           "path": "registry/ui/dialog-story/dialog-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/dialog.stories.tsx"
         }
       ]
     },
@@ -327,7 +346,8 @@
       "files": [
         {
           "path": "registry/ui/drawer-story/drawer-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/drawer.stories.tsx"
         }
       ]
     },
@@ -343,7 +363,8 @@
       "files": [
         {
           "path": "registry/ui/dropdown-menu-story/dropdown-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/dropdown-menu.stories.tsx"
         }
       ]
     },
@@ -365,7 +386,8 @@
       "files": [
         {
           "path": "registry/ui/empty-story/empty-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/empty.stories.tsx"
         }
       ]
     },
@@ -390,7 +412,8 @@
       "files": [
         {
           "path": "registry/ui/field-story/field-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/field.stories.tsx"
         }
       ]
     },
@@ -406,7 +429,8 @@
       "files": [
         {
           "path": "registry/ui/form-story/form-react-hook-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/form-react-hook.stories.tsx"
         }
       ]
     },
@@ -422,7 +446,8 @@
       "files": [
         {
           "path": "registry/ui/form-story/form-tanstack-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/form-tanstack.stories.tsx"
         }
       ]
     },
@@ -437,7 +462,8 @@
       "files": [
         {
           "path": "registry/ui/hover-card-story/hover-card-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/hover-card.stories.tsx"
         }
       ]
     },
@@ -460,7 +486,8 @@
       "files": [
         {
           "path": "registry/ui/input-group-story/input-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input-group.stories.tsx"
         }
       ]
     },
@@ -475,7 +502,8 @@
       "files": [
         {
           "path": "registry/ui/input-story/input-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input.stories.tsx"
         }
       ]
     },
@@ -491,7 +519,8 @@
       "files": [
         {
           "path": "registry/ui/input-otp-story/input-otp-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input-otp.stories.tsx"
         }
       ]
     },
@@ -507,7 +536,8 @@
       "files": [
         {
           "path": "registry/ui/item-story/item-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/item.stories.tsx"
         }
       ]
     },
@@ -523,7 +553,8 @@
       "files": [
         {
           "path": "registry/ui/kbd-story/kbd-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/kbd.stories.tsx"
         }
       ]
     },
@@ -538,7 +569,8 @@
       "files": [
         {
           "path": "registry/ui/label-story/label-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/label.stories.tsx"
         }
       ]
     },
@@ -553,7 +585,8 @@
       "files": [
         {
           "path": "registry/ui/menubar-story/menubar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/menubar.stories.tsx"
         }
       ]
     },
@@ -568,7 +601,8 @@
       "files": [
         {
           "path": "registry/ui/navigation-menu-story/navigation-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/navigation-menu.stories.tsx"
         }
       ]
     },
@@ -583,7 +617,8 @@
       "files": [
         {
           "path": "registry/ui/pagination-story/pagination-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/pagination.stories.tsx"
         }
       ]
     },
@@ -598,7 +633,8 @@
       "files": [
         {
           "path": "registry/ui/popover-story/popover-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/popover.stories.tsx"
         }
       ]
     },
@@ -613,7 +649,8 @@
       "files": [
         {
           "path": "registry/ui/progress-story/progress-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/progress.stories.tsx"
         }
       ]
     },
@@ -628,7 +665,8 @@
       "files": [
         {
           "path": "registry/ui/radio-group-story/radio-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/radio-group.stories.tsx"
         }
       ]
     },
@@ -643,7 +681,8 @@
       "files": [
         {
           "path": "registry/ui/resizable-story/resizable-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/resizable.stories.tsx"
         }
       ]
     },
@@ -658,7 +697,8 @@
       "files": [
         {
           "path": "registry/ui/scroll-area-story/scroll-area-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/scroll-area.stories.tsx"
         }
       ]
     },
@@ -673,7 +713,8 @@
       "files": [
         {
           "path": "registry/ui/select-story/select-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/select.stories.tsx"
         }
       ]
     },
@@ -688,7 +729,8 @@
       "files": [
         {
           "path": "registry/ui/separator-story/separator-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/separator.stories.tsx"
         }
       ]
     },
@@ -703,7 +745,8 @@
       "files": [
         {
           "path": "registry/ui/sheet-story/sheet-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sheet.stories.tsx"
         }
       ]
     },
@@ -719,7 +762,8 @@
       "files": [
         {
           "path": "registry/ui/sidebar-story/sidebar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sidebar.stories.tsx"
         }
       ]
     },
@@ -734,7 +778,8 @@
       "files": [
         {
           "path": "registry/ui/skeleton-story/skeleton-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/skeleton.stories.tsx"
         }
       ]
     },
@@ -749,7 +794,8 @@
       "files": [
         {
           "path": "registry/ui/slider-story/slider-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/slider.stories.tsx"
         }
       ]
     },
@@ -765,7 +811,8 @@
       "files": [
         {
           "path": "registry/ui/sonner-story/sonner-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sonner.stories.tsx"
         }
       ]
     },
@@ -780,7 +827,8 @@
       "files": [
         {
           "path": "registry/ui/spinner-story/spinner-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/spinner.stories.tsx"
         }
       ]
     },
@@ -795,7 +843,8 @@
       "files": [
         {
           "path": "registry/ui/switch-story/switch-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/switch.stories.tsx"
         }
       ]
     },
@@ -810,7 +859,8 @@
       "files": [
         {
           "path": "registry/ui/table-story/table-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/table.stories.tsx"
         }
       ]
     },
@@ -825,7 +875,8 @@
       "files": [
         {
           "path": "registry/ui/tabs-story/tabs-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/tabs.stories.tsx"
         }
       ]
     },
@@ -840,7 +891,8 @@
       "files": [
         {
           "path": "registry/ui/textarea-story/textarea-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/textarea.stories.tsx"
         }
       ]
     },
@@ -856,7 +908,8 @@
       "files": [
         {
           "path": "registry/ui/toggle-story/toggle-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/toggle.stories.tsx"
         }
       ]
     },
@@ -872,7 +925,8 @@
       "files": [
         {
           "path": "registry/ui/toggle-group-story/toggle-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/toggle-group.stories.tsx"
         }
       ]
     },
@@ -888,7 +942,8 @@
       "files": [
         {
           "path": "registry/ui/tooltip-story/tooltip-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/tooltip.stories.tsx"
         }
       ]
     },
@@ -903,7 +958,8 @@
       "files": [
         {
           "path": "registry/tokens/color-story/color-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/color.stories.tsx"
         }
       ]
     },
@@ -918,7 +974,8 @@
       "files": [
         {
           "path": "registry/tokens/radius-story/radius-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/radius.stories.tsx"
         }
       ]
     },
@@ -933,7 +990,8 @@
       "files": [
         {
           "path": "registry/tokens/shadow-story/shadow-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/shadow.stories.tsx"
         }
       ]
     },
@@ -948,7 +1006,8 @@
       "files": [
         {
           "path": "registry/tokens/spacing-story/spacing-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/spacing.stories.tsx"
         }
       ]
     },
@@ -963,7 +1022,8 @@
       "files": [
         {
           "path": "registry/tokens/typography-story/typography-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/typography.stories.tsx"
         }
       ]
     },
@@ -1023,223 +1083,278 @@
       "files": [
         {
           "path": "registry/ui/accordion-story/accordion-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/accordion.stories.tsx"
         },
         {
           "path": "registry/ui/alert-story/alert-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/alert.stories.tsx"
         },
         {
           "path": "registry/ui/alert-dialog-story/alert-dialog-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/alert-dialog.stories.tsx"
         },
         {
           "path": "registry/ui/aspect-ratio-story/aspect-ratio-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/aspect-ratio.stories.tsx"
         },
         {
           "path": "registry/ui/avatar-story/avatar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/avatar.stories.tsx"
         },
         {
           "path": "registry/ui/badge-story/badge-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/badge.stories.tsx"
         },
         {
           "path": "registry/ui/breadcrumb-story/breadcrumb-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/breadcrumb.stories.tsx"
         },
         {
           "path": "registry/ui/button-story/button-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/button.stories.tsx"
         },
         {
           "path": "registry/ui/calendar-story/calendar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/calendar.stories.tsx"
         },
         {
           "path": "registry/ui/card-story/card-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/card.stories.tsx"
         },
         {
           "path": "registry/ui/carousel-story/carousel-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/carousel.stories.tsx"
         },
         {
           "path": "registry/ui/chart-story/chart-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/chart.stories.tsx"
         },
         {
           "path": "registry/ui/checkbox-story/checkbox-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/checkbox.stories.tsx"
         },
         {
           "path": "registry/ui/collapsible-story/collapsible-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/collapsible.stories.tsx"
         },
         {
           "path": "registry/ui/command-story/command-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/command.stories.tsx"
         },
         {
           "path": "registry/ui/context-menu-story/context-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/context-menu.stories.tsx"
         },
         {
           "path": "registry/ui/date-picker-story/date-picker-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/date-picker.stories.tsx"
         },
         {
           "path": "registry/ui/dialog-story/dialog-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/dialog.stories.tsx"
         },
         {
           "path": "registry/ui/drawer-story/drawer-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/drawer.stories.tsx"
         },
         {
           "path": "registry/ui/dropdown-menu-story/dropdown-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/dropdown-menu.stories.tsx"
         },
         {
           "path": "registry/ui/form-story/form-react-hook-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/form-react-hook.stories.tsx"
         },
         {
           "path": "registry/ui/form-story/form-tanstack-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/form-tanstack.stories.tsx"
         },
         {
           "path": "registry/ui/hover-card-story/hover-card-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/hover-card.stories.tsx"
         },
         {
           "path": "registry/ui/input-story/input-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input.stories.tsx"
         },
         {
           "path": "registry/ui/input-group-story/input-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input-group.stories.tsx"
         },
         {
           "path": "registry/ui/input-otp-story/input-otp-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/input-otp.stories.tsx"
         },
         {
           "path": "registry/ui/label-story/label-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/label.stories.tsx"
         },
         {
           "path": "registry/ui/menubar-story/menubar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/menubar.stories.tsx"
         },
         {
           "path": "registry/ui/navigation-menu-story/navigation-menu-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/navigation-menu.stories.tsx"
         },
         {
           "path": "registry/ui/pagination-story/pagination-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/pagination.stories.tsx"
         },
         {
           "path": "registry/ui/popover-story/popover-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/popover.stories.tsx"
         },
         {
           "path": "registry/ui/progress-story/progress-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/progress.stories.tsx"
         },
         {
           "path": "registry/ui/radio-group-story/radio-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/radio-group.stories.tsx"
         },
         {
           "path": "registry/ui/resizable-story/resizable-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/resizable.stories.tsx"
         },
         {
           "path": "registry/ui/scroll-area-story/scroll-area-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/scroll-area.stories.tsx"
         },
         {
           "path": "registry/ui/select-story/select-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/select.stories.tsx"
         },
         {
           "path": "registry/ui/separator-story/separator-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/separator.stories.tsx"
         },
         {
           "path": "registry/ui/sheet-story/sheet-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sheet.stories.tsx"
         },
         {
           "path": "registry/ui/sidebar-story/sidebar-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sidebar.stories.tsx"
         },
         {
           "path": "registry/ui/skeleton-story/skeleton-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/skeleton.stories.tsx"
         },
         {
           "path": "registry/ui/slider-story/slider-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/slider.stories.tsx"
         },
         {
           "path": "registry/ui/sonner-story/sonner-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/sonner.stories.tsx"
         },
         {
           "path": "registry/ui/spinner-story/spinner-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/spinner.stories.tsx"
         },
         {
           "path": "registry/ui/switch-story/switch-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/switch.stories.tsx"
         },
         {
           "path": "registry/ui/table-story/table-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/table.stories.tsx"
         },
         {
           "path": "registry/ui/tabs-story/tabs-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/tabs.stories.tsx"
         },
         {
           "path": "registry/ui/textarea-story/textarea-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/textarea.stories.tsx"
         },
         {
           "path": "registry/ui/toggle-story/toggle-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/toggle.stories.tsx"
         },
         {
           "path": "registry/ui/toggle-group-story/toggle-group-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/toggle-group.stories.tsx"
         },
         {
           "path": "registry/ui/tooltip-story/tooltip-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/tooltip.stories.tsx"
         },
         {
           "path": "registry/tokens/color-story/color-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/color.stories.tsx"
         },
         {
           "path": "registry/tokens/radius-story/radius-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/radius.stories.tsx"
         },
         {
           "path": "registry/tokens/shadow-story/shadow-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/shadow.stories.tsx"
         },
         {
           "path": "registry/tokens/spacing-story/spacing-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/spacing.stories.tsx"
         },
         {
           "path": "registry/tokens/typography-story/typography-base.stories.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "@ui/typography.stories.tsx"
         }
       ]
     }
