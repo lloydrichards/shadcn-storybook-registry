@@ -1,0 +1,3 @@
+[install]
+# Reject packages published less than 3 days ago to mitigate supply chain attacks
+minAge = "3d"
