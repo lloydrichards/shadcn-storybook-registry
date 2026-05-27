@@ -139,7 +139,9 @@ export const WithRadioItems: Story = {
           <DropdownMenuLabel inset>Status</DropdownMenuLabel>
           <DropdownMenuRadioGroup value="warning">
             <DropdownMenuRadioItem value="info">Info</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="warning">Warning</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="warning">
+              Warning
+            </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="error">Error</DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuGroup>
