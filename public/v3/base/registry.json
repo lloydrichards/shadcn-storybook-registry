@@ -1217,9 +1217,24 @@
           "target": "@ui/label.stories.tsx"
         },
         {
+          "path": "registry/ui/marker-story/marker-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/marker.stories.tsx"
+        },
+        {
           "path": "registry/ui/menubar-story/menubar-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/menubar.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-story/message-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-scroller-story/message-scroller-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message-scroller.stories.tsx"
         },
         {
           "path": "registry/ui/navigation-menu-story/navigation-menu-base.stories.tsx",
