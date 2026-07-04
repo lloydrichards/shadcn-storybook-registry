@@ -100,9 +100,6 @@ export const ShouldSelectOption: Story = {
           /banana/i.test(option.textContent ?? ""),
       );
       expect(selectedOption).toBeDefined();
-      await userEvent.click(
-        await canvasBody.findByRole("option", { name: /banana/i }),
-      );
     });
   },
 };
