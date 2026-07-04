@@ -1039,9 +1039,11 @@
         "alert",
         "alert-dialog",
         "aspect-ratio",
+        "attachment",
         "avatar",
         "badge",
         "breadcrumb",
+        "bubble",
         "button",
         "calendar",
         "card",
@@ -1059,7 +1061,10 @@
         "input",
         "input-group",
         "input-otp",
+        "marker",
         "menubar",
+        "message",
+        "message-scroller",
         "navigation-menu",
         "popover",
         "progress",
@@ -1102,6 +1107,11 @@
           "target": "@ui/aspect-ratio.stories.tsx"
         },
         {
+          "path": "registry/ui/attachment-story/attachment-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/attachment.stories.tsx"
+        },
+        {
           "path": "registry/ui/avatar-story/avatar-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/avatar.stories.tsx"
@@ -1115,6 +1125,11 @@
           "path": "registry/ui/breadcrumb-story/breadcrumb-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/breadcrumb.stories.tsx"
+        },
+        {
+          "path": "registry/ui/bubble-story/bubble-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/bubble.stories.tsx"
         },
         {
           "path": "registry/ui/button-story/button-base.stories.tsx",
@@ -1217,9 +1232,24 @@
           "target": "@ui/label.stories.tsx"
         },
         {
+          "path": "registry/ui/marker-story/marker-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/marker.stories.tsx"
+        },
+        {
           "path": "registry/ui/menubar-story/menubar-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/menubar.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-story/message-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-scroller-story/message-scroller-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message-scroller.stories.tsx"
         },
         {
           "path": "registry/ui/navigation-menu-story/navigation-menu-base.stories.tsx",
@@ -1355,6 +1385,111 @@
           "path": "registry/tokens/typography-story/typography-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/typography.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "attachment-story",
+      "type": "registry:component",
+      "title": "Attachment Story",
+      "description": "Storybook stories demonstrating attachment component files, previews, states, actions, and triggers",
+      "categories": ["ui", "storybook", "attachment", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["attachment", "button", "dialog", "spinner"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/attachment-story/attachment-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/attachment.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bubble-story",
+      "type": "registry:component",
+      "title": "Bubble Story",
+      "description": "Storybook stories demonstrating bubble component variants, alignment, reactions, and interactive content",
+      "categories": ["ui", "storybook", "bubble", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "collapsible",
+        "popover",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/bubble-story/bubble-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/bubble.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "marker-story",
+      "type": "registry:component",
+      "title": "Marker Story",
+      "description": "Storybook stories demonstrating marker component status rows, separators, icons, links, and buttons",
+      "categories": ["ui", "storybook", "marker", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["marker", "spinner"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/marker-story/marker-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/marker.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-story",
+      "type": "registry:component",
+      "title": "Message Story",
+      "description": "Storybook stories demonstrating message component layout, avatars, actions, status, and attachments",
+      "categories": ["ui", "storybook", "message", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "message",
+        "avatar",
+        "bubble",
+        "button",
+        "attachment",
+        "marker",
+        "spinner"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/message-story/message-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller-story",
+      "type": "registry:component",
+      "title": "Message Scroller Story",
+      "description": "Storybook stories demonstrating message scroller anchoring, streaming, history loading, and jump controls",
+      "categories": ["ui", "storybook", "message-scroller", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "message-scroller",
+        "message",
+        "bubble",
+        "button",
+        "marker"
+      ],
+      "dependencies": ["@shadcn/react"],
+      "files": [
+        {
+          "path": "registry/ui/message-scroller-story/message-scroller-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message-scroller.stories.tsx"
         }
       ]
     }
