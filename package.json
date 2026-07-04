@@ -21,7 +21,6 @@
     "registry:postbuild": "bun run scripts/registry-postbuild.ts",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o public/storybook",
-    "storybook:test": "test-storybook",
     "build-storybook": "storybook build"
   },
   "dependencies": {

@@ -94,9 +94,6 @@ export const ShouldSelectOption: Story = {
       expect(
         await canvasBody.findByRole("option", { name: /banana/i }),
       ).toHaveAttribute("data-state", "checked");
-      await userEvent.click(
-        await canvasBody.findByRole("option", { name: /banana/i }),
-      );
     });
   },
 };
