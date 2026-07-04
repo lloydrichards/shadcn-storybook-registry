@@ -1,3 +1,14 @@
+# [0.13.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.12.1...v0.13.0) (2026-07-04)
+
+
+### ✨ Feature
+
+* add stories for Attachment component ([5531576](https://github.com/lloydrichards/shadcn-storybook-registry/commit/553157652fa2387641b1e9861685dc2677d781a8))
+* add stories for Bubble component ([78522a0](https://github.com/lloydrichards/shadcn-storybook-registry/commit/78522a0b5ad5c361e048093faf59bea81852c5b9))
+* add stories for Marker component ([a624cea](https://github.com/lloydrichards/shadcn-storybook-registry/commit/a624cead32a63e1405f24413978a781240fc1ebd))
+* add stories for Message component ([48682d3](https://github.com/lloydrichards/shadcn-storybook-registry/commit/48682d35c02cb1726d181373c5d93e52c64753eb))
+* add stories for MessageScroller component ([7954a1c](https://github.com/lloydrichards/shadcn-storybook-registry/commit/7954a1c78468b9b5642f996027525347571ae3d6))
+
 ## [0.12.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.12.0...v0.12.1) (2026-05-18)
 
 
