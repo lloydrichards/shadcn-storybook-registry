@@ -16,7 +16,7 @@ export const RegistryItemRow: FC<{
       <TableCell>
         <Button variant="link" asChild>
           <a target="_blank" href={registryUrl} rel="noopener">
-            Link
+            Registry JSON
           </a>
         </Button>
       </TableCell>
