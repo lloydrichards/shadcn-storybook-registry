@@ -25,7 +25,7 @@ export const RegistryItemRow: FC<{
       </TableCell>
       <TableCell>
         <Button variant="link" asChild>
-          <a href={storyUrl}>Story</a>
+          <a href={storyUrl}>Preview</a>
         </Button>
       </TableCell>
       <TableCell>
@@ -65,14 +65,14 @@ export const RegistryItemCard: FC<{
       <div className="grid grid-cols-2 gap-2">
         <Button variant="outline" size="sm" asChild>
           <a target="_blank" href={registryUrl} rel="noopener">
-            <Braces />
+            <Braces data-icon="inline-start" />
             JSON
           </a>
         </Button>
         <Button variant="outline" size="sm" asChild>
           <a href={storyUrl}>
-            <BookOpen />
-            Story
+            <BookOpen data-icon="inline-start" />
+            Preview
           </a>
         </Button>
       </div>
