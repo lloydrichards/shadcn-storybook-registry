@@ -8,9 +8,13 @@ import { toast } from "sonner";
 export const CommandBlock = ({
   command,
   name,
+  label = "Copy command",
+  compact = false,
 }: {
   command: string;
   name: string;
+  label?: string;
+  compact?: boolean;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -23,24 +27,27 @@ export const CommandBlock = ({
   };
 
   return (
-    <div className="my-2 flex">
+    <div className="flex min-w-0">
       <Input
         data-checked={copied}
         value={command}
         readOnly
-        aria-label="Copy command"
-        className="flex h-10 cursor-pointer items-center overflow-x-auto whitespace-nowrap rounded-none rounded-l-md border bg-accent px-2 font-mono data-[checked=true]:bg-card"
+        aria-label={label}
+        className="h-10 min-w-0 cursor-pointer truncate rounded-none rounded-l-md border bg-accent px-2 font-mono text-xs data-[checked=true]:bg-card"
         onClick={handleCopy}
       />
       <Button
-        className="h-10 w-14 rounded-none rounded-r-md"
+        className="h-10 w-12 rounded-none rounded-r-md sm:w-14"
         size="icon"
         onClick={handleCopy}
         data-umami-event="Copy command button"
         data-umami-event-name={name}
       >
-        <span className="sr-only">Copy command</span>
+        <span className="sr-only">{label}</span>
         <Copy />
+        {!compact && (
+          <span className="sr-only">{copied ? "Copied" : "Copy"}</span>
+        )}
       </Button>
     </div>
   );
