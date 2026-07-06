@@ -1,3 +1,10 @@
+## [0.13.1](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.13.0...v0.13.1) (2026-07-06)
+
+
+### ♻️ Refactoring
+
+* organize frontend into cleaner structure ([76b38aa](https://github.com/lloydrichards/shadcn-storybook-registry/commit/76b38aa079da7c1c11c402ed2634a0083b4cd30e))
+
 # [0.13.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.12.1...v0.13.0) (2026-07-04)
 
 
