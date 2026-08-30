@@ -2,6 +2,8 @@
   "name": "shadcn-storybook-registry",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.0",
   "scripts": {
     "dev": "next dev --turbopack",
     "clean": "rm -rf .next public/storybook node_modules",
