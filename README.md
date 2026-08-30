@@ -1,9 +1,9 @@
 # shadcn Storybook Registry
 
-This is a registry of [storybook](https://storybook.js.org/) stories for all the
-[shadcn](https://ui.shadcn.com/) components. Build using the
+This is a registry of [Storybook](https://storybook.js.org/) stories for
+[shadcn/ui](https://ui.shadcn.com/) components. It is built from the
 [shadcn-registry-template](https://github.com/shadcn-ui/registry-template) and
-using the shadcn CLI to build the registry.
+uses the shadcn CLI to publish separate Base UI and Radix UI registries.
 
 ## How to Use
 
@@ -52,13 +52,17 @@ browse available components and copy installation commands.
    bun dev
    ```
 
-4. Add/update the stories in the `src/registry` directory
-5. Add/update the `registry.json` file
-6. Build the registry
+4. Add or update paired stories in `registry/`. UI component stories use
+   `*-base.stories.tsx` and `*-radix.stories.tsx` files.
+5. Update the matching entries in `registry.base.json` and
+   `registry.radix.json`.
+6. Build both v3 registries:
 
    ```bash
-   bun registry:build
+   bun run registry:build
    ```
+
+   Generated output is written to `public/v3/base` and `public/v3/radix`.
 
 ### Testing
 
@@ -68,10 +72,20 @@ browse available components and copy installation commands.
    bun dev
    ```
 
-2. test the registry by running the shadcn CLI
+2. Test a registry item through the local route handler:
 
    ```bash
-   npx shadcn@latest add http://localhost:3000/v2/r/your-component.json
+   npx shadcn@latest add http://localhost:3000/registry/radix/button-story
+   # Or use /registry/base/button-story for the Base UI variant.
+   ```
+
+3. Run the project checks:
+
+   ```bash
+   bun run lint
+   bun run type-check
+   bun run test:unit
+   bun run test:storybook
    ```
 
 ## Documentation

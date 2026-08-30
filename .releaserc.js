@@ -1,6 +1,6 @@
 const COMMIT_HASH_LENGTH = 7;
 
-module.exports = {
+export default {
   branches: [{ name: "main" }],
   plugins: [
     [
