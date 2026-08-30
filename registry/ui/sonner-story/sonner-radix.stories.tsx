@@ -55,6 +55,12 @@ export const ShouldShowToast: Story = {
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
+
+    toast.dismiss();
+    await waitFor(() =>
+      expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
+    );
+
     const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
@@ -81,6 +87,12 @@ export const ShouldCloseToast: Story = {
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
+
+    toast.dismiss();
+    await waitFor(() =>
+      expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
+    );
+
     const triggerBtn = await canvasBody.findByRole("button", {
       name: /show/i,
     });
