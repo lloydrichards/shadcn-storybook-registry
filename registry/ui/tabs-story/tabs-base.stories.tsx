@@ -49,7 +49,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const ShouldChangeTabs: Story = {
-  name: "when clicking a tab, should change the content",
+  name: "should change the content when clicking a tab",
   tags: ["!dev", "!autodocs"],
   play: async ({ canvas, step }) => {
     const tabs = await canvas.findAllByRole("tab");
@@ -61,7 +61,7 @@ export const ShouldChangeTabs: Story = {
           expect(tabs[i]).toHaveAttribute("aria-selected", "true"),
         );
         await expect(
-          await canvas.queryByRole("tabpanel", { name: tabs[i].innerText }),
+          canvas.getByRole("tabpanel", { name: tabs[i].innerText }),
         ).toBeVisible();
       });
 
@@ -69,9 +69,13 @@ export const ShouldChangeTabs: Story = {
         for (let j = 0; j < tabs.length; j++) {
           if (j !== i) {
             expect(tabs[j]).toHaveAttribute("aria-selected", "false");
-            expect(
-              await canvas.queryByRole("tabpanel", { name: tabs[j].innerText }),
-            ).toBeNull();
+            await waitFor(() =>
+              expect(
+                canvas.queryByRole("tabpanel", {
+                  name: tabs[j].innerText,
+                }),
+              ).toBeNull(),
+            );
           }
         }
       });
