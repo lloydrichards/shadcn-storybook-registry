@@ -1012,6 +1012,27 @@
       ]
     },
     {
+      "name": "typeset-story",
+      "type": "registry:component",
+      "title": "Typeset Story",
+      "description": "Storybook-only documentation for shadcn Typeset; bundled CSS supports the story, while applications generate and own their CSS",
+      "categories": ["design", "storybook", "typography", "markdown"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/tokens/typeset-story/typeset-radix.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typeset.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset.css",
+          "type": "registry:file",
+          "target": "@ui/typeset.css"
+        }
+      ]
+    },
+    {
       "name": "typography-story",
       "type": "registry:component",
       "title": "Typography Story",
@@ -1375,6 +1396,16 @@
           "path": "registry/tokens/spacing-story/spacing-radix.stories.tsx",
           "type": "registry:component",
           "target": "@ui/spacing.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset-radix.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typeset.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset.css",
+          "type": "registry:file",
+          "target": "@ui/typeset.css"
         },
         {
           "path": "registry/tokens/typography-story/typography-radix.stories.tsx",
