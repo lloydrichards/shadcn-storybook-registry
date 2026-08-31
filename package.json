@@ -28,7 +28,7 @@
   "dependencies": {
     "@base-ui/react": "^1.7.0",
     "@hookform/resolvers": "^5.9.1",
-    "@shadcn/react": "^0.2.1",
+    "@shadcn/react": "^0.3.0",
     "@tanstack/react-form": "^1.33.5",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
