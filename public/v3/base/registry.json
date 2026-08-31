@@ -655,6 +655,22 @@
       ]
     },
     {
+      "name": "questionnaire-story",
+      "type": "registry:component",
+      "title": "Questionnaire Story",
+      "description": "Interactive Storybook stories demonstrating multi-step questionnaire flows, validation, and navigation",
+      "categories": ["ui", "storybook", "questionnaire", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["questionnaire"],
+      "files": [
+        {
+          "path": "registry/ui/questionnaire-story/questionnaire-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/questionnaire.stories.tsx"
+        }
+      ]
+    },
+    {
       "name": "radio-group-story",
       "type": "registry:component",
       "title": "Radio Group Story",
@@ -1068,6 +1084,7 @@
         "navigation-menu",
         "popover",
         "progress",
+        "questionnaire",
         "radio-group",
         "resizable",
         "scroll-area",
@@ -1270,6 +1287,11 @@
           "path": "registry/ui/progress-story/progress-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/progress.stories.tsx"
+        },
+        {
+          "path": "registry/ui/questionnaire-story/questionnaire-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/questionnaire.stories.tsx"
         },
         {
           "path": "registry/ui/radio-group-story/radio-group-base.stories.tsx",
