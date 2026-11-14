@@ -265,6 +265,23 @@
       ]
     },
     {
+      "name": "combobox-story",
+      "type": "registry:component",
+      "title": "Combobox Story",
+      "description": "Interactive Storybook stories demonstrating combobox usage and variants",
+      "categories": ["ui", "storybook", "combobox"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/ui/combobox-story/combobox-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/combobox.stories.tsx"
+        }
+      ],
+      "dependencies": ["@base-ui/react"]
+    },
+    {
       "name": "command-story",
       "type": "registry:component",
       "title": "Command Story",
@@ -355,6 +372,22 @@
           "path": "registry/ui/dialog-story/dialog-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/dialog.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "direction-story",
+      "type": "registry:component",
+      "title": "Direction Story",
+      "description": "Interactive Storybook stories demonstrating direction usage and variants",
+      "categories": ["ui", "storybook", "direction"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["direction", "tabs"],
+      "files": [
+        {
+          "path": "registry/ui/direction-story/direction-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/direction.stories.tsx"
         }
       ]
     },
@@ -610,6 +643,22 @@
           "path": "registry/ui/menubar-story/menubar-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/menubar.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "native-select-story",
+      "type": "registry:component",
+      "title": "Native Select Story",
+      "description": "Interactive Storybook stories demonstrating native select usage and variants",
+      "categories": ["ui", "storybook", "native-select"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["native-select", "label"],
+      "files": [
+        {
+          "path": "registry/ui/native-select-story/native-select-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/native-select.stories.tsx"
         }
       ]
     },
@@ -1144,7 +1193,10 @@
         "textarea",
         "toggle",
         "toggle-group",
-        "tooltip"
+        "tooltip",
+        "combobox",
+        "native-select",
+        "direction"
       ],
       "files": [
         {
@@ -1466,9 +1518,24 @@
           "path": "registry/ui/data-table-story/data-table-base.stories.tsx",
           "type": "registry:component",
           "target": "@ui/data-table.stories.tsx"
+        },
+        {
+          "path": "registry/ui/combobox-story/combobox-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/combobox.stories.tsx"
+        },
+        {
+          "path": "registry/ui/native-select-story/native-select-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/native-select.stories.tsx"
+        },
+        {
+          "path": "registry/ui/direction-story/direction-base.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/direction.stories.tsx"
         }
       ],
-      "dependencies": ["@tanstack/react-table@^9.3.1"]
+      "dependencies": ["@tanstack/react-table@^9.3.1", "@base-ui/react"]
     },
     {
       "name": "attachment-story",

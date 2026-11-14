@@ -17,6 +17,7 @@ const storyIds: Record<string, string> = {
   "input-group-story": "inputgroup",
   "input-otp-story": "inputotp",
   "message-scroller-story": "messagescroller",
+  "native-select-story": "nativeselect",
   "navigation-menu-story": "navigationmenu",
   "radio-group-story": "radiogroup",
   "resizable-story": "resizablepanelgroup",

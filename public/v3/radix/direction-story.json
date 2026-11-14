@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction-story",
+  "title": "Direction Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating direction usage and variants",
+  "registryDependencies": [
+    "direction",
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/direction-story/direction-radix.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { expect, userEvent } from \"storybook/test\";\n\nimport { DirectionProvider } from \"@/components/ui/direction\";\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from \"@/components/ui/tabs\";\n\n/** Apply the same direction to primitive keyboard behavior and browser layout. */\nfunction DirectionDemo({ direction = \"ltr\" }: { direction?: \"ltr\" | \"rtl\" }) {\n  return (\n    <DirectionProvider dir={direction}>\n      <section dir={direction} className=\"w-80 space-y-3\">\n        <p className=\"text-muted-foreground text-sm\">\n          {direction === \"rtl\" ? \"Right to left\" : \"Left to right\"}\n        </p>\n        <Tabs defaultValue=\"account\">\n          <TabsList aria-label=\"Settings\">\n            <TabsTrigger value=\"account\">Account</TabsTrigger>\n            <TabsTrigger value=\"security\">Security</TabsTrigger>\n            <TabsTrigger value=\"notifications\">Notifications</TabsTrigger>\n          </TabsList>\n          <TabsContent value=\"account\">\n            Manage your account details.\n          </TabsContent>\n          <TabsContent value=\"security\">Manage your password.</TabsContent>\n          <TabsContent value=\"notifications\">\n            Manage your notifications.\n          </TabsContent>\n        </Tabs>\n      </section>\n    </DirectionProvider>\n  );\n}\n\n/** Direction controls the reading order and horizontal navigation of components. */\nconst meta = {\n  title: \"ui/radix/Direction\",\n  component: DirectionDemo,\n  tags: [\"autodocs\"],\n  parameters: { layout: \"centered\" },\n  args: { direction: \"ltr\" },\n  argTypes: {\n    direction: { control: \"radio\", options: [\"ltr\", \"rtl\"] },\n  },\n} satisfies Meta<typeof DirectionDemo>;\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\n/** Read and navigate tabs from left to right. */\nexport const Default: Story = {};\n\n/** Reverse the tab order and arrow-key navigation for right-to-left interfaces. */\nexport const RightToLeft: Story = {\n  args: { direction: \"rtl\" },\n};\n\n/** Move between tabs with the arrow key that follows the reading direction. */\nexport const ShouldNavigateLeftToRight: Story = {\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas }) => {\n    const account = canvas.getByRole(\"tab\", { name: \"Account\" });\n    const security = canvas.getByRole(\"tab\", { name: \"Security\" });\n    await userEvent.click(account);\n    await userEvent.keyboard(\"{ArrowRight}\");\n    await expect(security).toHaveFocus();\n    await userEvent.keyboard(\"{Enter}\");\n    await expect(security).toHaveAttribute(\"aria-selected\", \"true\");\n    await expect(\n      canvas.getByRole(\"tabpanel\", { name: \"Security\" }),\n    ).toHaveTextContent(\"Manage your password.\");\n    await userEvent.keyboard(\"{ArrowLeft}\");\n    await expect(account).toHaveFocus();\n    await userEvent.keyboard(\"{Enter}\");\n    await expect(account).toHaveAttribute(\"aria-selected\", \"true\");\n  },\n};\n\n/** Keep keyboard navigation aligned with the reversed visual tab order. */\nexport const ShouldNavigateRightToLeft: Story = {\n  args: { direction: \"rtl\" },\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas }) => {\n    const account = canvas.getByRole(\"tab\", { name: \"Account\" });\n    const security = canvas.getByRole(\"tab\", { name: \"Security\" });\n    await userEvent.click(account);\n    await expect(account.getBoundingClientRect().left).toBeGreaterThan(\n      security.getBoundingClientRect().left,\n    );\n    await userEvent.keyboard(\"{ArrowLeft}\");\n    await expect(security).toHaveFocus();\n    await userEvent.keyboard(\"{Enter}\");\n    await expect(security).toHaveAttribute(\"aria-selected\", \"true\");\n    await expect(\n      canvas.getByRole(\"tabpanel\", { name: \"Security\" }),\n    ).toHaveTextContent(\"Manage your password.\");\n    await userEvent.keyboard(\"{ArrowRight}\");\n    await expect(account).toHaveFocus();\n    await userEvent.keyboard(\"{Enter}\");\n    await expect(account).toHaveAttribute(\"aria-selected\", \"true\");\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/direction.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "direction"
+  ],
+  "type": "registry:component"
+}
