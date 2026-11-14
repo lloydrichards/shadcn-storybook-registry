@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { rewriteRegistryImports } from "@/lib/registry-imports";
 
 type RegistryName = "radix" | "base";
 type RegistryItemFile = { path: string; type: string };
@@ -89,12 +90,16 @@ export async function GET(
       component.files.map(async (file) => {
         const filePath = path.join(process.cwd(), file.path);
         const content = await fs.readFile(filePath, "utf8");
-        return { ...file, content };
+        return { ...file, content: rewriteRegistryImports(content) };
       }),
     );
 
     // Return the component with the files.
-    return NextResponse.json({ ...component, files: filesWithContent });
+    return NextResponse.json({
+      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      ...component,
+      files: filesWithContent,
+    });
   } catch (error) {
     console.error("Error processing component request:", error);
     return NextResponse.json(

@@ -200,6 +200,7 @@ export default { title: "Example/Button" };`;
 
       expect(response.status).toBe(200);
       expect(data).toEqual({
+        $schema: "https://ui.shadcn.com/schema/registry-item.json",
         name: "button-story",
         title: "Button Story",
         type: "registry:ui",
@@ -213,7 +214,10 @@ export default { title: "Example/Button" };`;
           {
             path: "registry/button.stories.tsx",
             type: "registry:ui",
-            content: mockFileContent,
+            content: mockFileContent.replace(
+              "@/bases/radix/components",
+              "@/components",
+            ),
           },
         ],
       });

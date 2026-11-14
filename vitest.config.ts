@@ -29,6 +29,9 @@ export default defineConfig({
         },
       },
       {
+        resolve: {
+          alias: { "@": import.meta.dirname },
+        },
         test: {
           name: "unit",
         },
