@@ -8,6 +8,7 @@ const storyIds: Record<string, string> = {
   "aspect-ratio-story": "aspectratio",
   "button-group-story": "buttongroup",
   "context-menu-story": "contextmenu",
+  "data-table-story": "datatable",
   "date-picker-story": "datepicker",
   "dropdown-menu-story": "dropdownmenu",
   "form-react-hook-story": "form-react-hook-form",
