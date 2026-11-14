@@ -277,7 +277,12 @@ const RegistrySection = ({
   registry,
   title,
 }: {
-  items: Array<{ name: string; title: string; description?: string }>;
+  items: Array<{
+    name: string;
+    title: string;
+    description?: string;
+    categories: string[];
+  }>;
   registry: keyof typeof registryConfig;
   title: string;
 }) =>
