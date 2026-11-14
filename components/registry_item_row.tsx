@@ -1,17 +1,23 @@
 import { Button } from "@/bases/radix/components/ui/button";
 import { TableCell, TableRow } from "@/bases/radix/components/ui/table";
 import { CommandBlock } from "@/components/command-block";
+import { getRegistryPreviewPath } from "@/lib/registry-preview";
 import { getBaseUrl } from "@/lib/utils";
 import { BookOpen, Braces } from "lucide-react";
 import type { FC } from "react";
 
 export const RegistryItemRow: FC<{
-  item: { name: string; title: string; description?: string };
+  item: {
+    name: string;
+    title: string;
+    description?: string;
+    categories: string[];
+  };
   registry: "radix" | "base";
 }> = ({ item, registry }) => {
   const registryBasePath = registry === "base" ? "/v3/base" : "/v3/radix";
   const registryUrl = `${getBaseUrl()}${registryBasePath}/${item.name}.json`;
-  const storyUrl = `${getBaseUrl()}/storybook/?path=/docs/ui-${registry}-${item.name.replace("-story", "")}--docs`;
+  const storyUrl = `${getBaseUrl()}${getRegistryPreviewPath(item, registry)}`;
 
   return (
     <TableRow key={item.name}>
@@ -40,12 +46,17 @@ export const RegistryItemRow: FC<{
 };
 
 export const RegistryItemCard: FC<{
-  item: { name: string; title: string; description?: string };
+  item: {
+    name: string;
+    title: string;
+    description?: string;
+    categories: string[];
+  };
   registry: "radix" | "base";
 }> = ({ item, registry }) => {
   const registryBasePath = registry === "base" ? "/v3/base" : "/v3/radix";
   const registryUrl = `${getBaseUrl()}${registryBasePath}/${item.name}.json`;
-  const storyUrl = `${getBaseUrl()}/storybook/?path=/docs/ui-${registry}-${item.name.replace("-story", "")}--docs`;
+  const storyUrl = `${getBaseUrl()}${getRegistryPreviewPath(item, registry)}`;
 
   return (
     <article className="grid gap-3 rounded-lg border p-3">
