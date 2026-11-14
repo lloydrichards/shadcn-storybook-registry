@@ -297,6 +297,29 @@
       ]
     },
     {
+      "name": "data-table-story",
+      "type": "registry:component",
+      "title": "Data Table Story",
+      "description": "Interactive Storybook stories demonstrating sorting, filtering, pagination, and row selection with TanStack Table",
+      "categories": ["ui", "storybook", "data-table", "data-display"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "table",
+        "button",
+        "checkbox",
+        "input",
+        "skeleton"
+      ],
+      "dependencies": ["@tanstack/react-table@^9.3.1"],
+      "files": [
+        {
+          "path": "registry/ui/data-table-story/data-table-radix.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/data-table.stories.tsx"
+        }
+      ]
+    },
+    {
       "name": "date-picker-story",
       "type": "registry:component",
       "title": "Date Picker Story",
@@ -1433,8 +1456,14 @@
           "path": "registry/tokens/typography-story/typography-radix.stories.tsx",
           "type": "registry:component",
           "target": "@ui/typography.stories.tsx"
+        },
+        {
+          "path": "registry/ui/data-table-story/data-table-radix.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/data-table.stories.tsx"
         }
-      ]
+      ],
+      "dependencies": ["@tanstack/react-table@^9.3.1"]
     },
     {
       "name": "attachment-story",
