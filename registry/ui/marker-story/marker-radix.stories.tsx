@@ -21,7 +21,8 @@ import { Spinner } from "@/bases/radix/components/ui/spinner";
  * Displays inline conversation status, notes, actions, and separators.
  */
 const meta: Meta<typeof Marker> = {
-  title: "ui/radix/Marker",
+  id: "ui-radix-marker",
+  title: "ui/Marker",
   component: Marker,
   tags: ["autodocs"],
   parameters: {

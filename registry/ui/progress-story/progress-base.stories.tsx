@@ -8,7 +8,8 @@ import { Progress } from "@/bases/base/components/ui/progress";
  * displayed as a progress bar.
  */
 const meta = {
-  title: "ui/base/Progress",
+  id: "ui-base-progress",
+  title: "ui/Progress",
   component: Progress,
   tags: ["autodocs"],
   argTypes: {},

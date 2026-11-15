@@ -7,7 +7,8 @@ import { Slider } from "@/bases/radix/components/ui/slider";
  * An input where the user selects a value from within a given range.
  */
 const meta = {
-  title: "ui/radix/Slider",
+  id: "ui-radix-slider",
+  title: "ui/Slider",
   component: Slider,
   tags: ["autodocs"],
   argTypes: {},

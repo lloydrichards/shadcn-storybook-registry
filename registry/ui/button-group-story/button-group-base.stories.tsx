@@ -54,7 +54,8 @@ import {
  * A container that groups related buttons together with consistent styling.
  */
 const meta: Meta<typeof ButtonGroup> = {
-  title: "ui/base/ButtonGroup",
+  id: "ui-base-buttongroup",
+  title: "ui/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
   argTypes: {

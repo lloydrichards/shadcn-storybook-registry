@@ -20,7 +20,8 @@ import "./typeset.css";
  * surrounding layout owns its measure.
  */
 const meta = {
-  title: "design/radix/Typeset",
+  id: "design-radix-typeset",
+  title: "design/Typeset",
   tags: ["autodocs"],
   parameters: {
     layout: "centered",

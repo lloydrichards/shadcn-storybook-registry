@@ -13,7 +13,8 @@ import {
  * the buttons can be checked at a time.
  */
 const meta = {
-  title: "ui/base/RadioGroup",
+  id: "ui-base-radiogroup",
+  title: "ui/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   argTypes: {},

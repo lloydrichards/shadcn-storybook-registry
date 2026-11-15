@@ -30,7 +30,8 @@ import { Spinner } from "@/bases/base/components/ui/spinner";
  * An indicator that can be used to show a loading state.
  */
 const meta: Meta<typeof Spinner> = {
-  title: "ui/base/Spinner",
+  id: "ui-base-spinner",
+  title: "ui/Spinner",
   component: Spinner,
   tags: ["autodocs"],
   parameters: {

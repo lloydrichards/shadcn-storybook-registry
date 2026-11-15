@@ -18,8 +18,8 @@ for (const [registry, manifest] of [
   for (const entry of Object.values(entries)) {
     if (
       !entry.importPath.endsWith(`-${registry}.stories.tsx`) ||
-      (!entry.title.startsWith(`ui/${registry}/`) &&
-        !entry.title.startsWith(`design/${registry}/`))
+      (!entry.title.startsWith("ui/") && !entry.title.startsWith("design/")) ||
+      /^(ui|design)\/(base|radix)\//.test(entry.title)
     ) {
       throw new Error(
         `${registry} Storybook contains unexpected entry ${entry.id}`,

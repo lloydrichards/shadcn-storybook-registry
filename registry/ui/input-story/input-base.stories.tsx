@@ -10,7 +10,8 @@ import { Label } from "@/bases/base/components/ui/label";
  * Displays a form input field or a component that looks like an input field.
  */
 const meta = {
-  title: "ui/base/Input",
+  id: "ui-base-input",
+  title: "ui/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {},

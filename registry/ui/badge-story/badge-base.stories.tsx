@@ -7,7 +7,8 @@ import { Badge } from "@/bases/base/components/ui/badge";
  * Displays a badge or a component that looks like a badge.
  */
 const meta = {
-  title: "ui/base/Badge",
+  id: "ui-base-badge",
+  title: "ui/Badge",
   component: Badge,
   tags: ["autodocs"],
   argTypes: {

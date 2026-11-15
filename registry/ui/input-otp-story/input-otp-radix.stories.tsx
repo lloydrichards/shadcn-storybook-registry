@@ -14,7 +14,8 @@ import {
  * Accessible one-time password component with copy paste functionality.
  */
 const meta = {
-  title: "ui/radix/InputOTP",
+  id: "ui-radix-inputotp",
+  title: "ui/InputOTP",
   component: InputOTP,
   tags: ["autodocs"],
   argTypes: {},

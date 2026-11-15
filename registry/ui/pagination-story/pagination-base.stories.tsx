@@ -15,7 +15,8 @@ import {
  * Pagination with page navigation, next and previous links.
  */
 const meta = {
-  title: "ui/base/Pagination",
+  id: "ui-base-pagination",
+  title: "ui/Pagination",
   component: Pagination,
   tags: ["autodocs"],
   argTypes: {},

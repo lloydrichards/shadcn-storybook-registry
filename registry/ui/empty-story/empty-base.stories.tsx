@@ -33,7 +33,8 @@ import { Kbd } from "@/bases/base/components/ui/kbd";
  * Use the Empty component to display a empty state.
  */
 const meta: Meta<typeof Empty> = {
-  title: "ui/base/Empty",
+  id: "ui-base-empty",
+  title: "ui/Empty",
   component: Empty,
   tags: ["autodocs"],
   parameters: {

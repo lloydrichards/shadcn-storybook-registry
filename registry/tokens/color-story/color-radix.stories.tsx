@@ -43,7 +43,8 @@ const SwatchList = ({ colors }: { colors: Record<string, string> }) => {
 const meta: Meta<{
   swatch: Swatch[];
 }> = {
-  title: "design/radix/Color",
+  id: "design-radix-color",
+  title: "design/Color",
   argTypes: {},
   render: (args) => (
     <Table>

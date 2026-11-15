@@ -9,7 +9,8 @@ import { Textarea } from "@/bases/base/components/ui/textarea";
  * Displays a form textarea or a component that looks like a textarea.
  */
 const meta = {
-  title: "ui/base/Textarea",
+  id: "ui-base-textarea",
+  title: "ui/Textarea",
   component: Textarea,
   tags: ["autodocs"],
   argTypes: {},

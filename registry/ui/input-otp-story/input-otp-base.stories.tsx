@@ -14,7 +14,8 @@ import {
  * Accessible one-time password component with copy paste functionality.
  */
 const meta = {
-  title: "ui/base/InputOTP",
+  id: "ui-base-inputotp",
+  title: "ui/InputOTP",
   component: InputOTP,
   tags: ["autodocs"],
   argTypes: {},

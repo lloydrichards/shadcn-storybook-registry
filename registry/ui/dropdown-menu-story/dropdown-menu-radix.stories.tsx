@@ -26,7 +26,8 @@ import {
  * triggered by a button.
  */
 const meta = {
-  title: "ui/radix/DropdownMenu",
+  id: "ui-radix-dropdownmenu",
+  title: "ui/DropdownMenu",
   component: DropdownMenu,
   tags: ["autodocs"],
   argTypes: {},

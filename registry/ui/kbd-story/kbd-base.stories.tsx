@@ -21,7 +21,8 @@ import {
  * Used to display textual user input from keyboard.
  */
 const meta: Meta<typeof Kbd> = {
-  title: "ui/base/Kbd",
+  id: "ui-base-kbd",
+  title: "ui/Kbd",
   component: Kbd,
   tags: ["autodocs"],
   parameters: {

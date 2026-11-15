@@ -11,7 +11,8 @@ import { fn } from "storybook/test";
  * Accessible resizable panel groups and layouts with keyboard support.
  */
 const meta: Meta<typeof ResizablePanelGroup> = {
-  title: "ui/radix/ResizablePanelGroup",
+  id: "ui-radix-resizablepanelgroup",
+  title: "ui/ResizablePanelGroup",
   component: ResizablePanelGroup,
   tags: ["autodocs"],
   argTypes: {

@@ -14,7 +14,8 @@ import {
  * of content.
  */
 const meta = {
-  title: "ui/radix/Accordion",
+  id: "ui-radix-accordion",
+  title: "ui/Accordion",
   component: Accordion,
   tags: ["autodocs"],
   argTypes: {

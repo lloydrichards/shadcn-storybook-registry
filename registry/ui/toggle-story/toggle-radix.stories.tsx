@@ -8,7 +8,8 @@ import { Toggle } from "@/bases/radix/components/ui/toggle";
  * A two-state button that can be either on or off.
  */
 const meta: Meta<typeof Toggle> = {
-  title: "ui/radix/Toggle",
+  id: "ui-radix-toggle",
+  title: "ui/Toggle",
   component: Toggle,
   tags: ["autodocs"],
   argTypes: {

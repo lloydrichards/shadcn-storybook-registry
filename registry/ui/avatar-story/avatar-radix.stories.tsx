@@ -11,7 +11,8 @@ import {
  * An image element with a fallback for representing the user.
  */
 const meta = {
-  title: "ui/radix/Avatar",
+  id: "ui-radix-avatar",
+  title: "ui/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   argTypes: {},

@@ -70,7 +70,8 @@ const singleSeriesConfig = {
  * Beautiful charts. Built using Recharts. Copy and paste into your apps.
  */
 const meta = {
-  title: "ui/radix/Chart",
+  id: "ui-radix-chart",
+  title: "ui/Chart",
   component: ChartContainer,
   tags: ["autodocs"],
   argTypes: {},

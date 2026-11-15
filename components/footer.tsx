@@ -3,7 +3,7 @@ import { Code2 } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-row items-center justify-between px-4 py-2">
+    <footer className="mt-auto flex flex-row items-center justify-between px-4 py-2">
       <Button variant="link" asChild>
         <a href="https://www.lloydrichards.dev" target="_blank" rel="noopener">
           lloydrichards.dev

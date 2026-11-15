@@ -17,7 +17,8 @@ import { expect, fn, userEvent, within } from "storybook/test";
  * A drawer component for React.
  */
 const meta = {
-  title: "ui/base/Drawer",
+  id: "ui-base-drawer",
+  title: "ui/Drawer",
   component: Drawer,
   tags: ["autodocs"],
   args: {

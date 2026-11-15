@@ -15,7 +15,8 @@ import {
  * Pagination with page navigation, next and previous links.
  */
 const meta = {
-  title: "ui/radix/Pagination",
+  id: "ui-radix-pagination",
+  title: "ui/Pagination",
   component: Pagination,
   tags: ["autodocs"],
   argTypes: {},

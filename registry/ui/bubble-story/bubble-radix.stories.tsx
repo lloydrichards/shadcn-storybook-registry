@@ -31,7 +31,8 @@ import {
  * Displays conversational content in a framed or unframed message bubble.
  */
 const meta: Meta<typeof Bubble> = {
-  title: "ui/radix/Bubble",
+  id: "ui-radix-bubble",
+  title: "ui/Bubble",
   component: Bubble,
   tags: ["autodocs"],
   parameters: {

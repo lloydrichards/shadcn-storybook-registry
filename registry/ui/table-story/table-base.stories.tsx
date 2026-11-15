@@ -42,7 +42,8 @@ const invoices = [
  * Powerful table and datagrids built using TanStack Table.
  */
 const meta = {
-  title: "ui/base/Table",
+  id: "ui-base-table",
+  title: "ui/Table",
   component: Table,
   tags: ["autodocs"],
   argTypes: {},

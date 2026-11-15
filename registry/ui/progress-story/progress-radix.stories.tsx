@@ -8,7 +8,8 @@ import { Progress } from "@/bases/radix/components/ui/progress";
  * displayed as a progress bar.
  */
 const meta = {
-  title: "ui/radix/Progress",
+  id: "ui-radix-progress",
+  title: "ui/Progress",
   component: Progress,
   tags: ["autodocs"],
   argTypes: {},

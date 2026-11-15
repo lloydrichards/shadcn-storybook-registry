@@ -19,7 +19,8 @@ import { userEvent, within } from "storybook/test";
  * a response.
  */
 const meta = {
-  title: "ui/base/AlertDialog",
+  id: "ui-base-alertdialog",
+  title: "ui/AlertDialog",
   component: AlertDialog,
   tags: ["autodocs"],
   argTypes: {},

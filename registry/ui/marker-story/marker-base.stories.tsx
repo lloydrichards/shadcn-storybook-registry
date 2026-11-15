@@ -21,7 +21,8 @@ import { Spinner } from "@/bases/base/components/ui/spinner";
  * Displays inline conversation status, notes, actions, and separators.
  */
 const meta: Meta<typeof Marker> = {
-  title: "ui/base/Marker",
+  id: "ui-base-marker",
+  title: "ui/Marker",
   component: Marker,
   tags: ["autodocs"],
   parameters: {

@@ -7,7 +7,8 @@ import { Label } from "@/bases/base/components/ui/label";
  * Renders an accessible label associated with controls.
  */
 const meta = {
-  title: "ui/base/Label",
+  id: "ui-base-label",
+  title: "ui/Label",
   component: Label,
   tags: ["autodocs"],
   argTypes: {

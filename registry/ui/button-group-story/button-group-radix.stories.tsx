@@ -54,7 +54,8 @@ import {
  * A container that groups related buttons together with consistent styling.
  */
 const meta: Meta<typeof ButtonGroup> = {
-  title: "ui/radix/ButtonGroup",
+  id: "ui-radix-buttongroup",
+  title: "ui/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
   argTypes: {

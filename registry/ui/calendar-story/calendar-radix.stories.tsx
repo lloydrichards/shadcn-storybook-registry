@@ -9,7 +9,8 @@ import { Calendar } from "@/bases/radix/components/ui/calendar";
  * A date field component that allows users to enter and edit date.
  */
 const meta = {
-  title: "ui/radix/Calendar",
+  id: "ui-radix-calendar",
+  title: "ui/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   argTypes: {

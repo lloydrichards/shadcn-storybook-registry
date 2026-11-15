@@ -20,7 +20,8 @@ import { action } from "storybook/actions";
  * rendering the content underneath inert.
  */
 const meta = {
-  title: "ui/base/DatePicker",
+  id: "ui-base-datepicker",
+  title: "ui/DatePicker",
   component: Calendar,
   tags: ["autodocs"],
   argTypes: {},

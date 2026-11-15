@@ -43,7 +43,8 @@ import { Spinner } from "@/bases/base/components/ui/spinner";
  * Lays out conversation messages with avatar, content, header, footer, and alignment.
  */
 const meta: Meta<typeof Message> = {
-  title: "ui/base/Message",
+  id: "ui-base-message",
+  title: "ui/Message",
   component: Message,
   tags: ["autodocs"],
   parameters: {

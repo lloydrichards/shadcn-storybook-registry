@@ -174,7 +174,9 @@ registry website's default. Stop one server before starting the other.
 `bun run build` builds both Storybooks before building the Next.js app.
 The deployment serves a chooser at `/storybook/`, Base UI at
 `/storybook/base/`, and Radix UI at `/storybook/radix/`. Existing story IDs
-remain unchanged. Registry preview links open the matching library.
+remain unchanged through explicit metadata IDs. Story titles group components
+under `ui/` and tokens under `design/`, without a library folder. Registry
+preview links open the matching library.
 
 To build only one library, run `bun run storybook:build:base` or
 `bun run storybook:build:radix`. Each command preserves the other library's

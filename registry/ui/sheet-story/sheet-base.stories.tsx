@@ -18,7 +18,8 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
  * content of the screen.
  */
 const meta: Meta<typeof SheetContent> = {
-  title: "ui/base/Sheet",
+  id: "ui-base-sheet",
+  title: "ui/Sheet",
   component: Sheet,
   tags: ["autodocs"],
   argTypes: {

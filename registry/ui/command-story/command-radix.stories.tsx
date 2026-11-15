@@ -16,7 +16,8 @@ import { expect, userEvent, within } from "storybook/test";
  * Fast, composable, unstyled command menu for React.
  */
 const meta = {
-  title: "ui/radix/Command",
+  id: "ui-radix-command",
+  title: "ui/Command",
   component: Command,
   tags: ["autodocs"],
   argTypes: {},

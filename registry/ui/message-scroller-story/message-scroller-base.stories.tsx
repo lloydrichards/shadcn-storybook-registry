@@ -22,7 +22,8 @@ import {
  * Provides chat transcript scrolling with anchoring, jump controls, and live-edge behavior.
  */
 const meta: Meta<typeof MessageScroller> = {
-  title: "ui/base/MessageScroller",
+  id: "ui-base-messagescroller",
+  title: "ui/MessageScroller",
   component: MessageScroller,
   tags: ["autodocs"],
   parameters: {

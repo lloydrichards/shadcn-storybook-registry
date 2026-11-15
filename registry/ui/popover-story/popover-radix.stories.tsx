@@ -12,7 +12,8 @@ import { expect, userEvent, within } from "storybook/test";
  * Displays rich content in a portal, triggered by a button.
  */
 const meta = {
-  title: "ui/radix/Popover",
+  id: "ui-radix-popover",
+  title: "ui/Popover",
   component: Popover,
   tags: ["autodocs"],
   argTypes: {},

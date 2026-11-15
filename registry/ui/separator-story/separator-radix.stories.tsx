@@ -7,7 +7,8 @@ import { Separator } from "@/bases/radix/components/ui/separator";
  * Visually or semantically separates content.
  */
 const meta = {
-  title: "ui/radix/Separator",
+  id: "ui-radix-separator",
+  title: "ui/Separator",
   component: Separator,
   tags: ["autodocs"],
   argTypes: {},

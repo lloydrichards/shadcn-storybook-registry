@@ -39,7 +39,8 @@ import {
  * A versatile component that you can use to display any content.
  */
 const meta: Meta<typeof Item> = {
-  title: "ui/base/Item",
+  id: "ui-base-item",
+  title: "ui/Item",
   component: Item,
   tags: ["autodocs"],
   argTypes: {

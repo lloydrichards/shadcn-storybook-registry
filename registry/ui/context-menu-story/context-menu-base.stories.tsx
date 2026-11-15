@@ -23,7 +23,8 @@ import { expect, userEvent, within } from "storybook/test";
  * triggered by a button.
  */
 const meta = {
-  title: "ui/base/ContextMenu",
+  id: "ui-base-contextmenu",
+  title: "ui/ContextMenu",
   component: ContextMenu,
   tags: ["autodocs"],
   argTypes: {},

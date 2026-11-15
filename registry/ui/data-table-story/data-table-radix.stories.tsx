@@ -245,7 +245,8 @@ function PaymentsTable({
 
 /** Compose the Table primitive with TanStack Table v9 to sort, filter, paginate, and select local payments. */
 const meta = {
-  title: "ui/radix/DataTable",
+  id: "ui-radix-datatable",
+  title: "ui/DataTable",
   component: PaymentsTable,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

@@ -45,7 +45,7 @@ export default function RootLayout({
         data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
       />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh flex-col antialiased`}
       >
         <Header />
         {children}

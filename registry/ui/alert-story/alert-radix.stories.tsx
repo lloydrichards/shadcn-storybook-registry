@@ -12,7 +12,8 @@ import {
  * Displays a callout for user attention.
  */
 const meta = {
-  title: "ui/radix/Alert",
+  id: "ui-radix-alert",
+  title: "ui/Alert",
   component: Alert,
   tags: ["autodocs"],
   argTypes: {

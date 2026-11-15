@@ -12,7 +12,8 @@ import {
  * Displays a callout for user attention.
  */
 const meta = {
-  title: "ui/base/Alert",
+  id: "ui-base-alert",
+  title: "ui/Alert",
   component: Alert,
   tags: ["autodocs"],
   argTypes: {
