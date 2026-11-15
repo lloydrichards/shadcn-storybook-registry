@@ -6,6 +6,11 @@ if (registry !== "base" && registry !== "radix") {
 }
 
 const config: StorybookConfig = {
+  core: {
+    allowedHosts: process.env.LAB_PREVIEW_HOST
+      ? [process.env.LAB_PREVIEW_HOST]
+      : [],
+  },
   stories: [`../registry/**/*-${registry}.stories.@(js|jsx|mjs|ts|tsx)`],
   addons: [
     "@storybook/addon-docs",
@@ -22,6 +27,18 @@ const config: StorybookConfig = {
   viteFinal: async (config) => ({
     ...config,
     publicDir: false,
+    server: {
+      ...config.server,
+      hmr: process.env.LAB_PREVIEW_URL
+        ? {
+            ...(typeof config.server?.hmr === "object"
+              ? config.server.hmr
+              : {}),
+            clientPort:
+              Number(new URL(process.env.LAB_PREVIEW_URL).port) || 443,
+          }
+        : config.server?.hmr,
+    },
     // Library-specific dependencies must not invalidate the other test run's cache.
     cacheDir: `node_modules/.cache/storybook/${registry}`,
     optimizeDeps: {

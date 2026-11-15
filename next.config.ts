@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  allowedDevOrigins: process.env.LAB_PREVIEW_HOST
+    ? [process.env.LAB_PREVIEW_HOST]
+    : [],
   turbopack: {
     root: process.cwd(),
   },
