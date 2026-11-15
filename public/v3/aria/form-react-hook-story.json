@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-react-hook-story",
+  "title": "Form (React Hook Form) Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating form usage with React Hook Form",
+  "dependencies": [
+    "@hookform/resolvers",
+    "react-aria-components",
+    "react-hook-form",
+    "zod"
+  ],
+  "registryDependencies": [
+    "button",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/form-story/form-react-hook-aria.stories.tsx",
+      "content": "import { zodResolver } from \"@hookform/resolvers/zod\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { Controller, useForm } from \"react-hook-form\";\nimport { action } from \"storybook/actions\";\nimport { expect, fn, userEvent, waitFor } from \"storybook/test\";\nimport * as z from \"zod\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\n\nconst formSchema = z.object({\n  username: z.string().min(6, {\n    message: \"Username must be at least 6 characters.\",\n  }),\n});\n\ntype ProfileFormValues = z.infer<typeof formSchema>;\n\nfunction ReactHookFormProfileForm({\n  onSave,\n}: {\n  onSave: (values: ProfileFormValues) => void;\n}) {\n  const form = useForm<ProfileFormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      username: \"\",\n    },\n  });\n  return (\n    <form\n      onSubmit={form.handleSubmit((values) => onSave(values))}\n      className=\"space-y-8\"\n    >\n      <FieldGroup>\n        <Controller\n          control={form.control}\n          name=\"username\"\n          render={({ field, fieldState }) => (\n            <Field data-invalid={fieldState.invalid}>\n              <FieldLabel htmlFor=\"form-rhf-username\">Username</FieldLabel>\n              <Input\n                id=\"form-rhf-username\"\n                placeholder=\"username\"\n                aria-invalid={fieldState.invalid}\n                {...field}\n              />\n              <FieldDescription>\n                This is your public display name.\n              </FieldDescription>\n              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n            </Field>\n          )}\n        />\n      </FieldGroup>\n      <Button type=\"submit\">Submit</Button>\n    </form>\n  );\n}\n\n/**\n * Building forms with React Hook Form and Zod.\n */\nconst meta = {\n  id: \"ui-aria-form-react-hook-form\",\n  title: \"ui/Form (React Hook Form)\",\n  component: ReactHookFormProfileForm,\n  tags: [\"autodocs\"],\n  args: { onSave: fn(action(\"onSubmit\")) },\n} satisfies Meta<typeof ReactHookFormProfileForm>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the form.\n */\nexport const Default: Story = {};\n\nexport const ShouldSucceedWhenValidInput: Story = {\n  name: \"Submit the validated username\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvas, step }) => {\n    await step(\"Type a valid username\", async () => {\n      await userEvent.type(\n        await canvas.findByRole(\"textbox\", { name: /username/i }),\n        \"mockuser\",\n      );\n    });\n\n    await step(\"Click the submit button\", async () => {\n      await userEvent.click(\n        await canvas.findByRole(\"button\", { name: /submit/i }),\n      );\n      await waitFor(() =>\n        expect(args.onSave).toHaveBeenCalledWith({ username: \"mockuser\" }),\n      );\n    });\n  },\n};\n\nexport const ShouldShowErrorWhenInvalidInput: Story = {\n  name: \"when typing a short username, should show an error message\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ args, canvas, step }) => {\n    await step(\"Type a short username\", async () => {\n      await userEvent.type(\n        await canvas.findByRole(\"textbox\", { name: /username/i }),\n        \"fail\",\n      );\n    });\n\n    await step(\"Click the submit button\", async () => {\n      await userEvent.click(\n        await canvas.findByRole(\"button\", { name: /submit/i }),\n      );\n      expect(\n        await canvas.findByText(/username must be at least 6 characters/i, {\n          exact: true,\n        }),\n      ).toBeVisible();\n      expect(args.onSave).not.toHaveBeenCalled();\n    });\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/form-react-hook.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "form",
+    "validation"
+  ],
+  "type": "registry:component"
+}

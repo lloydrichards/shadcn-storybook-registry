@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/storybook/:registry(base|radix)/",
+        source: "/storybook/:registry(base|radix|aria)/",
         destination: "/storybook/:registry/index.html",
       },
     ];

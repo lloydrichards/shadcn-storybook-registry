@@ -1,8 +1,8 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 
 const registry = process.env.STORYBOOK_REGISTRY ?? "radix";
-if (registry !== "base" && registry !== "radix") {
-  throw new Error("STORYBOOK_REGISTRY must be base or radix");
+if (registry !== "base" && registry !== "radix" && registry !== "aria") {
+  throw new Error("STORYBOOK_REGISTRY must be base, radix, or aria");
 }
 
 const config: StorybookConfig = {

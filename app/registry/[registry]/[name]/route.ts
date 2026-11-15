@@ -1,52 +1,24 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { isRegistryName, registryNames } from "@/lib/registries";
 import { rewriteRegistryImports } from "@/lib/registry-imports";
 
-type RegistryName = "radix" | "base";
-type RegistryItemFile = { path: string; type: string };
-type RegistryItem = {
-  name: string;
-  files?: RegistryItemFile[];
-  [key: string]: unknown;
-};
-type Registry = { items: RegistryItem[] };
-
-const loadRegistry = async (registry: RegistryName): Promise<Registry> => {
-  if (registry === "base") {
-    const registryData = await import("@/registry.base.json");
-    return registryData.default as Registry;
-  }
-
-  const registryData = await import("@/registry.radix.json");
-  return registryData.default as Registry;
+const loadRegistry = {
+  radix: () => import("@/registry.radix.json"),
+  base: () => import("@/registry.base.json"),
+  aria: () => import("@/registry.aria.json"),
 };
 
-const parseRegistry = (registry?: string): RegistryName | null => {
-  if (registry === "radix" || registry === "base") {
-    return registry;
-  }
-
-  return null;
-};
-
-export const generateStaticParams = async () => {
-  const [radixRegistry, baseRegistry] = await Promise.all([
-    loadRegistry("radix"),
-    loadRegistry("base"),
-  ]);
-
-  return [
-    ...radixRegistry.items.map((item) => ({
-      registry: "radix",
-      name: item.name,
-    })),
-    ...baseRegistry.items.map((item) => ({
-      registry: "base",
-      name: item.name,
-    })),
-  ];
-};
+export const generateStaticParams = async () =>
+  (
+    await Promise.all(
+      registryNames.map(async (registry) => {
+        const { default: manifest } = await loadRegistry[registry]();
+        return manifest.items.map(({ name }) => ({ registry, name }));
+      }),
+    )
+  ).flat();
 
 // This route shows an example for serving a component using a route handler.
 export async function GET(
@@ -54,17 +26,16 @@ export async function GET(
   { params }: { params: Promise<{ registry: string; name: string }> },
 ) {
   try {
-    const { registry: registryParam, name } = await params;
-    const registryName = parseRegistry(registryParam);
+    const { registry: registryName, name } = await params;
 
-    if (!registryName) {
+    if (!isRegistryName(registryName)) {
       return NextResponse.json(
         { error: "Registry not found" },
         { status: 404 },
       );
     }
 
-    const registry = await loadRegistry(registryName);
+    const { default: registry } = await loadRegistry[registryName]();
 
     // Find the component from the registry.
     const component = registry.items.find((c) => c.name === name);

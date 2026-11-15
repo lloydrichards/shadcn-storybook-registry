@@ -1,3 +1,5 @@
+import type { RegistryName } from "./registries";
+
 type RegistryPreviewItem = {
   name: string;
   categories: readonly string[];
@@ -28,7 +30,7 @@ const storyIds: Record<string, string> = {
 
 export function getRegistryPreviewPath(
   item: RegistryPreviewItem,
-  registry: "base" | "radix",
+  registry: RegistryName,
 ): string {
   const storybookPath = `/storybook/${registry}/`;
   if (item.categories.includes("collection")) return storybookPath;

@@ -3,7 +3,7 @@
 This is a registry of [Storybook](https://storybook.js.org/) stories for
 [shadcn/ui](https://ui.shadcn.com/) components. It is built from the
 [shadcn-registry-template](https://github.com/shadcn-ui/registry-template) and
-uses the shadcn CLI to publish separate Base UI and Radix UI registries.
+uses the shadcn CLI to publish separate registries for Base UI, Radix UI, and React Aria.
 
 ## How to Use
 
@@ -11,7 +11,7 @@ uses the shadcn CLI to publish separate Base UI and Radix UI registries.
 
 Start with a React + TypeScript project configured with shadcn/ui and Tailwind
 CSS 4. Initialize shadcn/ui before installing stories, and choose the matching
-Base UI or Radix UI registry. Installing a story does not configure Storybook.
+Base UI, Radix UI, or React Aria registry. Installing a story does not configure Storybook.
 
 Initialize Storybook with its [Next.js + Vite framework](https://storybook.js.org/docs/get-started/frameworks/nextjs-vite)
 or [React + Vite framework](https://storybook.js.org/docs/get-started/frameworks/react-vite).
@@ -101,7 +101,9 @@ Configure this registry in your `components.json`:
 {
   "registries": {
     "@storybook": "https://registry.lloydrichards.dev/v3/radix/{name}.json"
-    // Or for base UI projects
+    // For React Aria projects
+    // "@storybook": "https://registry.lloydrichards.dev/v3/aria/{name}.json"
+    // For Base UI projects
     // "@storybook": "https://registry.lloydrichards.dev/v3/base/{name}.json"
   }
 }
@@ -116,6 +118,7 @@ npx shadcn@latest add @storybook/button-story
 # Or install directly via URL
 npx shadcn@latest add https://registry.lloydrichards.dev/v3/radix/button-story.json
 # npx shadcn@latest add https://registry.lloydrichards.dev/v3/base/button-story.json
+# npx shadcn@latest add https://registry.lloydrichards.dev/v3/aria/button-story.json
 ```
 
 You can visit the [storybook registry](https://registry.lloydrichards.dev/) to
@@ -153,40 +156,38 @@ browse available components and copy installation commands.
    bun dev
    ```
 
-4. Add or update paired stories in `registry/`. UI component stories use
-   `*-base.stories.tsx` and `*-radix.stories.tsx` files.
-5. Update the matching entries in `registry.base.json` and
-   `registry.radix.json`.
-6. Build both v3 registries:
+4. Add or update the story for each supported library in `registry/`. Use
+   the `-base.stories.tsx`, `-radix.stories.tsx`, or `-aria.stories.tsx` suffix.
+5. Update the matching `registry.<library>.json` manifests.
+6. Build the v3 registries:
 
    ```bash
    bun run registry:build
    ```
 
-   Generated output is written to `public/v3/base` and `public/v3/radix`.
+   Generated output is written to `public/v3/<library>/`.
 
 ### Run separate Storybooks
 
-Run `bun run storybook:base` or `bun run storybook:radix` to explore one
-library locally on port 6006. `bun run storybook` opens Radix UI, matching the
-registry website's default. Stop one server before starting the other.
+Use `base`, `radix`, or `aria` as the library name in these commands.
 
-`bun run build` builds both Storybooks before building the Next.js app.
-The deployment serves a chooser at `/storybook/`, Base UI at
-`/storybook/base/`, and Radix UI at `/storybook/radix/`. Existing story IDs
-remain unchanged through explicit metadata IDs. Story titles group components
-under `ui/` and tokens under `design/`, without a library folder. Registry
-preview links open the matching library.
+| Task | Command |
+| --- | --- |
+| Start one Storybook on port 6006 | `bun run storybook:<library>` |
+| Build one Storybook | `bun run storybook:build:<library>` |
+| Test one Storybook | `bun run test:storybook:<library>` |
 
-To build only one library, run `bun run storybook:build:base` or
-`bun run storybook:build:radix`. Each command preserves the other library's
-output. `bun run storybook:build` clears old output, builds both libraries,
-and verifies that every registry preview resolves in the matching story index.
-`bun run build-storybook` is an alias for this aggregate build.
+`bun run storybook` opens Radix UI, the registry website's default.
+The chooser at `/storybook/` links to `/storybook/base/`, `/storybook/radix/`,
+and `/storybook/aria/`. Each build groups components under `ui/` and tokens
+under `design/`. Each story has a library-specific preview URL.
 
-Run `bun run test:storybook` to test both libraries, or use
-`bun run test:storybook:base` and `bun run test:storybook:radix` separately.
-`bun run test` runs unit tests and both Storybook suites.
+The Aria registry uses shadcn's Aria Vega components. Its catalog excludes
+Menubar and Navigation Menu, which Aria Vega does not publish.
+
+`bun run storybook:build` builds all libraries and verifies registry preview
+links. `bun run build` also builds the Next.js app. `bun run test` runs the
+unit tests and each library's Storybook browser suite.
 
 ### Testing
 

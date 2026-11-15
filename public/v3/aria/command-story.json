@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-story",
+  "title": "Command Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating command component usage and variants",
+  "dependencies": [
+    "lucide-react",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "card",
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/command-story/command-aria.stories.tsx",
+      "content": "import { expect, userEvent } from \"storybook/test\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport { Card, CardContent } from \"@/components/ui/card\";\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from \"@/components/ui/command\";\nimport {\n  CalendarIcon,\n  SmileIcon,\n  CalculatorIcon,\n  UserIcon,\n  CreditCardIcon,\n  SettingsIcon,\n} from \"lucide-react\";\n\nfunction CommandInline() {\n  return (\n    <Card className=\"w-full p-0\">\n      <CardContent className=\"p-0\">\n        <Command>\n          <CommandInput placeholder=\"Type a command or search...\" />\n          <CommandList\n            renderEmptyState={() => (\n              <CommandEmpty>No results found.</CommandEmpty>\n            )}\n          >\n            <CommandGroup heading=\"Suggestions\">\n              <CommandItem textValue=\"Calendar\">\n                <CalendarIcon />\n                <span>Calendar</span>\n              </CommandItem>\n              <CommandItem textValue=\"Search Emoji\">\n                <SmileIcon />\n                <span>Search Emoji</span>\n              </CommandItem>\n              <CommandItem textValue=\"Calculator\">\n                <CalculatorIcon />\n                <span>Calculator</span>\n              </CommandItem>\n            </CommandGroup>\n            <CommandSeparator />\n            <CommandGroup heading=\"Settings\">\n              <CommandItem textValue=\"Profile\">\n                <UserIcon />\n                <span>Profile</span>\n                <CommandShortcut>⌘P</CommandShortcut>\n              </CommandItem>\n              <CommandItem textValue=\"Billing\">\n                <CreditCardIcon />\n                <span>Billing</span>\n                <CommandShortcut>⌘B</CommandShortcut>\n              </CommandItem>\n              <CommandItem textValue=\"Settings\">\n                <SettingsIcon />\n                <span>Settings</span>\n                <CommandShortcut>⌘S</CommandShortcut>\n              </CommandItem>\n            </CommandGroup>\n          </CommandList>\n        </Command>\n      </CardContent>\n    </Card>\n  );\n}\n\n/** Filter commands and navigate the results with the keyboard. */\nconst meta = {\n  id: \"ui-aria-command\",\n  title: \"ui/Command\",\n  component: Command,\n  args: { children: null },\n  tags: [\"autodocs\"],\n  parameters: { layout: \"centered\" },\n  render: () => <CommandInline />,\n} satisfies Meta<typeof Command>;\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\n/** Filter commands and navigate the results with the keyboard. */\nexport const Default: Story = {};\n\n/** Typing narrows the command list and displays an empty state for unmatched text. */\nexport const TypingInCombobox: Story = {\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas }) => {\n    const input = canvas.getByPlaceholderText(\"Type a command or search...\");\n    await userEvent.type(input, \"calendar\");\n    await expect(\n      await canvas.findByRole(\"menuitem\", { name: /calendar/i }),\n    ).toBeVisible();\n    await expect(\n      canvas.queryByRole(\"menuitem\", { name: /calculator/i }),\n    ).not.toBeInTheDocument();\n    await userEvent.type(input, \"zzz\");\n    await expect(await canvas.findByText(\"No results found.\")).toBeVisible();\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/command.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "command",
+    "search"
+  ],
+  "type": "registry:component"
+}

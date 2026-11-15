@@ -1,8 +1,10 @@
+import { registryLabels } from "@/lib/registries";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Storybooks",
-  description: "Explore shadcn/ui stories for Base UI or Radix UI.",
+  description:
+    "Explore shadcn/ui stories for Radix UI, Base UI, or React Aria.",
 };
 
 export default function StorybookChooser() {
@@ -14,25 +16,19 @@ export default function StorybookChooser() {
       <p className="mt-3 text-muted-foreground">
         Explore component examples and design tokens for your UI library.
       </p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <a
-          href="/storybook/base/"
-          className="rounded-xl border p-6 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
-        >
-          <h2 className="font-semibold text-xl">Base UI</h2>
-          <p className="mt-2 text-muted-foreground">
-            Browse shadcn/ui components built with Base UI.
-          </p>
-        </a>
-        <a
-          href="/storybook/radix/"
-          className="rounded-xl border p-6 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
-        >
-          <h2 className="font-semibold text-xl">Radix UI</h2>
-          <p className="mt-2 text-muted-foreground">
-            Browse shadcn/ui components built with Radix UI.
-          </p>
-        </a>
+      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        {(["base", "radix", "aria"] as const).map((name) => (
+          <a
+            key={name}
+            href={`/storybook/${name}/`}
+            className="rounded-xl border p-6 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+          >
+            <h2 className="font-semibold text-xl">{registryLabels[name]}</h2>
+            <p className="mt-2 text-muted-foreground">
+              Browse shadcn/ui components built with {registryLabels[name]}.
+            </p>
+          </a>
+        ))}
       </div>
     </main>
   );

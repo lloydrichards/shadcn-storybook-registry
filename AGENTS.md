@@ -3,15 +3,15 @@
 ## Project Overview
 
 This is a shadcn/ui Storybook registry focused on component documentation and
-distribution. The registry now ships separate Base UI and Radix UI story sets,
+distribution. The registry now ships separate Base UI, Radix UI, and React Aria story sets,
 with v3 outputs for each registry.
 
 ## Quick Commands
 
-- **Dev server**: `bun run storybook:base` or `bun run storybook:radix` (port 6006)
+- **Dev server**: `bun run storybook:<library>` for `base`, `radix`, or `aria` (port 6006)
 - **Build**: `bun run build` (builds Next.js app + Storybook)
 - **Test all**: `bun run test`
-- **Test Storybook**: `bun run test:storybook` (browser tests for both libraries)
+- **Test Storybook**: `bun run test:storybook` (browser tests for all libraries)
 - **Test unit**: `bun run test:unit`
 - **Lint**: `bun run lint`
 - **Type check**: `bun run type-check`
@@ -21,12 +21,12 @@ with v3 outputs for each registry.
 
 ### File Structure
 
-- Stories: `registry/**/` with paired `*-base.stories.tsx` and
-  `*-radix.stories.tsx` files per story folder
-- Design tokens: `registry/tokens/**/` with base/radix story variants
-- Base/Radix implementations: `bases/{base,radix}/components/ui/*`
-- Registry configs: `registry.base.json` and `registry.radix.json`
-- Registry outputs: `public/v3/base` and `public/v3/radix`
+- Stories: `registry/**/` with `*-base.stories.tsx`, `*-radix.stories.tsx`, and
+  `*-aria.stories.tsx` variants where supported
+- Design tokens: `registry/tokens/**/` with library-specific story variants
+- Component implementations: `bases/{base,radix,aria}/components/ui/*`
+- Registry configs: `registry.base.json`, `registry.radix.json`, and `registry.aria.json`
+- Registry outputs: `public/v3/{base,radix,aria}`
 
 ### Story Categories
 
@@ -35,8 +35,7 @@ with v3 outputs for each registry.
 
 ### Story Naming & Documentation
 
-- Pair story files by registry suffix: `*-base.stories.tsx` and
-  `*-radix.stories.tsx`
+- Name story files with the matching registry suffix, such as `button-aria.stories.tsx`
 - Keep titles flat within their category (`ui/...` or `design/...`).
 - Set an explicit `id` to preserve existing registry-qualified preview URLs.
 - Follow existing JSDoc comment pattern for each story export
@@ -83,8 +82,7 @@ type Story = StoryObj<typeof meta>;
 
 ### Imports
 
-- **Story imports**: use `@/bases/base/components/ui/` or
-  `@/bases/radix/components/ui/`
+- **Story imports**: use `@/bases/<library>/components/ui/`
 - **Registry output**: postbuild rewrites `@/bases/*/components` to
   `@/components` for published JSON
 - **Framework**: `@storybook/nextjs-vite` for type imports
@@ -105,8 +103,7 @@ type Story = StoryObj<typeof meta>;
 
 ### Registry Entry
 
-Each story needs corresponding entry in `registry.base.json` or
-`registry.radix.json`:
+Each story needs a corresponding entry in its library manifest:
 
 ```json
 {
@@ -154,9 +151,9 @@ Each story needs corresponding entry in `registry.base.json` or
 
 ## Important Notes
 
-- **Focus on registry development**: Most work lives in `registry/`, but Base
-  and Radix component implementations live under `bases/`
-- **Registry builds**: run `bun run registry:build` to generate both v3
+- **Focus on registry development**: Most work lives in `registry/`, and component
+  implementations live under `bases/`
+- **Registry builds**: run `bun run registry:build` to generate all v3
   registries and apply postbuild import rewrites
 - **Maintain consistency**: Follow existing patterns in story structure and
   naming

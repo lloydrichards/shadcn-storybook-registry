@@ -10,6 +10,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/bases/radix/components/ui/table";
+import {
+  isRegistryName,
+  registryLabels,
+  registryNames,
+} from "@/lib/registries";
+import ariaRegistry from "@/registry.aria.json";
 import baseRegistry from "@/registry.base.json";
 import radixRegistry from "@/registry.radix.json";
 import { PackagePlus } from "lucide-react";
@@ -21,17 +27,21 @@ import {
 
 const registryConfig = {
   radix: {
-    label: "Radix UI",
     description: "Radix-backed shadcn/ui primitives and story examples.",
     url: "https://registry.lloydrichards.dev/v3/radix/{name}.json",
     registry: radixRegistry,
     example: "button-story",
   },
   base: {
-    label: "Base UI",
     description: "Base UI implementations with the same story surface.",
     url: "https://registry.lloydrichards.dev/v3/base/{name}.json",
     registry: baseRegistry,
+    example: "button-story",
+  },
+  aria: {
+    description: "Stories for shadcn/ui components built with React Aria.",
+    url: "https://registry.lloydrichards.dev/v3/aria/{name}.json",
+    registry: ariaRegistry,
     example: "button-story",
   },
 } as const;
@@ -39,10 +49,12 @@ const registryConfig = {
 const Home = async ({
   searchParams,
 }: {
-  searchParams?: Promise<{ registry?: keyof typeof registryConfig }>;
+  searchParams?: Promise<{ registry?: string }>;
 }) => {
   const params = await searchParams;
-  const registrySelection = params?.registry || "radix";
+  const registrySelection = isRegistryName(params?.registry)
+    ? params.registry
+    : "radix";
   const registry = registryConfig[registrySelection].registry;
   const selectedConfig = registryConfig[registrySelection];
   const exampleUrl = selectedConfig.url.replace(
@@ -81,30 +93,24 @@ const Home = async ({
                 </h1>
                 <p className="max-w-2xl text-muted-foreground">
                   Browse ready-made stories for component documentation,
-                  interaction tests, and design-token reference across Radix UI
-                  and Base UI variants.
+                  interaction tests, and design-token reference for Radix UI,
+                  Base UI, and React Aria.
                 </p>
               </div>
               <div className="grid gap-3 md:justify-items-end">
                 <ButtonGroup>
-                  <Button
-                    asChild
-                    variant={
-                      registrySelection === "radix" ? "default" : "outline"
-                    }
-                    size="lg"
-                  >
-                    <a href="?registry=radix">Radix UI</a>
-                  </Button>
-                  <Button
-                    asChild
-                    variant={
-                      registrySelection === "base" ? "default" : "outline"
-                    }
-                    size="lg"
-                  >
-                    <a href="?registry=base">Base UI</a>
-                  </Button>
+                  {registryNames.map((name) => (
+                    <Button
+                      key={name}
+                      asChild
+                      variant={
+                        registrySelection === name ? "default" : "outline"
+                      }
+                      size="lg"
+                    >
+                      <a href={`?registry=${name}`}>{registryLabels[name]}</a>
+                    </Button>
+                  ))}
                 </ButtonGroup>
                 <p className="max-w-64 text-muted-foreground text-sm md:text-right">
                   {selectedConfig.description}

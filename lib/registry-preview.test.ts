@@ -5,6 +5,7 @@ import ts from "typescript";
 import { describe, expect, it } from "vitest";
 
 import { getRegistryPreviewPath } from "@/lib/registry-preview";
+import ariaRegistry from "@/registry.aria.json";
 import baseRegistry from "@/registry.base.json";
 import radixRegistry from "@/registry.radix.json";
 
@@ -53,6 +54,7 @@ function readStoryId(filePath: string): string {
 }
 
 for (const [registry, manifest] of [
+  ["aria", ariaRegistry],
   ["base", baseRegistry],
   ["radix", radixRegistry],
 ] as const) {

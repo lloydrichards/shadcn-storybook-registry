@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-story",
+  "title": "Date Picker Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating date picker component usage and variants",
+  "dependencies": [
+    "@internationalized/date",
+    "lucide-react",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "field",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/date-picker-story/date-picker-aria.stories.tsx",
+      "content": "import { expect, userEvent, waitFor, within } from \"storybook/test\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\nimport * as React from \"react\";\nimport { CalendarDate, getLocalTimeZone } from \"@internationalized/date\";\nimport type { DateRange } from \"react-aria-components\";\nimport { Button } from \"@/components/ui/button\";\nimport { Calendar, RangeCalendar } from \"@/components/ui/calendar\";\nimport { Field, FieldLabel } from \"@/components/ui/field\";\nimport { Popover, PopoverTrigger } from \"@/components/ui/popover\";\nimport { CalendarIcon, ChevronDownIcon } from \"lucide-react\";\n\nfunction DatePickerSimple() {\n  const [date, setDate] = React.useState<CalendarDate | null>(null);\n\n  return (\n    <Field className=\"mx-auto w-72\">\n      <FieldLabel htmlFor=\"date-picker-simple\">Date</FieldLabel>\n      <PopoverTrigger>\n        <Button\n          variant=\"outline\"\n          id=\"date-picker-simple\"\n          className=\"justify-start px-2.5 font-normal\"\n        >\n          <CalendarIcon data-icon=\"inline-start\" />\n          {date ? (\n            date\n              .toDate(getLocalTimeZone())\n              .toLocaleDateString(undefined, { dateStyle: \"long\" })\n          ) : (\n            <span>Pick a date</span>\n          )}\n        </Button>\n        <Popover className=\"w-auto p-0\" placement=\"bottom start\">\n          <Calendar value={date} onChange={setDate} />\n        </Popover>\n      </PopoverTrigger>\n    </Field>\n  );\n}\n\nfunction DatePickerWithRange() {\n  const [date, setDate] = React.useState<DateRange | undefined>({\n    start: new CalendarDate(new Date().getFullYear(), 1, 20),\n    end: new CalendarDate(new Date().getFullYear(), 1, 20).add({ days: 20 }),\n  });\n\n  return (\n    <Field className=\"mx-auto w-72\">\n      <FieldLabel htmlFor=\"date-picker-range\">Date Picker Range</FieldLabel>\n      <PopoverTrigger>\n        <Button\n          variant=\"outline\"\n          id=\"date-picker-range\"\n          className=\"justify-start px-2.5 font-normal\"\n        >\n          <CalendarIcon data-icon=\"inline-start\" />\n          {date?.start && date.end ? (\n            new Intl.DateTimeFormat(undefined, {\n              dateStyle: \"long\",\n            }).formatRange(\n              date.start.toDate(getLocalTimeZone()),\n              date.end.toDate(getLocalTimeZone()),\n            )\n          ) : (\n            <span>Pick a date</span>\n          )}\n        </Button>\n        <Popover className=\"w-auto p-0\" placement=\"bottom start\">\n          <RangeCalendar value={date} onChange={setDate} numberOfMonths={2} />\n        </Popover>\n      </PopoverTrigger>\n    </Field>\n  );\n}\n\nfunction DatePickerWithDropdowns() {\n  const [date, setDate] = React.useState<CalendarDate | null>(null);\n  const [open, setOpen] = React.useState(false);\n\n  return (\n    <Field className=\"mx-auto w-72\">\n      <FieldLabel htmlFor=\"date-picker-with-dropdowns-desktop\">Date</FieldLabel>\n      <PopoverTrigger isOpen={open} onOpenChange={setOpen}>\n        <Button\n          variant=\"outline\"\n          id=\"date-picker-with-dropdowns-desktop\"\n          className=\"justify-start px-2.5 font-normal\"\n        >\n          {date ? (\n            date\n              .toDate(getLocalTimeZone())\n              .toLocaleDateString(undefined, { dateStyle: \"long\" })\n          ) : (\n            <span>Pick a date</span>\n          )}\n          <ChevronDownIcon data-icon=\"inline-start\" className=\"ml-auto\" />\n        </Button>\n        <Popover className=\"w-auto p-0\" placement=\"bottom start\">\n          <Calendar value={date} onChange={setDate} captionLayout=\"dropdown\" />\n          <div className=\"flex gap-2 border-t p-2\">\n            <Button\n              variant=\"outline\"\n              size=\"sm\"\n              className=\"w-full\"\n              onPress={() => setOpen(false)}\n            >\n              Done\n            </Button>\n          </div>\n        </Popover>\n      </PopoverTrigger>\n    </Field>\n  );\n}\n\n/** Choose a date from a calendar opened by a button. */\nconst meta = {\n  id: \"ui-aria-datepicker\",\n  title: \"ui/DatePicker\",\n  component: Calendar,\n  tags: [\"autodocs\"],\n  parameters: { layout: \"centered\" },\n  render: () => <DatePickerSimple />,\n} satisfies Meta<typeof Calendar>;\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\n/** Choose a date from a calendar opened by a button. */\nexport const Default: Story = {};\n\n/** Choose the start and end dates in one popover. */\nexport const WithRange: Story = { render: () => <DatePickerWithRange /> };\n\n/** Select a month and year before choosing the day. */\nexport const WithDropdowns: Story = {\n  render: () => <DatePickerWithDropdowns />,\n};\n\n/** Choose a day and return to the date field with Escape. */\nexport const ShouldSelectDate: Story = {\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement, canvas }) => {\n    const trigger = canvas.getByRole(\"button\");\n    const body = within(canvasElement.ownerDocument.body);\n    await userEvent.click(trigger);\n    const calendar = await body.findByRole(\"grid\");\n    const selectedDate = new Date();\n    selectedDate.setDate(15);\n    const number = new Intl.NumberFormat().format(selectedDate.getDate());\n    await userEvent.click(within(calendar).getByText(number));\n    await userEvent.keyboard(\"{Escape}\");\n    await waitFor(() =>\n      expect(body.queryByRole(\"grid\")).not.toBeInTheDocument(),\n    );\n    await waitFor(() => expect(trigger).toHaveFocus());\n    await expect(trigger).toHaveTextContent(\n      selectedDate.toLocaleDateString(undefined, { dateStyle: \"long\" }),\n    );\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/date-picker.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "date-picker",
+    "form"
+  ],
+  "type": "registry:component"
+}

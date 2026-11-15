@@ -1,11 +1,13 @@
 import { readFileSync } from "node:fs";
 import { getRegistryPreviewPath } from "../lib/registry-preview";
+import ariaRegistry from "../registry.aria.json";
 import baseRegistry from "../registry.base.json";
 import radixRegistry from "../registry.radix.json";
 
 type IndexEntry = { id: string; title: string; importPath: string };
 
 for (const [registry, manifest] of [
+  ["aria", ariaRegistry],
   ["base", baseRegistry],
   ["radix", radixRegistry],
 ] as const) {
@@ -19,7 +21,7 @@ for (const [registry, manifest] of [
     if (
       !entry.importPath.endsWith(`-${registry}.stories.tsx`) ||
       (!entry.title.startsWith("ui/") && !entry.title.startsWith("design/")) ||
-      /^(ui|design)\/(base|radix)\//.test(entry.title)
+      /^(ui|design)\/(base|radix|aria)\//.test(entry.title)
     ) {
       throw new Error(
         `${registry} Storybook contains unexpected entry ${entry.id}`,
