@@ -1,3 +1,23 @@
+# [0.15.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.14.0...v0.15.0) (2026-11-15)
+
+
+### ✨ Feature
+
+* add Base and Radix Data Table stories ([4e3b648](https://github.com/lloydrichards/shadcn-storybook-registry/commit/4e3b648aeee30e2ee75345fe4b9498e48ded700c))
+* add Code Block and Trace stories for both registries ([8febfcc](https://github.com/lloydrichards/shadcn-storybook-registry/commit/8febfcc215f7b06f01b6479d1e74fa4733a28fe9))
+* add Combobox, Native Select, and Direction stories ([0e5d1e6](https://github.com/lloydrichards/shadcn-storybook-registry/commit/0e5d1e6edce3f918a7db8da7f6bc36dcb76713ae))
+* publish a React Aria Storybook registry ([ece2484](https://github.com/lloydrichards/shadcn-storybook-registry/commit/ece2484d4e0e8d946396681a2fec233e5a701abc))
+* split Base and Radix Storybook builds ([#54](https://github.com/lloydrichards/shadcn-storybook-registry/issues/54)) ([aefc456](https://github.com/lloydrichards/shadcn-storybook-registry/commit/aefc456cabe48c7f535edb5ff331a6fd80698a1f))
+
+
+### 🐛 Bug Fix
+
+* align local registry payloads with published installs ([c00bdbf](https://github.com/lloydrichards/shadcn-storybook-registry/commit/c00bdbf5eb08cd44ac5cfdabc57b6e65ecd524e7))
+* link registry previews to matching Storybook docs ([03695d7](https://github.com/lloydrichards/shadcn-storybook-registry/commit/03695d7a34b3b1c4b2ebb9ded8f73fdf76e67f05))
+* preserve Aria theme selection and wait for attachment previews ([a56799a](https://github.com/lloydrichards/shadcn-storybook-registry/commit/a56799a33e2d8c10d028067daf5142ceff93b465))
+* prevent clipped Code Block stories on mobile ([aaa7cca](https://github.com/lloydrichards/shadcn-storybook-registry/commit/aaa7ccaf4463752e1f60b08507c94fbbc15173a3))
+* wait for the Aria context menu to become visible ([91e2d89](https://github.com/lloydrichards/shadcn-storybook-registry/commit/91e2d89b479a8fddab3e809d8206dc25365859d8))
+
 # [0.14.0](https://github.com/lloydrichards/shadcn-storybook-registry/compare/v0.13.1...v0.14.0) (2026-09-01)
 
 
