@@ -38,7 +38,8 @@ function DirectionDemo({ direction = "ltr" }: { direction?: "ltr" | "rtl" }) {
 
 /** Direction controls the reading order and horizontal navigation of components. */
 const meta = {
-  title: "ui/base/Direction",
+  id: "ui-base-direction",
+  title: "ui/Direction",
   component: DirectionDemo,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

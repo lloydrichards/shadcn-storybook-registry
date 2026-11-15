@@ -11,7 +11,8 @@ import {
 
 /** A browser-native select for choosing one value from a list of options. */
 const meta = {
-  title: "ui/base/NativeSelect",
+  id: "ui-base-nativeselect",
+  title: "ui/NativeSelect",
   component: NativeSelect,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

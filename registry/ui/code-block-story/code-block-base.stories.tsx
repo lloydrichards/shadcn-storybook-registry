@@ -16,7 +16,8 @@ const source = 'const message = "Hello, world!";\nconsole.log(message);';
 
 /** Display source code, terminal output, and diffs, with optional copying and syntax highlighting. */
 const meta = {
-  title: "ui/base/CodeBlock",
+  id: "ui-base-codeblock",
+  title: "ui/CodeBlock",
   component: CodeBlock,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
