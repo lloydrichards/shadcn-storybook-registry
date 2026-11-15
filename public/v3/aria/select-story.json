@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-story",
+  "title": "Select Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating select component usage and variants",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/select-story/select-aria.stories.tsx",
+      "content": "import { expect, userEvent, waitFor, within } from \"storybook/test\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectSeparator,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\n/**\n * Displays a list of options for the user to pick from—triggered by a button.\n */\nconst meta: Meta<typeof Select> = {\n  id: \"ui-aria-select\",\n  title: \"ui/Select\",\n  component: Select,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    \"aria-label\": \"Produce\",\n    placeholder: \"Select an item\",\n  },\n  render: (args) => (\n    <Select {...args}>\n      <SelectTrigger className=\"w-96\">\n        <SelectValue />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Fruits</SelectLabel>\n          <SelectItem id=\"apple\">Apple</SelectItem>\n          <SelectItem id=\"banana\">Banana</SelectItem>\n          <SelectItem id=\"blueberry\">Blueberry</SelectItem>\n          <SelectItem id=\"grapes\">Grapes</SelectItem>\n          <SelectItem id=\"pineapple\">Pineapple</SelectItem>\n        </SelectGroup>\n        <SelectSeparator />\n        <SelectGroup>\n          <SelectLabel>Vegetables</SelectLabel>\n          <SelectItem id=\"aubergine\">Aubergine</SelectItem>\n          <SelectItem id=\"broccoli\">Broccoli</SelectItem>\n          <SelectItem id=\"carrot\" isDisabled>\n            Carrot\n          </SelectItem>\n          <SelectItem id=\"courgette\">Courgette</SelectItem>\n          <SelectItem id=\"leek\">Leek</SelectItem>\n        </SelectGroup>\n        <SelectSeparator />\n        <SelectGroup>\n          <SelectLabel>Meat</SelectLabel>\n          <SelectItem id=\"beef\">Beef</SelectItem>\n          <SelectItem id=\"chicken\">Chicken</SelectItem>\n          <SelectItem id=\"lamb\">Lamb</SelectItem>\n          <SelectItem id=\"pork\">Pork</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Select>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the select.\n */\nexport const Default: Story = {};\n\n/** Choose an option with the keyboard and check its selection after reopening. */\nexport const ShouldSelectOption: Story = {\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas, canvasElement }) => {\n    const body = within(canvasElement.ownerDocument.body);\n    const trigger = canvas.getByRole(\"button\", { name: /produce/i });\n    trigger.focus();\n    await userEvent.keyboard(\"{Enter}\");\n    await body.findByRole(\"listbox\");\n    await userEvent.keyboard(\"{Home}{ArrowDown}{Enter}\");\n    await waitFor(() => expect(trigger).toHaveTextContent(\"Banana\"));\n    await waitFor(() => expect(trigger).toHaveFocus());\n    await userEvent.keyboard(\"{Enter}\");\n    await waitFor(() =>\n      expect(\n        body.getByRole(\"option\", { name: \"Banana\", selected: true }),\n      ).toBeVisible(),\n    );\n    await expect(body.getByRole(\"option\", { name: \"Carrot\" })).toHaveAttribute(\n      \"aria-disabled\",\n      \"true\",\n    );\n    await userEvent.keyboard(\"{Escape}\");\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/select.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "select",
+    "form"
+  ],
+  "type": "registry:component"
+}

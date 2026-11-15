@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-story",
+  "title": "Checkbox Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating checkbox component usage and variants",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/checkbox-story/checkbox-aria.stories.tsx",
+      "content": "import type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Checkbox } from \"@/components/ui/checkbox\";\nimport { Label } from \"@/components/ui/label\";\nimport { expect, userEvent, within } from \"storybook/test\";\n\n/**\n * A control that allows the user to toggle between checked and not checked.\n */\nconst meta: Meta<typeof Checkbox> = {\n  id: \"ui-aria-checkbox\",\n  title: \"ui/Checkbox\",\n  component: Checkbox,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    id: \"terms\",\n    isDisabled: false,\n  },\n  render: (args) => (\n    <div className=\"flex space-x-2\">\n      <Checkbox {...args} aria-labelledby={`${args.id}-label`} />\n      <Label id={`${args.id}-label`} htmlFor={args.id}>\n        Accept terms and conditions\n      </Label>\n    </div>\n  ),\n  parameters: {\n    layout: \"centered\",\n  },\n} satisfies Meta<typeof Checkbox>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the checkbox.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `isDisabled` prop to disable the checkbox.\n */\nexport const Disabled: Story = {\n  args: {\n    id: \"disabled-terms\",\n    isDisabled: true,\n  },\n};\n\nexport const ShouldToggleCheck: Story = {\n  name: \"when the checkbox is clicked, should toggle between checked and not checked\",\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const checkbox = await canvas.getByRole(\"checkbox\", {\n      name: \"Accept terms and conditions\",\n    });\n    await userEvent.click(checkbox);\n    expect(checkbox).toBeChecked();\n    await userEvent.click(checkbox, { delay: 100 });\n    expect(checkbox).not.toBeChecked();\n    await userEvent.click(checkbox, { delay: 100 });\n    expect(checkbox).toBeChecked();\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/checkbox.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "checkbox",
+    "form"
+  ],
+  "type": "registry:component"
+}

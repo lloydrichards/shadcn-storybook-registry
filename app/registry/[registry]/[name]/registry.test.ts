@@ -68,6 +68,10 @@ vi.mock("@/registry.base.json", () => ({
   default: registryMock,
 }));
 
+vi.mock("@/registry.aria.json", () => ({
+  default: registryMock,
+}));
+
 // Mock path module
 vi.mock("path", () => ({
   default: {
@@ -371,13 +375,14 @@ export default { title: "Example/Button" };`;
     expect(data).toEqual({ error: "Something went wrong" });
   });
 
-  it("should generate static params for both registries", async () => {
+  it("should generate static params for all registries", async () => {
     const params = await generateStaticParams();
 
     expect(params).toEqual(
       expect.arrayContaining([
         { registry: "radix", name: "button-story" },
         { registry: "base", name: "button-story" },
+        { registry: "aria", name: "button-story" },
       ]),
     );
   });

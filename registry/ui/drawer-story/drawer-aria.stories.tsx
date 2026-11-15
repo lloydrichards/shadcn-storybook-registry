@@ -1,0 +1,113 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/bases/aria/components/ui/drawer";
+import { expect, fn, userEvent, waitFor, within } from "storybook/test";
+
+/**
+ * A drawer component for React.
+ */
+const meta = {
+  id: "ui-aria-drawer",
+  title: "ui/Drawer",
+  component: Drawer,
+  tags: ["autodocs"],
+  args: {
+    onOpenChange: fn(),
+  },
+  render: (args) => (
+    <Drawer {...args}>
+      <DrawerTrigger>Open</DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Are you sure absolutely sure?</DrawerTitle>
+          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+        </DrawerHeader>
+        <DrawerFooter>
+          <DrawerClose className="rounded bg-primary px-4 py-2 text-primary-foreground">
+            Submit
+          </DrawerClose>
+          <DrawerClose className="hover:underline">Cancel</DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  ),
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Drawer>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the drawer.
+ */
+export const Default: Story = {};
+
+export const ShouldOpenCloseWithSubmit: Story = {
+  name: "when clicking Submit button, should close the drawer",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      await expect(args.onOpenChange).toHaveBeenCalled();
+
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toBeVisible();
+    });
+
+    await step("Close the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /submit/i }),
+        { delay: 100 },
+      );
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument(),
+      );
+    });
+  },
+};
+
+export const ShouldOpenCloseWithCancel: Story = {
+  name: "when clicking Cancel button, should close the drawer",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      await expect(args.onOpenChange).toHaveBeenCalled();
+
+      const dialog = await canvasBody.findByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(dialog).toBeVisible();
+    });
+
+    await step("Close the drawer", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /cancel/i }),
+        { delay: 100 },
+      );
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument(),
+      );
+    });
+  },
+};

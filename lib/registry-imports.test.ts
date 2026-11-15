@@ -3,6 +3,7 @@ import { rewriteRegistryImports } from "@/lib/registry-imports";
 
 describe("published registry imports", () => {
   it.each([
+    "aria",
     "base",
     "radix",
   ])("maps %s components, hooks, and helpers to consumer aliases", (variant) => {

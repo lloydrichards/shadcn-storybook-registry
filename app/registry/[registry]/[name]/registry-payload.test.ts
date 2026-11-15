@@ -4,6 +4,9 @@ import { GET } from "./route";
 
 describe("consumer registry payloads", () => {
   it.each([
+    ["aria", "select-story"],
+    ["aria", "typeset-story"],
+    ["aria", "all-stories"],
     ["base", "button-story"],
     ["radix", "button-story"],
     ["base", "typeset-story"],

@@ -1,0 +1,1748 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-storybook-registry",
+  "homepage": "https://github.com/lloydrichards/shadcn-storybook-registry",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "items": [
+    {
+      "name": "accordion-story",
+      "type": "registry:component",
+      "title": "Accordion Story",
+      "description": "Interactive Storybook stories demonstrating accordion component usage and variants",
+      "categories": ["ui", "storybook", "accordion", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["accordion"],
+      "files": [
+        {
+          "path": "registry/ui/accordion-story/accordion-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/accordion.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "alert-story",
+      "type": "registry:component",
+      "title": "Alert Story",
+      "description": "Interactive Storybook stories demonstrating alert component usage and variants",
+      "categories": ["ui", "storybook", "alert", "feedback"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["alert"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/alert-story/alert-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/alert.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-story",
+      "type": "registry:component",
+      "title": "Alert Dialog Story",
+      "description": "Interactive Storybook stories demonstrating alert dialog component usage and variants",
+      "categories": ["ui", "storybook", "dialog", "modal"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["alert-dialog", "button"],
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog-story/alert-dialog-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/alert-dialog.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "aspect-ratio-story",
+      "type": "registry:component",
+      "title": "Aspect Ratio Story",
+      "description": "Interactive Storybook stories demonstrating aspect ratio component usage and variants",
+      "categories": ["ui", "storybook", "layout", "responsive"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["aspect-ratio"],
+      "files": [
+        {
+          "path": "registry/ui/aspect-ratio-story/aspect-ratio-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/aspect-ratio.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "avatar-story",
+      "type": "registry:component",
+      "title": "Avatar Story",
+      "description": "Interactive Storybook stories demonstrating avatar component usage and variants",
+      "categories": ["ui", "storybook", "avatar", "profile"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["avatar"],
+      "files": [
+        {
+          "path": "registry/ui/avatar-story/avatar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/avatar.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "badge-story",
+      "type": "registry:component",
+      "title": "Badge Story",
+      "description": "Interactive Storybook stories demonstrating badge component usage and variants",
+      "categories": ["ui", "storybook", "badge", "indicator"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["badge"],
+      "files": [
+        {
+          "path": "registry/ui/badge-story/badge-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/badge.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "breadcrumb-story",
+      "type": "registry:component",
+      "title": "Breadcrumb Story",
+      "description": "Interactive Storybook stories demonstrating breadcrumb component usage and variants",
+      "categories": ["ui", "storybook", "navigation", "breadcrumb"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["breadcrumb"],
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb-story/breadcrumb-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/breadcrumb.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-story",
+      "type": "registry:file",
+      "title": "Button Story",
+      "description": "Interactive Storybook stories demonstrating button component usage and variants",
+      "categories": ["ui", "storybook", "button", "interaction"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/button-story/button-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/button.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-group-story",
+      "type": "registry:component",
+      "title": "Button Group Story",
+      "description": "Interactive Storybook stories demonstrating button group component usage and variants",
+      "categories": ["ui", "storybook", "button-group", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "dropdown-menu",
+        "field",
+        "input",
+        "input-group",
+        "label",
+        "popover",
+        "select",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/button-group-story/button-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/button-group.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-story",
+      "type": "registry:component",
+      "title": "Calendar Story",
+      "description": "Interactive Storybook stories demonstrating calendar component usage and variants",
+      "categories": ["ui", "storybook", "calendar", "date"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["calendar", "card"],
+      "dependencies": ["@internationalized/date", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/calendar-story/calendar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/calendar.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-story",
+      "type": "registry:component",
+      "title": "Card Story",
+      "description": "Interactive Storybook stories demonstrating card component usage and variants",
+      "categories": ["ui", "storybook", "card", "container"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "card"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/card-story/card-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/card.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-story",
+      "type": "registry:component",
+      "title": "Carousel Story",
+      "description": "Interactive Storybook stories demonstrating carousel component usage and variants",
+      "categories": ["ui", "storybook", "carousel", "slider"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["carousel"],
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/carousel-story/carousel-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/carousel.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-story",
+      "type": "registry:component",
+      "title": "Chart Story",
+      "description": "Interactive Storybook stories demonstrating chart component usage and variants",
+      "categories": ["ui", "storybook", "chart", "data-visualization"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["chart"],
+      "dependencies": ["react-aria-components", "recharts"],
+      "files": [
+        {
+          "path": "registry/ui/chart-story/chart-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/chart.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-story",
+      "type": "registry:component",
+      "title": "Checkbox Story",
+      "description": "Interactive Storybook stories demonstrating checkbox component usage and variants",
+      "categories": ["ui", "storybook", "checkbox", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["checkbox", "label"],
+      "files": [
+        {
+          "path": "registry/ui/checkbox-story/checkbox-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/checkbox.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "code-block-story",
+      "type": "registry:component",
+      "title": "Code Block Story",
+      "description": "Interactive Storybook stories demonstrating code block usage and variants",
+      "categories": ["ui", "storybook", "code-block"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["code-block"],
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/code-block-story/code-block-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/code-block.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collapsible-story",
+      "type": "registry:component",
+      "title": "Collapsible Story",
+      "description": "Interactive Storybook stories demonstrating collapsible component usage and variants",
+      "categories": ["ui", "storybook", "collapsible", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/collapsible-story/collapsible-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/collapsible.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox-story",
+      "type": "registry:component",
+      "title": "Combobox Story",
+      "description": "Interactive Storybook stories demonstrating combobox usage and variants",
+      "categories": ["ui", "storybook", "combobox"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/ui/combobox-story/combobox-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/combobox.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "command-story",
+      "type": "registry:component",
+      "title": "Command Story",
+      "description": "Interactive Storybook stories demonstrating command component usage and variants",
+      "categories": ["ui", "storybook", "command", "search"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["card", "command"],
+      "files": [
+        {
+          "path": "registry/ui/command-story/command-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/command.stories.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"]
+    },
+    {
+      "name": "context-menu-story",
+      "type": "registry:component",
+      "title": "Context Menu Story",
+      "description": "Interactive Storybook stories demonstrating context menu component usage and variants",
+      "categories": ["ui", "storybook", "menu", "context"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["context-menu"],
+      "files": [
+        {
+          "path": "registry/ui/context-menu-story/context-menu-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/context-menu.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "data-table-story",
+      "type": "registry:component",
+      "title": "Data Table Story",
+      "description": "Interactive Storybook stories demonstrating sorting, filtering, pagination, and row selection with TanStack Table",
+      "categories": ["ui", "storybook", "data-table", "data-display"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "input",
+        "skeleton",
+        "table"
+      ],
+      "dependencies": ["@tanstack/react-table", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/data-table-story/data-table-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/data-table.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-picker-story",
+      "type": "registry:component",
+      "title": "Date Picker Story",
+      "description": "Interactive Storybook stories demonstrating date picker component usage and variants",
+      "categories": ["ui", "storybook", "date-picker", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "calendar", "field", "popover"],
+      "dependencies": [
+        "@internationalized/date",
+        "lucide-react",
+        "react-aria-components"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/date-picker-story/date-picker-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/date-picker.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-story",
+      "type": "registry:component",
+      "title": "Dialog Story",
+      "description": "Interactive Storybook stories demonstrating dialog component usage and variants",
+      "categories": ["ui", "storybook", "dialog", "modal"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "dialog"],
+      "files": [
+        {
+          "path": "registry/ui/dialog-story/dialog-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/dialog.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "direction-story",
+      "type": "registry:component",
+      "title": "Direction Story",
+      "description": "Interactive Storybook stories demonstrating direction usage and variants",
+      "categories": ["ui", "storybook", "direction"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["direction", "tabs"],
+      "files": [
+        {
+          "path": "registry/ui/direction-story/direction-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/direction.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "drawer-story",
+      "type": "registry:component",
+      "title": "Drawer Story",
+      "description": "Interactive Storybook stories demonstrating drawer component usage and variants",
+      "categories": ["ui", "storybook", "drawer", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["drawer"],
+      "files": [
+        {
+          "path": "registry/ui/drawer-story/drawer-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/drawer.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "dropdown-menu-story",
+      "type": "registry:component",
+      "title": "Dropdown Menu Story",
+      "description": "Interactive Storybook stories demonstrating dropdown menu component usage and variants",
+      "categories": ["ui", "storybook", "dropdown", "menu"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "dropdown-menu"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/dropdown-menu-story/dropdown-menu-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/dropdown-menu.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-story",
+      "type": "registry:component",
+      "title": "Empty Story",
+      "description": "Interactive Storybook stories demonstrating empty state component usage and variants",
+      "categories": ["ui", "storybook", "empty", "placeholder"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "empty",
+        "input-group",
+        "kbd"
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/empty-story/empty-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/empty.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-story",
+      "type": "registry:component",
+      "title": "Field Story",
+      "description": "Interactive Storybook stories demonstrating field component usage and variants",
+      "categories": ["ui", "storybook", "field", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "input",
+        "radio-group",
+        "select",
+        "slider",
+        "switch",
+        "textarea"
+      ],
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/field-story/field-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/field.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-react-hook-story",
+      "type": "registry:component",
+      "title": "Form (React Hook Form) Story",
+      "description": "Interactive Storybook stories demonstrating form usage with React Hook Form",
+      "categories": ["ui", "storybook", "form", "validation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "field", "input"],
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-aria-components",
+        "react-hook-form",
+        "zod"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/form-story/form-react-hook-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/form-react-hook.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-tanstack-story",
+      "type": "registry:component",
+      "title": "Form (TanStack Form) Story",
+      "description": "Interactive Storybook stories demonstrating form usage with TanStack Form",
+      "categories": ["ui", "storybook", "form", "validation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "field", "input"],
+      "dependencies": ["@tanstack/react-form", "react-aria-components", "zod"],
+      "files": [
+        {
+          "path": "registry/ui/form-story/form-tanstack-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/form-tanstack.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hover-card-story",
+      "type": "registry:component",
+      "title": "Hover Card Story",
+      "description": "Interactive Storybook stories demonstrating hover card component usage and variants",
+      "categories": ["ui", "storybook", "hover", "popover"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["hover-card"],
+      "files": [
+        {
+          "path": "registry/ui/hover-card-story/hover-card-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/hover-card.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "input-group-story",
+      "type": "registry:component",
+      "title": "Input Group Story",
+      "description": "Interactive Storybook stories demonstrating input group component usage and variants",
+      "categories": ["ui", "storybook", "input", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button-group",
+        "dropdown-menu",
+        "input-group",
+        "label",
+        "popover",
+        "spinner",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group-story/input-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input-group.stories.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"]
+    },
+    {
+      "name": "input-story",
+      "type": "registry:component",
+      "title": "Input Story",
+      "description": "Interactive Storybook stories demonstrating input component usage and variants",
+      "categories": ["ui", "storybook", "input", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "input", "label"],
+      "files": [
+        {
+          "path": "registry/ui/input-story/input-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "input-otp-story",
+      "type": "registry:component",
+      "title": "Input OTP Story",
+      "description": "Interactive Storybook stories demonstrating OTP input component usage and variants",
+      "categories": ["ui", "storybook", "input", "otp", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["input-otp"],
+      "dependencies": ["input-otp", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/input-otp-story/input-otp-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input-otp.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "item-story",
+      "type": "registry:component",
+      "title": "Item Story",
+      "description": "Interactive Storybook stories demonstrating item component usage and variants",
+      "categories": ["ui", "storybook", "item", "list"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["avatar", "button", "dropdown-menu", "item"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/item-story/item-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/item.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kbd-story",
+      "type": "registry:component",
+      "title": "Kbd Story",
+      "description": "Interactive Storybook stories demonstrating keyboard shortcut component usage and variants",
+      "categories": ["ui", "storybook", "kbd", "keyboard"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "input-group",
+        "kbd",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/kbd-story/kbd-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/kbd.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label-story",
+      "type": "registry:component",
+      "title": "Label Story",
+      "description": "Interactive Storybook stories demonstrating label component usage and variants",
+      "categories": ["ui", "storybook", "label", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["label"],
+      "files": [
+        {
+          "path": "registry/ui/label-story/label-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/label.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "native-select-story",
+      "type": "registry:component",
+      "title": "Native Select Story",
+      "description": "Interactive Storybook stories demonstrating native select usage and variants",
+      "categories": ["ui", "storybook", "native-select"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["label", "native-select"],
+      "files": [
+        {
+          "path": "registry/ui/native-select-story/native-select-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/native-select.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "pagination-story",
+      "type": "registry:component",
+      "title": "Pagination Story",
+      "description": "Interactive Storybook stories demonstrating pagination component usage and variants",
+      "categories": ["ui", "storybook", "pagination", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["pagination"],
+      "files": [
+        {
+          "path": "registry/ui/pagination-story/pagination-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/pagination.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "popover-story",
+      "type": "registry:component",
+      "title": "Popover Story",
+      "description": "Interactive Storybook stories demonstrating popover component usage and variants",
+      "categories": ["ui", "storybook", "popover", "overlay"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "popover"],
+      "files": [
+        {
+          "path": "registry/ui/popover-story/popover-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/popover.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "progress-story",
+      "type": "registry:component",
+      "title": "Progress Story",
+      "description": "Interactive Storybook stories demonstrating progress component usage and variants",
+      "categories": ["ui", "storybook", "progress", "feedback"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["progress"],
+      "files": [
+        {
+          "path": "registry/ui/progress-story/progress-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/progress.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "questionnaire-story",
+      "type": "registry:component",
+      "title": "Questionnaire Story",
+      "description": "Interactive Storybook stories demonstrating multi-step questionnaire flows, validation, and navigation",
+      "categories": ["ui", "storybook", "questionnaire", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["questionnaire"],
+      "files": [
+        {
+          "path": "registry/ui/questionnaire-story/questionnaire-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/questionnaire.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "radio-group-story",
+      "type": "registry:component",
+      "title": "Radio Group Story",
+      "description": "Interactive Storybook stories demonstrating radio group component usage and variants",
+      "categories": ["ui", "storybook", "radio", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["label", "radio-group"],
+      "files": [
+        {
+          "path": "registry/ui/radio-group-story/radio-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/radio-group.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "resizable-story",
+      "type": "registry:component",
+      "title": "Resizable Story",
+      "description": "Interactive Storybook stories demonstrating resizable component usage and variants",
+      "categories": ["ui", "storybook", "resizable", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["resizable"],
+      "files": [
+        {
+          "path": "registry/ui/resizable-story/resizable-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/resizable.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "scroll-area-story",
+      "type": "registry:component",
+      "title": "Scroll Area Story",
+      "description": "Interactive Storybook stories demonstrating scroll area component usage and variants",
+      "categories": ["ui", "storybook", "scroll", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["scroll-area"],
+      "files": [
+        {
+          "path": "registry/ui/scroll-area-story/scroll-area-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/scroll-area.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "select-story",
+      "type": "registry:component",
+      "title": "Select Story",
+      "description": "Interactive Storybook stories demonstrating select component usage and variants",
+      "categories": ["ui", "storybook", "select", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["select"],
+      "files": [
+        {
+          "path": "registry/ui/select-story/select-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/select.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "separator-story",
+      "type": "registry:component",
+      "title": "Separator Story",
+      "description": "Interactive Storybook stories demonstrating separator component usage and variants",
+      "categories": ["ui", "storybook", "separator", "layout"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["separator"],
+      "files": [
+        {
+          "path": "registry/ui/separator-story/separator-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/separator.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "sheet-story",
+      "type": "registry:component",
+      "title": "Sheet Story",
+      "description": "Interactive Storybook stories demonstrating sheet component usage and variants",
+      "categories": ["ui", "storybook", "sheet", "overlay"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "sheet"],
+      "files": [
+        {
+          "path": "registry/ui/sheet-story/sheet-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sheet.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "sidebar-story",
+      "type": "registry:component",
+      "title": "Sidebar Story",
+      "description": "Interactive Storybook stories demonstrating sidebar component usage and variants",
+      "categories": ["ui", "storybook", "sidebar", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["dropdown-menu", "sidebar"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/sidebar-story/sidebar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sidebar.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-story",
+      "type": "registry:component",
+      "title": "Skeleton Story",
+      "description": "Interactive Storybook stories demonstrating skeleton component usage and variants",
+      "categories": ["ui", "storybook", "skeleton", "loading"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["skeleton"],
+      "files": [
+        {
+          "path": "registry/ui/skeleton-story/skeleton-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/skeleton.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "slider-story",
+      "type": "registry:component",
+      "title": "Slider Story",
+      "description": "Interactive Storybook stories demonstrating slider component usage and variants",
+      "categories": ["ui", "storybook", "slider", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["slider"],
+      "files": [
+        {
+          "path": "registry/ui/slider-story/slider-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/slider.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "sonner-story",
+      "type": "registry:component",
+      "title": "Sonner Story",
+      "description": "Interactive Storybook stories demonstrating toast notifications usage and variants",
+      "categories": ["ui", "storybook", "toast", "feedback"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "sonner"],
+      "dependencies": ["react-aria-components", "sonner"],
+      "files": [
+        {
+          "path": "registry/ui/sonner-story/sonner-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sonner.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner-story",
+      "type": "registry:component",
+      "title": "Spinner Story",
+      "description": "Interactive Storybook stories demonstrating loading spinner component usage and variants",
+      "categories": ["ui", "storybook", "spinner", "loading"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "empty",
+        "input-group",
+        "item",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/spinner-story/spinner-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/spinner.stories.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"]
+    },
+    {
+      "name": "switch-story",
+      "type": "registry:component",
+      "title": "Switch Story",
+      "description": "Interactive Storybook stories demonstrating switch component usage and variants",
+      "categories": ["ui", "storybook", "switch", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["label", "switch"],
+      "files": [
+        {
+          "path": "registry/ui/switch-story/switch-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/switch.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "table-story",
+      "type": "registry:component",
+      "title": "Table Story",
+      "description": "Interactive Storybook stories demonstrating table component usage and variants",
+      "categories": ["ui", "storybook", "table", "data"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/ui/table-story/table-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/table.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "tabs-story",
+      "type": "registry:component",
+      "title": "Tabs Story",
+      "description": "Interactive Storybook stories demonstrating tabs component usage and variants",
+      "categories": ["ui", "storybook", "tabs", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["tabs"],
+      "files": [
+        {
+          "path": "registry/ui/tabs-story/tabs-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/tabs.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "textarea-story",
+      "type": "registry:component",
+      "title": "Textarea Story",
+      "description": "Interactive Storybook stories demonstrating textarea component usage and variants",
+      "categories": ["ui", "storybook", "textarea", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "label", "textarea"],
+      "files": [
+        {
+          "path": "registry/ui/textarea-story/textarea-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/textarea.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "toggle-story",
+      "type": "registry:component",
+      "title": "Toggle Story",
+      "description": "Interactive Storybook stories demonstrating toggle component usage and variants",
+      "categories": ["ui", "storybook", "toggle", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["toggle"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/toggle-story/toggle-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/toggle.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group-story",
+      "type": "registry:component",
+      "title": "Toggle Group Story",
+      "description": "Interactive Storybook stories demonstrating toggle group component usage and variants",
+      "categories": ["ui", "storybook", "toggle-group", "form"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["toggle-group"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/toggle-group-story/toggle-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/toggle-group.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-story",
+      "type": "registry:component",
+      "title": "Tooltip Story",
+      "description": "Interactive Storybook stories demonstrating tooltip component usage and variants",
+      "categories": ["ui", "storybook", "tooltip", "overlay"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "tooltip"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/tooltip-story/tooltip-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/tooltip.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "color-story",
+      "type": "registry:component",
+      "title": "Color Story",
+      "description": "Design system documentation and examples for color tokens and themes",
+      "categories": ["design", "tokens", "storybook", "color"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/color-story/color-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/color.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "radius-story",
+      "type": "registry:component",
+      "title": "Radius Story",
+      "description": "Design system documentation and examples for border radius tokens",
+      "categories": ["design", "tokens", "storybook", "radius"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/radius-story/radius-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/radius.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "shadow-story",
+      "type": "registry:component",
+      "title": "Shadow Story",
+      "description": "Design system documentation and examples for shadow tokens",
+      "categories": ["design", "tokens", "storybook", "shadow"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/shadow-story/shadow-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/shadow.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "spacing-story",
+      "type": "registry:component",
+      "title": "Spacing Story",
+      "description": "Design system documentation and examples for spacing tokens",
+      "categories": ["design", "tokens", "storybook", "spacing"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/spacing-story/spacing-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/spacing.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "trace-story",
+      "type": "registry:component",
+      "title": "Trace Story",
+      "description": "Interactive Storybook stories demonstrating trace usage and variants",
+      "categories": ["ui", "storybook", "trace"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["trace"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/trace-story/trace-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/trace.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typeset-story",
+      "type": "registry:component",
+      "title": "Typeset Story",
+      "description": "Storybook-only documentation for shadcn Typeset; bundled CSS supports the story, while applications generate and own their CSS",
+      "categories": ["design", "storybook", "typography", "markdown"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/tokens/typeset-story/typeset-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typeset.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset.css",
+          "type": "registry:file",
+          "target": "@ui/typeset.css"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "typography-story",
+      "type": "registry:component",
+      "title": "Typography Story",
+      "description": "Design system documentation and examples for typography tokens",
+      "categories": ["design", "tokens", "storybook", "typography"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/tokens/typography-story/typography-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typography.stories.tsx"
+        }
+      ],
+      "dependencies": ["react-aria-components"]
+    },
+    {
+      "name": "attachment-story",
+      "type": "registry:component",
+      "title": "Attachment Story",
+      "description": "Storybook stories demonstrating attachment component files, previews, states, actions, and triggers",
+      "categories": ["ui", "storybook", "attachment", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["attachment", "dialog", "spinner"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/attachment-story/attachment-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/attachment.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bubble-story",
+      "type": "registry:component",
+      "title": "Bubble Story",
+      "description": "Storybook stories demonstrating bubble component variants, alignment, reactions, and interactive content",
+      "categories": ["ui", "storybook", "bubble", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "collapsible",
+        "popover",
+        "tooltip"
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/bubble-story/bubble-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/bubble.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "marker-story",
+      "type": "registry:component",
+      "title": "Marker Story",
+      "description": "Storybook stories demonstrating marker component status rows, separators, icons, links, and buttons",
+      "categories": ["ui", "storybook", "marker", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["marker", "spinner"],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/marker-story/marker-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/marker.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-story",
+      "type": "registry:component",
+      "title": "Message Story",
+      "description": "Storybook stories demonstrating message component layout, avatars, actions, status, and attachments",
+      "categories": ["ui", "storybook", "message", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "attachment",
+        "avatar",
+        "bubble",
+        "button",
+        "marker",
+        "message",
+        "spinner"
+      ],
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/message-story/message-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller-story",
+      "type": "registry:component",
+      "title": "Message Scroller Story",
+      "description": "Storybook stories demonstrating message scroller anchoring, streaming, history loading, and jump controls",
+      "categories": ["ui", "storybook", "message-scroller", "chat"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "marker",
+        "message",
+        "message-scroller"
+      ],
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/ui/message-scroller-story/message-scroller-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message-scroller.stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "all-stories",
+      "type": "registry:component",
+      "title": "All Stories",
+      "description": "Complete collection of all Storybook stories in the registry for bulk installation",
+      "categories": ["utility", "collection", "storybook"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "accordion",
+        "alert",
+        "alert-dialog",
+        "aspect-ratio",
+        "attachment",
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "bubble",
+        "button",
+        "button-group",
+        "calendar",
+        "card",
+        "carousel",
+        "chart",
+        "checkbox",
+        "code-block",
+        "collapsible",
+        "combobox",
+        "command",
+        "context-menu",
+        "dialog",
+        "direction",
+        "drawer",
+        "dropdown-menu",
+        "empty",
+        "field",
+        "hover-card",
+        "input",
+        "input-group",
+        "input-otp",
+        "item",
+        "kbd",
+        "label",
+        "marker",
+        "message",
+        "message-scroller",
+        "native-select",
+        "pagination",
+        "popover",
+        "progress",
+        "questionnaire",
+        "radio-group",
+        "resizable",
+        "scroll-area",
+        "select",
+        "separator",
+        "sheet",
+        "sidebar",
+        "skeleton",
+        "slider",
+        "sonner",
+        "spinner",
+        "switch",
+        "table",
+        "tabs",
+        "textarea",
+        "toggle",
+        "toggle-group",
+        "tooltip",
+        "trace"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/accordion-story/accordion-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/accordion.stories.tsx"
+        },
+        {
+          "path": "registry/ui/alert-story/alert-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/alert.stories.tsx"
+        },
+        {
+          "path": "registry/ui/alert-dialog-story/alert-dialog-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/alert-dialog.stories.tsx"
+        },
+        {
+          "path": "registry/ui/aspect-ratio-story/aspect-ratio-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/aspect-ratio.stories.tsx"
+        },
+        {
+          "path": "registry/ui/avatar-story/avatar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/avatar.stories.tsx"
+        },
+        {
+          "path": "registry/ui/badge-story/badge-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/badge.stories.tsx"
+        },
+        {
+          "path": "registry/ui/breadcrumb-story/breadcrumb-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/breadcrumb.stories.tsx"
+        },
+        {
+          "path": "registry/ui/button-story/button-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/button.stories.tsx"
+        },
+        {
+          "path": "registry/ui/button-group-story/button-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/button-group.stories.tsx"
+        },
+        {
+          "path": "registry/ui/calendar-story/calendar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/calendar.stories.tsx"
+        },
+        {
+          "path": "registry/ui/card-story/card-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/card.stories.tsx"
+        },
+        {
+          "path": "registry/ui/carousel-story/carousel-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/carousel.stories.tsx"
+        },
+        {
+          "path": "registry/ui/chart-story/chart-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/chart.stories.tsx"
+        },
+        {
+          "path": "registry/ui/checkbox-story/checkbox-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/checkbox.stories.tsx"
+        },
+        {
+          "path": "registry/ui/code-block-story/code-block-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/code-block.stories.tsx"
+        },
+        {
+          "path": "registry/ui/collapsible-story/collapsible-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/collapsible.stories.tsx"
+        },
+        {
+          "path": "registry/ui/combobox-story/combobox-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/combobox.stories.tsx"
+        },
+        {
+          "path": "registry/ui/command-story/command-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/command.stories.tsx"
+        },
+        {
+          "path": "registry/ui/context-menu-story/context-menu-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/context-menu.stories.tsx"
+        },
+        {
+          "path": "registry/ui/data-table-story/data-table-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/data-table.stories.tsx"
+        },
+        {
+          "path": "registry/ui/date-picker-story/date-picker-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/date-picker.stories.tsx"
+        },
+        {
+          "path": "registry/ui/dialog-story/dialog-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/dialog.stories.tsx"
+        },
+        {
+          "path": "registry/ui/direction-story/direction-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/direction.stories.tsx"
+        },
+        {
+          "path": "registry/ui/drawer-story/drawer-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/drawer.stories.tsx"
+        },
+        {
+          "path": "registry/ui/dropdown-menu-story/dropdown-menu-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/dropdown-menu.stories.tsx"
+        },
+        {
+          "path": "registry/ui/empty-story/empty-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/empty.stories.tsx"
+        },
+        {
+          "path": "registry/ui/field-story/field-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/field.stories.tsx"
+        },
+        {
+          "path": "registry/ui/form-story/form-react-hook-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/form-react-hook.stories.tsx"
+        },
+        {
+          "path": "registry/ui/form-story/form-tanstack-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/form-tanstack.stories.tsx"
+        },
+        {
+          "path": "registry/ui/hover-card-story/hover-card-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/hover-card.stories.tsx"
+        },
+        {
+          "path": "registry/ui/input-group-story/input-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input-group.stories.tsx"
+        },
+        {
+          "path": "registry/ui/input-story/input-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input.stories.tsx"
+        },
+        {
+          "path": "registry/ui/input-otp-story/input-otp-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/input-otp.stories.tsx"
+        },
+        {
+          "path": "registry/ui/item-story/item-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/item.stories.tsx"
+        },
+        {
+          "path": "registry/ui/kbd-story/kbd-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/kbd.stories.tsx"
+        },
+        {
+          "path": "registry/ui/label-story/label-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/label.stories.tsx"
+        },
+        {
+          "path": "registry/ui/native-select-story/native-select-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/native-select.stories.tsx"
+        },
+        {
+          "path": "registry/ui/pagination-story/pagination-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/pagination.stories.tsx"
+        },
+        {
+          "path": "registry/ui/popover-story/popover-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/popover.stories.tsx"
+        },
+        {
+          "path": "registry/ui/progress-story/progress-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/progress.stories.tsx"
+        },
+        {
+          "path": "registry/ui/questionnaire-story/questionnaire-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/questionnaire.stories.tsx"
+        },
+        {
+          "path": "registry/ui/radio-group-story/radio-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/radio-group.stories.tsx"
+        },
+        {
+          "path": "registry/ui/resizable-story/resizable-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/resizable.stories.tsx"
+        },
+        {
+          "path": "registry/ui/scroll-area-story/scroll-area-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/scroll-area.stories.tsx"
+        },
+        {
+          "path": "registry/ui/select-story/select-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/select.stories.tsx"
+        },
+        {
+          "path": "registry/ui/separator-story/separator-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/separator.stories.tsx"
+        },
+        {
+          "path": "registry/ui/sheet-story/sheet-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sheet.stories.tsx"
+        },
+        {
+          "path": "registry/ui/sidebar-story/sidebar-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sidebar.stories.tsx"
+        },
+        {
+          "path": "registry/ui/skeleton-story/skeleton-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/skeleton.stories.tsx"
+        },
+        {
+          "path": "registry/ui/slider-story/slider-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/slider.stories.tsx"
+        },
+        {
+          "path": "registry/ui/sonner-story/sonner-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/sonner.stories.tsx"
+        },
+        {
+          "path": "registry/ui/spinner-story/spinner-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/spinner.stories.tsx"
+        },
+        {
+          "path": "registry/ui/switch-story/switch-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/switch.stories.tsx"
+        },
+        {
+          "path": "registry/ui/table-story/table-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/table.stories.tsx"
+        },
+        {
+          "path": "registry/ui/tabs-story/tabs-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/tabs.stories.tsx"
+        },
+        {
+          "path": "registry/ui/textarea-story/textarea-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/textarea.stories.tsx"
+        },
+        {
+          "path": "registry/ui/toggle-story/toggle-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/toggle.stories.tsx"
+        },
+        {
+          "path": "registry/ui/toggle-group-story/toggle-group-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/toggle-group.stories.tsx"
+        },
+        {
+          "path": "registry/ui/tooltip-story/tooltip-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/tooltip.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/color-story/color-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/color.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/radius-story/radius-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/radius.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/shadow-story/shadow-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/shadow.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/spacing-story/spacing-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/spacing.stories.tsx"
+        },
+        {
+          "path": "registry/ui/trace-story/trace-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/trace.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typeset.stories.tsx"
+        },
+        {
+          "path": "registry/tokens/typeset-story/typeset.css",
+          "type": "registry:file",
+          "target": "@ui/typeset.css"
+        },
+        {
+          "path": "registry/tokens/typography-story/typography-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/typography.stories.tsx"
+        },
+        {
+          "path": "registry/ui/attachment-story/attachment-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/attachment.stories.tsx"
+        },
+        {
+          "path": "registry/ui/bubble-story/bubble-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/bubble.stories.tsx"
+        },
+        {
+          "path": "registry/ui/marker-story/marker-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/marker.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-story/message-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message.stories.tsx"
+        },
+        {
+          "path": "registry/ui/message-scroller-story/message-scroller-aria.stories.tsx",
+          "type": "registry:component",
+          "target": "@ui/message-scroller.stories.tsx"
+        }
+      ],
+      "dependencies": [
+        "@hookform/resolvers",
+        "@internationalized/date",
+        "@tanstack/react-form",
+        "@tanstack/react-table",
+        "input-otp",
+        "lucide-react",
+        "react-aria-components",
+        "react-hook-form",
+        "recharts",
+        "sonner",
+        "zod"
+      ]
+    }
+  ]
+}

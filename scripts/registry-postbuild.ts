@@ -1,11 +1,11 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { registryNames } from "@/lib/registries";
 import { rewriteRegistryImports } from "@/lib/registry-imports";
 
-const targets = [
-  join(process.cwd(), "public", "v3", "radix"),
-  join(process.cwd(), "public", "v3", "base"),
-];
+const targets = registryNames.map((name) =>
+  join(process.cwd(), "public", "v3", name),
+);
 
 const walk = (dir: string): string[] => {
   if (!existsSync(dir)) {

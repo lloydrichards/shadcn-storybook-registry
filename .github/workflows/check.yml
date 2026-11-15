@@ -113,7 +113,7 @@ jobs:
     needs:
       - lint
       - verify-types
-    name: "Build Base and Radix Storybooks"
+    name: "Build Storybooks"
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -123,5 +123,5 @@ jobs:
       - name: Install Dependencies
         uses: ./.github/actions/setup
 
-      - name: Build and verify both Storybooks
+      - name: Build and verify Storybooks
         run: bun run storybook:build

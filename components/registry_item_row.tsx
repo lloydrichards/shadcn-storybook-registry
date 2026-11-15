@@ -1,6 +1,7 @@
 import { Button } from "@/bases/radix/components/ui/button";
 import { TableCell, TableRow } from "@/bases/radix/components/ui/table";
 import { CommandBlock } from "@/components/command-block";
+import type { RegistryName } from "@/lib/registries";
 import { getRegistryPreviewPath } from "@/lib/registry-preview";
 import { getBaseUrl } from "@/lib/utils";
 import { BookOpen, Braces } from "lucide-react";
@@ -13,10 +14,9 @@ export const RegistryItemRow: FC<{
     description?: string;
     categories: string[];
   };
-  registry: "radix" | "base";
+  registry: RegistryName;
 }> = ({ item, registry }) => {
-  const registryBasePath = registry === "base" ? "/v3/base" : "/v3/radix";
-  const registryUrl = `${getBaseUrl()}${registryBasePath}/${item.name}.json`;
+  const registryUrl = `${getBaseUrl()}/v3/${registry}/${item.name}.json`;
   const storyUrl = `${getBaseUrl()}${getRegistryPreviewPath(item, registry)}`;
 
   return (
@@ -52,10 +52,9 @@ export const RegistryItemCard: FC<{
     description?: string;
     categories: string[];
   };
-  registry: "radix" | "base";
+  registry: RegistryName;
 }> = ({ item, registry }) => {
-  const registryBasePath = registry === "base" ? "/v3/base" : "/v3/radix";
-  const registryUrl = `${getBaseUrl()}${registryBasePath}/${item.name}.json`;
+  const registryUrl = `${getBaseUrl()}/v3/${registry}/${item.name}.json`;
   const storyUrl = `${getBaseUrl()}${getRegistryPreviewPath(item, registry)}`;
 
   return (

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-story",
+  "title": "Slider Story",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Interactive Storybook stories demonstrating slider component usage and variants",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/slider-story/slider-aria.stories.tsx",
+      "content": "import { expect, userEvent } from \"storybook/test\";\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\n\nimport { Slider } from \"@/components/ui/slider\";\n\n/**\n * An input where the user selects a value from within a given range.\n */\nconst meta = {\n  id: \"ui-aria-slider\",\n  title: \"ui/Slider\",\n  component: Slider,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  args: {\n    \"aria-label\": \"Volume\",\n    defaultValue: 33,\n    maxValue: 100,\n    step: 1,\n  },\n} satisfies Meta<typeof Slider>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\n/**\n * The default form of the slider.\n */\nexport const Default: Story = {};\n\n/**\n * Use the `orientation` prop to render a vertical slider.\n */\nexport const Vertical: Story = {\n  args: {\n    orientation: \"vertical\",\n    className: \"h-40\",\n  },\n};\n\n/**\n * Use the `isDisabled` prop to disable the slider.\n */\nexport const Disabled: Story = {\n  args: {\n    isDisabled: true,\n  },\n};\n\n/** Adjust the volume one step with the arrow keys. */\nexport const KeyboardInteraction: Story = {\n  tags: [\"!dev\", \"!autodocs\"],\n  play: async ({ canvas }) => {\n    const slider = canvas.getByRole(\"slider\");\n    slider.focus();\n    await userEvent.keyboard(\"{ArrowRight}\");\n    await expect(slider).toHaveValue(\"34\");\n  },\n};\n",
+      "type": "registry:component",
+      "target": "@ui/slider.stories.tsx"
+    }
+  ],
+  "categories": [
+    "ui",
+    "storybook",
+    "slider",
+    "form"
+  ],
+  "type": "registry:component"
+}

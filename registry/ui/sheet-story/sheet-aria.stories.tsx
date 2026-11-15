@@ -1,0 +1,148 @@
+import { Button } from "@/bases/aria/components/ui/button";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+
+import {
+  Sheet,
+  SheetClose,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/bases/aria/components/ui/sheet";
+import { expect, userEvent, waitFor, within } from "storybook/test";
+
+/**
+ * Extends the Dialog component to display content that complements the main
+ * content of the screen.
+ */
+const meta: Meta<typeof Sheet> = {
+  id: "ui-aria-sheet",
+  title: "ui/Sheet",
+  component: Sheet,
+  tags: ["autodocs"],
+  argTypes: {
+    side: {
+      options: ["top", "bottom", "left", "right"],
+      control: {
+        type: "radio",
+      },
+    },
+  },
+  args: {
+    side: "right",
+  },
+  render: (args) => (
+    <SheetTrigger>
+      <Button>Open</Button>
+      <Sheet {...args}>
+        <SheetHeader>
+          <SheetTitle>Are you absolutely sure?</SheetTitle>
+          <SheetDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </SheetDescription>
+        </SheetHeader>
+        <SheetFooter>
+          <SheetClose className="hover:underline">Cancel</SheetClose>
+          <SheetClose className="rounded bg-primary px-4 py-2 text-primary-foreground">
+            Submit
+          </SheetClose>
+        </SheetFooter>
+      </Sheet>
+    </SheetTrigger>
+  ),
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Sheet>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the sheet.
+ */
+export const Default: Story = {};
+
+export const ShouldOpenCloseWithSubmit: Story = {
+  name: "when clicking Submit button, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("open the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const sheet = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(sheet).toBeVisible();
+      });
+    });
+
+    await step("close the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /submit/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};
+
+export const ShouldOpenCloseWithCancel: Story = {
+  name: "when clicking Cancel button, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("open the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const sheet = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(sheet).toBeVisible();
+      });
+    });
+
+    await step("close the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /cancel/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};
+
+export const ShouldOpenCloseWithClose: Story = {
+  name: "when clicking Close icon, should close the sheet",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("open the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const sheet = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(sheet).toBeVisible();
+      });
+    });
+
+    await step("close the sheet", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /close/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};

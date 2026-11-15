@@ -1,0 +1,139 @@
+import { expect, userEvent, waitFor, within } from "storybook/test";
+import { Button } from "@/bases/aria/components/ui/button";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+
+import {
+  Dialog,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/bases/aria/components/ui/dialog";
+
+/**
+ * A window overlaid on either the primary window or another dialog window,
+ * rendering the content underneath inert.
+ */
+const meta = {
+  id: "ui-aria-dialog",
+  title: "ui/Dialog",
+  component: Dialog,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: { children: null },
+  render: (args) => (
+    <DialogTrigger>
+      <Button>Open</Button>
+      <Dialog {...args}>
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="gap-4">
+          <DialogClose className="hover:underline">Cancel</DialogClose>
+          <DialogClose className="rounded bg-primary px-4 py-2 text-primary-foreground">
+            Continue
+          </DialogClose>
+        </DialogFooter>
+      </Dialog>
+    </DialogTrigger>
+  ),
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Dialog>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the dialog.
+ */
+export const Default: Story = {};
+
+export const ShouldOpenCloseWithContinue: Story = {
+  name: "when clicking Continue button, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(dialog).toBeVisible();
+      });
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /continue/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};
+
+export const ShouldOpenCloseWithCancel: Story = {
+  name: "when clicking Cancel button, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(dialog).toBeVisible();
+      });
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /cancel/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};
+
+export const ShouldOpenCloseCross: Story = {
+  name: "when clicking Close icon, should close the dialog",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+
+    await step("Open the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /open/i }),
+      );
+      const dialog = await canvasBody.findByRole("dialog");
+      await waitFor(() => {
+        expect(dialog).toBeVisible();
+      });
+    });
+
+    await step("Close the dialog", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /close/i }),
+      );
+      await waitFor(() => {
+        expect(canvasBody.queryByRole("dialog")).not.toBeInTheDocument();
+      });
+    });
+  },
+};
