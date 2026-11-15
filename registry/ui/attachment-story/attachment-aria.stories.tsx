@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import { Pressable } from "react-aria-components";
 import type * as React from "react";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import {
   Attachment,
@@ -338,9 +338,11 @@ export const TriggerInteraction: Story = {
     await userEvent.click(
       canvas.getByRole("button", { name: "Preview research-summary.pdf" }),
     );
-    expect(
-      await body.findByRole("dialog", { name: "research-summary.pdf" }),
-    ).toBeVisible();
+    await waitFor(() =>
+      expect(
+        body.getByRole("dialog", { name: "research-summary.pdf" }),
+      ).toBeVisible(),
+    );
     await userEvent.keyboard("{Escape}");
   },
 };

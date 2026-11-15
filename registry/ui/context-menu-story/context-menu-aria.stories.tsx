@@ -195,7 +195,7 @@ function ContextMenuWithRadio() {
           <ContextMenuLabel>Theme</ContextMenuLabel>
           <ContextMenuGroup
             selectionMode="single"
-            selectedKeys={theme}
+            selectedKeys={[theme]}
             onSelectionChange={(keys) =>
               setTheme(
                 keys === "all"
@@ -261,5 +261,37 @@ export const ShouldOpenClose: Story = {
     await waitFor(() =>
       expect(body.queryByRole("menu")).not.toBeInTheDocument(),
     );
+  },
+};
+
+/** Keep the chosen theme checked when the menu reopens. */
+export const ShouldRememberTheme: Story = {
+  ...WithRadioGroup,
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, canvas }) => {
+    const body = within(canvasElement.ownerDocument.body);
+    const openMenu = () =>
+      userEvent.pointer({
+        keys: "[MouseRight]",
+        target: canvas.getByText("Right click here"),
+      });
+    await openMenu();
+    await waitFor(() =>
+      expect(
+        body.getByRole("menuitemradio", { name: "Light", checked: true }),
+      ).toBeVisible(),
+    );
+    await userEvent.click(body.getByRole("menuitemradio", { name: "Dark" }));
+    await waitFor(() => expect(body.queryByRole("menu")).toBeNull());
+    await openMenu();
+    await waitFor(() =>
+      expect(
+        body.getByRole("menuitemradio", { name: "Dark", checked: true }),
+      ).toBeVisible(),
+    );
+    await expect(
+      body.getByRole("menuitemradio", { name: "Light", checked: false }),
+    ).toBeVisible();
+    await userEvent.keyboard("{Escape}");
   },
 };
