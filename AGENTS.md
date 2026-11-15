@@ -8,10 +8,10 @@ with v3 outputs for each registry.
 
 ## Quick Commands
 
-- **Dev server**: `bun run storybook` (port 6006)
+- **Dev server**: `bun run storybook:base` or `bun run storybook:radix` (port 6006)
 - **Build**: `bun run build` (builds Next.js app + Storybook)
 - **Test all**: `bun run test`
-- **Test Storybook**: `bun run test:storybook` (browser tests)
+- **Test Storybook**: `bun run test:storybook` (browser tests for both libraries)
 - **Test unit**: `bun run test:unit`
 - **Lint**: `bun run lint`
 - **Type check**: `bun run type-check`

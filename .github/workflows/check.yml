@@ -108,3 +108,20 @@ jobs:
 
       - name: Run Component Tests
         run: bun run test:storybook
+
+  storybook-build:
+    needs:
+      - lint
+      - verify-types
+    name: "Build Base and Radix Storybooks"
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Build and verify both Storybooks
+        run: bun run storybook:build

@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/storybook/",
-        destination: "/storybook/index.html",
+        source: "/storybook/:registry(base|radix)/",
+        destination: "/storybook/:registry/index.html",
       },
     ];
   },
