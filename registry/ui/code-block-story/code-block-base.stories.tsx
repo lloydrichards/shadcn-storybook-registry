@@ -19,17 +19,31 @@ const meta = {
   title: "ui/base/CodeBlock",
   component: CodeBlock,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
-  args: { className: "w-[min(36rem,calc(100vw-2rem))]" },
+  parameters: { layout: "padded" },
+  args: { className: "w-full" },
+  decorators: [
+    (Story) => (
+      <div className="mx-auto w-full min-w-0 max-w-xl">
+        <Story />
+      </div>
+    ),
+  ],
   render: (args) => (
     <CodeBlock {...args}>
       <CodeBlockHeader>
         <CodeBlockTitle>hello.ts</CodeBlockTitle>
         <CodeBlockActions>
-          <CodeBlockCopyButton value={source} />
+          <CodeBlockCopyButton value={source} className="size-11" />
         </CodeBlockActions>
       </CodeBlockHeader>
-      <CodeBlockContent>{source}</CodeBlockContent>
+      <CodeBlockContent
+        role="region"
+        aria-label="TypeScript source"
+        wrap
+        className="data-wrap:wrap-anywhere"
+      >
+        {source}
+      </CodeBlockContent>
     </CodeBlock>
   ),
 } satisfies Meta<typeof CodeBlock>;
@@ -43,7 +57,12 @@ export const Default: Story = {};
 export const LineNumbers: Story = {
   render: (args) => (
     <CodeBlock {...args}>
-      <CodeBlockContent lineNumbers startLine={12}>
+      <CodeBlockContent
+        role="region"
+        aria-label="Numbered TypeScript source"
+        lineNumbers
+        startLine={12}
+      >
         {source}
       </CodeBlockContent>
     </CodeBlock>
@@ -52,15 +71,33 @@ export const LineNumbers: Story = {
 
 /** Wrap long output within the container on narrow screens. */
 export const Wrapped: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-full min-w-0 max-w-72">
+        <Story />
+      </div>
+    ),
+  ],
   render: (args) => (
     <CodeBlock {...args}>
-      <CodeBlockContent wrap>
+      <CodeBlockContent
+        role="region"
+        aria-label="Request log"
+        wrap
+        className="data-wrap:wrap-anywhere"
+      >
         {
           "GET /api/components?registry=base&category=storybook&include=dependencies&format=json returned 200 OK after loading the requested component examples."
         }
       </CodeBlockContent>
     </CodeBlock>
   ),
+  play: async ({ canvas }) => {
+    const output = canvas.getByRole("region", { name: "Request log" });
+    await expect(output.scrollWidth).toBeLessThanOrEqual(
+      output.clientWidth + 1,
+    );
+  },
 };
 
 /** Present a terminal command and its deterministic output. */
@@ -70,7 +107,12 @@ export const TerminalOutput: Story = {
       <CodeBlockHeader>
         <CodeBlockTitle>Terminal</CodeBlockTitle>
       </CodeBlockHeader>
-      <CodeBlockContent>
+      <CodeBlockContent
+        role="region"
+        aria-label="Build output"
+        wrap
+        className="data-wrap:wrap-anywhere"
+      >
         {"$ bun run build\nCompiled successfully\nGenerated static pages"}
       </CodeBlockContent>
       <CodeBlockFooter>Process exited with code 0</CodeBlockFooter>
@@ -85,7 +127,7 @@ export const Diff: Story = {
       <CodeBlockHeader>
         <CodeBlockTitle>greeting.ts</CodeBlockTitle>
       </CodeBlockHeader>
-      <CodeBlockContent lineNumbers>
+      <CodeBlockContent role="region" aria-label="Code changes" lineNumbers>
         <CodeBlockLine>{"function greet(name: string) {"}</CodeBlockLine>
         <CodeBlockLine variant="removed">
           {'  return "Hello " + name;'}
@@ -102,11 +144,15 @@ export const Diff: Story = {
 function HighlightedExample() {
   const lines = useHighlightedCode(source, "typescript");
   return (
-    <CodeBlock className="w-[min(36rem,calc(100vw-2rem))]">
+    <CodeBlock className="w-full">
       <CodeBlockHeader>
         <CodeBlockTitle>hello.ts</CodeBlockTitle>
       </CodeBlockHeader>
-      <CodeBlockContent lineNumbers>
+      <CodeBlockContent
+        role="region"
+        aria-label="Highlighted TypeScript source"
+        lineNumbers
+      >
         {lines.map((line, index) => (
           <CodeBlockLine key={index}>{line}</CodeBlockLine>
         ))}
@@ -148,7 +194,12 @@ export const ErrorOutput: Story = {
   args: { variant: "destructive" },
   render: (args) => (
     <CodeBlock {...args}>
-      <CodeBlockContent wrap>
+      <CodeBlockContent
+        role="region"
+        aria-label="Error output"
+        wrap
+        className="data-wrap:wrap-anywhere"
+      >
         {
           'Error: Missing registry component "example".\nCheck the component name and try again.'
         }
@@ -159,6 +210,59 @@ export const ErrorOutput: Story = {
 
 /** Use the small size for compact snippets. */
 export const Small: Story = { args: { size: "sm" } };
+
+/** Fit a narrow container with readable wrapped output and a large copy target. */
+export const NarrowScreen: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-full min-w-0 max-w-72">
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <CodeBlock {...args}>
+      <CodeBlockHeader>
+        <CodeBlockTitle className="whitespace-normal break-all">
+          app/api/components/registry/route.ts
+        </CodeBlockTitle>
+        <CodeBlockActions>
+          <CodeBlockCopyButton value={source} className="size-11" />
+        </CodeBlockActions>
+      </CodeBlockHeader>
+      <CodeBlockContent
+        role="region"
+        aria-label="Wrapped TypeScript source"
+        wrap
+        className="data-wrap:wrap-anywhere"
+      >
+        {source}
+      </CodeBlockContent>
+    </CodeBlock>
+  ),
+  play: async ({ canvas }) => {
+    const output = canvas.getByRole("region", {
+      name: "Wrapped TypeScript source",
+    });
+    const copy = canvas.getByRole("button", { name: "Copy" });
+    const block = output.parentElement;
+    if (!block?.parentElement)
+      throw new Error("Code block container is missing");
+    await expect(block.getBoundingClientRect().width).toBeLessThanOrEqual(
+      block.parentElement.getBoundingClientRect().width + 1,
+    );
+    await expect(output.scrollWidth).toBeLessThanOrEqual(
+      output.clientWidth + 1,
+    );
+    await expect(copy.getBoundingClientRect().width).toBeGreaterThanOrEqual(44);
+    await expect(copy.getBoundingClientRect().height).toBeGreaterThanOrEqual(
+      44,
+    );
+    await userEvent.click(copy);
+    await userEvent.tab();
+    await expect(output).toHaveFocus();
+  },
+};
 
 /** Copy exact source text and announce success after the clipboard write resolves. */
 export const ShouldCopySource: Story = {
