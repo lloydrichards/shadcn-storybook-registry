@@ -14,7 +14,8 @@ import {
  * one at a time.
  */
 const meta = {
-  title: "ui/base/Tabs",
+  id: "ui-base-tabs",
+  title: "ui/Tabs",
   component: Tabs,
   tags: ["autodocs"],
   argTypes: {},

@@ -9,7 +9,8 @@ import { expect, userEvent, within } from "storybook/test";
  * A control that allows the user to toggle between checked and not checked.
  */
 const meta: Meta<typeof Checkbox> = {
-  title: "ui/radix/Checkbox",
+  id: "ui-radix-checkbox",
+  title: "ui/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   argTypes: {},

@@ -22,7 +22,8 @@ import {
  * Provides chat transcript scrolling with anchoring, jump controls, and live-edge behavior.
  */
 const meta: Meta<typeof MessageScroller> = {
-  title: "ui/radix/MessageScroller",
+  id: "ui-radix-messagescroller",
+  title: "ui/MessageScroller",
   component: MessageScroller,
   tags: ["autodocs"],
   parameters: {

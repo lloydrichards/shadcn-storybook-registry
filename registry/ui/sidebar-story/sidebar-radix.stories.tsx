@@ -36,7 +36,8 @@ import {
  * A composable, themeable and customizable sidebar component.
  */
 const meta = {
-  title: "ui/radix/Sidebar",
+  id: "ui-radix-sidebar",
+  title: "ui/Sidebar",
   component: Sidebar,
   tags: ["autodocs"],
   argTypes: {

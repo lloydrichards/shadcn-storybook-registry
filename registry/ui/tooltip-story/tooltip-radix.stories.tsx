@@ -15,7 +15,8 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
  * receives keyboard focus or the mouse hovers over it.
  */
 const meta: Meta<typeof TooltipContent> = {
-  title: "ui/radix/Tooltip",
+  id: "ui-radix-tooltip",
+  title: "ui/Tooltip",
   component: TooltipContent,
   tags: ["autodocs"],
   argTypes: {

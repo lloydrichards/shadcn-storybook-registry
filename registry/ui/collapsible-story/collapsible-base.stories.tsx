@@ -13,7 +13,8 @@ import { expect, userEvent } from "storybook/test";
  * An interactive component which expands/collapses a panel.
  */
 const meta = {
-  title: "ui/base/Collapsible",
+  id: "ui-base-collapsible",
+  title: "ui/Collapsible",
   component: Collapsible,
   tags: ["autodocs"],
   argTypes: {},

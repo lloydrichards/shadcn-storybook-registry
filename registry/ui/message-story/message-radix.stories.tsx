@@ -43,7 +43,8 @@ import { Spinner } from "@/bases/radix/components/ui/spinner";
  * Lays out conversation messages with avatar, content, header, footer, and alignment.
  */
 const meta: Meta<typeof Message> = {
-  title: "ui/radix/Message",
+  id: "ui-radix-message",
+  title: "ui/Message",
   component: Message,
   tags: ["autodocs"],
   parameters: {

@@ -8,7 +8,8 @@ import { Button } from "@/bases/radix/components/ui/button";
  * Displays a button or a component that looks like a button.
  */
 const meta: Meta<typeof Button> = {
-  title: "ui/radix/Button",
+  id: "ui-radix-button",
+  title: "ui/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

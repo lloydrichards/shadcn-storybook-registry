@@ -88,7 +88,8 @@ function TanStackFormProfileForm(props: ComponentProps<"form">) {
  * Building forms with TanStack Form and Zod.
  */
 const meta: Meta<typeof TanStackFormProfileForm> = {
-  title: "ui/base/Form (TanStack Form)",
+  id: "ui-base-form-tanstack-form",
+  title: "ui/Form (TanStack Form)",
   component: TanStackFormProfileForm,
   tags: ["autodocs"],
   argTypes: {},

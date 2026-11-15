@@ -14,7 +14,8 @@ import {
  * one at a time.
  */
 const meta = {
-  title: "ui/radix/Tabs",
+  id: "ui-radix-tabs",
+  title: "ui/Tabs",
   component: Tabs,
   tags: ["autodocs"],
   argTypes: {},

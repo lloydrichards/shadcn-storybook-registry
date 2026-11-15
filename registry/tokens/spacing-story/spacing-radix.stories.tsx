@@ -39,7 +39,8 @@ const SpacingRow = ({ value, name }: Spacing) => {
 const meta: Meta<{
   scale: Spacing[];
 }> = {
-  title: "design/radix/Spacing",
+  id: "design-radix-spacing",
+  title: "design/Spacing",
   argTypes: {},
   render: (args) => (
     <Table>

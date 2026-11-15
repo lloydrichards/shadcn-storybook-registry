@@ -70,7 +70,8 @@ function ReactHookFormProfileForm(props: ComponentProps<"form">) {
  * Building forms with React Hook Form and Zod.
  */
 const meta: Meta<typeof ReactHookFormProfileForm> = {
-  title: "ui/radix/Form (React Hook Form)",
+  id: "ui-radix-form-react-hook-form",
+  title: "ui/Form (React Hook Form)",
   component: ReactHookFormProfileForm,
   tags: ["autodocs"],
   argTypes: {},

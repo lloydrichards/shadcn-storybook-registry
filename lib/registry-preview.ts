@@ -30,9 +30,10 @@ export function getRegistryPreviewPath(
   item: RegistryPreviewItem,
   registry: "base" | "radix",
 ): string {
-  if (item.categories.includes("collection")) return "/storybook/";
+  const storybookPath = `/storybook/${registry}/`;
+  if (item.categories.includes("collection")) return storybookPath;
 
   const category = item.categories.includes("design") ? "design" : "ui";
   const storyId = storyIds[item.name] ?? item.name.replace(/-story$/, "");
-  return `/storybook/?path=/docs/${category}-${registry}-${storyId}--docs`;
+  return `${storybookPath}?path=/docs/${category}-${registry}-${storyId}--docs`;
 }

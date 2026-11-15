@@ -58,7 +58,8 @@ import {
  * Display additional information or actions to an input or textarea.
  */
 const meta: Meta<typeof InputGroup> = {
-  title: "ui/base/InputGroup",
+  id: "ui-base-inputgroup",
+  title: "ui/InputGroup",
   component: InputGroup,
   tags: ["autodocs"],
   parameters: {

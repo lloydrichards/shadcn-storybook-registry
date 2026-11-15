@@ -15,7 +15,8 @@ import {
  * Displays the path to the current resource using a hierarchy of links.
  */
 const meta = {
-  title: "ui/base/Breadcrumb",
+  id: "ui-base-breadcrumb",
+  title: "ui/Breadcrumb",
   component: Breadcrumb,
   tags: ["autodocs"],
   argTypes: {},

@@ -18,7 +18,8 @@ import { expect, userEvent, within } from "storybook/test";
  * content of the screen.
  */
 const meta: Meta<typeof SheetContent> = {
-  title: "ui/radix/Sheet",
+  id: "ui-radix-sheet",
+  title: "ui/Sheet",
   component: Sheet,
   tags: ["autodocs"],
   argTypes: {

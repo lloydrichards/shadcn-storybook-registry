@@ -30,7 +30,8 @@ import { Spinner } from "@/bases/radix/components/ui/spinner";
  * An indicator that can be used to show a loading state.
  */
 const meta: Meta<typeof Spinner> = {
-  title: "ui/radix/Spinner",
+  id: "ui-radix-spinner",
+  title: "ui/Spinner",
   component: Spinner,
   tags: ["autodocs"],
   parameters: {

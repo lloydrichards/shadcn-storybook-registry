@@ -36,7 +36,8 @@ const RadiusTile = ({ value }: Pick<Radius, "value">) => {
 const meta: Meta<{
   radius: Radius[];
 }> = {
-  title: "design/base/Radius",
+  id: "design-base-radius",
+  title: "design/Radius",
   argTypes: {},
   render: (args) => (
     <Table>

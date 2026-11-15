@@ -2,14 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  allowedDevOrigins: process.env.LAB_PREVIEW_HOST
+    ? [process.env.LAB_PREVIEW_HOST]
+    : [],
   turbopack: {
     root: process.cwd(),
   },
   async rewrites() {
     return [
       {
-        source: "/storybook/",
-        destination: "/storybook/index.html",
+        source: "/storybook/:registry(base|radix)/",
+        destination: "/storybook/:registry/index.html",
       },
     ];
   },

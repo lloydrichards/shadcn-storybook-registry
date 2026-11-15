@@ -9,7 +9,8 @@ import { Textarea } from "@/bases/radix/components/ui/textarea";
  * Displays a form textarea or a component that looks like a textarea.
  */
 const meta = {
-  title: "ui/radix/Textarea",
+  id: "ui-radix-textarea",
+  title: "ui/Textarea",
   component: Textarea,
   tags: ["autodocs"],
   argTypes: {},

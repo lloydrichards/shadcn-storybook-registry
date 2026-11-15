@@ -7,7 +7,8 @@ import { ScrollArea } from "@/bases/radix/components/ui/scroll-area";
  * Augments native scroll functionality for custom, cross-browser styling.
  */
 const meta = {
-  title: "ui/radix/ScrollArea",
+  id: "ui-radix-scrollarea",
+  title: "ui/ScrollArea",
   component: ScrollArea,
   tags: ["autodocs"],
   argTypes: {

@@ -36,7 +36,8 @@ const ShadowTile = ({ value }: Pick<Shadow, "value">) => {
 const meta: Meta<{
   shadow: Shadow[];
 }> = {
-  title: "design/radix/Shadow",
+  id: "design-radix-shadow",
+  title: "design/Shadow",
   argTypes: {},
   render: (args) => (
     <Table>

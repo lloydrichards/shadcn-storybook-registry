@@ -53,7 +53,8 @@ const meta: Meta<{
   key: keyof CSSProperties;
   property: Typography[];
 }> = {
-  title: "design/radix/Typography",
+  id: "design-radix-typography",
+  title: "design/Typography",
   argTypes: {},
   args: {
     children: "Typeface",

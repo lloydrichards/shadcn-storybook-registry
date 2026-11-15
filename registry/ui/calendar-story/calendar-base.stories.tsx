@@ -9,7 +9,8 @@ import { Calendar } from "@/bases/base/components/ui/calendar";
  * A date field component that allows users to enter and edit date.
  */
 const meta = {
-  title: "ui/base/Calendar",
+  id: "ui-base-calendar",
+  title: "ui/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   argTypes: {

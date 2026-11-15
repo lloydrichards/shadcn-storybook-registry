@@ -165,6 +165,29 @@ browse available components and copy installation commands.
 
    Generated output is written to `public/v3/base` and `public/v3/radix`.
 
+### Run separate Storybooks
+
+Run `bun run storybook:base` or `bun run storybook:radix` to explore one
+library locally on port 6006. `bun run storybook` opens Radix UI, matching the
+registry website's default. Stop one server before starting the other.
+
+`bun run build` builds both Storybooks before building the Next.js app.
+The deployment serves a chooser at `/storybook/`, Base UI at
+`/storybook/base/`, and Radix UI at `/storybook/radix/`. Existing story IDs
+remain unchanged through explicit metadata IDs. Story titles group components
+under `ui/` and tokens under `design/`, without a library folder. Registry
+preview links open the matching library.
+
+To build only one library, run `bun run storybook:build:base` or
+`bun run storybook:build:radix`. Each command preserves the other library's
+output. `bun run storybook:build` clears old output, builds both libraries,
+and verifies that every registry preview resolves in the matching story index.
+`bun run build-storybook` is an alias for this aggregate build.
+
+Run `bun run test:storybook` to test both libraries, or use
+`bun run test:storybook:base` and `bun run test:storybook:radix` separately.
+`bun run test` runs unit tests and both Storybook suites.
+
 ### Testing
 
 1. Run the local development server

@@ -34,7 +34,8 @@ import { Textarea } from "@/bases/radix/components/ui/textarea";
  * Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
  */
 const meta: Meta<typeof Field> = {
-  title: "ui/radix/Field",
+  id: "ui-radix-field",
+  title: "ui/Field",
   component: Field,
   tags: ["autodocs"],
   argTypes: {

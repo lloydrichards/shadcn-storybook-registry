@@ -40,7 +40,8 @@ import { Spinner } from "@/bases/base/components/ui/spinner";
  * Displays file and image attachments with metadata, states, and actions.
  */
 const meta: Meta<typeof Attachment> = {
-  title: "ui/base/Attachment",
+  id: "ui-base-attachment",
+  title: "ui/Attachment",
   component: Attachment,
   tags: ["autodocs"],
   parameters: {

@@ -7,7 +7,8 @@ import { ScrollArea } from "@/bases/base/components/ui/scroll-area";
  * Augments native scroll functionality for custom, cross-browser styling.
  */
 const meta = {
-  title: "ui/base/ScrollArea",
+  id: "ui-base-scrollarea",
+  title: "ui/ScrollArea",
   component: ScrollArea,
   tags: ["autodocs"],
   argTypes: {

@@ -25,7 +25,8 @@ import { expect, userEvent, within } from "storybook/test";
  * quick access to a consistent set of commands.
  */
 const meta = {
-  title: "ui/radix/Menubar",
+  id: "ui-radix-menubar",
+  title: "ui/Menubar",
   component: Menubar,
   tags: ["autodocs"],
   argTypes: {},

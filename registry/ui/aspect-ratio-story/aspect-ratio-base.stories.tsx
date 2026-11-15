@@ -8,7 +8,8 @@ import { AspectRatio } from "@/bases/base/components/ui/aspect-ratio";
  * Displays content within a desired ratio.
  */
 const meta: Meta<typeof AspectRatio> = {
-  title: "ui/base/AspectRatio",
+  id: "ui-base-aspectratio",
+  title: "ui/AspectRatio",
   component: AspectRatio,
   tags: ["autodocs"],
   argTypes: {},

@@ -21,7 +21,8 @@ const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"];
 
 /** Search a list of suggestions and select one or more values. Both registry variants use the Base UI combobox primitive. */
 const meta = {
-  title: "ui/radix/Combobox",
+  id: "ui-radix-combobox",
+  title: "ui/Combobox",
   component: Combobox,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

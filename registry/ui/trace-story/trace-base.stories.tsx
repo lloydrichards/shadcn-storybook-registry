@@ -21,7 +21,8 @@ import {
 
 /** Trace records agent steps, tool calls, and their results in expandable rows. */
 const meta = {
-  title: "ui/base/Trace",
+  id: "ui-base-trace",
+  title: "ui/Trace",
   component: Trace,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

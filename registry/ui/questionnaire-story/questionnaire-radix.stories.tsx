@@ -56,7 +56,8 @@ const submissionItems = [items[2]] as const;
  * A multi-step questionnaire with fixed, multiple-choice, and freeform answers.
  */
 const meta = {
-  title: "ui/radix/Questionnaire",
+  id: "ui-radix-questionnaire",
+  title: "ui/Questionnaire",
   component: Questionnaire,
   tags: ["autodocs"],
   argTypes: {

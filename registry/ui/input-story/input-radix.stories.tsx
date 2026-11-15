@@ -10,7 +10,8 @@ import { Label } from "@/bases/radix/components/ui/label";
  * Displays a form input field or a component that looks like an input field.
  */
 const meta = {
-  title: "ui/radix/Input",
+  id: "ui-radix-input",
+  title: "ui/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {},

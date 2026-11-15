@@ -11,7 +11,8 @@ import { Toaster } from "@/bases/radix/components/ui/sonner";
  * An opinionated toast component for React.
  */
 const meta: Meta<typeof Toaster> = {
-  title: "ui/radix/Sonner",
+  id: "ui-radix-sonner",
+  title: "ui/Sonner",
   component: Toaster,
   tags: ["autodocs"],
   argTypes: {},

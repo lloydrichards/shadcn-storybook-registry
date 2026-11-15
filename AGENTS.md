@@ -8,10 +8,10 @@ with v3 outputs for each registry.
 
 ## Quick Commands
 
-- **Dev server**: `bun run storybook` (port 6006)
+- **Dev server**: `bun run storybook:base` or `bun run storybook:radix` (port 6006)
 - **Build**: `bun run build` (builds Next.js app + Storybook)
 - **Test all**: `bun run test`
-- **Test Storybook**: `bun run test:storybook` (browser tests)
+- **Test Storybook**: `bun run test:storybook` (browser tests for both libraries)
 - **Test unit**: `bun run test:unit`
 - **Lint**: `bun run lint`
 - **Type check**: `bun run type-check`
@@ -30,16 +30,15 @@ with v3 outputs for each registry.
 
 ### Story Categories
 
-- `ui/base/ComponentName` - Base UI story variants
-- `ui/radix/ComponentName` - Radix UI story variants
-- `design/base/TokenName` - Base UI design token stories
-- `design/radix/TokenName` - Radix UI design token stories
+- `ui/ComponentName` - UI component stories in each library build
+- `design/TokenName` - Design token stories in each library build
 
 ### Story Naming & Documentation
 
 - Pair story files by registry suffix: `*-base.stories.tsx` and
   `*-radix.stories.tsx`
-- Match story titles to the registry prefix (`ui/base/...` or `ui/radix/...`)
+- Keep titles flat within their category (`ui/...` or `design/...`).
+- Set an explicit `id` to preserve existing registry-qualified preview URLs.
 - Follow existing JSDoc comment pattern for each story export
 - Example:
   `/** Use the 'outline' button to reduce emphasis on secondary actions */`
@@ -54,7 +53,8 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Component } from "@/bases/base/components/ui/component";
 
 const meta: Meta<typeof Component> = {
-  title: "ui/base/Component",
+  id: "ui-base-component",
+  title: "ui/Component",
   component: Component,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

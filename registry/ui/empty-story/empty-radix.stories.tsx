@@ -33,7 +33,8 @@ import { Kbd } from "@/bases/radix/components/ui/kbd";
  * Use the Empty component to display a empty state.
  */
 const meta: Meta<typeof Empty> = {
-  title: "ui/radix/Empty",
+  id: "ui-radix-empty",
+  title: "ui/Empty",
   component: Empty,
   tags: ["autodocs"],
   parameters: {

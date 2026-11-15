@@ -70,7 +70,8 @@ const singleSeriesConfig = {
  * Beautiful charts. Built using Recharts. Copy and paste into your apps.
  */
 const meta = {
-  title: "ui/base/Chart",
+  id: "ui-base-chart",
+  title: "ui/Chart",
   component: ChartContainer,
   tags: ["autodocs"],
   argTypes: {},
