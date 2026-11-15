@@ -254,9 +254,9 @@ export const ShouldOpenClose: Story = {
       keys: "[MouseRight]",
       target: canvas.getByText("Right click here"),
     });
-    await expect(
-      await body.findByRole("menuitem", { name: "Back" }),
-    ).toBeVisible();
+    await waitFor(() =>
+      expect(body.getByRole("menuitem", { name: "Back" })).toBeVisible(),
+    );
     await userEvent.keyboard("{Escape}");
     await waitFor(() =>
       expect(body.queryByRole("menu")).not.toBeInTheDocument(),
